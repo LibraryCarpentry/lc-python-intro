@@ -102,7 +102,7 @@ keypoints:
 >
 > > ## Solution
 > >
-> > Control mode has a blue boarder and Edit mode has a green border
+> > Control mode has a blue border and Edit mode has a green border
 > > Use "esc" and "Enter" to switch between modes
 > > You need to be in control mode (Hit "esc" if your cell is green).  Type "B" or "A".
 > > You need to be in control mode (Hit "esc" if your cell is green).  Type "X".
