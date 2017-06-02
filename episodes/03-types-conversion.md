@@ -45,8 +45,8 @@ print(type(52))
 {: .output}
 
 ~~~
-fitness = 'average'
-print(type(fitness))
+title = 'Biochemistry'
+print(type(title))
 ~~~
 {: .python}
 ~~~
@@ -256,10 +256,10 @@ first is 2 and second is 5
 >
 > 1. Number of days since the start of the year.
 > 2. Time elapsed since the start of the year.
-> 3. Serial number of a piece of lab equipment.
-> 4. A lab specimen's age.
-> 5. Current population of a city.
-> 6. Average population of a city over time.
+> 3. Call number of a book.
+> 4. Standard book loan period.
+> 5. Number of reference queries in a year.
+> 6. Average library classes taught per semester.
 >
 {: .challenge}
 
@@ -282,28 +282,28 @@ first is 2 and second is 5
 > ~~~
 > {: .output}
 >
-> If `num_subjects` is the number of subjects taking part in a study,
-> and `num_per_survey` is the number that can take part in a single survey,
-> write an expression that calculates the number of surveys needed
-> to reach everyone once.
+> If `num_students` is the number of students enrolled in a course,
+> and `num_per_class` is the number that can attend a single class,
+> write an expression that calculates the number of classes needed
+> to teach everyone.
 >
 > > ## Solution
-> > Depending on requirements it might be important to detect when the number of subjects per survey doesn't divide the
-> > number of subjects evenly. Detect it with the `%` operator and test if the remainder that it returns is greater than
+> > Depending on requirements it might be important to detect when the number of students per class doesn't divide the
+> > number of students evenly. Detect it with the `%` operator and test if the remainder that it returns is greater than
 > > 0.
 > > 
 > >
 > > ~~~
-> > num_subjects = 600
-> > num_per_survey = 42
-> > num_surveys = num_subjects // num_per_survey
-> > remainder = num_subjects % num_per_survey
+> > num_students = 600
+> > num_per_class = 42
+> > num_classes = num_students // num_per_class
+> > remainder = num_students % num_per_class
 > >
-> > print(num_subjects, 'subjects,', num_per_survey, 'per survey:', num_surveys)
+> > print(num_students, 'students,', num_per_class, 'per class:', num_classes)
 > > ~~~
 > > {: .python}
 > > ~~~
-> > 600 subjects, 42 per survey: 14
+> > 600 students, 42 per class: 14
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -402,28 +402,5 @@ first is 2 and second is 5
 > > ## Solution
 > >
 > > Answer: 1 and 4
-> {: .solution}
-{: .challenge}
-
-> ## Complex Numbers
->
-> Python provides complex numbers,
-> which are written as `1.0+2.0j`.
-> If `val` is an imaginary number,
-> its real and imaginary parts can be accessed using *dot notation*
-> as `val.real` and `val.imag`.
->
-> 1.  Why do you think Python uses `j` instead of `i` for the imaginary part?
-> 2.  What do you expect `1+2j + 3` to produce?
-> 3.  What do you expect '4j' to be?  What about `4 j` or `4 + j'? > 
-> 
-> > ## Solution
-> >
-> > 1. Standard mathematics treatments typically use `i` to denote an imaginary number. However, from media reports it
-> > was an early convention established from electrical engineering that now presents a technically expensive area to
-> > change. [Stack Overflow provides additional explanation and
-> > discussion](http://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i)
-> > 2. _4+2j_
-> > 3. _4j, syntax error, depends on the value of j_
 > {: .solution}
 {: .challenge}
