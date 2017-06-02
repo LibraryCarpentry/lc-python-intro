@@ -47,6 +47,9 @@ def print_greeting():
 *   Defining a function does not run it.
     *   Like assigning a value to a variable.
 *   Must call the function to execute the code it contains.
+*   The commands for the function are learned and remembered after the `def` block, but not actually executed until the function is called later on.
+    *   Imagine getting a recipe card and keeping it in your kitchen.  You can cook it anytime, but you haven't completed any of the steps until you start that cooking process.
+    *   This means that Python won't complain about problems until you call the function.  More specifically, just because the definition of a function runs without error doesn't mean that there won't be errors when it executes later.
 
 ~~~
 print_greeting()
