@@ -28,12 +28,12 @@ you are ready to go as soon as the workshop begins.
    default settings. The only exception is to check the 
    **Make Anaconda the default Python** option.
 
-### Mac OS X - [Video tutorial][video-mac]
+### macOS - [Video tutorial][video-mac]
 
 1. Open [http://continuum.io/downloads][continuum-mac]
    with your web browser.
 
-2. Download the Python 3 installer for OS X.
+2. Download the Python 3 installer for macOS.
 
 3. Install Python 3 using all of the defaults for installation.
 
@@ -93,9 +93,9 @@ $ python
 {: .bash}
 
 [anaconda]: https://www.continuum.io/anaconda
-[continuum-mac]: http://continuum.io/downloads#_macosx
-[continuum-linux]: http://continuum.io/downloads#_unix
-[continuum-windows]: http://continuum.io/downloads#_windows
+[continuum-mac]: http://continuum.io/downloads#macos
+[continuum-linux]: http://continuum.io/downloads#linux
+[continuum-windows]: http://continuum.io/downloads#windows
 [python]: https://python.org
 [spyder]: https://pythonhosted.org/spyder/
 [spyder-install]: https://pythonhosted.org/spyder/installation.html
