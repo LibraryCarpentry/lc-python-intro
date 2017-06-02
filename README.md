@@ -1,13 +1,12 @@
-python-novice-gapminder
-=======================
+library-python-intro
+====================
 
-Introduction to Python for non-programmers with a focus on plotting and data analysis.
-Please see <https://swcarpentry.github.io/python-novice-gapminder/>
+Introduction to Python for non-programming librarians.
+Please see <https://data-lessons.github.io/library-python-intro/>
 for a rendered version of this material,
-[the lesson template documentation][lesson-example]
+(https://github.com/swcarpentry/lesson-example)[the Software Carpentry lesson example]
 for instructions on formatting, building, and submitting material,
 or run `make` in this directory for a list of helpful commands.
 
 Maintainer(s):
-FIXME: Add maintainers
-
+Richard Vankoningsveld, @richyvk
