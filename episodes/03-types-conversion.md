@@ -81,7 +81,7 @@ TypeError: unsupported operand type(s) for -: 'str' and 'str'
 ~~~
 {: .error}
 
-## You can use the "+" and "*" operators on strings.
+## You can use the `+` and `*` operators on strings.
 
 *   "Adding" character strings concatenates them.
 
