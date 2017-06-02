@@ -5,8 +5,8 @@ exercises: 10
 questions:
 - "How can I store data in programs?"
 objectives:
-- "Write programs that assign scalar values to variables and perform calculations with those values."
-- "Correctly trace value changes in programs that use scalar assignment."
+- "Write programs that assign values to variables and perform calculations with those values."
+- "Correctly trace value changes in programs that use assignment."
 keypoints:
 - "Use variables to store values."
 - "Use `print` to display values."
@@ -166,8 +166,6 @@ print(len('helium'))
 *   Nested functions are evaluated from the inside out,
     just like in mathematics.
 
-FIXME: need to introduce slices
-
 ## Python is case-sensitive.
 
 *   Python thinks that upper- and lower-case letters are different,
@@ -274,12 +272,12 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 > What does the following program print?
 >
 > ~~~
-> atom_name = 'carbon'
-> print('atom_name[1:3] is:', atom_name[1:3])
+> library_name = 'social sciences'
+> print('library_name[1:3] is:', library_name[1:3])
 > ~~~
 > {: .python}
 > ~~~
-> atom_name[1:3] is: ar
+> library_name[1:3] is: oc
 > ~~~
 > {: .output}
 >
