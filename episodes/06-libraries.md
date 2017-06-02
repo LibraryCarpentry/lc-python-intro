@@ -16,9 +16,9 @@ keypoints:
 - "Import specific items from a library to shorten programs."
 - "Create an alias for a library when importing it to shorten programs."
 ---
-## Most of the power of a programming language is in its libraries.
+## Most of the power of a programming language is in its (software) libraries.
 
-*   A *library* is a collection of files (called *modules*) that contains
+*   A *(software) library* is a collection of files (called *modules*) that contains
     functions for use by other programs.
     *   May also contain data values (e.g., numerical constants) and other things.
     *   Library's contents are supposed to be related, but there's no way to enforce that.
@@ -149,59 +149,43 @@ cos(pi) is -1.0
 
 > ## Locating the Right Module
 >
-> You want to select a random character from a string:
+> You want to transform the format of date to the iso standard:
 >
 > ~~~
-> bases = 'ACTTGCTTGAC'
+> year = 2016
+> month = 10
+> day = 22
 > ~~~
 > {: .python}
 >
 > 1. Which [standard library][stdlib] module could help you?
-> 2. Which function would you select from that module? Are there alternatives?
+> 2. Which function would you select from that module?
 > 3. Try to write a program that uses the function.
 >
 > > ## Solution
 > >
-> > The [random module](randommod) seems like it could help you.
+> > The [datetime module](https://docs.python.org/3/library/datetime.html) seems like it could help you.
 > >
-> > The string has 11 characters, each having a positional index from 0 to 10.
-> > You could use `random.randrange` function (or the alias `random.randint`
-> > if you find that easier to remember) to get a random integer between 0 and
-> > 10, and then pick out the character at that position:
+> > 
+> > You could use `date(year, month, date).isoformat()` to convert your date:
 > >
 > > ~~~
-> > from random import randrange
+> > import datetime
 > >
-> > random_index = random.randrange(len(bases))
-> > print(bases[random_index])
+> > iso_date = datetime.date(year, month, day).isoformat()
+> > print(iso_date)
 > > ~~~
 > > {: .python}
 > >
 > > or more compactly:
 > >
 > > ~~~
-> > from random import randrange
+> > import datetime
 > >
-> > print(bases[random.randrange(len(bases))])
+> > print(datetime.date(year, month, day).isoformat())
 > > ~~~
 > > {: .python}
 > >
-> > Perhaps you found the `random.sample` function? It allows for slightly
-> > less typing:
-> >
-> > ~~~
-> > from random import sample
-> >
-> > print(sample(bases, 1)[0])
-> > ~~~
-> > {: .python}
-> >
-> > Note that this function returns a list of values. We will learn about
-> > lists in episode 11.
-> >
-> > There's also other functions you could use, but with more convoluted
-> > code as a result.
-> {: .solution}
 {: .challenge}
 
 
