@@ -32,8 +32,8 @@ keypoints:
 ## Use the built-in function `type` to find the type of a value.
 
 *   Use the built-in function `type` to find out what type a value has.
-*   Works on variables as well.
-    *   But remember: the *value* has the type --- the *variable* is just a label.
+*   This works on variables as well -- `type` will give you the type of the
+    value which is assigned to the variable.
 
 ~~~
 print(type(52))
@@ -261,12 +261,26 @@ first is 2 and second is 5
 > 5. Number of reference queries in a year.
 > 6. Average library classes taught per semester.
 >
+> > ## Solution
+> > 1. Integer  
+> > 2. Float  
+> > 3. String
+> > 4. Integer  
+> > 5. Integer  
+> > 6. Float  
+> {: .solution}
 {: .challenge}
 
 > ## Division Types
+> There are three different types of division:
+> 1. 'Normal' division (aka floating-point division) is what most people may be
+> familiar with: 5 / 2 = 2.5
+> 2. Floor division, which cuts out the part after the period: 5 / 2 = 2
+> 3. Modulo division, which only keeps the remained after division: 5 / 2 = 1
 >
-> In Python 3, the `//` operator performs integer (whole-number) floor division, the `/` operator performs floating-point
-> division, and the '%' (or *modulo*) operator calculates and returns the remainder from integer division:
+> In Python 3,  the `/` operator performs floating-point division, the `//`
+> operator performs floor division, and the '%' (or *modulo*) operator
+> calculates the modulo division:
 >
 > ~~~
 > print('5 // 3:', 5//3)
@@ -282,8 +296,8 @@ first is 2 and second is 5
 > ~~~
 > {: .output}
 >
-> If `num_students` is the number of students enrolled in a course,
-> and `num_per_class` is the number that can attend a single class,
+> If `num_students` is the number of students enrolled in a course (let say 600),
+> and `num_per_class` is the number that can attend a single class (let say 42),
 > write an expression that calculates the number of classes needed
 > to teach everyone.
 >
@@ -291,7 +305,7 @@ first is 2 and second is 5
 > > Depending on requirements it might be important to detect when the number of students per class doesn't divide the
 > > number of students evenly. Detect it with the `%` operator and test if the remainder that it returns is greater than
 > > 0.
-> > 
+> >
 > >
 > > ~~~
 > > num_students = 600
@@ -299,11 +313,13 @@ first is 2 and second is 5
 > > num_classes = num_students // num_per_class
 > > remainder = num_students % num_per_class
 > >
-> > print(num_students, 'students,', num_per_class, 'per class:', num_classes)
+> > print(num_students, 'students,', num_per_class, 'per class')
+> > print(num_classes, ' full classes, plus an extra class with only ', remainder, 'students')
 > > ~~~
 > > {: .python}
 > > ~~~
-> > 600 students, 42 per class: 14
+> > 600 students, 42 per class
+> > 14  full classes, plus an extra class with only  12 students
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -325,6 +341,8 @@ first is 2 and second is 5
 > float to int: 3
 > ~~~
 > {: .output}
+>
+> **Note:** conversion is some times also called typecast.
 >
 > If the conversion doesn't make sense, however, an error message will occur
 >
@@ -353,30 +371,29 @@ first is 2 and second is 5
 > print("fractional string to int:", int("3.4"))
 > ~~~
 > {: .python}
-> 
+>
 > > ## Solution
-> > What do you expect this program to do? It would not be so unreasonable to expect the Python 3 `int` command to
-> > convert the string "3.4" to 3.4 and an additional type conversion to 3. After all, Python 3 performs a lot of other
+> > What do you expect this program to do? It would not be so unreasonable to
+> > expect the Python `int` command to convert the string "3.4" to 3.4 and an
+> > additional type conversion to 3. After all, Python performs a lot of other
 > > magic - isn't that part of its charm?
-> > 
-> > However, Python 3 throws an error. Why? To be consistent, possibly. If you ask Python to perform two consecutive
-> > typecasts, you must convert it explicitly in code.
+> >
+> > However, Python throws an error. Why? To be consistent, possibly. If you
+> > ask Python to perform two consecutive typecasts, you must convert it
+> > explicitly in code.
 > >
 > > ~~~
-> > int("3.4")
-> > int(float("3.4"))
+> > num_as_string = "3.4"
+> > num_as_float = float(num_as_string)
+> > num_as_int = int(num_as_float)
+> > print(num_as_int)
 > > ~~~
 > > {: .python}
 > > ~~~
-> > In [2]: int("3.4")
-> > ---------------------------------------------------------------------------
-> > ValueError                                Traceback (most recent call last)
-> > <ipython-input-2-ec6729dfccdc> in <module>()
-> > ----> 1 int("3.4")
-> > ValueError: invalid literal for int() with base 10: '3.4'
 > > 3
 > > ~~~
 > > {: .output}
+> > We could also write it in a single line like this: `int(float("3.4"))`
 > {: .solution}
 {: .challenge}
 
@@ -401,6 +418,13 @@ first is 2 and second is 5
 >
 > > ## Solution
 > >
-> > Answer: 1 and 4
+> > Answer: 1 and 4.
+> >
+> > 1. is correct
+> > 2. gives 2.1
+> > 3. gives an arror because we cannot convert text to int directly
+> > 4. is correct
+> > 5. gives 2 (as an integer not as a float)
+> > 6. gives an error because `second` is a string.
 > {: .solution}
 {: .challenge}
