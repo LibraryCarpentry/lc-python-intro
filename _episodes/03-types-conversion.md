@@ -27,7 +27,7 @@ keypoints:
     *   Integers are used to count, floats are used to measure.
 *   Character string (usually called "string", `str`): text.
     *   Written in either single quotes or double quotes (as long as they match).
-    *   The quotation marks aren't printed when the string is displayed.
+    *   The quotation marks aren't printed using `print()`, but may appear when viewing a value in the Jupyter Notebook or other Python interpreter.
 
 ## Use the built-in function `type` to find the type of a value.
 
