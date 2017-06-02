@@ -9,4 +9,4 @@ for instructions on formatting, building, and submitting material,
 or run `make` in this directory for a list of helpful commands.
 
 Maintainer(s):
-Richard Vankoningsveld, @richyvk
+[Richard Vankoningsveld](https://github.com/richyvk), [Elaine Wong](https://github.com/elainewong) and [Carlos Martinez](https://github.com/c-martinez).
