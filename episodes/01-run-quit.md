@@ -18,12 +18,12 @@ keypoints:
 ---
 ## Python programs are plain text files.
 
-*   They have the `.py` extension to let everyone (including the operating system) 
+*   They have the `.py` extension to let everyone (including the operating system)
     know it is a Python program.
     *   This is convention, not a requirement.
 *   It's common to write them using a text editor but we are going to use
     the [Jupyter Notebook][jupyter].
-*   The bit of extra setup is well worth it because the Notebook provides code completion 
+*   The bit of extra setup is well worth it because the Notebook provides code completion
     and other helpful features.
 *   Notebook files have the extension `.ipynb` to distinguish them from plain-text Python programs.
     *   Can export as "pure Python" to run from the command line.
@@ -40,7 +40,7 @@ keypoints:
     ~~~
     {: .python}
 
-*   This will start a Jupyter Notebook server and open your default web browser. 
+*   This will start a Jupyter Notebook server and open your default web browser.
 *   The server runs locally on your machine only and does not use an internet connection.
 *   The server sends messages to your browser.
 *   The server does the work and the web browser renders the notebook.
@@ -61,7 +61,7 @@ keypoints:
 >
 > *   The notebook file is stored in a format called JSON.
 > *   Just like a webpage, what's saved looks different from what you see in your browser.
-> *   But this format allows Jupyter to mix software (in several languages) with documentation 
+> *   But this format allows Jupyter to mix software (in several languages) with documentation
       and graphics, all in one file.
 {: .callout}
 
@@ -73,19 +73,19 @@ keypoints:
 > ## Code vs. Text
 >
 > We often use the term "code" to mean
-> "the source code of software written in a language such as Python". 
+> "the source code of software written in a language such as Python".
 > A "code cell" in a Notebook is a cell that contains software;
 > a "text cell" is one that contains ordinary prose written for human beings.
 {: .callout}
 
 *   If you press "esc" and "return" alternately,
-    the outer border of your code cell will change from gray/blue to green.
+    the outer left hand border of your code cell will change from blue to green.
     *   The difference in color is subtle.
-*   These are the control (gray) and edit (green) modes of your notebook.
-*   In control mode, pressing the "H" key will provide 
+*   These are the control (blue) and edit (green) modes of your notebook.
+*   In control mode, pressing the "H" key will provide
     a list of all the shortcut keys.
-*   Control mode alows you to edit notebook-level features, and edit mode changes the content of cells.
-*   When in control mode (esc/gray),
+*   Control mode allows you to edit notebook-level features, and edit mode changes the content of cells.
+*   When in control mode (esc/blue),
     *   The "B" key will make a new cell below the currently selected cell.
     *   The "A" key will make one above.
     *   The "X" key will delete the current cell.
@@ -96,13 +96,13 @@ keypoints:
 > ## Control Vs. Edit
 >
 > In the Jupyter notebook page are you currently in control or edit mode?  
-> Switch between the modes. 
+> Switch between the modes.
 > Use the shortcuts to generate a new cell
 > Use the shortcuts to delete a cell
 >
 > > ## Solution
 > >
-> > Control mode has a grey boarder and Edit mode has a green border
+> > Control mode has a blue boarder and Edit mode has a green border
 > > Use "esc" and "Enter" to switch between modes
 > > You need to be in control mode (Hit "esc" if your cell is green).  Type "B" or "A".
 > > You need to be in control mode (Hit "esc" if your cell is green).  Type "X".
@@ -118,16 +118,16 @@ keypoints:
     pressing the "return" key when in edit mode (green) moves the cursor to the next line in the cell just like in a text editor.
 *   We need some other way to tell the Notebook we want to run what's in the cell.
 *   Pressing the "shift" and the "enter" key together will execute the contents of the cell.
-*   Notice that the "return" and "shift" keys on the 
+*   Notice that the "return" and "shift" keys on the
     right of the keyboard are right next to each other.
 
 ## The Notebook will turn Markdown into pretty-printed documentation.
 
 *   Notebooks can also render [Markdown][markdown].
-    *   A simple plain-text format for writing lists, links, 
+    *   A simple plain-text format for writing lists, links,
         and other things that might go into a web page.
     *   Equivalently, a subset of HTML that looks like what you'd send in an old-fashioned email.
-*   Turn the current cell into a Markdown cell by entering 
+*   Turn the current cell into a Markdown cell by entering
     the control mode (esc/gray) and press the "M" key.
 *   `In [ ]:` will disappear to show it is no longer a code cell
     and you will be able to write in Markdown.
@@ -172,7 +172,7 @@ keypoints:
   <div class="col-md-6" markdown="1">
 ~~~
 *  You can use indents
-	*  To create sublists 
+	*  To create sublists
 	*  of the same type
 *  Or sublists
 	1. Of different
@@ -262,10 +262,10 @@ Or use [named links][data_carpentry].
 >     *   Analyze.
 > 3.  Write up.
 > 4.  Publish.
-> 
+>
 > > ## Solution
 > >
-> > This challenge integrates both the numbered list and bullet list. 
+> > This challenge integrates both the numbered list and bullet list.
 > > Note that the bullet list is indented 2 spaces so that it is inline with the items of the numbered list.
 > > ~~~
 > > 1.  Get funding.
@@ -291,7 +291,7 @@ Or use [named links][data_carpentry].
 > 2 + 1
 > ~~~
 > {: .python}
-> 
+>
 > > ## Solution
 > >
 > > Python returns the output of the last calculation.
@@ -319,12 +319,12 @@ Or use [named links][data_carpentry].
 > Now go back to the cell and use escape+M to switch the cell to Markdown
 > and "run" it with shift+return.
 > What happened and how might this be useful?
-> 
+>
 > > ## Solution
 > >
 > > The python code gets treated like markdown text.
 > > The lines appear as if they are part of one contiguous paragraph.
-> > This could be useful to temporarly turn on and off cells in notebooks that get used for multiple purposes. 
+> > This could be useful to temporarly turn on and off cells in notebooks that get used for multiple purposes.
 > > ~~~
 > > x = 6 * 7 + 12 print(x)
 > > ~~~
@@ -347,7 +347,7 @@ Or use [named links][data_carpentry].
 > (It's probably easier to copy and paste.)
 > What does it display?
 > What do you think the underscore `_`, circumflex `^`, and dollar sign `$` do?
-> 
+>
 > > ## Solution
 > >
 > > The notebook shows the equation as it would be rendered from latex equation syntax.
@@ -355,7 +355,7 @@ Or use [named links][data_carpentry].
 > > If you're not familiar with latex,  underscore (`_`) is used for subscripts and circumflex `^` is used for superscripts.
 > > Curly braces `{` and `}` group text together so that the statement `i=1` becomes the the subscript and `N` becomes the superscript.
 > > Similarly, `-i` is in curly braces to make the whole statement the superscript for `2`.
-> > `\sum` and `\approx` are latex commands for sum over and the approximate symbols. 
+> > `\sum` and `\approx` are latex commands for sum over and the approximate symbols.
 > {: .solution}
 {: .challenge}
 
