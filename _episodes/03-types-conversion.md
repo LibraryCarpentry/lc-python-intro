@@ -34,6 +34,7 @@ keypoints:
 *   Use the built-in function `type` to find out what type a value has.
 *   Works on variables as well.
     *   But remember: the *value* has the type --- the *variable* is just a label.
+    *   When you change the value of a variable to a new data type, the results of `print(type(your_variable))` will change accordingly.
 
 ~~~
 print(type(52))
