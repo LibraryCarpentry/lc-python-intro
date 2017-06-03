@@ -135,9 +135,12 @@ round(...)
 ~~~
 {: .output}
 
-## Python reports a syntax error when it can't understand the source of a program.
+## Python reports a syntax error when grammar rules have been violated.
 
-*   Won't even try to run the program if it can't be parsed.
+*   You've seen errors when you try to use a function incorrectly.
+    * Can also have errors when you use punctuation incorrectly.
+*   Python will run the program up until that point, but if the grammar of that line 
+    of code has produced an error, then the program will shut down with an error.
 
 ~~~
 # Forgot to close the quotation marks around the string.
