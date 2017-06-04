@@ -155,6 +155,26 @@ a range is not a list: range(0, 3)
 ~~~
 {: .output}
 
+## Or use `range` to repeat an action an arbitrary number of times.
+
+*   You don't actually have to use the iterable variable's value.
+*   Use this structure to simply repeat an action some number of times.
+    *   That number of times goes into the `range` function.
+
+~~~
+for number in range(5):
+    print("Again!")
+~~~
+{: .python}
+~~~
+Again!
+Again!
+Again!
+Again!
+Again!
+~~~
+{: .output}
+
 ## The Accumulator pattern turns many values into one.
 
 *   A common pattern in programs is to:
