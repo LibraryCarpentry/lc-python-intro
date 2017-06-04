@@ -98,12 +98,15 @@ for number in [2, 3, 5]:
 *   The loop variable, `number`, is what changes for each *iteration* of the loop.
     *   The "current thing".
 
-## Loop variables can be called anything.
+## Loop variable names follow the normal variable name conventions.
 
-*   As with all variables, loop variables are:
-    *   Created on demand.
-    *   Meaningless: their names can be anything at all.
-
+*   Loop variables will:
+    *   Be created on demand during the course of each loop.
+    *   Persist after the loop finishes.
+        * Use a new variable name to avoid overwriting a data collection you need to keep for later
+    *   Often be used in the course of the loop
+        * So give them a meaningful name you'll understand as the body code in your loop grows.
+        * Example: `for single_letter in ['A', 'B', 'C', 'D']:` instead of `for asdf in ['A', 'B', 'C', 'D']:`
 ~~~
 for kitten in [2, 3, 5]:
     print(kitten)
