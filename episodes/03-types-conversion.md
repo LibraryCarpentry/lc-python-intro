@@ -22,9 +22,9 @@ keypoints:
 ## Every value has a type.
 
 *   Every value in a program has a specific type.
-*   Integer (`int`): counting numbers like 3 or -512.
+*   Integer (`int`): whole numbers like 3 or -512.
 *   Floating point number (`float`): fractional numbers like 3.14159 or -2.5.
-    *   Integers are used to count, floats are used to measure.
+*   Whole numbers may also be stored as floats, e.g. `1.0`, but `1.0` would still be stored as a `float`.
 *   Character string (usually called "string", `str`): text.
     *   Written in either single quotes or double quotes (as long as they match).
     *   The quotation marks aren't printed when the string is displayed.
