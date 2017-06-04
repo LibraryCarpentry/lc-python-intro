@@ -97,6 +97,7 @@ Ahmed Walsh
 
 *   Multiplying a character string by an integer _N_ creates a new string that consists of that character string repeated  _N_ times.
     *   Since multiplication is repeated addition.
+* There are more ways that traditional math operators will work on other data types.  There isn't a perfect formula for figuing out what they do, so experimentation is valuable.
 
 ~~~
 separator = '=' * 10
