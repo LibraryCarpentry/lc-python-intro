@@ -27,7 +27,7 @@ keypoints:
 *   Whole numbers may also be stored as floats, e.g. `1.0`, but `1.0` would still be stored as a `float`.
 *   Character string (usually called "string", `str`): text.
     *   Written in either single quotes or double quotes (as long as they match).
-    *   The quotation marks aren't printed when the string is displayed.
+    *   The quotation marks aren't printed using `print()`, but may appear when viewing a value in the Jupyter Notebook or other Python interpreter.
 
 ## Use the built-in function `type` to find the type of a value.
 
