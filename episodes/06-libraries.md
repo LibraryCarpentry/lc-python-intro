@@ -166,7 +166,7 @@ cos(pi) is -1.0
 > >
 > > The [datetime module](https://docs.python.org/3/library/datetime.html) seems like it could help you.
 > >
-> > 
+> >
 > > You could use `date(year, month, date).isoformat()` to convert your date:
 > >
 > > ~~~
@@ -186,14 +186,15 @@ cos(pi) is -1.0
 > > ~~~
 > > {: .python}
 > >
+> {: .solution}
 {: .challenge}
 
 
 > ## Jigsaw Puzzle (Parson's Problem) Programming Example
-> 
+>
 > Rearrange the following statements so that a random
-> DNA base is printed.  Not all statements may be needed.  Feel free to use/add 
-> intermediate variables. 
+> DNA base is printed.  Not all statements may be needed.  Feel free to use/add
+> intermediate variables.
 >
 > ~~~
 > bases="ACTTGCTTGAC"
@@ -248,7 +249,7 @@ cos(pi) is -1.0
 > > ~~~
 > > {: .python}
 > >
-> > can bewritten as
+> > can be written as
 > >
 > > ~~~
 > > import math
@@ -268,13 +269,13 @@ cos(pi) is -1.0
 > ## There Are Many Ways To Import Libraries!
 >
 > Match the following print statements with the appropriate library calls
-> 
+>
 > Library calls:
 > 1. `from math import sin,pi`
 > 2. `import math`
 > 3. `import math as m`
 > 4. `from math import *`
-> 
+>
 > Print commands:
 > 7. `print("sin(pi/2) =",sin(pi/2))`
 > 8. `print("sin(pi/2) =",m.sin(m.pi/2))`

@@ -6,14 +6,14 @@ permalink: /setup/
 
 ## Installing Python Using Anaconda
 
-[Python][python] is great for general-purpose programming, and a popular language 
+[Python][python] is great for general-purpose programming and is a popular language 
 for scientific computing as well. Installing all of the packages required for this 
-lesosn individually can be a bit difficult, however, so we recommend the all-in-one
+lessons individually can be a bit difficult, however, so we recommend the all-in-one
 installer [Anaconda][anaconda].
 
 Regardless of how you choose to install it, please make sure you install Python
-version 3.x (e.g., Python 3.6 version). Also, please set up your python environment at 
-least a day in advance of the workshop.  If you encounter problems with the 
+version 3.x (e.g., Python 3.6 version). Also, please set up your Python environment at 
+least a day in advance of the workshop. If you encounter problems with the 
 installation procedure, ask your workshop organizers via e-mail for assistance so
 you are ready to go as soon as the workshop begins.
 
@@ -28,12 +28,12 @@ you are ready to go as soon as the workshop begins.
    default settings. The only exception is to check the 
    **Make Anaconda the default Python** option.
 
-### Mac OS X - [Video tutorial][video-mac]
+### macOS - [Video tutorial][video-mac]
 
 1. Open [http://continuum.io/downloads][continuum-mac]
    with your web browser.
 
-2. Download the Python 3 installer for OS X.
+2. Download the Python 3 installer for macOS.
 
 3. Install Python 3 using all of the defaults for installation.
 
@@ -77,7 +77,7 @@ for Python. If you installed Python using Anaconda, Spyder should already be on 
 you did not use Anaconda, use the Python package manager pip
 (see the [Spyder website][spyder-install] for details.)
 
-To start Spyder, open a terminal or git bash and type the command:
+To start Spyder, open a terminal or Git Bash and type the command:
 
 ~~~
 $ spyder3
@@ -93,9 +93,9 @@ $ python
 {: .bash}
 
 [anaconda]: https://www.continuum.io/anaconda
-[continuum-mac]: http://continuum.io/downloads#_macosx
-[continuum-linux]: http://continuum.io/downloads#_unix
-[continuum-windows]: http://continuum.io/downloads#_windows
+[continuum-mac]: http://continuum.io/downloads#macos
+[continuum-linux]: http://continuum.io/downloads#linux
+[continuum-windows]: http://continuum.io/downloads#windows
 [python]: https://python.org
 [spyder]: https://pythonhosted.org/spyder/
 [spyder-install]: https://pythonhosted.org/spyder/installation.html

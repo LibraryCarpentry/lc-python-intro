@@ -37,12 +37,14 @@ adjustment = 0.5   # Neither is this - anything after '#' is ignored.
 
 *   We have seen some functions already --- now let's take a closer look.
 *   An *argument* is a value passed into a function.
+*   Any arguments you want to pass into a function must go into the `()`
+    * print("I'm an argument and must go here.")
+*   You must always use parentheses, because this is how Python knows you are calling a function.
+    * You leave them empty if you don't want or need to pass any arguments in.
 *   `len` takes exactly one.
 *   `int`, `str`, and `float` create a new value from an existing one.
 *   `print` takes zero or more.
-*   `print` with no arguments prints a blank line.
-    *   Must always use parentheses, even if they're empty,
-        so that Python knows a function is being called.
+    *   `print()` prints a blank line.
 
 ~~~
 print('before')
