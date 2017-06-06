@@ -135,7 +135,7 @@ round(...)
 ~~~
 {: .output}
 
-## Python reports a syntax error when grammar rules (that's Python grammar not English grammar) have been violated.
+## Python reports a syntax error when grammar rules (that's Python grammar, not English grammar) have been violated.
 
 *   You've seen errors when you try to use a function incorrectly.
     * Can also have errors when you use punctuation incorrectly.
