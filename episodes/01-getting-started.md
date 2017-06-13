@@ -3,17 +3,17 @@ title: "Getting Started"
 teaching: 15
 exercises: 0
 questions:
-- "How do I use Spyder"
+- "How do I use the Spyder IDE?"
 - "How can I run Python programs?"
 objectives:
 - "Learners can launch the Spyder IDE"
-- "Learners are able to use the IPython console to interact with Python"
-- "Learners are able to write code in the editor and run this code."
-- "Learners are able to save their code in a *.py file.
-- "Learners can the different buttons and panels needed in the Spyder IDE"
+- "Learners are able to use the iPython console to interact with Python"
+- "Learners are able to write code in the Spyder editor and run this code"
+- "Learners are able to save their code in a *.py file"
+- "Learners can use the different buttons and panels needed in the Spyder IDE"
 keypoints:
-- "Use the Spyder IDE for editing and running Python."
-- "The IPython console can be used to interact with python directly"
+- "Use the Spyder IDE for editing and running Python"
+- "The iPython console can be used to interact with python directly"
 - "The editor can be used to write code, run and save it"
 ---
 
@@ -30,24 +30,16 @@ keypoints:
 
 *   This will start The Spyder IDE.
 *   This environment has several useful tools we can use, which you can see in different panels in the Spyder IDE. We will look into some of them. 
-* You can changes the positions and sizes of these panels to your preference, as you get to know them.
+* You can change the positions and sizes of these panels to your preference, as you get to know them.
 
+## Different ways of interacting with Python using Spyder
 
+*   On the left, filling half of the screen is the editor. Here you can write and edit code, which can then be saved in a file (usually with a .py extension). We can run the code we wrote here by pressing the green 'play' button on top or press F5 on your keyboard.
+*   On the bottom right, we find the iPython console. This is were we can talk directly to python. It will interpret what you have typed directly when you press Enter.
 
-> ## Side note on the programming language Python.
-> FIXME: very short intro on python
->*   Python files have the `.py` extension to let everyone (including the operating system) know it is a Python program.
->    *   This is convention, not a requirement.
->*   Python files or scrips can be written in any text editor, but a specialized environment like the Spyder IDE(integrated development environment) provides lots of extra features that make life easier.
-{: .callout}
+## Python in the console
 
-## Different ways of interacting with Python
-*   On the left, filling half of the screen is the editor. Here you can write and edit code, which can then be saved in a file (usually .py). We can run the code we wrote here by pressing the green 'play' button on top or press f5 on your keybord.
-*   On the bottom right, we find the iPython console. This is were we can talk directly to python. It will interpret what you have typed directly when you press enter.
-
-> ## Python on the console
->
-> Go to the IPython tab at the bottom right. What happens when you type a small calculation there?
+> Go to the iPython tab at the bottom right. What happens when you type a small calculation there?
 > For example, what happens when you type the following calculation and press enter?
 > ~~~
 > 7 * 3
@@ -84,7 +76,7 @@ keypoints:
 >
 > > ## Solution
 > >
-> > In the IPython console  Python tells you which files it ran and the result of this run
+> > In the iPython console  Python tells you which files it ran and the result of this run
 > > ~~~
 > > runfile('/home/ylja/.config/spyder-py3/temp.py', wdir='/home/ylja/.config/spyder-py3')
 > > Hello world!
