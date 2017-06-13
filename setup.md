@@ -72,15 +72,14 @@ If you run into any difficulties, please request help before the workshop begins
 
 ## Starting Python
 
-We will teach Python using the [Spyder IDE][spyder], an integrated development environment 
-for Python. If you installed Python using Anaconda, Spyder should already be on your system. If 
+We will teach Python using [Spyder][spyder]. If you installed Python using Anaconda, Spyder should already be on your system. If 
 you did not use Anaconda, use the Python package manager pip
 (see the [Spyder website][spyder-install] for details.)
 
 To start Spyder, open a terminal or Git Bash and type the command:
 
 ~~~
-$ spyder3
+$ spyder
 ~~~
 {: .bash}
 
@@ -88,7 +87,7 @@ To start the Python interpreter without Spyder, open a terminal
 or Git Bash and type the command:
 
 ~~~
-$ python
+$ python3
 ~~~
 {: .bash}
 
