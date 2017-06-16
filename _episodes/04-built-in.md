@@ -28,7 +28,7 @@ keypoints:
 
 ~~~
 # This sentence isn't executed by Python.
-adjustment = 0.5   # Neither is this - anything after '#' is ignored.
+name = 'Library Carpentry'   # Neither is this comment - anything after '#' is ignored.
 ~~~
 {: .python}
 
@@ -37,7 +37,7 @@ adjustment = 0.5   # Neither is this - anything after '#' is ignored.
 *   We have seen some functions already --- now let's take a closer look.
 *   An *argument* is a value passed into a function.
 *   Any arguments you want to pass into a function must go into the `()`
-    * print("I'm an argument and must go here.")
+    * `print("I am an argument and must go here.")`
 *   You must always use parentheses, because this is how Python knows you are calling a function.
     * You leave them empty if you don't want or need to pass any arguments in.
 *   `len` takes exactly one.
@@ -64,22 +64,28 @@ after
 *   Use `min` to find the smallest.
 *   Both work on character strings as well as numbers.
     *   "Larger" and "smaller" use (0-9, A-Z, a-z) to compare letters.
+    *   This means that:
+        *   `'a'` is smaller than `'b'`
+        *   `'A'` is smaller than `'a'`
+        *   `'0'` is smaller than `'a'`
+    *   This is useful for ordering alphabetically.
 
 ~~~
 print(max(1, 2, 3))
-print(min('a', 'A', '0'))
+print(min('a', 'b', 'c'))
+print(min('a', 'A'))
 ~~~
 {: .python}
 ~~~
 3
-0
+a
+A
 ~~~
 {: .output}
 
 ## Functions may only work for certain (combinations of) arguments.
 
 *   `max` and `min` must be given at least one argument.
-    *   "Largest of the empty set" is a meaningless question.
 *   And they must be given things that can meaningfully be compared.
 
 ~~~
@@ -224,10 +230,18 @@ result of print is None
 > 2. What is the final value of `radiance`?
 >
 > ~~~
-> radiance = 1.0
-> radiance = max(2.1, 2.0 + min(radiance, 1.1 * radiance - 0.5))
+> word = 'blah '
+> word = max(min(word * 2 + 'blur ', 'aaah '), 'ping')
+> print(word)
 > ~~~
 > {: .python}
+>
+> > ## Solution
+> >
+> > ~~~
+> > ping
+> > ~~~
+>{: .solution}
 {: .challenge}
 
 > ## Spot the Difference
@@ -243,6 +257,14 @@ result of print is None
 > print(max(len(rich), len(poor)))
 > ~~~
 > {: .python}
+>
+> > ## Solution
+> >
+> > ~~~
+> > tin
+> > 4
+> > ~~~
+>{: .solution}
 {: .challenge}
 
 > ## Why Not?
