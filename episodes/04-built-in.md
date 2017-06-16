@@ -19,7 +19,6 @@ keypoints:
 - "Functions may only work for certain (combinations of) arguments."
 - "Functions may have default values for some arguments."
 - "Use the built-in function `help` to get help for a function."
-- "The Jupyter Notebook has two ways to get help."
 - "Every function returns something."
 - "Python reports a syntax error when it can't understand the source of a program."
 - "Python reports a runtime error when something goes wrong while a program is executing."
@@ -141,7 +140,7 @@ round(...)
 
 *   You've seen errors when you try to use a function incorrectly.
     * Can also have errors when you use punctuation incorrectly.
-*   Python will run the program up until that point, but if the grammar of that line 
+*   Python will run the program up until that point, but if the grammar of that line
     of code has produced an error, then the program will shut down with an error.
 
 ~~~
@@ -180,8 +179,7 @@ SyntaxError: unexpected EOF while parsing
 
 *   The message indicates a problem on first line of the input ("line 1").
     *   In this case the "ipython-input" section of the file name tells us that
-        we are working with input into IPython,
-        the Python interpreter used by the Jupyter Notebook.
+        we are working with input into IPython.
 *   The `-6-` part of the filename indicates that
     the error occurred in cell 6 of our Notebook.
 *   Next is the problematic line of code,
@@ -200,13 +198,6 @@ NameError: name 'aege' is not defined
 {: .error}
 
 *   Fix syntax errors by reading the source and runtime errors by tracing execution.
-
-## The Jupyter Notebook has two ways to get help.
-
-*   Place the cursor inside the parenthesis of the function,
-    hold down `shift`,
-    and press `tab`.
-*   Or type a function name with a question mark after it.
 
 ## Every function returns something.
 
