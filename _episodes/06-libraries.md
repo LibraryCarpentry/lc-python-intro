@@ -3,6 +3,7 @@ title: "Libraries"
 teaching: 10
 exercises: 10
 questions:
+- "How can I extend the capabilities of Python?"
 - "How can I use software that other people have written?"
 - "How can I find out what that software does?"
 objectives:
@@ -40,42 +41,42 @@ keypoints:
 *   Use `import` to load a library module into a program's memory.
 *   Then refer to things from the module as `module_name.thing_name`.
     *   Python uses `.` to mean "part of".
-*   Using `math`, one of the modules in the standard library:
+*   Using `string`, one of the modules in the standard library:
 
 ~~~
-import math
+import string
 
-print('pi is', math.pi)
-print('cos(pi) is', math.cos(math.pi))
+print('The lower ascii letters are', string.ascii_lowercase)
+print(string.capwords('capitalise this sentence please.'))
 ~~~
 {: .python}
 ~~~
-pi is 3.141592653589793
-cos(pi) is -1.0
+The lower ascii letters are abcdefghijklmnopqrstuvwxyz
+Capitalise This Sentence Please.
 ~~~
 {: .output}
 
 *   Have to refer to each item with the module's name.
-    *   `math.cos(pi)` won't work: the reference to `pi`
-        doesn't somehow "inherit" the function's reference to `math`.
+    *   `string.capwords(ascii_lowercase)` won't work: the reference to `ascii_lowercase`
+        doesn't somehow "inherit" the function's reference to `string`.
 
 ## Use `help` to learn about the contents of a library module.
 
 *   Works just like help for a function.
 
 ~~~
-help(math)
+help(string)
 ~~~
 {: .python}
 ~~~
-Help on module math:
+Help on module string:
 
 NAME
-    math
+    string - A collection of string constants.
 
 MODULE REFERENCE
-    http://docs.python.org/3.5/library/math
-
+    https://docs.python.org/3.6/library/string
+    
     The following documentation is automatically generated from the Python
     source files.  It may be incomplete, incorrect or include features that
     are considered implementation detail and may vary between Python
@@ -83,14 +84,22 @@ MODULE REFERENCE
     location listed above.
 
 DESCRIPTION
-    This module is always available.  It provides access to the
-    mathematical functions defined by the C standard.
+    Public module variables:
+    
+    whitespace -- a string containing all ASCII whitespace
+    ascii_lowercase -- a string containing all ASCII lowercase letters
+    ascii_uppercase -- a string containing all ASCII uppercase letters
+    ascii_letters -- a string containing all ASCII letters
+    digits -- a string containing all ASCII decimal digits
+    hexdigits -- a string containing all ASCII hexadecimal digits
+    octdigits -- a string containing all ASCII octal digits
+    punctuation -- a string containing all ASCII punctuation characters
+    printable -- a string containing all ASCII characters considered printable
 
-FUNCTIONS
-    acos(...)
-        acos(x)
-
-        Return the arc cosine (measured in radians) of x.
+CLASSES
+    builtins.object
+        Formatter
+        Template
 ⋮ ⋮ ⋮
 ~~~
 {: .output}
@@ -101,13 +110,13 @@ FUNCTIONS
 *   Then refer to them directly without library name as prefix.
 
 ~~~
-from math import cos, pi
+from string import ascii_lowercase
 
-print('cos(pi) is', cos(pi))
+print('The ASCII letters are', ascii_letters)
 ~~~
 {: .python}
 ~~~
-cos(pi) is -1.0
+The ASCII letters are abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 ~~~
 {: .output}
 
@@ -117,18 +126,18 @@ cos(pi) is -1.0
 *   Then refer to items in the library using that shortened name.
 
 ~~~
-import math as m
+import string as s
 
-print('cos(pi) is', m.cos(m.pi))
+print(s.capwords('capitalise this sentence again please.'))
 ~~~
 {: .python}
 ~~~
-cos(pi) is -1.0
+Capitalise This Sentence Again Please.
 ~~~
 {: .output}
 
 *   Commonly used for libraries that are frequently used or have long names.
-    *   E.g., `matplotlib` plotting library is often aliased as `mpl`.
+    *   E.g., The `pandas` library is often aliased as `pd`.
 *   But can make programs harder to understand,
     since readers must learn your program's aliases.
 
