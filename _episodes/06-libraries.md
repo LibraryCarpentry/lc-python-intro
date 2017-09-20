@@ -141,18 +141,15 @@ Capitalise This Sentence Again Please.
 *   But can make programs harder to understand,
     since readers must learn your program's aliases.
 
-> ## Exploring the Math Module
+> ## Exploring the os Library
+> The os library provides a way of accessing operating system functionality.
 >
-> 1. What function from the `math` module can you use to calculate a square root
->    *without* using `sqrt`?
-> 2. Since the library contains this function, why does `sqrt` exist?
+> 1. What function from the `os` library can you use to determine the current 
+>    working directory?
 >
 > > ## Solution
-> > 1. Using `help(math)` we see that we've got `pow(x,y)` in addition to `sqrt(x)`
-> > 2. The `sqrt(x)` function (like much of the `math` library) has it's origins in
-> >    C's math library. Consequently, it might be somewhat faster than `pow(x,y)`.
-> >    Also, it might be more readable than `pow(x, 0.5)` when implementing equations.
-> >    However, `sqrt(x)` doesn't support negative arguments.
+> > 1. Using `help(os)` we see that we've got `os.getcwd()` which returns
+> >    a string representing the current working directory.
 > {: .solution}
 {: .challenge}
 
@@ -220,11 +217,11 @@ Capitalise This Sentence Again Please.
 
 > ## When Is Help Available?
 >
-> When a colleague of yours types `help(math)`,
+> When a colleague of yours types `help(os)`,
 > Python reports an error:
 >
 > ~~~
-> NameError: name 'math' is not defined
+> NameError: name 'os' is not defined
 > ~~~
 > {: .error}
 >
@@ -232,7 +229,7 @@ Capitalise This Sentence Again Please.
 >
 > > ## Solution
 > >
-> > Importing the math module (`import math`)
+> > Importing the math module (`import os`)
 > {: .solution}
 {: .challenge}
 
