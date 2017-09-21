@@ -56,7 +56,7 @@ Capitalise This Sentence Please.
 ~~~
 {: .output}
 
-*   Have to refer to each item with the module's name.
+*   You have to refer to each item with the module's name.
     *   `string.capwords(ascii_lowercase)` won't work: the reference to `ascii_lowercase`
         doesn't somehow "inherit" the function's reference to `string`.
 
@@ -229,19 +229,19 @@ Capitalise This Sentence Again Please.
 >
 > > ## Solution
 > >
-> > Importing the math module (`import os`)
+> > Importing the os module (`import os`)
 > {: .solution}
 {: .challenge}
 
 > ## Importing With Aliases
 >
-> 1. Fill in the blanks so that the program below prints `90.0`.
+> 1. Fill in the blanks so that the program below prints `0123456789`.
 > 2. Rewrite the program so that it uses `import` *without* `as`.
 > 3. Which form do you find easier to read?
 >
 > ~~~
-> import math as m
-> angle = ____.degrees(____.pi / 2)
+> import string as s
+> numbers = ____.digits
 > print(____)
 > ~~~
 > {: .python}
@@ -249,18 +249,18 @@ Capitalise This Sentence Again Please.
 > > ## Solution
 > >
 > > ~~~
-> > import math as m
-> > angle = m.degrees(m.pi / 2)
-> > print(angle)
+> > import string as s
+> > numbers = s.digits
+> > print(numbers)
 > > ~~~
 > > {: .python}
 > >
 > > can be written as
 > >
 > > ~~~
-> > import math
-> > angle = math.degrees(math.pi / 2)
-> > print(angle)
+> > import string
+> > numbers = string.digits
+> > print(numbers)
 > > ~~~
 > > {: .python}
 > >
@@ -277,15 +277,14 @@ Capitalise This Sentence Again Please.
 > Match the following print statements with the appropriate library calls
 >
 > Library calls:
-> 1. `from math import sin,pi`
-> 2. `import math`
-> 3. `import math as m`
-> 4. `from math import *`
+> 1. `from os import chdir`
+> 2. `import os`
+> 3. `import string as s`
 >
 > Print commands:
-> 7. `print("sin(pi/2) =",sin(pi/2))`
-> 8. `print("sin(pi/2) =",m.sin(m.pi/2))`
-> 9. `print("sin(pi/2) =",math.sin(math.pi/2))`
+> 4. `print(list(s.digits))`
+> 5. `print(getcwd())`
+> 6. `print(os.chdir('~/Documents'))`
 >
 > {: .python}
 {: .challenge}
