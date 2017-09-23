@@ -155,7 +155,7 @@ Capitalise This Sentence Again Please.
 
 > ## Locating the Right Module
 >
-> You want to transform the format of date to the iso standard:
+> Given the variables `year`, `month` and `day`, how would you generate a date in the standard iso format:
 >
 > ~~~
 > year = 2016
@@ -193,26 +193,6 @@ Capitalise This Sentence Again Please.
 > > {: .python}
 > >
 > {: .solution}
-{: .challenge}
-
-
-> ## Jigsaw Puzzle (Parson's Problem) Programming Example
->
-> Rearrange the following statements so that a random
-> DNA base is printed.  Not all statements may be needed.  Feel free to use/add
-> intermediate variables.
->
-> ~~~
-> bases="ACTTGCTTGAC"
-> import math
-> import random
-> len(bases)
-> len(bases)+1
-> math.floor(s1)
-> math.ceil(s1)
-> print("random base ",bases[])
-> random.random()*l
-> ~~~
 {: .challenge}
 
 > ## When Is Help Available?
@@ -277,14 +257,14 @@ Capitalise This Sentence Again Please.
 > Match the following print statements with the appropriate library calls
 >
 > Library calls:
-> 1. `from os import chdir`
-> 2. `import os`
+> 1. `from string import digits`
+> 2. `import string`
 > 3. `import string as s`
 >
 > Print commands:
 > 4. `print(list(s.digits))`
-> 5. `print(getcwd())`
-> 6. `print(os.chdir('~/Documents'))`
+> 5. `print(list(digits))`
+> 6. `print(string.ascii_uppercase)`
 >
 > {: .python}
 {: .challenge}
@@ -325,18 +305,18 @@ Capitalise This Sentence Again Please.
 > 2. Run the code, and read the error message. What type of error is it?
 >
 > ~~~
-> from math import log
-> log(0)
+> import datetime
+> datetime.date(2017,13,1)
 > ~~~
 > {: .python}
 >
 > > ## Solution
 > >
-> > 1. The logarithm of `x` is only defined for `x > 0`, so 0 is outside the
-> >    domain of the function.
-> > 2. You get an error of type "ValueError", indicating that the function
+> > 1. The date object takes arguments in the order year, month, day, so 13 is 
+> >    an invalid value for month.
+> > 2. You get an error of type "ValueError", indicating that the object
 > >    received an inappropriate argument value. The additional message
-> >    "math domain error" makes it clearer what the problem is.
+> >    "month must be in 1..12" makes it clearer what the problem is.
 > {: .solution}
 {: .challenge}
 
