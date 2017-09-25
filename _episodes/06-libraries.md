@@ -3,6 +3,7 @@ title: "Libraries"
 teaching: 10
 exercises: 10
 questions:
+- "How can I extend the capabilities of Python?"
 - "How can I use software that other people have written?"
 - "How can I find out what that software does?"
 objectives:
@@ -40,42 +41,42 @@ keypoints:
 *   Use `import` to load a library module into a program's memory.
 *   Then refer to things from the module as `module_name.thing_name`.
     *   Python uses `.` to mean "part of".
-*   Using `math`, one of the modules in the standard library:
+*   Using `string`, one of the modules in the standard library:
 
 ~~~
-import math
+import string
 
-print('pi is', math.pi)
-print('cos(pi) is', math.cos(math.pi))
+print('The lower ascii letters are', string.ascii_lowercase)
+print(string.capwords('capitalise this sentence please.'))
 ~~~
 {: .python}
 ~~~
-pi is 3.141592653589793
-cos(pi) is -1.0
+The lower ascii letters are abcdefghijklmnopqrstuvwxyz
+Capitalise This Sentence Please.
 ~~~
 {: .output}
 
-*   Have to refer to each item with the module's name.
-    *   `math.cos(pi)` won't work: the reference to `pi`
-        doesn't somehow "inherit" the function's reference to `math`.
+*   You have to refer to each item with the module's name.
+    *   `string.capwords(ascii_lowercase)` won't work: the reference to `ascii_lowercase`
+        doesn't somehow "inherit" the function's reference to `string`.
 
 ## Use `help` to learn about the contents of a library module.
 
 *   Works just like help for a function.
 
 ~~~
-help(math)
+help(string)
 ~~~
 {: .python}
 ~~~
-Help on module math:
+Help on module string:
 
 NAME
-    math
+    string - A collection of string constants.
 
 MODULE REFERENCE
-    http://docs.python.org/3.5/library/math
-
+    https://docs.python.org/3.6/library/string
+    
     The following documentation is automatically generated from the Python
     source files.  It may be incomplete, incorrect or include features that
     are considered implementation detail and may vary between Python
@@ -83,14 +84,22 @@ MODULE REFERENCE
     location listed above.
 
 DESCRIPTION
-    This module is always available.  It provides access to the
-    mathematical functions defined by the C standard.
+    Public module variables:
+    
+    whitespace -- a string containing all ASCII whitespace
+    ascii_lowercase -- a string containing all ASCII lowercase letters
+    ascii_uppercase -- a string containing all ASCII uppercase letters
+    ascii_letters -- a string containing all ASCII letters
+    digits -- a string containing all ASCII decimal digits
+    hexdigits -- a string containing all ASCII hexadecimal digits
+    octdigits -- a string containing all ASCII octal digits
+    punctuation -- a string containing all ASCII punctuation characters
+    printable -- a string containing all ASCII characters considered printable
 
-FUNCTIONS
-    acos(...)
-        acos(x)
-
-        Return the arc cosine (measured in radians) of x.
+CLASSES
+    builtins.object
+        Formatter
+        Template
 ⋮ ⋮ ⋮
 ~~~
 {: .output}
@@ -101,13 +110,13 @@ FUNCTIONS
 *   Then refer to them directly without library name as prefix.
 
 ~~~
-from math import cos, pi
+from string import ascii_lowercase
 
-print('cos(pi) is', cos(pi))
+print('The ASCII letters are', ascii_letters)
 ~~~
 {: .python}
 ~~~
-cos(pi) is -1.0
+The ASCII letters are abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 ~~~
 {: .output}
 
@@ -117,39 +126,36 @@ cos(pi) is -1.0
 *   Then refer to items in the library using that shortened name.
 
 ~~~
-import math as m
+import string as s
 
-print('cos(pi) is', m.cos(m.pi))
+print(s.capwords('capitalise this sentence again please.'))
 ~~~
 {: .python}
 ~~~
-cos(pi) is -1.0
+Capitalise This Sentence Again Please.
 ~~~
 {: .output}
 
 *   Commonly used for libraries that are frequently used or have long names.
-    *   E.g., `matplotlib` plotting library is often aliased as `mpl`.
+    *   E.g., The `pandas` library is often aliased as `pd`.
 *   But can make programs harder to understand,
     since readers must learn your program's aliases.
 
-> ## Exploring the Math Module
+> ## Exploring the os Library
+> The os library provides a way of accessing operating system functionality.
 >
-> 1. What function from the `math` module can you use to calculate a square root
->    *without* using `sqrt`?
-> 2. Since the library contains this function, why does `sqrt` exist?
+> 1. What function from the `os` library can you use to determine the current 
+>    working directory?
 >
 > > ## Solution
-> > 1. Using `help(math)` we see that we've got `pow(x,y)` in addition to `sqrt(x)`
-> > 2. The `sqrt(x)` function (like much of the `math` library) has it's origins in
-> >    C's math library. Consequently, it might be somewhat faster than `pow(x,y)`.
-> >    Also, it might be more readable than `pow(x, 0.5)` when implementing equations.
-> >    However, `sqrt(x)` doesn't support negative arguments.
+> > 1. Using `help(os)` we see that we've got `os.getcwd()` which returns
+> >    a string representing the current working directory.
 > {: .solution}
 {: .challenge}
 
 > ## Locating the Right Module
 >
-> You want to transform the format of date to the iso standard:
+> Given the variables `year`, `month` and `day`, how would you generate a date in the standard iso format:
 >
 > ~~~
 > year = 2016
@@ -189,33 +195,13 @@ cos(pi) is -1.0
 > {: .solution}
 {: .challenge}
 
-
-> ## Jigsaw Puzzle (Parson's Problem) Programming Example
->
-> Rearrange the following statements so that a random
-> DNA base is printed.  Not all statements may be needed.  Feel free to use/add
-> intermediate variables.
->
-> ~~~
-> bases="ACTTGCTTGAC"
-> import math
-> import random
-> len(bases)
-> len(bases)+1
-> math.floor(s1)
-> math.ceil(s1)
-> print("random base ",bases[])
-> random.random()*l
-> ~~~
-{: .challenge}
-
 > ## When Is Help Available?
 >
-> When a colleague of yours types `help(math)`,
+> When a colleague of yours types `help(os)`,
 > Python reports an error:
 >
 > ~~~
-> NameError: name 'math' is not defined
+> NameError: name 'os' is not defined
 > ~~~
 > {: .error}
 >
@@ -223,19 +209,19 @@ cos(pi) is -1.0
 >
 > > ## Solution
 > >
-> > Importing the math module (`import math`)
+> > Importing the os module (`import os`)
 > {: .solution}
 {: .challenge}
 
 > ## Importing With Aliases
 >
-> 1. Fill in the blanks so that the program below prints `90.0`.
+> 1. Fill in the blanks so that the program below prints `0123456789`.
 > 2. Rewrite the program so that it uses `import` *without* `as`.
 > 3. Which form do you find easier to read?
 >
 > ~~~
-> import math as m
-> angle = ____.degrees(____.pi / 2)
+> import string as s
+> numbers = ____.digits
 > print(____)
 > ~~~
 > {: .python}
@@ -243,18 +229,18 @@ cos(pi) is -1.0
 > > ## Solution
 > >
 > > ~~~
-> > import math as m
-> > angle = m.degrees(m.pi / 2)
-> > print(angle)
+> > import string as s
+> > numbers = s.digits
+> > print(numbers)
 > > ~~~
 > > {: .python}
 > >
 > > can be written as
 > >
 > > ~~~
-> > import math
-> > angle = math.degrees(math.pi / 2)
-> > print(angle)
+> > import string
+> > numbers = string.digits
+> > print(numbers)
 > > ~~~
 > > {: .python}
 > >
@@ -271,15 +257,14 @@ cos(pi) is -1.0
 > Match the following print statements with the appropriate library calls
 >
 > Library calls:
-> 1. `from math import sin,pi`
-> 2. `import math`
-> 3. `import math as m`
-> 4. `from math import *`
+> 1. `from string import digits`
+> 2. `import string`
+> 3. `import string as s`
 >
 > Print commands:
-> 7. `print("sin(pi/2) =",sin(pi/2))`
-> 8. `print("sin(pi/2) =",m.sin(m.pi/2))`
-> 9. `print("sin(pi/2) =",math.sin(math.pi/2))`
+> 4. `print(list(s.digits))`
+> 5. `print(list(digits))`
+> 6. `print(string.ascii_uppercase)`
 >
 > {: .python}
 {: .challenge}
@@ -320,18 +305,18 @@ cos(pi) is -1.0
 > 2. Run the code, and read the error message. What type of error is it?
 >
 > ~~~
-> from math import log
-> log(0)
+> import datetime
+> datetime.date(2017,13,1)
 > ~~~
 > {: .python}
 >
 > > ## Solution
 > >
-> > 1. The logarithm of `x` is only defined for `x > 0`, so 0 is outside the
-> >    domain of the function.
-> > 2. You get an error of type "ValueError", indicating that the function
+> > 1. The date object takes arguments in the order year, month, day, so 13 is 
+> >    an invalid value for month.
+> > 2. You get an error of type "ValueError", indicating that the object
 > >    received an inappropriate argument value. The additional message
-> >    "math domain error" makes it clearer what the problem is.
+> >    "month must be in 1..12" makes it clearer what the problem is.
 > {: .solution}
 {: .challenge}
 
