@@ -67,16 +67,16 @@ Ahmed is 42 years old
     *   Unlike some languages, which "guess" a default value.
 
 ~~~
-print(last_name)
+print(eye_color)
 ~~~
 {: .python}
 ~~~
 ---------------------------------------------------------------------------
 NameError                                 Traceback (most recent call last)
 <ipython-input-1-c1fbb4e96102> in <module>()
-----> 1 print(last_name)
+----> 1 print(eye_color)
 
-NameError: name 'last_name' is not defined
+NameError: name 'eye_color' is not defined
 ~~~
 {: .error}
 
