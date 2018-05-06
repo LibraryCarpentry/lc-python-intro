@@ -119,8 +119,8 @@ Age in three years: 45
     position.
 
 ~~~
-atom_name = 'helium'
-print(atom_name[0])
+element = 'helium'
+print(element[0])
 ~~~
 {: .python}
 ~~~
@@ -144,8 +144,8 @@ h
     the slice is a copy of part of the original string.
 
 ~~~
-atom_name = 'sodium'
-print(atom_name[0:3])
+element = 'sodium'
+print(element[0:3])
 ~~~
 {: .python}
 ~~~
