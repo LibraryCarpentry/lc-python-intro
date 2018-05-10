@@ -34,7 +34,7 @@ git clone https://github.com/LibraryCarpentry/lc-python-intro.git
 1. Run the Jekyll server locally
 
 ```
-cd <your-forked-repo-directory>
+cd <path-to>/lc-python-intro
 make serve
 ```
 1. The `Makefile` has other options as well. To see them type `make`
