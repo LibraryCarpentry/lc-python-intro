@@ -16,6 +16,29 @@ There are many ways of contributing to Library Carpentry:
 - Follow updates on [Twitter](https://twitter.com/search?f=tweets&vertical=default&q=%23librarycarpentry&src=typd).
 - Make a suggestion or correct an error by [raising an Issue](https://github.com/LibraryCarpentry/lc-python-intro/issues).
 
+### Local Lesson Development
+
+If you wish to contribute changes or additions to this module, you'll want to
+setup a local development environment that allows you to easily test changes
+locally. In order to do this, you'll want to do the following:
+
+1. [Fork this repository](https://help.github.com/articles/fork-a-repo/)
+1. Clone your fork of the repository:
+
+```
+git clone https://github.com/LibraryCarpentry/lc-python-intro.git
+```
+
+1. [Install Ruby](https://www.ruby-lang.org/en/downloads/)
+1. Install Jekyll `gem install jekyll`
+1. Run the Jekyll server locally
+
+```
+cd <your-forked-repo-directory>
+make serve
+```
+1. The `Makefile` has other options as well. To see them type `make`
+
 ## Code of Conduct
 
 All participants should agree to abide by the [Software Carpentry Code of Conduct](http://software-carpentry.org/conduct/).
