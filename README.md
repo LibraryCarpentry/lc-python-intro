@@ -14,7 +14,7 @@ There are many ways of contributing to Library Carpentry:
 
 - Join our [Gitter discussion forum](https://gitter.im/weaverbel/LibraryCarpentry).
 - Follow updates on [Twitter](https://twitter.com/search?f=tweets&vertical=default&q=%23librarycarpentry&src=typd).
-- Make a suggestion or correct an error by [raising an Issue](https://github.com/data-lessons/library-shell/issues).
+- Make a suggestion or correct an error by [raising an Issue](https://github.com/LibraryCarpentry/lc-python-intro/issues).
 
 ## Code of Conduct
 
@@ -22,7 +22,7 @@ All participants should agree to abide by the [Software Carpentry Code of Conduc
 
 ## Authors
 
-Library Carpentry is authored and maintained by the [community](https://github.com/data-lessons/library-shell/network/members).
+Library Carpentry is authored and maintained by the [community](https://github.com/LibraryCarpentry/lc-python-intro/network/members).
 
 ## Citation
 
