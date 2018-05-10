@@ -26,7 +26,7 @@ locally. In order to do this, you'll want to do the following:
 1. Clone your fork of the repository:
 
 ```
-git clone https://github.com/LibraryCarpentry/lc-python-intro.git
+git clone https://github.com/<your-github-username>/lc-python-intro.git
 ```
 
 1. [Install Ruby](https://www.ruby-lang.org/en/downloads/)
@@ -34,9 +34,10 @@ git clone https://github.com/LibraryCarpentry/lc-python-intro.git
 1. Run the Jekyll server locally
 
 ```
-cd <your-forked-repo-directory>
+cd <path-to>/lc-python-intro
 make serve
 ```
+1. Browse to your local server: [http://localhost:4000/](http://localhost:4000/)
 1. The `Makefile` has other options as well. To see them type `make`
 
 ## Code of Conduct
