@@ -26,7 +26,7 @@ locally. In order to do this, you'll want to do the following:
 1. Clone your fork of the repository:
 
 ```
-git clone https://github.com/LibraryCarpentry/lc-python-intro.git
+git clone https://github.com/<your-github-username>/lc-python-intro.git
 ```
 
 1. [Install Ruby](https://www.ruby-lang.org/en/downloads/)
