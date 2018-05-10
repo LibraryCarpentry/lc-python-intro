@@ -37,6 +37,7 @@ git clone https://github.com/LibraryCarpentry/lc-python-intro.git
 cd <path-to>/lc-python-intro
 make serve
 ```
+1. Browse to your local server: [http://localhost:4000/](http://localhost:4000/)
 1. The `Makefile` has other options as well. To see them type `make`
 
 ## Code of Conduct
