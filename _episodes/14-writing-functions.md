@@ -141,8 +141,16 @@ result of call is: None
 > def report(pressure):
 >     print('pressure is', pressure)
 >
-> print('calling', report, 22.5)
+> report(22.5)
 > ~~~
+> {: .python}
+> >
+> > ## Solution
+> > ~~~
+> > pressure is 22.5
+> > ~~~
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 > ## Order of Operations
@@ -163,6 +171,13 @@ result of call is: None
 > {: .output}
 >
 > Explain why the two lines of output appeared in the order they did.
+> >
+> > ## Solution
+> > Each line of python code is executed in order, regardless of whether that line calls
+> > out to a function, which may call out to other functions, or a simple
+> > variable assignment. In this case, the second line call to `print` will not execute until
+> > the result of `print_date` is complete in the first line.
+> {: .solution}
 {: .challenge}
 
 > ## Encapsulation
@@ -179,6 +194,17 @@ result of call is: None
 >     return ____
 > ~~~
 > {: .python}
+> >
+> > ## Solution
+> > ~~~
+> > import pandas
+> >
+> > def min_in_data(filename):
+> >     data = pandas.read_csv(filename)
+> >     return data.min()
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Find the First
@@ -194,6 +220,15 @@ result of call is: None
 >             return ____
 > ~~~
 > {: .python}
+> > ## Solution
+> > ~~~
+> > def first_negative(values):
+> >     for v in values:
+> >         if v < 0:
+> >             return v
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Calling by Name
@@ -212,6 +247,17 @@ result of call is: None
 > 1.  When have you seen a function call like this before?
 > 2.  When and why is it useful to call functions this way?
 > {: .python}
+> > ## Solution
+> > The program prints:
+> > ~~~
+> > 2003/2/1
+> > ~~~
+> > {: .output}
+> > It is useful to call a function with named arguments to ensure that the
+> > values of each argument are assigned to the intended argument in the
+> > function. This allows the order of arguments to be specified independently
+> > of how they are defined in the function itself.
+> {: .solution}
 {: .challenge}
 
 > ## Encapsulate of If/Print Block
@@ -263,6 +309,22 @@ result of call is: None
 > 1. Create a function definition for `print_egg_label()` that will work with the revised program above.  Note, the function's return value will be signifigant. Sample output might be `71.23 large`.
 > 2.  A dirty egg might have a mass of more than 90 grams, and a spoiled or broken egg will probably have a mass that's less than 50 grams.  Modify your `print_egg_label()` function to account for these error conditions. Sample output could be `25 too light, probably spoiled`.
 > 
+> > ## Solution
+> > ~~~
+> > def print_egg_label(mass):
+> >   if(mass>=90):
+> >      print(mass, "dirty")
+> >   elif(mass>=85):
+> >      print(mass, "jumbo")
+> >   elif(mass>=70):
+> >      print(mass, "large")
+> >   elif(mass<70 and mass>=55):
+> >      print(mass, "medium")
+> >   else:
+> >      print(mass, "too light, probably spoiled")
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Encapsulating Data Analysis
