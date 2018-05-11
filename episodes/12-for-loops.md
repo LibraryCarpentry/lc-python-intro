@@ -203,7 +203,13 @@ print(total)
 > ## Classifying Errors
 >
 > Is an indentation error a syntax error or a runtime error?
-{: .challenge}
+>
+> > ## Solution
+> >
+> >It is a syntax error. The problem has to do with the placement of the code, not its logic.
+> 
+>{: .solution}{: .challenge}
+
 
 > ## Tracing Execution
 >
