@@ -257,16 +257,38 @@ Capitalise This Sentence Again Please.
 > Match the following print statements with the appropriate library calls
 >
 > Library calls:
-> 1. `from string import digits`
-> 2. `import string`
-> 3. `import string as s`
+> ~~~
+> 1. from string import digits
+> 2. import string
+> 3. import string as s
+> ~~~
+> {: .python}
 >
 > Print commands:
-> 4. `print(list(s.digits))`
-> 5. `print(list(digits))`
-> 6. `print(string.ascii_uppercase)`
->
+> ~~~
+> 1. print(list(s.digits))
+> 2. print(list(digits))
+> 3. print(string.ascii_uppercase)
+> ~~~
 > {: .python}
+> >
+> > ## Solution
+> > Importing `digits` from `string` provides the `digits` methods
+> > ~~~
+> > from string import digits MATCHES print(list(digits))
+> > ~~~
+> > {: .python}
+> > Importing `string` provides methods such as `ascii_uppercase`
+> > ~~~
+> > import string MATCHES print(string.ascii_uppercase)
+> > ~~~
+> > {: .python}
+> > Importing `string` with the alias `s` allows `s.digits`
+> > ~~~
+> > import string as s MATCHES print(list(s.digits))
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Importing Specific Items
