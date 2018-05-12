@@ -93,9 +93,9 @@ primes has become: [2, 3, 5, 7, 9]
     *   Deliberately resembles the way we refer to things in a library.
 *   We will meet other methods of lists as we go along.
     *   Use `help(list)` for a preview.
-*   `extend` is similar to `append`, but it allows you to combine two lists.  For example:
+*   `extend` is similar to `append`, but it allows you to combine two lists.  For example:  
+
 ~~~
-{: .python}
 teen_primes = [11, 13, 17, 19]
 middle_aged_primes = [37, 41, 43, 47]
 print('primes is currently:', primes)
@@ -104,7 +104,8 @@ print('primes has now become:', primes)
 primes.append(middle_aged_primes)
 print('primes has finally become:', primes)
 ~~~
-{: .python}
+{: .python}  
+~~~
 primes is currently: [2, 3, 5, 7, 9]
 primes has now become: [2, 3, 5, 7, 9, 11, 13, 17, 19]
 primes has finally become: [2, 3, 5, 7, 9, 11, 13, 17, 19, [37, 41, 43, 47]]
@@ -216,12 +217,32 @@ IndexError: string index out of range
 > second time: [3, 5]
 > ~~~
 > {: .output}
+> > ## Solution
+> > ~~~
+> > values = []
+> > values.append(1)
+> > values.append(3)
+> > values.append(5)
+> > print('first time:', values)
+> > values = values[1:2]
+> > print('second time:', values)
+> > ~~~
+> > {: .python}
+> > ~~~
+> > first time [1, 3, 5]
+> > second time [3, 5]
+> > ~~~
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 > ## How Large is a Slice?
 >
 > If 'low' and 'high' are both non-negative integers,
 > how long is the list `values[low:high]`?
+> > ## Solution
+> > The list's length would be equal to `high - low`.  
+> {: .solution}
 {: .challenge}
 
 > ## From Strings to Lists and Back
@@ -233,14 +254,20 @@ IndexError: string index out of range
 > print('list to string:', ''.join(['g', 'o', 'l', 'd']))
 > ~~~
 > {: .python}
+> 
 > ~~~
 > ['t', 'i', 'n']
 > 'gold'
 > ~~~
 > {: .output}
->
+> 
 > 1.  Explain in simple terms what `list('some string')` does.
-> 2.  What does `'-'.join(['x', 'y'])` generate?
+> 2.  What does `'-'.join(['x', 'y'])` generate?  
+> 
+> > ## Solution
+> >  1.  It creates a list of the `some string`s characters as elements. 
+> >  2.  It creates a string composed of `x` and `y`, separated by a hypen character(`-`).  
+> {: .solution}
 {: .challenge}
 
 > ## Working With the End
@@ -259,7 +286,18 @@ IndexError: string index out of range
 >     and what location does that index represent?
 > 3.  If `values` is a list, what does `del values[-1]` do?
 > 4.  How can you display all elements but the last one without changing `values`?
->     (Hint: you will need to combine slicing and negative indexing.)
+>     (Hint: you will need to combine slicing and negative indexing.)  
+> 
+> > ## Solution
+> > ~~~
+> > m
+> > ~~~
+> > {: .output}
+> > 1.  A negative index begins at the final element. 
+> > 2.  `-(N - 1)` corresponds to the first index, which is the [0] index. 
+> > 3.  It removes the final element of the list. 
+> > 4.  You could do the following: `print(values[0:-1])`
+> {: .solution}
 {: .challenge}
 
 > ## Stepping Through a List
@@ -274,7 +312,17 @@ IndexError: string index out of range
 > {: .python}
 >
 > 1.  If we write a slice as `low:high:stride`, what does `stride` do?
-> 2.  What expression would select all of the even-numbered items from a collection?
+> 2.  What expression would select all of the even-numbered items from a collection?  
+> 
+> > ## Solution
+> > ~~~
+> > furn
+> > eniroulf
+> > ~~~
+> > {: .output}
+> > 1.  `stride` indicates both the number of steps, and from which end: positive starts from first element, negative from the last element. 
+> > 2.  `element[1::2]`
+> {: .solution}
 {: .challenge}
 
 > ## Slice Bounds
@@ -287,6 +335,16 @@ IndexError: string index out of range
 > print(element[-1:3])
 > ~~~
 > {: .python}
+> > ## Solution
+> > 
+> > ~~~
+> > lithium 
+> > m        
+> > ~~~
+> > {: .output}
+> > There is no 20th index, so the entire string is captured.  
+> > There is no element after the -1 index.  
+> {: .solution}
 {: .challenge}
 
 > ## Sort and Sorted
@@ -309,6 +367,20 @@ IndexError: string index out of range
 > print('letters is', letters, 'and result is', result)
 > ~~~
 > {: .python}
+>
+> > ## Solution
+> > Program A:
+> > ~~~
+> > letters is ['g', 'o', 'l', 'd'] and result is ['d', 'g', 'l', 'o']
+> > ~~~
+> > {: .output}
+> > Program B:
+> > ~~~
+> > letters is ['d', 'g', 'l', 'o'] and result is None
+> > ~~~
+> > {: .output}
+> > `sorted(letters)` returns a sorted copy of the list, while `letters.sort()` sorted the list _in place_. Thus, it was already sorted, and calling a further sort returns `None`.  
+> {: .solution}
 {: .challenge}
 
 > ## Copying (or Not)
@@ -333,4 +405,19 @@ IndexError: string index out of range
 > print('new is', new, 'and old is', old)
 > ~~~
 > {: .python}
+>
+> > ## Solution
+> > Program A:
+> > ~~~
+> > new is ['D', 'o', 'l', 'd'] and old is ['D', 'o', 'l', 'd']
+> > ~~~
+> > {: .output}
+> > Program B:
+> > ~~~
+> > new is ['D', 'o', 'l', 'd'] and old is ['g', 'o', 'l', 'd']
+> > ~~~
+> > {: .output}
+> > 
+> > `new = old` is assigning `old` to `new`, whereas `new = old[:]` is a **slice assignment**, which will only return a copy of `old`.
+> {: .solution}
 {: .challenge}
