@@ -424,7 +424,7 @@ first is 2 and second is 5
 > >
 > > 1. is correct
 > > 2. gives 2.1
-> > 3. gives an arror because we cannot convert text to int directly
+> > 3. gives an error because we cannot convert text to int directly
 > > 4. is correct
 > > 5. gives 2 (as an integer not as a float)
 > > 6. gives an error because `second` is a string.
