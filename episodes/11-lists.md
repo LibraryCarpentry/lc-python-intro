@@ -266,7 +266,7 @@ IndexError: string index out of range
 > 
 > > ## Solution
 > >  1.  It creates a list of the `some string`s characters as elements. 
-> >  2.  It creates a string composed of `x` and `y`, separated by a hypen character(`-`).  
+> >  2.  It creates a string composed of `x` and `y`, separated by a hyphen character(`-`).  
 > {: .solution}
 {: .challenge}
 
