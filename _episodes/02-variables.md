@@ -67,16 +67,16 @@ Ahmed is 42 years old
     *   Unlike some languages, which "guess" a default value.
 
 ~~~
-print(last_name)
+print(eye_color)
 ~~~
 {: .python}
 ~~~
 ---------------------------------------------------------------------------
 NameError                                 Traceback (most recent call last)
 <ipython-input-1-c1fbb4e96102> in <module>()
-----> 1 print(last_name)
+----> 1 print(eye_color)
 
-NameError: name 'last_name' is not defined
+NameError: name 'eye_color' is not defined
 ~~~
 {: .error}
 
@@ -119,8 +119,8 @@ Age in three years: 45
     position.
 
 ~~~
-atom_name = 'helium'
-print(atom_name[0])
+element = 'helium'
+print(element[0])
 ~~~
 {: .python}
 ~~~
@@ -138,14 +138,14 @@ h
 *   We take a slice by using `[start:stop]`, where `start` is replaced with the
     index of the first element we want and `stop` is replaced with the index of
     the element just after the last element we want.
-*   Mathematically, you might say that a slice selects `[start:stop)`.
+*   Mathematically, you might say that a slice selects `[start:stop]`.
 *   The difference between stop and start is the slice's length.
 *   Taking a slice does not change the contents of the original string. Instead,
     the slice is a copy of part of the original string.
 
 ~~~
-atom_name = 'sodium'
-print(atom_name[0:3])
+element = 'sodium'
+print(element[0:3])
 ~~~
 {: .python}
 ~~~
@@ -227,9 +227,24 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 > initial = "right"
 > ~~~
 > {: .python}
+> > ## Solution
+> >
+> > ~~~
+> > initial = "left"  # Initial is assigned the string "left"
+> > position = initial  # Position is assigned the variable initial, currently "left"
+> > initial = "right"  # Initial is assigned the string "right"
+> > print(position)
+> > ~~~
+> > {: .python}
+> > ~~~
+> > left
+> > ~~~
+> > {: .output}
+> > The last assignment to position was "left"
+>{: .solution}
 {: .challenge}
 
-> ## Challenge
+> ## Can you slice integers?
 >
 > If you assign `a = 123`,
 > what happens if you try to get the second digit of `a`?
@@ -277,14 +292,22 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 > print('library_name[1:3] is:', library_name[1:3])
 > ~~~
 > {: .python}
-> ~~~
-> library_name[1:3] is: oc
-> ~~~
-> {: .output}
 >
 > 1.  What does `thing[low:high]` do?
 > 2.  What does `thing[low:]` (without a value after the colon) do?
 > 3.  What does `thing[:high]` (without a value before the colon) do?
 > 4.  What does `thing[:]` (just a colon) do?
 > 5.  What does `thing[number:negative-number]` do?
+>
+> > ## Solution
+> > ~~~
+> > library_name[1:3] is: oc
+> > ~~~
+> > {: .output}
+> > 1.  It will slice the string, starting at the `low` index and ending an element before the `high` index
+> > 2.  It will slice the string, starting at the `low` index and stopping at the end of the string
+> > 3.  It will slice the string, starting at the beginning on the string, and ending an element before the `high` index
+> > 4.  It will print the entire string
+> > 5.  It will slice the string, starting the `number` index, and ending a distance of the absolute value of `negative-number` elements from the end of the string
+> {: .solution}
 {: .challenge}

@@ -263,6 +263,7 @@ result of print is None
 > > ~~~
 > > tin
 > > 4
+> > TypeError: '>' not supported between instances of 'str' and 'int'
 > > ~~~
 >{: .solution}
 {: .challenge}
@@ -270,6 +271,18 @@ result of print is None
 > ## Why Not?
 >
 > Why don't `max` and `min` return `None` when they are given no arguments?
+> > ## Solution
+> >
+> > Both functions require an argument to execute
+> > ~~~
+> > print(max())
+> > ~~~
+> > {: .python}
+> > ~~~
+> > TypeError: max expected 1 arguments, got 0
+> > ~~~
+> > {: .error}
+>{: .solution}
 {: .challenge}
 
 > ## Last Character of a String

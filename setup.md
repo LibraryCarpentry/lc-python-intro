@@ -21,7 +21,6 @@ The [Anaconda](https://www.anaconda.com/download/) distribution of Python will a
 6.	The `>>>` prompt tells you that you are in the Python environment. You can exit Python with the `exit()` command.
 
 
-
 ## Running Jupyter Notebooks in Windows
 
 1. From file explorer navigate to where you can select the folder which contains your Jupyter Notebook notebooks (it can be empty initially).
