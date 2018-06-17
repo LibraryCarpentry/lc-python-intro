@@ -13,7 +13,7 @@ objectives:
 - "Learners can use the different buttons and panels needed in the Spyder IDE"
 keypoints:
 - "Use the Spyder IDE for editing and running Python"
-- "The IPython console can be used to interact with python directly"
+- "The IPython console can be used to interact with Python directly"
 - "The editor can be used to write code, run and save it"
 ---
 
