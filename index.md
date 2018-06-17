@@ -29,7 +29,7 @@ Please note that this lesson uses Python 3 rather than Python 2.
 >    what a working directory is,
 >    and how to start a Python interpreter from a terminal window.
 >
-> 2. Learners must install [Anaconda](https://www.continuum.io/downloads) before the class starts.
+> 2. Learners must install [Anaconda](https://www.anaconda.com/download/) before the class starts.
 >
 >    Please see [the setup instructions]({{ page.root }}/setup/)
 >    for details.
