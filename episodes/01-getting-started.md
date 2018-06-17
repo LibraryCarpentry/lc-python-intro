@@ -97,6 +97,6 @@ keypoints:
 
 
 
-[anaconda]: https://docs.continuum.io/anaconda/install
+[anaconda]: https://docs.anaconda.com/distribution/install
 [spyder]: http://pythonhosted.org/spyder/
 
