@@ -173,7 +173,7 @@ result of call is: None
 > Explain why the two lines of output appeared in the order they did.
 > >
 > > ## Solution
-> > Each line of python code is executed in order, regardless of whether that line calls
+> > Each line of Python code is executed in order, regardless of whether that line calls
 > > out to a function, which may call out to other functions, or a simple
 > > variable assignment. In this case, the second line call to `print` will not execute until
 > > the result of `print_date` is complete in the first line.
