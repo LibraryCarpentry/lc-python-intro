@@ -69,7 +69,7 @@ and to meet some of our community members.
 There are many ways to contribute,
 from writing new exercises and improving existing ones
 to updating or filling in the documentation
-and and submitting [bug reports][issues]
+and submitting [bug reports][issues]
 about things that don't work, aren't clear, or are missing.
 If you are looking for ideas,
 please see [the list of issues for this repository][issues],
@@ -95,7 +95,7 @@ The first encourages contributors to be honest about requirements;
 the second, to think hard about priorities.
 
 We are also not looking for exercises or other material that only run on one platform.
-Our workshops typically contain a mixture of Windows, Mac OS X, and Linux users;
+Our workshops typically contain a mixture of Windows, macOS, and Linux users;
 in order to be usable,
 our lessons must run equally well on all three.
 
