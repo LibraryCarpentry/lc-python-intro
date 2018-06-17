@@ -7,13 +7,13 @@ questions:
 - "How can I run Python programs?"
 objectives:
 - "Learners can launch the Spyder IDE"
-- "Learners are able to use the iPython console to interact with Python"
+- "Learners are able to use the IPython console to interact with Python"
 - "Learners are able to write code in the Spyder editor and run this code"
 - "Learners are able to save their code in a *.py file"
 - "Learners can use the different buttons and panels needed in the Spyder IDE"
 keypoints:
 - "Use the Spyder IDE for editing and running Python"
-- "The iPython console can be used to interact with python directly"
+- "The IPython console can be used to interact with python directly"
 - "The editor can be used to write code, run and save it"
 ---
 
@@ -35,11 +35,11 @@ keypoints:
 ## Different ways of interacting with Python using Spyder
 
 *   On the left, filling half of the screen is the editor. Here you can write and edit code, which can then be saved in a file (usually with a .py extension). We can run the code we wrote here by pressing the green 'play' button on top or press F5 on your keyboard.
-*   On the bottom right, we find the iPython console. This is were we can talk directly to python. It will interpret what you have typed directly when you press Enter.
+*   On the bottom right, we find the IPython console. This is were we can talk directly to python. It will interpret what you have typed directly when you press Enter.
 
 ## Python in the console
 
-> Go to the iPython tab at the bottom right. What happens when you type a small calculation there?
+> Go to the IPython tab at the bottom right. What happens when you type a small calculation there?
 > For example, what happens when you type the following calculation and press enter?
 > ~~~
 > 7 * 3
@@ -76,7 +76,7 @@ keypoints:
 >
 > > ## Solution
 > >
-> > In the iPython console  Python tells you which files it ran and the result of this run
+> > In the IPython console  Python tells you which files it ran and the result of this run
 > > ~~~
 > > runfile('/home/ylja/.config/spyder-py3/temp.py', wdir='/home/ylja/.config/spyder-py3')
 > > Hello world!
