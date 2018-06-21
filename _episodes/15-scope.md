@@ -71,6 +71,29 @@ NameError: name 'temperature' is not defined
 > print(clip(value))
 > ~~~
 > {: .python}
+> > ## Solution
+> > ~~~
+> > # limit = ---
+> > # value = ---
+> > 
+> > limit = 100   
+> > 
+> > def clip(value):  
+> >   return min(max(0.0, value), limit)
+> > 
+> > # limit = 100
+> > # value = ---
+> > 
+> > value = -22.5    # value = -22.5, limit = 100
+> > 
+> > print(clip(value))   # result is 0.0
+> > 
+> > # value = -22.5
+> > # limit = 100
+> > ~~~
+> > {: .python}
+> >
+> {: .solution}
 {: .challenge}
 
 > ## Identifying Syntax Errors
@@ -89,6 +112,38 @@ NameError: name 'temperature' is not defined
 >   print("So they are usually not too hard to fix.")
 > ~~~
 > {: .python}
+> > ## Solution
+> > There are missing parentheses and colon `():` after the function call, and the print messages don't appear aligned via whitespace
+> > ~~~
+> >    File "<stdin>", line 1
+    def another_function
+                       ^
+SyntaxError: invalid syntax
+> > ~~~
+> > {: .error}
+> > ~~~
+> >   File "<stdin>", line 1
+    print("Syntax errors are annoying.")
+    ^
+IndentationError: unexpected indent  
+> > ~~~
+> > {: .error}
+> > ~~~
+> >   File "<stdin>", line 1
+    print("But at least Python tells us about them!")
+    ^
+IndentationError: unexpected indent  
+> > ~~~
+> > {: .error}
+> > Working function:  
+> > ~~~
+> > def another_function():
+  print("Syntax errors are annoying.")
+  print("But at least Python tells us about them!")
+  print("So they are usually not too hard to fix.")
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Reading Error Messages
@@ -124,4 +179,12 @@ NameError: name 'temperature' is not defined
 > KeyError: 'Friday'
 > ~~~
 > {: .error}
+> > ## Solution
+> > 1. 3 levels, since there are 3 arrows
+> > 2. The file is `errors_02.py` 
+> > 3. The function is `print_message()`
+> > 4. Line 11
+> > 5. It is a `KeyError`
+> > 6. There isn’t really a message; you’re supposed to infer that `Friday` is not a key in `messages`.
+> {: .solution}
 {: .challenge}
