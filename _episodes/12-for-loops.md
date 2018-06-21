@@ -21,7 +21,7 @@ keypoints:
 ## A *for loop* executes commands once for each value in a collection.
 
 *   Doing calculations on the values in a list one by one
-    is as painful as working with `pressure_001`, `pressure_002`, etc.
+    is as painful as working with `book_age_001`, `book_age_002`, etc.
 *   A *for loop* tells Python to execute some statements once for each value in a list,
     a character string,
     or some other collection.

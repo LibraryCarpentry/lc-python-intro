@@ -21,7 +21,7 @@ keypoints:
 ---
 ## A list stores many values in a single structure.
 
-*   Doing calculations with a hundred variables called `pressure_001`, `pressure_002`, etc.,
+*   Doing calculations with a hundred variables called `book_age_001`, `book_age_002`, etc.,
     would be at least as slow as doing them by hand.
 *   Use a *list* to store many values together.
     *   Contained within square brackets `[...]`.
@@ -29,13 +29,13 @@ keypoints:
 *   Use `len` to find out how many values are in a list.
 
 ~~~
-pressures = [0.273, 0.275, 0.277, 0.275, 0.276]
-print('pressures:', pressures)
-print('length:', len(pressures))
+book_ages = [5.3, 2.7, 7.1, 7.6, 8.2]
+print('book_ages:', book_ages)
+print('length:', len(book_ages))
 ~~~
 {: .python}
 ~~~
-pressures: [0.273, 0.275, 0.277, 0.275, 0.276]
+book_ages: [5.3, 2.7, 7.1, 7.6, 8.2]
 length: 5
 ~~~
 {: .output}
@@ -47,11 +47,13 @@ length: 5
 ~~~
 print('zeroth item of pressures:', pressures[0])
 print('fourth item of pressures:', pressures[4])
+print('zeroth item of book_ages:', book_ages[0])
+print('fourth item of book_ages:', book_ages[4])
 ~~~
 {: .python}
 ~~~
-zeroth item of pressures: 0.273
-fourth item of pressures: 0.276
+zeroth item of book_ages: 5.3
+fourth item of book_ages: 8.2
 ~~~
 {: .output}
 
@@ -60,12 +62,12 @@ fourth item of pressures: 0.276
 *   Use an index expression on the left of assignment to replace a value.
 
 ~~~
-pressures[0] = 0.265
-print('pressures is now:', pressures)
+book_ages[0] = 3.5
+print('book_ages is now:', book_ages)
 ~~~
 {: .python}
 ~~~
-pressures is now: [0.265, 0.275, 0.277, 0.275, 0.276]
+book_ages is now: [3.5, 2.7, 7.1, 7.6, 8.2]
 ~~~
 {: .output}
 

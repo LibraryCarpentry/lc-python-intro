@@ -138,8 +138,8 @@ result of call is: None
 > What does the following program print?
 >
 > ~~~
-> def report(pressure):
->     print('pressure is', pressure)
+> def report(book_age):
+>     print('book_age is', book_age)
 >
 > print('calling', report, 22.5)
 > ~~~

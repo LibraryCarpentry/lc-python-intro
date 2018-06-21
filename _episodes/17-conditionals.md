@@ -255,12 +255,12 @@ final velocity: 30.0
 > What does this program print?
 >
 > ~~~
-> pressure = 71.9
-> if pressure > 50.0:
->     pressure = 25.0
-> elif pressure <= 50.0:
->     pressure = 0.0
-> print(pressure)
+> book_age = 71.9
+> if book_age > 50.0:
+>     book_age = 25.0
+> elif book_age <= 50.0:
+>     book_age = 0.0
+> print(book_age)
 > ~~~
 > {: .python}
 {: .challenge}
