@@ -110,7 +110,7 @@ CLASSES
 *   Then refer to them directly without library name as prefix.
 
 ~~~
-from string import ascii_lowercase
+from string import ascii_letters
 
 print('The ASCII letters are', ascii_letters)
 ~~~
