@@ -119,6 +119,7 @@ Note that while `extend` maintains the "flat" structure of the list, appending a
 *   Not a function or a method, but a statement in the language.
 
 ~~~
+primes = [2, 3, 5, 7, 9]
 print('primes before removing last item:', primes)
 del primes[4]
 print('primes after removing last item:', primes)
