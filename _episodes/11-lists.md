@@ -119,6 +119,7 @@ Note that while `extend` maintains the "flat" structure of the list, appending a
 *   Not a function or a method, but a statement in the language.
 
 ~~~
+primes = [2, 3, 5, 7, 9]
 print('primes before removing last item:', primes)
 del primes[4]
 print('primes after removing last item:', primes)
@@ -224,7 +225,7 @@ IndexError: string index out of range
 > > values.append(3)
 > > values.append(5)
 > > print('first time:', values)
-> > values = values[1:2]
+> > values = values[1:3]
 > > print('second time:', values)
 > > ~~~
 > > {: .python}
