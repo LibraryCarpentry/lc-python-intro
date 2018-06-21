@@ -45,8 +45,6 @@ length: 5
 *   Just like strings.
 
 ~~~
-print('zeroth item of pressures:', pressures[0])
-print('fourth item of pressures:', pressures[4])
 print('zeroth item of book_ages:', book_ages[0])
 print('fourth item of book_ages:', book_ages[4])
 ~~~
