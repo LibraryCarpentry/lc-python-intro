@@ -342,6 +342,6 @@ Capitalise This Sentence Again Please.
 > {: .solution}
 {: .challenge}
 
-[pypi]: https://pypi.python.org/pypi/
+[pypi]: https://pypi.org/
 [stdlib]: https://docs.python.org/3/library/
 [randommod]: https://docs.python.org/3/library/random.html
