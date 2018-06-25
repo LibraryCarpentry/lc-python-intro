@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Setup"
-permalink: /setup/
+root: .
 ---
 
 ## Installing Python Using Anaconda
