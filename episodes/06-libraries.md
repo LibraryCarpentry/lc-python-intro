@@ -258,9 +258,9 @@ Capitalise This Sentence Again Please.
 >
 > Library calls:
 > ~~~
-> 1. from string import digits
-> 2. import string
-> 3. import string as s
+> A) from string import digits
+> B) import string
+> C) import string as s
 > ~~~
 > {: .python}
 >
@@ -273,21 +273,10 @@ Capitalise This Sentence Again Please.
 > {: .python}
 > >
 > > ## Solution
-> > Importing `digits` from `string` provides the `digits` methods
-> > ~~~
-> > from string import digits MATCHES print(list(digits))
-> > ~~~
-> > {: .python}
-> > Importing `string` provides methods such as `ascii_uppercase`
-> > ~~~
-> > import string MATCHES print(string.ascii_uppercase)
-> > ~~~
-> > {: .python}
-> > Importing `string` with the alias `s` allows `s.digits`
-> > ~~~
-> > import string as s MATCHES print(list(s.digits))
-> > ~~~
-> > {: .python}
+> > A2) Importing `digits` from `string` provides the `digits` methods
+> > B3) Importing `string` provides methods such as `ascii_uppercase`, but
+> >     requires the `string.` syntax.
+> > C1) Importing `string` with the alias `s` allows `s.digits`
 > {: .solution}
 {: .challenge}
 
@@ -342,6 +331,6 @@ Capitalise This Sentence Again Please.
 > {: .solution}
 {: .challenge}
 
-[pypi]: https://pypi.python.org/pypi/
+[pypi]: https://pypi.org/
 [stdlib]: https://docs.python.org/3/library/
 [randommod]: https://docs.python.org/3/library/random.html
