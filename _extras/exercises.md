@@ -1,6 +1,6 @@
 ---
 layout: page
 title: "Further Exercises"
-permalink: /exercises/
+root: ..
 ---
 FIXME: exercises that don't fit into the regular schedule.
