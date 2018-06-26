@@ -1,6 +1,6 @@
 ---
 layout: page
 title: "Discussion"
-permalink: /discuss/
+root: ..
 ---
 FIXME: general discussion and further reading for learners.
