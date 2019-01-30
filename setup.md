@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Setup
-permalink: /setup/
+title: "Setup"
+root: .
 ---
 
 ## Setup instructions for Python

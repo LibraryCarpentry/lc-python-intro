@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Lesson Design"
-permalink: /design/
+root: ..
 ---
 
 > ## Help Wanted

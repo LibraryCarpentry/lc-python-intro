@@ -23,7 +23,7 @@ keypoints:
     etc.
     Adhering to PEP8 makes it easier for other Python developers to read and understand your code,
     and to understand what their contributions should look like.
-    The [PEP8 application and Python library](https://pypi.python.org/pypi/pep8)
+    The [PEP8 application and Python library](https://pypi.org/project/pep8/)
     can check your code for compliance with PEP8.
 
 ## Use assertions to check for internal errors.

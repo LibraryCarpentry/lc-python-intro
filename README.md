@@ -1,12 +1,12 @@
 # Library Carpentry
 
-The Library Carpentry module '[Introduction to programming with Python](https://data-lessons.github.io/library-python-intro/)' is maintained by [Carlos Martinez](https://github.com/c-martinez) and [Richard Vankoningsveld](https://github.com/richyvk).
+The Library Carpentry module '[Introduction to programming with Python](https://data-lessons.github.io/library-python-intro/)' is maintained by [Konrad Foerstner](https://github.com/konrad), [Drew Heles](https://github.com/dheles), [Elizabeth Wickes](https://github.com/elliewix), *[Laura Wrubel](https://github.com/lwrubel)*, [Carlos Martinez](https://github.com/c-martinez) and [Richard Vankoningsveld](https://github.com/richyvk).
 
 ## Background
 
 Library Carpentry is a software skills training programme aimed at library and information professions. It builds on the work of [Software Carpentry](http://software-carpentry.org/) and [Data Carpentry](http://www.datacarpentry.org/).
 
-Library Carpentry is in the commons and for the commons. It is not tied to any institution of person. For more information on Library Carpentry, see our website [librarycarpentry.github.io/outline/](librarycarpentry.github.io/outline/).
+Library Carpentry is in the commons and for the commons. It is not tied to any institution of person. For more information on Library Carpentry, see our website [librarycarpentry.org](https://librarycarpentry.org/).
 
 ## Contribution
 
@@ -52,4 +52,4 @@ Library Carpentry is authored and maintained by the [community](https://github.c
 
 Please cite as:
 
-Library Carpentry. Introduction to programming with Python. FIX ME: Add Month 2017. https://data-lessons.github.io/library-python-intro/.
+Library Carpentry. Introduction to programming with Python. 2017. https://librarycarpentry.org/library-python-intro/.
