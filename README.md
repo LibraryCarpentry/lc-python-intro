@@ -1,6 +1,6 @@
 # Library Carpentry
 
-The Library Carpentry module '[Introduction to programming with Python](https://data-lessons.github.io/library-python-intro/)' is maintained by [Konrad Foerstner](https://github.com/konrad), [Drew Heles](https://github.com/dheles), [Elizabeth Wickes](https://github.com/elliewix), *[Laura Wrubel](https://github.com/lwrubel)*, [Carlos Martinez](https://github.com/c-martinez) and [Richard Vankoningsveld](https://github.com/richyvk).
+The Library Carpentry module '[Introduction to programming with Python](https://librarycarpentry.org/lc-python-intro/)' is maintained by [Konrad Foerstner](https://github.com/konrad), [Drew Heles](https://github.com/dheles), [Elizabeth Wickes](https://github.com/elliewix), *[Laura Wrubel](https://github.com/lwrubel)*, [Carlos Martinez](https://github.com/c-martinez) and [Richard Vankoningsveld](https://github.com/richyvk).
 
 ## Background
 
