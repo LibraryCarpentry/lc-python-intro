@@ -2,6 +2,10 @@
 
 The Library Carpentry module '[Introduction to programming with Python](https://librarycarpentry.org/lc-python-intro/)' is maintained by [Konrad Foerstner](https://github.com/konrad), [Drew Heles](https://github.com/dheles), [Elizabeth Wickes](https://github.com/elliewix), *[Laura Wrubel](https://github.com/lwrubel)*, [Carlos Martinez](https://github.com/c-martinez) and [Richard Vankoningsveld](https://github.com/richyvk).
 
+## Status Note
+
+The maintainers of this lesson are currently working on a substantial redesign of this lesson.  This means than large portions of the current lesson content will be removed or substantially rewritten.  You are welcome to submit pull requests for changes that help make this lesson better in the short run, but please keep in mind that the changes you make may be on content slated for removal.
+
 ## Background
 
 Library Carpentry is a software skills training programme aimed at library and information professions. It builds on the work of [Software Carpentry](http://software-carpentry.org/) and [Data Carpentry](http://www.datacarpentry.org/).
