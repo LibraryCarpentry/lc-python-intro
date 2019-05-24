@@ -56,4 +56,4 @@ Library Carpentry is authored and maintained by the [community](https://github.c
 
 Please cite as:
 
-Library Carpentry. Introduction to programming with Python. 2017. https://librarycarpentry.org/library-python-intro/.
+Library Carpentry. Introduction to programming with Python. 2017. https://librarycarpentry.org/lc-python-intro/.
