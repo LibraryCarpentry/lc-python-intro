@@ -28,7 +28,7 @@ appropriate to the needs of the learners.
 
 ## Modules and suggested timing
 
-### Startup (30:00)
+### Startup (30 min)
 * 9:00 Late buffer
 * 9:15 Welcome
     * Code of conduct
@@ -38,51 +38,51 @@ appropriate to the needs of the learners.
     * About Python and its uses in libraries
     * Overview of the lesson
 
-### Standard library (2:30:00)
-* 9:45: Understanding the environment and basic Python types and methods (15:00)
+### Standard library (2 hours 30 min)
+* 9:45: Understanding the environment and basic Python types and methods (15 min)
     * Familiarization with the IDE 
     * Starting/stopping the IDE run or app
     * Print statements & evaluation
     * Strings
     * Variables
-* 10:00: Introduction to scripts (15:00)
+* 10:00: Introduction to scripts (15 min)
     * Examine an example script
     * Tracing the control flow
     * Using help commands to look up functions
     * Anticipate output and test
     * Modify output and test
-* 10:15: csv module (15:00)
+* 10:15: csv module (15 min)
     * Using the csv module to open a file
     * Two-dimensional list data representation
     * `if` statements, for filtering
-* 10:30: Coffee (14:45)
-* 10:45: Working with data from the csv (15:00)
+* 10:30: Coffee (15 min)
+* 10:45: Working with data from the csv (15 min)
     * Accumulator patterns, for collecting strings from the data
     * Filtering rows and creating lists from the data
-* 11:00 (stretch content) (15:00)
+* 11:00 (stretch content) (15 min)
     * Accumulating lists of data for csv output
     * Transforming a script to run on multiple files using glob
 
-### Pandas (1:00:00)
-* 11:15 Introduction to pandas and Jupyter (15:00)
+### Pandas (1 hour)
+* 11:15 Introduction to pandas and Jupyter (15 min)
     * Importing pandas 
     * How pandas is often used
     * Using Jupyter notebooks
     * Jupyter gotchas and good practices
-* 11:30 Reading a csv into a DataFrame (15:00)
+* 11:30 Reading a csv into a DataFrame (15 min)
     * `read_csv` and formatting options
     * Viewing a DataFrame
     * Evaluation vs. print() in Jupyter
     * Modifying data using pandas
-* 11:45 Working with DataFrames (15:00)
+* 11:45 Working with DataFrames (15 min)
     * Column data types
     * `NaN`s and essential cleaning checks
     * Filtering data into a new DataFrame
     * Saving data as a new CSV file
-* 12:00 (stretch content) (15:00)
+* 12:00 (stretch content) (15 min)
     * Aggregation and summaries
     * Quick plots of a DataFrame
     * Transformations of a DataFrame, such as transposing
 
-### Wrap-Up and Feedback (15:00)
+### Wrap-Up and Feedback (15 min)
 
