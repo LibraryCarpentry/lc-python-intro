@@ -151,6 +151,32 @@ average(values)
 >     return values[1]
 > ~~~
 > {: .python}
+> >
+> > ## Solution
+> >
+> > Change the `#` to `'''` to change to docstring:
+> >
+> > ~~~
+> >  def middle(a, b, c):
+> >  ''' Return the middle value of three.
+> >  Assumes the values can actually be compared.
+> >  '''
+> >  values = [a, b, c]
+> >  values.sort()
+> >  return values[1]  
+> > ~~~
+> > {: .python}
+> >
+> > Calling `help` on the `middle` function now shows the docstring:
+> > ~~~
+> > help (middle)
+> > Help on function middle in module __main__:
+> > middle(a, b, c)
+> >    Return the middle value of three.
+> >    Assumes the values can actually be compared. 
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Clean Up This Code
