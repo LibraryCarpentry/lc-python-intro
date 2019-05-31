@@ -237,6 +237,35 @@ print(total)
 > print(result)
 > ~~~
 > {: .python}
+> >
+> > ## Solution
+> >
+> > `result` is an empty string because we use it to build or accumulate on our reverse string. `char` is the loop variable for `original`. Each time through the loop `char` takes on one value from `original`. Use `char` with `result` to control the order of the string. Our loop code should look like this:
+> > ~~~
+> > original = "tin"
+> > result = ""
+> > for char in original:
+> >    result = char + result
+> > print(result)
+> > nit
+> > ~~~
+> > If you were to expand out the loop the iterations would look something like this:
+> > ~~~
+> > #First loop
+> > char = "t"
+> > result = ""
+> > char + result = "t"
+> > #Second loop
+> > char = 'i"
+> > result = "t"
+> > char + result = "it"
+> > #Third loop
+> > char = "n"
+> > result = "it"
+> > char + result = "nit"
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Practice Accumulating
