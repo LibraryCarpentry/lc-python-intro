@@ -253,7 +253,7 @@ final velocity: 30.0
 > ## Tracing Execution
 >
 > What does this program print?
->
+> 
 > ~~~
 > pressure = 71.9
 > if pressure > 50.0:
@@ -262,7 +262,14 @@ final velocity: 30.0
 >     pressure = 0.0
 > print(pressure)
 > ~~~
-> {: .python}
+> {: python}
+> >
+> > ## Solution
+> > ~~~
+> > 25.0
+> > ~~~
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 > ## Trimming Values
@@ -287,6 +294,19 @@ final velocity: 30.0
 > [0, 1, 1, 1, 0, 1]
 > ~~~
 > {: .output}
+> > ## Solution
+> > ~~~
+> > original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
+> > result = []
+> > for value in original:
+> >    if value < 0:
+> >        result.append(0)
+> >    else:
+> >       result.append(1)
+> > print(result)
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Processing Small Files
@@ -302,6 +322,17 @@ final velocity: 30.0
 >         print(filename, len(contents))
 > ~~~
 > {: .python}
+> > ## Solution
+> > ~~~
+> > import glob
+> > import pandas
+> > for filename in glob.glob('data/*.csv'):
+> >    contents = pandas.read_csv(filename)
+> >    if len(contents) < 50:
+> >        print(filename, len(contents))
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Initializing
@@ -309,6 +340,8 @@ final velocity: 30.0
 > Modify this program so that it finds the largest and smallest values in the list
 > no matter what the range of values originally is.
 >
+> What are the advantages and disadvantages of using this method
+> to find the range of the data?
 > ~~~
 > values = [...some test data...]
 > smallest, largest = None, None
@@ -322,8 +355,20 @@ final velocity: 30.0
 > ~~~
 > {: .python}
 >
-> What are the advantages and disadvantages of using this method
-> to find the range of the data?
+> > ## Solution
+> > ~~~
+> > values = [1, 3, 4, 5, 10]
+> > smallest, largest = None, None
+> > for v in values:
+> >    if largest is None:
+> >        smallest, largest = v, v
+> >    else:
+> >        smallest = min(smallest, v)
+> >        largest = max(largest, v)
+> > print(smallest, largest)
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Using Functions With Conditionals in Pandas
