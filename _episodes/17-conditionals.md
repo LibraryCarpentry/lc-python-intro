@@ -26,15 +26,15 @@ keypoints:
 ~~~
 mass = 3.54
 if mass > 3.0:
-    print(mass, 'is large')
+    print(mass, 'is larger')
 
 mass = 2.07
 if mass > 3.0:
-    print (mass, 'is large')
+    print (mass, 'is larger')
 ~~~
 {: .python}
 ~~~
-3.54 is large
+3.54 is larger
 ~~~
 {: .output}
 
@@ -47,12 +47,12 @@ if mass > 3.0:
 masses = [3.54, 2.07, 9.22, 1.86, 1.71]
 for m in masses:
     if m > 3.0:
-        print(m, 'is large')
+        print(m, 'is larger')
 ~~~
 {: .python}
 ~~~
-3.54 is large
-9.22 is large
+3.54 is larger
+9.22 is larger
 ~~~
 {: .output}
 
@@ -63,19 +63,19 @@ for m in masses:
 
 ~~~
 masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
-    if m > 3.0:
-        print(m, 'is large')
+for mass in masses:
+    if mass > 3.0:
+        print(mass, 'is larger')
     else:
-        print(m, 'is small')
+        print(mass, 'is smaller')
 ~~~
 {: .python}
 ~~~
-3.54 is large
-2.07 is small
-9.22 is large
-1.86 is small
-1.71 is small
+3.54 is larger
+2.07 is smaller
+9.22 is larger
+1.86 is smaller
+1.71 is smaller
 ~~~
 {: .output}
 
@@ -88,21 +88,21 @@ for m in masses:
 
 ~~~
 masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
+for mass in masses:
     if m > 9.0:
         print(m, 'is HUGE')
     elif m > 3.0:
-        print(m, 'is large')
+        print(mass, 'is larger')
     else:
-        print(m, 'is small')
+        print(mass, 'is smaller')
 ~~~
 {: .python}
 ~~~
-3.54 is large
-2.07 is small
+3.54 is larger
+2.07 is smaller
 9.22 is HUGE
-1.86 is small
-1.71 is small
+1.86 is smaller
+1.71 is smaller
 ~~~
 {: .output}
 
