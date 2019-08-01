@@ -139,7 +139,6 @@ h
     index of the first element we want and `stop` is replaced with the index of
     the element just after the last element we want.
 *   Mathematically, you might say that a slice selects `[start:stop]`.
-*   The difference between stop and start is the slice's length.
 *   Taking a slice does not change the contents of the original string. Instead,
     the slice is a copy of part of the original string.
 
@@ -169,15 +168,17 @@ print(len('helium'))
 
 ## Python is case-sensitive.
 
-*   Python thinks that upper- and lower-case letters are different,
-    so `Name` and `name` are different variables.
-*   There are conventions for using upper-case letters at the start of variable names
-    so we will use lower-case letters for now.
+*   Python has different identities for  upper- and lower-case letters,
+    so a variable labeled `Name` and a variable labeled `name` would be different variables.
+*   Its not unusual to encounter errors in script where casing has not been properly used, especially when coding as a beginner.   
+*   It is the convention in python to use lowercase characters for variable names 
 
 ## Use meaningful variable names.
 
-*   Python doesn't care what you call variables as long as they obey the rules
+*   Python mostly doesn't care what you call variables as long as they obey the rules
     (alphanumeric characters and the underscore).
+*   You are not allowed to use a number as the first character in an variable name.
+*   You are not allowed to use a number as a variable name.
 
 ~~~
 flabadab = 42
