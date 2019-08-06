@@ -174,7 +174,7 @@ result of call is: None
 > >
 > > ## Solution
 > > Each line of Python code is executed in order, regardless of whether that line calls
-> > out to a function, which may call out to other functions, or a simple
+> > out to a function, which may call out to other functions, or a
 > > variable assignment. In this case, the second line call to `print` will not execute until
 > > the result of `print_date` is complete in the first line.
 > {: .solution}
