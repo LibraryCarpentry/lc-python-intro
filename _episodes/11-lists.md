@@ -244,7 +244,7 @@ IndexError: string index out of range
 > ~~~
 > {: .output}
 > 
-> 1.  Explain in simple terms what `list('some string')` does.
+> 1.  Explain what `list('some string')` does.
 > 2.  What does `'-'.join(['x', 'y'])` generate?  
 > 
 > > ## Solution
@@ -333,7 +333,7 @@ IndexError: string index out of range
 > ## Sort and Sorted
 >
 > What do these two programs print?
-> In simple terms, explain the difference between `sorted(letters)` and `letters.sort()`.
+> Explain the difference between `sorted(letters)` and `letters.sort()`.
 >
 > ~~~
 > # Program A
@@ -369,12 +369,12 @@ IndexError: string index out of range
 > ## Copying (or Not)
 >
 > What do these two programs print?
-> In simple terms, explain the difference between `new = old` and `new = old[:]`.
+> Explain the difference between `new = old` and `new = old[:]`.
 >
 > ~~~
 > # Program A
 > old = list('gold')
-> new = old      # simple assignment
+> new = old      # Program A
 > new[0] = 'D'
 > print('new is', new, 'and old is', old)
 > ~~~
