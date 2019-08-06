@@ -277,8 +277,8 @@ first is 2 and second is 5
 > There are three different types of division:
 > 1. 'Normal' division (aka floating-point division) is what most people may be
 > familiar with: 5 / 2 = 2.5
-> 2. Floor division, which cuts out the part after the period: 5 / 2 = 2
-> 3. Modulo division, which only keeps the remained after division: 5 / 2 = 1
+> 2. Floor division, which cuts out the part after the period: 5 // 2 = 2
+> 3. Modulo division, which only keeps the remained after division: 5 % 2 = 1
 >
 > In Python 3,  the `/` operator performs floating-point division, the `//`
 > operator performs floor division, and the '%' (or *modulo*) operator
