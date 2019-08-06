@@ -224,7 +224,7 @@ result of print is None
 
 > ## What Happens When
 >
-> 1. Explain in simple terms the order of operations in the following program:
+> 1. Explain the order of operations in the following program:
 >    when does the addition happen, when does the subtraction happen,
 >    when is each function called, etc.
 > 2. What is the final value of `word`?
