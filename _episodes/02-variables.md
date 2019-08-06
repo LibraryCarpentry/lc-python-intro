@@ -193,7 +193,7 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 >
 > Draw a table showing the values of the variables in this program
 > after each statement is executed.
-> In simple terms, what do the last three lines of this program do?
+> What do the last three lines of this program do?
 >
 > ~~~
 > x = 1.0
