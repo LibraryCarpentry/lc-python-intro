@@ -30,9 +30,9 @@ turn out to be anything but when we have to explain them precisely.
 
 *   [Pandas](https://pandas.pydata.org/) is the home of the Pandas data library.
 
-*   Stack Overflow's [general Python section](http://stackoverflow.com/questions/tagged/python)
+*   Stack Overflow's [general Python section](https://stackoverflow.com/questions/tagged/python?tab=Votes)
     can be helpful,
-    as can the sections on [NumPy](http://stackoverflow.com/questions/tagged/numpy),
-    [SciPy](http://stackoverflow.com/questions/tagged/scipy),
-    [Pandas](http://stackoverflow.com/questions/tagged/pandas),
+    as can the sections on [NumPy](https://stackoverflow.com/questions/tagged/numpy?tab=Votes),
+    [SciPy](https://stackoverflow.com/questions/tagged/scipy?tab=Votes),
+    [Pandas](https://stackoverflow.com/questions/tagged/pandas?tab=Votes),
     and other topics.
