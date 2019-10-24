@@ -330,5 +330,8 @@ print(total)
 > seasons = ['Spring', 'Summer', 'Fall', 'Winter']
 > print('My favorite season is ', seasons[4])
 > ~~~
+> > ## Solution
+> >
+> > It is an index error. The problem is that 4 points to an item that doesn't exist in the list. Remember the first item of a list in Python is 0. Subtitute seasons[4] for seasons[0], seasons[1], seasons[2] or seasons[3] to have the different items of the list printed.
 > {: .python}
 {: .challenge}
