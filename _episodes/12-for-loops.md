@@ -360,4 +360,16 @@ print(total)
 > print('My favorite season is ', seasons[4])
 > ~~~
 > {: .python}
+>
+> > ## Solution
+> >
+> > It is an index error:
+> > ~~~
+> > IndexError: list index out of range
+> > ~~~
+> > {: .error}
+> >
+> > The problem is that `4` points to an item that doesn't exist in the list. Remember the first item of a list in Python is `0`.  
+> > Replace `seasons[4]` with `seasons[0]`, `seasons[1]`, `seasons[2]` or `seasons[3]` to have the different items of the list printed.  
+> {: .solution}
 {: .challenge}
