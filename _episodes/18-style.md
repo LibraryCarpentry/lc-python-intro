@@ -106,6 +106,35 @@ average(values)
 >     return highest
 > ~~~
 > {: .python}
+> >
+> > ## Solution
+> >
+> > These two lines will show up in online help:
+> >
+> > ~~~
+> >  '''Determine overall maximum edit distance.'''
+> >  '''Avoid checking sequence against itself.'''
+> > ~~~
+> > {: .python}
+> > 
+> > This line will not be made available because it is not in the docstring format: `"Find maximum edit distance between multiple sequences."` Docstrings should reside within the function definition, using three single quotes. 
+> >
+> > 
+> > There is one syntax error:
+> > ~~~
+> > Traceback (most recent call last):
+> > File "<interactive input>", line 1, in <module>
+> > File "<module2>", line 11, in overall_max
+> > NameError: global name 'edit_distance' is not defined
+> > ~~~
+> > {: .python}   
+> >     
+> > The `edit_distance` function has not been defined:
+> > ~~~    
+> >  this = edit_distance(left, right)
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Document This
@@ -122,6 +151,32 @@ average(values)
 >     return values[1]
 > ~~~
 > {: .python}
+> >
+> > ## Solution
+> >
+> > Change the `#` to `'''` to change to docstring:
+> >
+> > ~~~
+> >  def middle(a, b, c):
+> >  ''' Return the middle value of three.
+> >  Assumes the values can actually be compared.
+> >  '''
+> >  values = [a, b, c]
+> >  values.sort()
+> >  return values[1]  
+> > ~~~
+> > {: .python}
+> >
+> > Calling `help` on the `middle` function now shows the docstring:
+> > ~~~
+> > help (middle)
+> > Help on function middle in module __main__:
+> > middle(a, b, c)
+> >    Return the middle value of three.
+> >    Assumes the values can actually be compared. 
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Clean Up This Code
