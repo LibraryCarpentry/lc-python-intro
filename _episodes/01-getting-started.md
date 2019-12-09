@@ -20,7 +20,7 @@ keypoints:
 ## Use the Spyder IDE for editing and running Python.
 
 *   The [Anaconda package manager][anaconda] is an automated way to install the [Spyder IDE][spyder].
-    *   See [the setup instructions]({{ page.root }}/setup/) for Anaconda installation instructions.
+    *   See [the setup instructions]({{ page.root }}/setup) for Anaconda installation instructions.
 *   It also installs all the extra libraries it needs to run.
 *   Once you have installed Python and the Spyder IDE requirements, open a shell and type:
     ~~~
@@ -98,5 +98,5 @@ keypoints:
 
 
 [anaconda]: https://docs.anaconda.com/anaconda/install/
-[spyder]: http://pythonhosted.org/spyder/
+[spyder]: https://www.spyder-ide.org/
 
