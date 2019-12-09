@@ -94,7 +94,7 @@ $ python3
 [anaconda]: https://www.anaconda.com/distribution
 [anaconda-dl]: https://www.anaconda.com/download/
 [python]: https://python.org
-[spyder]: https://pythonhosted.org/spyder/
-[spyder-install]: https://pythonhosted.org/spyder/installation.html
+[spyder]: https://www.spyder-ide.org/
+[spyder-install]: https://docs.spyder-ide.org/installation.html
 [video-mac]: https://www.youtube.com/watch?v=TcSAln46u9U
 [video-windows]: https://www.youtube.com/watch?v=xxQ0mzZ8UvA
