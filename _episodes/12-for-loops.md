@@ -320,6 +320,7 @@ print(total)
 > cumulative = []
 > sum += number
 > print(cumulative)
+> sum = 0
 > data = [1,2,2,5]
 > ~~~
 > {: .python}
