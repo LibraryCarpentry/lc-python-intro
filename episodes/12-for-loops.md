@@ -206,9 +206,10 @@ print(total)
 >
 > > ## Solution
 > >
-> >It is a syntax error. The problem has to do with the placement of the code, not its logic.
-> 
->{: .solution}{: .challenge}
+> > It is a syntax error. The problem has to do with the placement of the code, not its logic.
+> >
+> {: .solution}
+{: .challenge}
 
 
 > ## Tracing Execution
@@ -324,6 +325,23 @@ print(total)
 > data = [1,2,2,5]
 > ~~~
 > {: .python}
+> >
+> > ## Solution
+> > ~~~
+> > data = [1,2,2,5]
+> > cumulative = []
+> > sum = 0
+> > for number in data:
+> >   sum += number
+> >   cumulative += [sum]
+> > print(cumulative)
+> > ~~~
+> > {: .python}
+> > ~~~
+> > [1, 3, 5, 10]
+> > ~~~
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 > ## Identifying Variable Name Errors
@@ -332,7 +350,7 @@ print(total)
 >    *without* running it.
 > 2. Run the code and read the error message.
 >    What type of `NameError` do you think this is?
->    Is it a string with no quotes, a misspelled variable, or a 
+>    Is it a string with no quotes, a misspelled variable, or a
 >    variable that should have been defined but was not?
 > 3. Fix the error.
 > 4. Repeat steps 2 and 3, until you have fixed all the errors.
