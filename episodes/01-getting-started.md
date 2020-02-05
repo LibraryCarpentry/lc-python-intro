@@ -35,7 +35,7 @@ keypoints:
 ## Different ways of interacting with Python using Spyder
 
 *   On the left, filling half of the screen is the editor. Here you can write and edit code, which can then be saved in a file (usually with a .py extension). We can run the code we wrote here by pressing the green 'play' button on top or press F5 on your keyboard.
-*   On the bottom right, we find the IPython console. This is were we can talk directly to python. It will interpret what you have typed directly when you press Enter.
+*   On the bottom right, we find the IPython console. This is were we can talk directly to Python. It will interpret what you have typed directly when you press Enter.
 
 ## Python in the console
 
