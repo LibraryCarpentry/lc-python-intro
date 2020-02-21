@@ -31,6 +31,6 @@ Please note that this lesson uses Python 3 rather than Python 2.
 >
 > 2. Learners must install [Anaconda](https://www.anaconda.com/download/) before the class starts.
 >
->    Please see [the setup instructions]({{ page.root }}/setup/)
+>    Please see [the setup instructions]({{ page.root }}/setup)
 >    for details.
 {: .prereq}
