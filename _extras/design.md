@@ -1,27 +1,25 @@
 ---
-layout: page
-title: "Lesson Design"
-root: ..
+title: Lesson Design
 ---
 
 ## Pacing and overall schedule
 
 * Pacing: The modularity of the lesson allows instructors to select the amount of content
-appropriate to the needs of the learners. 
+appropriate to the needs of the learners.
 * Each module has 15 minutes of stretch content which may be optionally included.
-* There is an additional 30 minutes built into the startup time to accomodate delays. 
+* There is an additional 30 minutes built into the startup time to accomodate delays.
 
 ### Possible paths through the lesson
 
 #### Slow morning OR afternoon
 * Startup + standard library
-* Startup + pandas 
+* Startup + pandas
 
-#### Average speed morning OR afternoon            
+#### Average speed morning OR afternoon
 * Startup + standard library + pandas
 * Startup + standard library + standard library stretch
 * Startup + pandas + pandas stretch
-        
+
 #### Full day option
 * Startup + standard library + standard library stretch + lunch + pandas + pandas stretch
 
@@ -40,7 +38,7 @@ appropriate to the needs of the learners.
 
 ### Standard library (2 hours 30 min)
 * 9:45: Understanding the environment and basic Python types and methods (15 min)
-    * Familiarization with the IDE 
+    * Familiarization with the IDE
     * Starting/stopping the IDE run or app
     * Print statements & evaluation
     * Strings
@@ -65,7 +63,7 @@ appropriate to the needs of the learners.
 
 ### Pandas (1 hour)
 * 11:15 Introduction to pandas and Jupyter (15 min)
-    * Importing pandas 
+    * Importing pandas
     * How pandas is often used
     * Using Jupyter notebooks
     * Jupyter gotchas and good practices
