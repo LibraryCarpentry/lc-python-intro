@@ -1,6 +1,7 @@
 ---
 layout: lesson
 root: .
+permalink: index.html
 ---
 
 This lesson is an introduction to programming in Python
