@@ -1,7 +1,5 @@
 ---
-layout: page
-title: "Instructors' Guide"
-root: ..
+title: Instructors' Guide
 ---
 
 ## General Notes
