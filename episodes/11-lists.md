@@ -277,7 +277,7 @@ IndexError: string index out of range
 > > ~~~
 > > {: .output}
 > > 1.  A negative index begins at the final element. 
-> > 2.  `-(N - 1)` corresponds to the first index, which is the [0] index. 
+> > 2.  `-(N)` corresponds to the first index, which is the [0] index.
 > > 3.  It removes the final element of the list. 
 > > 4.  You could do the following: `print(values[0:-1])`
 > {: .solution}
