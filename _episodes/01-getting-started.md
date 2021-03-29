@@ -20,7 +20,7 @@ keypoints:
 ## Use the Spyder IDE for editing and running Python.
 
 *   The [Anaconda package manager][anaconda] is an automated way to install the [Spyder IDE][spyder].
-    *   See [the setup instructions]({{ page.root }}/setup) for Anaconda installation instructions.
+    *   See [the setup instructions]({{ page.root }}/setup.html) for Anaconda installation instructions.
 *   It also installs all the extra libraries it needs to run.
 *   Once you have installed Python and the Spyder IDE requirements, open a shell and type:
     ~~~
@@ -29,7 +29,7 @@ keypoints:
     {: .python}
 
 *   This will start The Spyder IDE.
-*   This environment has several useful tools we can use, which you can see in different panels in the Spyder IDE. We will look into some of them. 
+*   This environment has several useful tools we can use, which you can see in different panels in the Spyder IDE. We will look into some of them.
 * You can change the positions and sizes of these panels to your preference, as you get to know them.
 
 ## Different ways of interacting with Python using Spyder
@@ -64,7 +64,7 @@ keypoints:
 > Spyder Editor
 >
 > This is a temporary script file.
-> """ 
+> """
 >~~~
 > Write the following line below these lines and press run (the green 'play' button or f5). A window might pop up asking you to specify the run settings, leave the settings as they are and press 'Run'.
 > What happens?
@@ -91,7 +91,7 @@ keypoints:
 >
 > To save the code, press 'file' and then 'save as'. Now give the file a name, for example 'mycode.py' and save it in a directory/folder where you know how to find it.
 > Look into your file system the way you usually do it. Is the file where you expect it to be?
-> 
+>
 > {: .python}
 {: .challenge}
 
@@ -99,4 +99,3 @@ keypoints:
 
 [anaconda]: https://docs.anaconda.com/anaconda/install/
 [spyder]: https://www.spyder-ide.org/
-

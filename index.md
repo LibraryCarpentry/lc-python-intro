@@ -1,6 +1,7 @@
 ---
 layout: lesson
 root: .
+permalink: index.html
 ---
 
 This lesson is an introduction to programming in Python
@@ -16,7 +17,7 @@ Please note that this lesson uses Python 3 rather than Python 2.
 > ## Under Design
 >
 > **This lesson is currently in its early design stage;
-> please check [the design notes]({{ page.root }}/design/)
+> please check [the design notes]({{ page.root }}/design/index.html)
 > to see what we have so far.
 > Contributions are very welcome:
 > we would be particularly grateful for exercises
@@ -31,6 +32,6 @@ Please note that this lesson uses Python 3 rather than Python 2.
 >
 > 2. Learners must install [Anaconda](https://www.anaconda.com/download/) before the class starts.
 >
->    Please see [the setup instructions]({{ page.root }}/setup)
+>    Please see [the setup instructions]({{ page.root }}/setup.html)
 >    for details.
 {: .prereq}
