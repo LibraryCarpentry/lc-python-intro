@@ -322,7 +322,7 @@ IndexError: string index out of range
 > > 
 > > ~~~
 > > lithium 
-> > m        
+> > ''
 > > ~~~
 > > {: .output}
 > > There is no 20th index, so the entire string is captured.  
