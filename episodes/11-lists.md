@@ -101,14 +101,14 @@ temperatures has become: [16.5, 17.5, 17.7, 17.5, 17.6, 17.9, 18.2]
 *   Not a function or a method, but a statement in the language.
 
 ~~~
-primes = [2, 3, 5, 7, 9]
+primes = [2, 3, 5, 7, 11]
 print('primes before removing last item:', primes)
 del primes[4]
 print('primes after removing last item:', primes)
 ~~~
 {: .python}
 ~~~
-primes before removing last item: [2, 3, 5, 7, 9]
+primes before removing last item: [2, 3, 5, 7, 11]
 primes after removing last item: [2, 3, 5, 7]
 ~~~
 {: .output}
