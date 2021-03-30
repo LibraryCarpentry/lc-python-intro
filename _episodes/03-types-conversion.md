@@ -285,8 +285,8 @@ first is 2 and second is 5
 > calculates the modulo division:
 >
 > ~~~
-> print('5 // 3:', 5//3)
 > print('5 / 3:', 5/3)
+> print('5 // 3:', 5//3)
 > print('5 % 3:', 5%3)
 > ~~~
 > {: .python}
