@@ -206,7 +206,7 @@ print(total)
 >
 > > ## Solution
 > >
-> > It is a syntax error. The problem has to do with the placement of the code, not its logic.
+> > It is a syntax error. It is a syntax error. Remember, syntax errors occur when Python is having trouble understanding what you're trying to do and runtime errors occur when Python understands what you're trying to do but doesn't understand your instructions. In this case, Python doesn't understand what you're trying to do because of the placement of the code, not because of its logic.
 > >
 > {: .solution}
 {: .challenge}
