@@ -223,6 +223,17 @@ print(total)
 >     total = total + 1
 > ~~~
 > {: .python}
+> >
+> > ## Solution
+> > 
+> > Line 1: `total` = 0
+> > Line 2: `char` = t; `total` = 0
+> > Line 3: `char` = t; `total` = 0 + 1 = 1
+> > Line 2: `char` = i; `total` = 1
+> > Line 3: `char` = i; `total` = 1 + 1 = 2
+> > Line 2: `char` = n; `total` = 2
+> > Line 3: `char` = n; `total` = 2 + 1 = 3
+> {: .solution}
 {: .challenge}
 
 > ## Reversing a String
@@ -307,6 +318,50 @@ print(total)
 > # write the whole thing
 > ~~~
 > {: .python}
+> >
+> > ## Solution
+> > 
+> > ~~~
+> > # Total length of the strings in the list: ["red", "green", "blue"] => 12
+> > total = 0
+> > for word in ["red", "green", "blue"]:
+> >     total = total + len(word)
+> > print(total)
+> > ~~
+> > {: .python}
+> > 
+> > ~~
+> > # List of word lengths: ["red", "green", "blue"] => [3, 5, 4]
+> > lengths = []
+> > for word in ["red", "green", "blue"]:
+> >     lengths.append(len(word))
+> > print(lengths)
+> > ~~
+> > {: .python}
+> > 
+> > ~~
+> > # Concatenate all words: ["red", "green", "blue"] => "redgreenblue"
+> > words = ["red", "green", "blue"]
+> > result = ""
+> > for word in words:
+> >     result = result + word
+> > print(result)
+> > ~~
+> > {: .python}
+> > 
+> > ~~
+> > # Create acronym: ["red", "green", "blue"] => "RGB"
+> > 
+> > words = ["red", "green", "blue"]
+> > 
+> > acronym = ""
+> > for word in words:
+> >   acronym = acronym + word[0].upper()
+> > 
+> > print(result)
+> > ~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Cumulative Sum
@@ -365,6 +420,42 @@ print(total)
 > print(message)
 > ~~~
 > {: .python}
+> 
+> > ## Solution
+> >
+> > The first error is a NameError from a misspelled variable (`Number` instead of `number`)
+> > ~~~
+> > NameError: name 'Number' is not defined
+> > ~~~
+> > {: .error}
+> >
+> > The second error is a NameError because the variable `message` has not yet been defined
+> > ~~
+> > NameError: name 'message' is not defined
+> > ~~ 
+> > {: .error}
+> > 
+> > In this kind of accumulator, the variable needs to be defined in advance, because the first time you try to add message to itself (in line 5), it doesn't yet exist.
+> > 
+> > The third (and final) error is the string `a` with no quotes, so python _thinks_ it's a variable rather than a string:
+> > ~~
+> > NameError: name 'a' is not defined
+> > ~~
+> > {: .error}
+> > 
+> > Once these errors have been fixed, the code should look like
+> > 
+> > ~~
+> > for number in range(10):
+> >    # use a if the number is a multiple of 3, otherwise use b - but note that 0/3 = 0 too
+> >    if (number % 3) == 0:
+> >        message = message + "a"
+> >    else:
+> >        message = message + "b"
+> > print(message)
+> > ~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Identifying Item Errors
