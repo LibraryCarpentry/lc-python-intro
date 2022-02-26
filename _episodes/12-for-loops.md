@@ -307,8 +307,40 @@ print(total)
 > # write the whole thing
 > ~~~
 > {: .python}
+> >
+> > ## Solution
+> > 
+> > # Total length of the strings in the list: ["red", "green", "blue"] => 12
+> > total = 0
+> > for word in ["red", "green", "blue"]:
+> >     total = total + len(word)
+> > print(total)
+> >
+> > # List of word lengths: ["red", "green", "blue"] => [3, 5, 4]
+> > lengths = []
+> > for word in ["red", "green", "blue"]:
+> >     lengths.append(len(word))
+> > print(lengths)
+> >
+> > # Concatenate all words: ["red", "green", "blue"] => "redgreenblue"
+> > words = ["red", "green", "blue"]
+> > result = ""
+> > for word in words:
+> >     result = result + word
+> > print(result)
+> > 
+> > # Create acronym: ["red", "green", "blue"] => "RGB"
+> > acronym = ""
+> > words = ["red", "green", "blue"]
+> > for word in words:
+> >     first_letter = word[0]
+> >     acronym = acronym + first_letter.upper()
+> > print(acronym)
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
-
+>
 > ## Cumulative Sum
 >
 > Reorder and properly indent the lines of code below
