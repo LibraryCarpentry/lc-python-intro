@@ -92,7 +92,6 @@ keypoints:
 > To save the code, press 'file' and then 'save as'. Now give the file a name, for example 'mycode.py' and save it in a directory/folder where you know how to find it.
 > Look into your file system the way you usually do it. Is the file where you expect it to be?
 >
-> {: .python}
 {: .challenge}
 
 
