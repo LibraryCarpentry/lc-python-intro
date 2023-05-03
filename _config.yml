@@ -12,9 +12,6 @@ carpentry: "lc"
 # Overall title for pages.
 title: "Python Intro for Libraries"
 
-# Contact email address.
-email: richyvk@gmail.com
-
 #------------------------------------------------------------
 # Generic settings (should not need to change).
 #------------------------------------------------------------
