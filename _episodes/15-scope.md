@@ -116,31 +116,31 @@ NameError: name 'temperature' is not defined
 > > There are missing parentheses and colon `():` after the function call, and the print messages don't appear aligned via whitespace
 > > ~~~
 > >    File "<stdin>", line 1
-    def another_function
-                       ^
-SyntaxError: invalid syntax
+> > def another_function
+> >                    ^
+> > SyntaxError: invalid syntax
 > > ~~~
 > > {: .error}
 > > ~~~
 > >   File "<stdin>", line 1
-    print("Syntax errors are annoying.")
-    ^
-IndentationError: unexpected indent  
+> >   print("Syntax errors are annoying.")
+> > ^
+> > IndentationError: unexpected indent  
 > > ~~~
 > > {: .error}
 > > ~~~
 > >   File "<stdin>", line 1
-    print("But at least Python tells us about them!")
-    ^
-IndentationError: unexpected indent  
+> >   print("But at least Python tells us about them!")
+> > ^
+> > IndentationError: unexpected indent  
 > > ~~~
 > > {: .error}
 > > Working function:  
 > > ~~~
 > > def another_function():
-  print("Syntax errors are annoying.")
-  print("But at least Python tells us about them!")
-  print("So they are usually not too hard to fix.")
+> >     print("Syntax errors are annoying.")
+> >     print("But at least Python tells us about them!")
+> >     print("So they are usually not too hard to fix.")
 > > ~~~
 > > {: .python}
 > {: .solution}
