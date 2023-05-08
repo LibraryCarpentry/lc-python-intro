@@ -8,7 +8,7 @@ The maintainers of this lesson are currently working on a substantial redesign o
 
 ## Background
 
-Library Carpentry is a software skills training programme aimed at library and information professions. It builds on the work of [Software Carpentry](http://software-carpentry.org/) and [Data Carpentry](http://www.datacarpentry.org/).
+Library Carpentry is a software skills training programme aimed at library and information professions. It builds on the work of [Software Carpentry](https://software-carpentry.org/) and [Data Carpentry](https://www.datacarpentry.org/).
 
 Library Carpentry is in the commons and for the commons. It is not tied to any institution of person. For more information on Library Carpentry, see our website [librarycarpentry.org](https://librarycarpentry.org/).
 
@@ -27,26 +27,27 @@ setup a local development environment that allows you to easily test changes
 locally. In order to do this, you'll want to do the following:
 
 1. [Fork this repository](https://help.github.com/articles/fork-a-repo/)
-1. Clone your fork of the repository:
+2. Clone your fork of the repository:
 
 ```
 git clone https://github.com/<your-github-username>/lc-python-intro.git
 ```
 
 1. [Install Ruby](https://www.ruby-lang.org/en/downloads/)
-1. Install Jekyll `gem install jekyll`
-1. Run the Jekyll server locally
+2. Install Jekyll `gem install jekyll`
+3. Run the Jekyll server locally
 
 ```
 cd <path-to>/lc-python-intro
 make serve
 ```
-1. Browse to your local server: [http://localhost:4000/](http://localhost:4000/)
-1. The `Makefile` has other options as well. To see them type `make`
+
+1. Browse to your local server: [http://localhost:4000/](https://localhost:4000/)
+2. The `Makefile` has other options as well. To see them type `make`
 
 ## Code of Conduct
 
-All participants should agree to abide by the [Software Carpentry Code of Conduct](http://software-carpentry.org/conduct/).
+All participants should agree to abide by the [Software Carpentry Code of Conduct](https://software-carpentry.org/conduct/).
 
 ## Authors
 
@@ -56,4 +57,6 @@ Library Carpentry is authored and maintained by the [community](https://github.c
 
 Please cite as:
 
-Library Carpentry. Introduction to programming with Python. 2017. https://librarycarpentry.org/lc-python-intro/.
+Library Carpentry. Introduction to programming with Python. 2017. [https://librarycarpentry.org/lc-python-intro/](https://librarycarpentry.org/lc-python-intro/).
+
+
