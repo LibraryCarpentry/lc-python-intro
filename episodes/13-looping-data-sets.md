@@ -121,7 +121,7 @@ Which of these files is *not* matched by the expression `glob.glob('data/*as*.cs
 
 \##Solution
 
-1 is not matched by the regular expresion.
+1 is not matched by the regular expression.
 
 
 
