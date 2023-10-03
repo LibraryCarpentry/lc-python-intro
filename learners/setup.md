@@ -4,16 +4,9 @@ title: Setup
 
 ## Installing Python Using Anaconda
 
-[Python][python] is great for general-purpose programming and is a popular language
-for scientific computing as well. Installing all of the packages required for this
-lessons individually can be a bit difficult, however, so we recommend the all-in-one
-installer [Anaconda][anaconda].
+[Python][python] is a popular general-purpose programming language, one that is commonly used for academic and scientific computing applications. Rather than installing each of the different packages required for this lesson on their own, we recommend downloading and installing [Anaconda][anaconda], which packages together Python, JupyterLab, and many common Python libraries that we'll use in the lesson.
 
-Regardless of how you choose to install it, please make sure you install Python
-version 3.x (e.g., Python 3.6 version). Also, please set up your Python environment at
-least a day in advance of the workshop. If you encounter problems with the
-installation procedure, ask your workshop organizers via e-mail for assistance so
-you are ready to go as soon as the workshop begins.
+Regardless of how you choose to install it, please make sure you install Python version 3.x (e.g., Python 3.6 version). Also, please set up your Python environment at least a day in advance of the workshop. If you encounter problems with the installation procedure, ask your workshop organizers via e-mail for assistance so you are ready to go as soon as the workshop begins.
 
 ### Windows - [Video tutorial][video-windows]
 
@@ -67,32 +60,35 @@ If you run into any difficulties, please request help before the workshop begins
   press enter to prepend Anaconda to your `PATH` (this makes the Anaconda
   distribution the default Python).
 
-## Starting Python
+## JupyterLab
 
-We will teach Python using [Spyder][spyder]. If you installed Python using Anaconda, Spyder should already be on your system. If
-you did not use Anaconda, use the Python package manager pip
-(see the [Spyder website][spyder-install] for details.)
+We will teach Python using JupyterLab, a part of a family of [Jupyter][jupyter] tools that includes Jupyter Notebook and JupyterLab, both of which provide interactive web environments where you can write and run Python code. If you installed Anaconda, JupyterLab should already be on your system. If you did not install Anaconda, you can [install JupyterLab][jupyter-install] on its own using conda, pip, or other popular package managers.
 
-To start Spyder, open a terminal or Git Bash and type the command:
+## Download the data
+
+This lesson uses a dataset comprised of circulation data across multiple CSV files from the Chicago Public Library system. The data was compiled from datasets shared by the Chicago Public Library system in [the data.gov catalog](https://catalog.data.gov/dataset/?q=chicago+%22circulation+by+location%22). Please do not download the CSV files directly from data.gov since the dataset we'll use has been cleaned to make it easier to work with.
+
+1. Create a new folder on your Desktop called ```lc-python```.
+2. Download [this zip file][dataset] and save it in the ```lc-python``` folder you just created. 
+3. Unzip the ```lc-python-circ.zip``` file, which should create a new folder called ```lc-python-circ```.
+
+## Start JupyterLab
+To start JupyterLab, open a terminal or Git Bash and navigate to your ```lc-python``` folder, then type 'jupyter lab' to launch JupyterLab.
 
 ```bash
-$ spyder
+$ cd Desktop/lc-python
+$ jupyter lab
 ```
 
-To start the Python interpreter without Spyder, open a terminal
-or Git Bash and type the command:
-
-```bash
-$ python3
-```
+If you are unfamiliar with the command line,  you can also launch JupyterLab by opening the Anaconda Navigator app and choosing the "Launch" button underneath the JuypterLab icon. If you launch Jupyterlab from Anaconda you'll need to navigate the directory of files visible in the left-hand column of the JupyterLab display to find your lc-python folder.
 
 [python]: https://python.org
 [anaconda]: https://www.anaconda.com/distribution
 [video-windows]: https://www.youtube.com/watch?v=xxQ0mzZ8UvA
 [anaconda-dl]: https://www.anaconda.com/download/
 [video-mac]: https://www.youtube.com/watch?v=TcSAln46u9U
-[spyder]: https://www.spyder-ide.org/
-[spyder-install]: https://docs.spyder-ide.org/installation.html
-
+[jupyter]: https://docs.jupyter.org/en/latest/
+[jupyter-install]: https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html
+[dataset]: episodes/files/lc-python-circ.zip
 
 
