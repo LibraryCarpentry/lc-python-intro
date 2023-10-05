@@ -5,13 +5,9 @@ site: sandpaper::sandpaper_site
 
 This lesson is an introduction to programming in Python
 for librarians with little or no previous programming experience.
-It uses examples that are relevant to a wide range of library use cases,
-and is designed to be used as a prerequisite lesson for other Python based lessons
-that will be developed in the future, e.g. using the Pandas for data analysis.
+It uses examples that are relevant to a wide range of library use cases, and is designed to be used as a prerequisite for other Python lessons that will be developed in the future (e.g., web scraping, APIs).
 
-This lesson references the Spyder IDE,
-but can be taught using a regular Python interpreter as well.
-Please note that this lesson uses Python 3 rather than Python 2.
+This lesson uses the JupyterLab computing environment and Python 3.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
