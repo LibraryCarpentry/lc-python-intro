@@ -69,10 +69,10 @@ episodes:
 - 08-looping-data-sets.md
 - 09-writing-functions.md
 - 10-wrap.md
-- 15-scope.md
-- 17-conditionals.md
-- 18-style.md
-- 20-feedback.md
+#- 15-scope.md
+#- 17-conditionals.md
+#- 18-style.md
+#- 20-feedback.md
 
 
 # Information for Learners

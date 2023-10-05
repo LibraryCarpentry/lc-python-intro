@@ -16,7 +16,7 @@ This lesson uses the JupyterLab computing environment and Python 3.
 **This lesson is currently in its early design stage;
 please check [the design notes](instructors/design.md)
 to see what we have so far.
-Contributions are very welcome:
+Contributions are welcome:
 we would be particularly grateful for exercises
 and for commentary on the ones already there.**
 

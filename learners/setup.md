@@ -72,16 +72,6 @@ This lesson uses a dataset comprised of circulation data across multiple CSV fil
 2. Download [this zip file][dataset] and save it in the ```lc-python``` folder you just created. 
 3. Unzip the ```lc-python-circ.zip``` file, which should create a new folder called ```lc-python-circ```.
 
-## Start JupyterLab
-To start JupyterLab, open a terminal or Git Bash and navigate to your ```lc-python``` folder, then type 'jupyter lab' to launch JupyterLab.
-
-```bash
-$ cd Desktop/lc-python
-$ jupyter lab
-```
-
-If you are unfamiliar with the command line,  you can also launch JupyterLab by opening the Anaconda Navigator app and choosing the "Launch" button underneath the JuypterLab icon. If you launch Jupyterlab from Anaconda you'll need to navigate the directory of files visible in the left-hand column of the JupyterLab display to find your lc-python folder.
-
 [python]: https://python.org
 [anaconda]: https://www.anaconda.com/distribution
 [video-windows]: https://www.youtube.com/watch?v=xxQ0mzZ8UvA

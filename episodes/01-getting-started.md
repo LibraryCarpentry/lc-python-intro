@@ -6,45 +6,47 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Learners can launch the Spyder IDE
-- Learners are able to use the IPython console to interact with Python
-- Learners are able to write code in the Spyder editor and run this code
-- Learners are able to save their code in a \*.py file
-- Learners can use the different buttons and panels needed in the Spyder IDE
+- Learners can launch JupyterLab
+- Learners are able to use the Jupyter Lab interface
+- Learners are able to write and run Python code in JupyterLab 
+- Learners are able to save their code as an iPython notebook (.ipynb) file 
+- Learners can use the different buttons and features in JupyterLab
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How do I use the Spyder IDE?
-- How can I run Python programs?
+- How do I use JupyterLab?
+- How can I run Python code in JupyterLab?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use the Spyder IDE for editing and running Python.
-
-- The [Anaconda package manager][anaconda] is an automated way to install the [Spyder IDE][spyder].
+## Use JupyterLab to edit and run Python code.
   
-  - See [the setup instructions](../learners/setup.md) for Anaconda installation instructions.
+If you haven't already done so, see [the setup instructions](../learners/setup.md) for details on how to install JupyterLab and Python via Anaconda. The setup instructions also walk you through the steps you should follow to create an 'lc-python' folder on your Desktop, and to download and unzip the dataset we'll be working with inside of that directory. 
 
-- It also installs all the extra libraries it needs to run.
+### Start JupyterLab
+Once you have created the 'lc-python' directory on your Desktop, you can start JupyterLab by opening a shell (Terminal on Mac or Git Bash for Windows), navigating to your ```lc-python``` folder, and typing 'jupyter lab' on the command line.
 
-- Once you have installed Python and the Spyder IDE requirements, open a shell and type:
-  
-  ```python
-  $ spyder
-  ```
+```bash
+$ cd Desktop/lc-python
+$ jupyter lab
+```
 
-- This will start The Spyder IDE.
+If you are unfamiliar with the command line,  you can also launch JupyterLab by opening the Anaconda Navigator app and choosing the "Launch" button underneath the JuypterLab icon. If you launch Jupyterlab from Anaconda you'll need to navigate the directory of folders visible in the left-hand column of the JupyterLab display to find your 'lc-python' folder.
 
-- This environment has several useful tools we can use, which you can see in different panels in the Spyder IDE. We will look into some of them.
+### A first look at JupyterLab
 
-- You can change the positions and sizes of these panels to your preference, as you get to know them.
+Launching JupyterLab should open a new tab or window in your preferred web browser. While JupyterLab enables you to run code from your browser, it does not require you to be online. If you take a look at the URL in your browser address bar, you should see that the environment is located at your localhost, meaning it is running from your computer and not connecting to a URL that is online: ```http://localhost:8888/lab```.
 
-## Different ways of interacting with Python using Spyder
+When you first open JupyterLab you should see two main panels. In the left sidebar there is a file browser. You should see a folder in the file browser named 'lc-python-circ' that contains all of our data. If you double-clock on that folder, you will see a list of the CSV files we'll be working with. To get back to the working directory, choose the folder icon just above file browser pane. 
 
-- On the left, filling half of the screen is the editor. Here you can write and edit code, which can then be saved in a file (usually with a .py extension). We can run the code we wrote here by pressing the green 'play' button on top or press F5 on your keyboard.
-- On the bottom right, we find the IPython console. This is were we can talk directly to Python. It will interpret what you have typed directly when you press Enter.
+To the right you will initially see a Launcher tab. Here we have options to launch a Python 3 notebook, a Terminal (where we can use shell commands), text files, and other filetypes. For now, we want to launch a new Python 3 notebook, so click once on the 'Python 3 (ipykernel)' button underneath the Notebook header. 
+
+Now you should see a new tab that is called Untitled.ipynb. You should also see it listed in the file browser to the left. Go ahead and right-click on the Untitled.ipynb file in the left hand panel and choose 'Rename' from the dropdown options. Let's call the notebook file, 'workshop.ipynb.'
+
+### Running Python code 
+
 
 ## Python in the console
 
