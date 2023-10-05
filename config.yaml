@@ -63,19 +63,17 @@ episodes:
 - 02-variables.md
 - 03-types-conversion.md
 - 04-built-in.md
-- 05-coffee.md
-- 06-libraries.md
-- 10-lunch.md
-- 11-lists.md
-- 12-for-loops.md
-- 13-looping-data-sets.md
-- 14-writing-functions.md
+- 05-libraries.md
+- 06-pandas.Rmd
+- 07-for-loops.md
+- 08-looping-data-sets.md
+- 09-writing-functions.md
+- 10-wrap.md
 - 15-scope.md
-- 16-coffee.md
 - 17-conditionals.md
 - 18-style.md
-- 19-wrap.md
 - 20-feedback.md
+
 
 # Information for Learners
 learners: 
@@ -92,6 +90,6 @@ profiles:
 # sandpaper and varnish versions) should live
 
 
-url: 'https://librarycarpentry.github.io/lc-python-intro'
+url: https://librarycarpentry.github.io/lc-python-intro
 analytics: carpentries
 lang: en
