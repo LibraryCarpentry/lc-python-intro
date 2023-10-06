@@ -1,5 +1,5 @@
 ---
-title: 'pandas'
+title: 'Libraries & Pandas'
 teaching: 10
 exercises: 2
 ---
