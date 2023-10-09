@@ -7,9 +7,9 @@ exercises: 0
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Learners can launch JupyterLab and create a Jupyter Notebook.
-- Learners are able to navigate the JupyterLab interface
-- Learners are able to write and run Python cells in a notebook
-- Learners are able to save their code as an iPython notebook (.ipynb file) 
+- Learners are able to navigate the JupyterLab interface.
+- Learners are able to write and run Python cells in a notebook.
+- Learners are able to save their code as an iPython notebook (.ipynb file).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -99,7 +99,6 @@ From the file browser in the left sidebar you can also select the `lc-python-cir
 
 JupyterLab is the [next stage in the evolution of the Jupyter Notebook](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#overview).
 If you have prior experience working with Jupyter notebooks, then you will have a good idea of how to work with JupyterLab. Jupyter was created as a spinoff of IPython in 2014, and includes interactive computing support for languages other than just Python, including R and Julia. While you'll still see some references to Python and IPython notebooks, IPython notebooks are officially deprecated in favor of Jupyter notebooks.
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -196,8 +195,6 @@ This Jupyter notebook contains code from the Library Carpentry lesson, Intro to 
 Changes you make to your notebook will periodically save automatically, but you can also 
 use <kbd>Cmd</kbd> + <kbd>S</kbd> to save your notebook at any time. You can also explore options to save the notebook to a new file or export it to other formats (including HTML, LaTeX, and Markdown) from the `File >` dropdown menu.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 [anaconda]: https://docs.anaconda.com/anaconda/install/
 [spyder]: https://www.spyder-ide.org/
 [jupyterlab]: https://jupyterlab.readthedocs.io/en/stable/
@@ -208,7 +205,6 @@ use <kbd>Cmd</kbd> + <kbd>S</kbd> to save your notebook at any time. You can als
 - You can launch JupyterLab from the command line or from Anaconda Navigator.
 - You can use a JupyterLab notebook to edit and run Python.
 - Notebooks can include both code and markdown cells.
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
