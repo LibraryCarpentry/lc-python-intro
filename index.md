@@ -4,7 +4,7 @@ site: sandpaper::sandpaper_site
 ---
 
 This lesson is an introduction to programming in Python
-for library and information science workers with little or no previous programming experience. It uses examples that are relevant to a wide range of library use cases, and is designed as a prerequisite for other Python lessons that will be developed in the future (e.g., web scraping, APIs). The lesson uses the JupyterLab computing environment and Python 3.
+for library and information workers with little or no previous programming experience. It uses examples that are relevant to a range of library use cases, and is designed as a prerequisite for other Python lessons that will be developed in the future (e.g., web scraping, APIs). The lesson uses the JupyterLab computing environment and Python 3.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
@@ -13,7 +13,7 @@ for library and information science workers with little or no previous programmi
 1. Learners need to understand what files and directories are and
   what a working directory is.
 
-2. Learners must install Python and JupyterLab, and download the circulation dataset that will be used in the lesson, before the workshop begins.
+2. Learners must install Python and JupyterLab, and download the dataset that will be used in the lesson, before the workshop begins.
   
   Please see [the setup instructions](learners/setup.md)
   for details.
