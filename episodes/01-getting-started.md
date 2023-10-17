@@ -6,6 +6,7 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
+- Learners are aware of applications for Python in library and information-science work environments.
 - Learners can launch JupyterLab and create a Jupyter Notebook.
 - Learners are able to navigate the JupyterLab interface.
 - Learners are able to write and run Python cells in a notebook.
@@ -19,6 +20,22 @@ exercises: 0
 - How can I run Python code in JupyterLab?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Why Python?
+
+Python is a common and popular programming language for tasks such as data collection, cleaning, and analysis. Python can help you to create reproducible workflows to accomplish repetitive tasks more efficiently. Let's consider a few examples of folks using Python in different library settings:
+1. **Metadata work.**
+2. **Collection and citation analysis.**
+3. **Assessment.** Many library workers need to collect metrics or statistics on some aspect of their work. Python can be a valuable tool to collect, clean, analyze, and visualize that data in a consistent way over time.
+4. **Accessing data.** Researchers often use Python to collect data (including textual data) from web sites and social media platforms. Academic librarians are often well-positioned to help teach those researchers use Python for web scraping or to query Application Programming Interface (APIs) to access the data they need. 
+5. **Analyzing data.** Python is widely used by scholars who are embarking on different forms of computational research (e.g., network analysis, natural language processing, machine learning). Library workers can leverage Python for their own research in these areas, but also take part in larger networks of academic support related to data science, computational social sciences, and/or digital humanities.
+
+::::::::::::::::::::::::::::::::::::: instructor
+
+Instructors: Alongside the examples above, it can be helpful to ask your co-instructors and helpers to share real-world examples of how they integrate Python into their own work and why they find it useful. You can also check-in with learners here to see if they have Python projects in mind.
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Use JupyterLab to edit and run Python code.
   
