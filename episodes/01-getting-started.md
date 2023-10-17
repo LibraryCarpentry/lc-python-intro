@@ -32,7 +32,7 @@ Python is a common and popular programming language for tasks such as data colle
 
 ::::::::::::::::::::::::::::::::::::: instructor
 
-Instructors: Alongside the examples above, it can be helpful to ask your co-instructors and helpers to share real-world examples of how they integrate Python into their own work and why they find it useful. You can also check-in with learners here to see if they have Python projects in mind.
+Instructors: Alongside the examples above, it can be helpful to ask your co-instructors and helpers to share real-world examples of how they integrate Python into their own work and why they find it useful. You can also ask learners if they have any particular Python projects in mind.
 
 
 :::::::::::::::::::::::::::::::::::::::::::::::::
@@ -49,14 +49,11 @@ There are other ways of editing, managing, and running Python code. Software dev
 JupyterLab has several other handy features:
 
 - You can easily type, edit, and copy and paste blocks of code.
-- Tab complete allows you to easily access the names of things you are using
-  and learn more about them.
 - It allows you to annotate your code with links, different sized text, bullets, etc.
   to make it more accessible to you and your collaborators.
-- It allows you to display figures next to the code that produces them
-  to tell a complete story of the analysis.
-
-Each notebook contains one or more cells that contain code, text, or images.
+- It allows you to display figures next to the code 
+  to better explore your data and visualize the fruits of your analysis.
+- Each notebook contains one or more cells that contain code, text, or images.
 
 ### Start JupyterLab
 Once you have created the `lc-python` directory on your Desktop, you can start JupyterLab by opening a shell command line interface or by using Anaconda Navigator.
