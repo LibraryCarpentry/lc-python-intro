@@ -19,7 +19,7 @@ exercises: 10
 
 ## Use variables to store values.
 
-Variables are names for values. In Python the `=` symbol assigns the value on the right to the name on the left. A variable is created when a value is assigned to it. Here, Python assigns the number `42` to the variable `age` and the name `Ahmed` in quotation marks to a variable `first_name`.
+Variables are names given to certain values. In Python the `=` symbol assigns a value on the right to the name on the left. A variable is created when a value is assigned to it. Here, Python assigns the number `42` to the variable `age` and the name `Ahmed` in quotation marks to a variable `first_name`.
 
 ```python
 age = 42
@@ -314,7 +314,7 @@ But we can also use implicit and negative index values when we define a slice. T
 - Variables must be created before they are used.
 - Variables can be used in calculations.
 - Use an index to get a single character from a string.
-- Use a slice to get a substring.
+- Use a slice to get a portion of a string.
 - Use the built-in function `len` to find the length of a string.
 - Python is case-sensitive.
 - Use meaningful variable names.

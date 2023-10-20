@@ -1,5 +1,5 @@
 ---
-title: Data Types and Type Conversion
+title: Data Types and Operators
 teaching: 10
 exercises: 10
 ---
@@ -19,43 +19,37 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Every value has a type.
+## Every Python object has a type.
 
-- Every value in a program has a specific type.
-- Integer (`int`): whole numbers like 3 or -512.
-- Floating point number (`float`): fractional numbers like 3.14159 or -2.5.
-- Whole numbers may also be stored as floats, e.g. `1.0`, but `1.0` would still be stored as a `float`.
-- Character string (usually called "string", `str`): text.
-  - Written in either single quotes or double quotes (as long as they match).
-  - The quotation marks aren't printed using `print()`, but may appear when viewing a value in the Jupyter Notebook or other Python interpreter.
+Everything in Python is some type of object. Objects contain attributes, usually data and related functions, called methods. Every object that you work with in Python will be of a specific type. 
 
-## Use the built-in function `type` to find the type of a value.
+### Use the built-in function `type()` to find an object's type.
 
-- Use the built-in function `type` to find out what type a value has.
-- This works on variables as well.
-  - But remember: the *value* has the type --- the *variable* is just a label.
-  - When you change the value of a variable to a new data type, the results of `print(type(your_variable))` will change accordingly.
+You can use the built-in Python function `type()` to find out an object's type. 
 
 ```python
-print(type(52))
+print(type(140.2))
+print(type(age))
+print(type(first_name))
+print(type(print))
 ```
 
 ```output
+<class 'float'>
 <class 'int'>
-```
-
-```python
-title = 'Biochemistry'
-print(type(title))
-```
-
-```output
 <class 'str'>
+<class 'builtin_function_or_method'>
 ```
 
-## Types control what operations (or methods) can be performed on a given value.
+1. 140.2 is an example of a floating point number or `float`. These are fractional numbers. 
+2. The value of the `age` variable from the previous episode is 45, which is a whole number, or integer (`int`). Note that you can pass a variable to the `type()` function, but it is the *value* of the variable that has a type in Python - the variable is just a label.
+3. The first_name variable refers to the string (`str`) of 'Ahmed' from the last episode. 
+4. The built-in Python function `print()` is also an object with a type, in this case it's a `builtin_function_or_method`. Note that there are functions and methods that you and others can define in Python. The builtin functions refer to those that are included in the core Python library. 
 
-- A value's type determines what the program can do to it.
+
+## Types control what operations (or methods) can be performed on objects.
+
+An object's type determines what the program can do with it.
 
 ```python
 print(5 - 3)
@@ -78,9 +72,9 @@ TypeError                                 Traceback (most recent call last)
 TypeError: unsupported operand type(s) for -: 'str' and 'str'
 ```
 
-## You can use the `+` and `*` operators on strings.
+### You can use the `+` and `*` operators on strings.
 
-- "Adding" character strings concatenates them.
+In the example above, we see that we can't subtract a single character from a string. But some arithmetic operators can be "overloaded" in Python so that they will work on strings. For example, adding" character strings together will concatenate them.
 
 ```python
 full_name = 'Ahmed' + ' ' + 'Walsh'
@@ -91,32 +85,22 @@ print(full_name)
 Ahmed Walsh
 ```
 
-- Multiplying a character string by an integer *N* creates a new string that consists of that character string repeated  *N* times.
-  - Since multiplication is repeated addition.
-- There are more ways that traditional math operators will work on other data types.  There isn't a perfect formula for figuring out what they do, so experimentation is valuable.
+Along similar lines, multiplying a character string by an integer *n* creates a new string that consists of that character string repeated  *n* times.
 
 ```python
-separator = '=' * 10
-print(separator)
+ms = 'Mi' + ('ssi' * 2) + 'ppi'
+ms
 ```
 
 ```output
-==========
+Mississippi
 ```
 
-## Strings have a length (but numbers don't).
+In the example above, we didn't bother to pass the `ms` variable to a `print()` function. That's because, in Jupyter Notebooks, if a variable is in the last line of a cell, it will print the value of the variable to the output. 
 
-- The built-in function `len` counts the number of characters in a string.
+### Strings have a length (but numbers don't).
 
-```python
-print(len(full_name))
-```
-
-```output
-11
-```
-
-- But numbers don't have a length (not even zero).
+We've already seen that the function `len` counts the number of characters in a string, but numbers (floats and integers) don't have a length.
 
 ```python
 print(len(52))
@@ -131,9 +115,9 @@ TypeError                                 Traceback (most recent call last)
 TypeError: object of type 'int' has no len()
 ```
 
-## Must convert numbers to strings or vice versa when operating on them.
+### Can't add numbers and strings.
 
-- Cannot add numbers and strings.
+We have to convert numbers to strings or vice versa when operating on them.
 
 ```python
 print(1 + 'A')
@@ -148,8 +132,15 @@ TypeError                                 Traceback (most recent call last)
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 ```
 
-- Not allowed because it's ambiguous: should `1 + '2'` be `3` or `'12'`?
-- Some types can be converted to other types by using the type name as a function.
+Some types can be converted to other types by using the type name as a function. For example, we can change non-strings to a string using the `str()` function, which allows us to concatenate the objects as strings:
+
+```python
+print(str(1) + 'A')
+```
+
+```output
+1A
+```
 
 ```python
 print(1 + int('2'))
@@ -161,10 +152,9 @@ print(str(1) + '2')
 12
 ```
 
-## Can mix integers and floats freely in operations.
+### You can mix integers and floats in operations.
 
-- Integers and floating-point numbers can be mixed in arithmetic.
-  - Python automatically converts integers to floats as needed.
+Integers and floating-point numbers can be mixed when you do  arithmetic. Python will automatically convert integers to floats as needed.
 
 ```python
 print('half is', 1 / 2.0)
@@ -176,15 +166,12 @@ half is 0.5
 three squared is 9.0
 ```
 
-## Variables only change value when something is assigned to them.
+### Variables only change value when something is assigned to them.
 
-- If we make one cell in a spreadsheet depend on another,
-  and update the latter,
-  the former updates automatically.
-- This does **not** happen in programming languages.
+In a spreadsheet, if we make one cell depend on another, and then update the latter, the former updates automatically. This does **not** happen in programming languages.
 
 ```python
-first = 1
+first = 1 
 second = 5 * first
 first = 2
 print('first is', first, 'and second is', second)
@@ -194,9 +181,7 @@ print('first is', first, 'and second is', second)
 first is 2 and second is 5
 ```
 
-- The computer reads the value of `first` when doing the multiplication,
-  creates a new value, and assigns it to `second`.
-- After that, `second` does not remember where it came from.
+When you assigned `second` the value of `5 * first`, the `first` variable was equal to `1`. Because we didn't run any code to reassign `second` after we updated the value of `first`, `second` is still equal to `5`. Remember that variables are assigned when they're run, and they won't update on their own.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -253,8 +238,7 @@ print(result, 'is', type(result))
 
 ## Choose a Type
 
-What type of value (integer, floating point number, or character string)
-would you use to represent each of the following?  Try to come up with more than one good answer for each problem.  For example, in  # 1, when would counting days with a floating point variable make more sense than using an integer?
+What type of value (integer, floating point number, or character string) would you use to represent each of the following?  Try to come up with more than one good answer for each problem.  For example, in  # 1, when would counting days with a floating point variable make more sense than using an integer?
 
 1. Number of days since the start of the year.
 2. Time elapsed since the start of the year.
@@ -273,8 +257,6 @@ would you use to represent each of the following?  Try to come up with more than
 4. Integer
 5. Integer
 6. Float  
-  
-  
 
 :::::::::::::::::::::::::
 
@@ -286,10 +268,9 @@ would you use to represent each of the following?  Try to come up with more than
 
 There are three different types of division:
 
-1. 'Normal' division (aka floating-point division) is what most people may be
-  familiar with: 5 / 2 = 2.5
-2. Floor division, which cuts out the part after the period: 5 / 2 = 2
-3. Modulo division, which only keeps the remained after division: 5 / 2 = 1
+1. 'Normal' division (aka floating-point division) is what most people may be familiar with: `5 / 2 = 2.5`
+2. Floor division cuts out everything after a decimal point: `5 / 2 = 2`
+3. Modulo division returns the remainder after division: `5 / 2 = 1`
 
 In Python 3,  the `/` operator performs floating-point division, the `//`
 operator performs floor division, and the '%' (or *modulo*) operator
@@ -307,10 +288,9 @@ print('5 % 3:', 5%3)
 5 % 3: 2
 ```
 
-If `num_students` is the number of students enrolled in a course (let say 600),
-and `num_per_class` is the number that can attend a single class (let say 42),
-write an expression that calculates the number of classes needed
-to teach everyone.
+If `num_students` is the number of students who registered for a workshop (let say 150),
+and `num_per_workshop` is the number that can attend a single section of the workshop (let say 20),
+write an expression that calculates the number of workshop sections needed to teach everyone. Can you also calculate 
 
 :::::::::::::::  solution
 
@@ -321,18 +301,18 @@ number of students evenly. Detect it with the `%` operator and test if the remai
 0\.
 
 ```python
-num_students = 600
-num_per_class = 42
-num_classes = num_students // num_per_class
-remainder = num_students % num_per_class
+num_students = 150
+num_per_workshop = 20
+num_classes = num_students // num_per_workshop
+remainder = num_students % num_per_workshop
 
-print(num_students, 'students,', num_per_class, 'per class')
-print(num_classes, ' full classes, plus an extra class with only ', remainder, 'students')
+print(num_students, 'students,', num_per_workshop, 'per workshop')
+print(num_classes, 'full workshops, plus an extra section with only ', remainder, 'students')
 ```
 
 ```output
-600 students, 42 per class
-14  full classes, plus an extra class with only  12 students
+150 students, 20 per workshop
+7 full workshops, plus an extra class with only  10 students
 ```
 
 :::::::::::::::::::::::::
@@ -355,9 +335,6 @@ print("float to int:", int(3.4))
 string to float: 3.4
 float to int: 3
 ```
-
-**Note:** conversion is some times also called typecast.
-
 If the conversion doesn't make sense, however, an error message will occur
 
 ```python
@@ -387,14 +364,9 @@ print("fractional string to int:", int("3.4"))
 
 ## Solution
 
-What do you expect this program to do? It would not be so unreasonable to
-expect the Python `int` command to convert the string "3.4" to 3.4 and an
-additional type conversion to 3. After all, Python performs a lot of other
-magic - isn't that part of its charm?
+What do you expect this program to do? It would not be unreasonable to expect the Python `int` command to convert the string "3.4" to 3.4 and an additional type conversion to 3. After all, Python performs a lot of other magic - isn't that part of its charm?
 
-However, Python throws an error. Why? To be consistent, possibly. If you
-ask Python to perform two consecutive typecasts, you must convert it
-explicitly in code.
+However, Python throws an error. Why? To be consistent, possibly. If you ask Python to perform two consecutive conversions, you must convert it explicitly in code.
 
 ```python
 num_as_string = "3.4"
@@ -408,7 +380,6 @@ print(num_as_int)
 ```
 
 We could also write it in a single line like this: `int(float("3.4"))`
-
 
 
 :::::::::::::::::::::::::
@@ -456,13 +427,13 @@ Answer: 1 and 4.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Every value has a type.
-- Use the built-in function `type` to find the type of a value.
-- Types control what operations can be done on values.
+- Every object has a type.
+- Use the built-in function `type` to find the type of an object.
+- Types control what operations can be done on objects.
 - Strings can be added and multiplied.
-- Strings have a length (but numbers don't).
-- Must convert numbers to strings or vice versa when operating on them.
-- Can mix integers and floats freely in operations.
+- Strings have a length but numbers don't.
+- You have to convert numbers to strings or vice versa when operating on them.
+- You can mix integers and floats freely in operations.
 - Variables only change value when something is assigned to them.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
