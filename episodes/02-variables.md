@@ -19,11 +19,7 @@ exercises: 10
 
 ## Use variables to store values.
 
-- Variables are names for values.
-- In Python the `=` symbol assigns the value on the right to the name on the left.
-- The variable is created when a value is assigned to it.
-- Here, Python assigns an age to a variable `age`
-  and a name in quotation marks to a variable `first_name`.
+Variables are names for values. In Python the `=` symbol assigns the value on the right to the name on the left. A variable is created when a value is assigned to it. Here, Python assigns the number `42` to the variable `age` and the name `Ahmed` in quotation marks to a variable `first_name`.
 
 ```python
 age = 42
@@ -34,16 +30,10 @@ first_name = 'Ahmed'
   - cannot start with a digit
   - cannot contain spaces, quotation marks, or other punctuation
   - *may* contain an underscore (typically used to separate words in long variable names)
-- Underscores at the start like `__alistairs_real_age` have a special meaning
-  so we won't do that until we understand the convention.
 
-## Use `print` to display values.
+## Use `print()` to display values.
 
-- Python has a built-in function called `print` that prints things as text.
-- Call the function (i.e., tell Python to run it) by using its name.
-- Provide values to the function (i.e., the things to print) in parentheses.
-- To add a string to the printout, wrap the string in single quotations.
-- The values passed to the function are called 'arguments'
+Python has a built-in function called `print()` that outputs things as text. You call the function by typing `print` followed by a pair of parentheses - `print()`. Inside of the parentheses we can add the Python objects that we want print. The items we put inside of the parentheses are the `print` function's arguments. You can pass variables and text strings (by placing text within quotation marks) directly to the print function, and you can separate multiple items with commas. 
 
 ```python
 print(first_name, 'is', age, 'years old')
@@ -53,14 +43,11 @@ print(first_name, 'is', age, 'years old')
 Ahmed is 42 years old
 ```
 
-- `print` automatically puts a single space between items to separate them.
-- And wraps around to a new line at the end.
+`print()` automatically puts a single space between items to separate them, and add a new line at the end of every printout.
 
 ## Variables must be created before they are used.
 
-- If a variable doesn't exist yet, or if the name has been mis-spelled,
-  Python reports an error.
-  - Unlike some languages, which "guess" a default value.
+If a variable doesn't exist yet, or if the name has been misspelled, Python reports an error.
 
 ```python
 print(eye_color)
@@ -75,27 +62,21 @@ NameError                                 Traceback (most recent call last)
 NameError: name 'eye_color' is not defined
 ```
 
-- The last line of an error message is usually the most informative.
-- We will look at error messages in detail [later](05-error-messages).
+The last line of an error message is usually the most informative. In this case it tells us that the `eye_color` variable is not defined. NameErrors often refer to variables that haven't been assigned yet.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Variables Persist Between Cells
 
-Variables defined in one cell exist in all other cells once executed,
-so the relative location of cells in the notebook do not matter
-(i.e., cells lower down can still affect those above).
-Remember: Notebook cells are just a way to organize a program:
-as far as Python is concerned,
-all of the source code is one long set of instructions.
-
+Variables defined in one cell exist in all other cells once they have been executed, so the relative location of cells in the notebook do not matter. In other words if you execute a cell at the bottom of your notebook, the variables in the cell will be available afterwards in cells at the top of the notebook.
+Notebook cells are a way to organize your code,
+but Python only cares about the order in which the code has been executed.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Variables can be used in calculations.
 
-- We can use variables in calculations just as if they were values.
-  - Remember, we assigned 42 to `age` a few lines ago.
+We can use variables in calculations just as if they were values. We assigned 42 to `age` a few lines ago, so we can reference that value within a new variable assignment.
 
 ```python
 age = age + 3
@@ -108,14 +89,7 @@ Age in three years: 45
 
 ## Use an index to get a single character from a string.
 
-- The characters (individual letters, numbers, and so on) in a string are
-  ordered. For example, the string 'AB' is not the same as 'BA'. Because of
-  this ordering, we can treat the string as a list of characters.
-- Each position in the string (first, second, etc.) is given a number. This
-  number is called an index or sometimes a subscript.
-- Indices are numbered from 0 rather than 1.
-- Use the position's index in square brackets to get the character at that
-  position.
+We can reference the specific location of a character (individual letters, numbers, and so on) in a text string by using its index position. In Python, each character in a string (first, second, etc.) is given a number, which is called an index. Indices are numbered to begin from 0 rather than 1. We can use an index number in square brackets to refer to the character at that position.
 
 ```python
 element = 'helium'
@@ -126,20 +100,9 @@ print(element[0])
 h
 ```
 
-## Use a slice to get a substring.
+## Use a slice to get multiple characters from a string.
 
-- A part of a string is called a substring. A substring can be as short as a
-  single character.
-- An item in a list is called an element. Whenever we treat a string as if it
-  were a list, the string's elements are its individual characters.
-- A slice is a part of a string (or, more generally, any list-like thing).
-- We take a slice by using `[start:stop]`, where `start` is replaced with the
-  index of the first element we want and `stop` is replaced with the index of
-  the element just after the last element we want.
--   Mathematically, you might say that a slice selects `[start:stop]`.
-- The difference between stop and start is the slice's length.
-- Taking a slice does not change the contents of the original string. Instead,
-  the slice is a copy of part of the original string.
+A slice is a part of a string that we can reference using `[start:stop]`, where `start` is the index of the first character we want and `stop` is the last character. Referencing a string slice does not change the contents of the original string. Instead, the slice returns a copy of the part of the original string we want. 
 
 ```python
 element = 'sodium'
@@ -150,7 +113,11 @@ print(element[0:3])
 sod
 ```
 
+Note that in the example above, `element[0:3]` begins with zero, which refers to the first element in the string, and ends with a 3. When working with slices the end point is interpreted as going up to, *but not including* the index number provided. In other words, the character in the index position of 3 in the string `sodium` is `i`, so the slice `[0:3]` will go up to but not include that character, and therefore give us `sod`.
+
 ## Use the built-in function `len` to find the length of a string.
+
+The `len()`function will tell us the length of an item. In the case of a string, it will tell us how many characters are in the string. 
 
 ```python
 print(len('helium'))
@@ -160,20 +127,15 @@ print(len('helium'))
 6
 ```
 
-- Nested functions are evaluated from the inside out,
-  just like in mathematics.
+In the example above we have nested the `print()` and `len()` functions. When nesting functions, they are evaluated from the inside out, just like in mathematics, so `len()` is evaluated first, followed by the `print()` function.
 
-## Python is case-sensitive.
+## Variable naming conventions
 
-- Python thinks that upper- and lower-case letters are different,
-  so `Name` and `name` are different variables.
-- There are conventions for using upper-case letters at the start of variable names
-  so we will use lower-case letters for now.
+### Python is case-sensitive. 
+Python thinks that upper- and lower-case letters are different, so `Name` and `name` would be different variables.
 
-## Use meaningful variable names.
-
-- Python doesn't care what you call variables as long as they obey the rules
-  (alphanumeric characters and the underscore).
+### Use meaningful variable names. 
+Python doesn't care what you call variables as long as they obey the rules (alphanumeric characters and the underscore).
 
 ```python
 flabadab = 42
@@ -181,8 +143,7 @@ ewr_422_yY = 'Ahmed'
 print(ewr_422_yY, 'is', flabadab, 'years old')
 ```
 
-- Use meaningful variable names to help other people understand what the program does.
-- The most important "other person" is your future self.
+But it's important to use meaningful variable names to help other people understand what the program does. Often, the most important "other person" is your future self.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -313,32 +274,31 @@ from someone who is leaving the library:
 
 ## Slicing
 
-What does the following program print?
+We know how to slice using an explicit start and end point:
 
 ```python
-library_name = 'social sciences'
+library_name = 'Library of Babel'
 print('library_name[1:3] is:', library_name[1:3])
 ```
+```output
+library_name[1:3] is: ib
+```
 
-1. What does `thing[low:high]` do?
-2. What does `thing[low:]` (without a value after the colon) do?
-3. What does `thing[:high]` (without a value before the colon) do?
-4. What does `thing[:]` (just a colon) do?
-5. What does `thing[number:negative-number]` do?
+But we can also use implicit and negative index values when we define a slice. Try the following (replacing `low` and `high` with index positions of your choosing) to figure out how these different forms of slicing work:
+
+1. What does `library_name[low:]` (without a value after the colon) do?
+2. What does `library_name[:high]` (without a value before the colon) do?
+3. What does `library_name[:]` (just a colon) do?
+4. What does `library_name[number:negative-number]` do?
 
 :::::::::::::::  solution
 
 ## Solution
 
-```output
-library_name[1:3] is: oc
-```
-
-1. It will slice the string, starting at the `low` index and ending an element before the `high` index
-2. It will slice the string, starting at the `low` index and stopping at the end of the string
-3. It will slice the string, starting at the beginning on the string, and ending an element before the `high` index
-4. It will print the entire string
-5. It will slice the string, starting the `number` index, and ending a distance of the absolute value of `negative-number` elements from the end of the string
+1. It will slice the string, starting at the `low` index and stopping at the end of the string
+2. It will slice the string, starting at the beginning on the string, and ending an element before the `high` index
+3. It will print the entire string
+4. It will slice the string, starting the `number` index, and ending a distance of the absolute value of `negative-number` elements from the end of the string
   
   
 

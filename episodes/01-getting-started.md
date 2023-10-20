@@ -23,17 +23,22 @@ exercises: 0
 
 ## Why Python?
 
-Python is a common and popular programming language for tasks such as data collection, cleaning, and analysis. Python can help you to create reproducible workflows to accomplish repetitive tasks more efficiently. Let's consider a few examples of folks using Python in different library settings:
+Python is a popular programming language for tasks such as data collection, cleaning, and analysis. Python can help you to create reproducible workflows to accomplish repetitive tasks more efficiently. Let's consider a few examples of folks using Python in different library settings:
+
 1. **Metadata work.**
+
 2. **Collection and citation analysis.**
+
 3. **Assessment.** Many library workers need to collect metrics or statistics on some aspect of their work. Python can be a valuable tool to collect, clean, analyze, and visualize that data in a consistent way over time.
+
 4. **Accessing data.** Researchers often use Python to collect data (including textual data) from web sites and social media platforms. Academic librarians are often well-positioned to help teach those researchers use Python for web scraping or to query Application Programming Interface (APIs) to access the data they need. 
+
 5. **Analyzing data.** Python is widely used by scholars who are embarking on different forms of computational research (e.g., network analysis, natural language processing, machine learning). Library workers can leverage Python for their own research in these areas, but also take part in larger networks of academic support related to data science, computational social sciences, and/or digital humanities.
+
 
 ::::::::::::::::::::::::::::::::::::: instructor
 
-Instructors: Alongside the examples above, it can be helpful to ask your co-instructors and helpers to share real-world examples of how they integrate Python into their own work and why they find it useful. You can also ask learners if they have any particular Python projects in mind.
-
+Instructors: Along with the examples above, it can be helpful to ask your co-instructors and helpers to share real-world examples of how they integrate Python into their own work and why they find it useful. You can also ask learners if they have any particular Python projects in mind.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -42,11 +47,14 @@ Instructors: Alongside the examples above, it can be helpful to ask your co-inst
 If you haven't already done so, see [the setup instructions](../learners/setup.md) for details on how to install JupyterLab and Python via Anaconda. The setup instructions also walk you through the steps you should follow to create an `lc-python` folder on your Desktop, and to download and unzip the dataset we'll be working with inside of that directory. 
 
 ### Getting started with JupyterLab
-To run Python, we are going to use Jupyter Notebooks via [JupyterLab][jupyterlab]. Jupyter notebooks are common in data science and visualization and serve as a convenient environment for running Python code interactively where we can view and share the results of our Python code.
+To run Python, we are going to use Jupyter Notebooks via [JupyterLab][jupyterlab]. Jupyter notebooks are common tools for data science and visualization, and serve as a convenient environment for running Python code interactively where we can view and share the results of our Python code.
 
-There are other ways of editing, managing, and running Python code. Software developers often use an integrated development environment (IDE) like [PyCharm](https://www.jetbrains.com/pycharm/), [Spyder][spyder] or [Visual Studio Code](https://code.visualstudio.com/), or text editors like Vim or Emacs, to create and edit Python scripts. After editing and saving Python scripts you can execute those programs within the IDE itself or directly on the command line. In contrast, Jupyter notebooks let us execute and view the results of our Python code immediately within the notebook.
+:::::::::::::::::::::::::::::::::::::::::  callout
+### Alternatives to Juypter
+There are other ways of editing, managing, and running Python code. Software developers often use an integrated development environment (IDE) like [PyCharm](https://www.jetbrains.com/pycharm/), [Spyder][spyder] or [Visual Studio Code (VS Code)](https://code.visualstudio.com/), to create and edit Python scripts. Others use text editors like Vim or Emacs to hand-code Python. After editing and saving Python scripts you can execute those programs within an IDE or directly on the command line. 
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-JupyterLab has several other handy features:
+Jupyter notebooks let us execute and view the results of our Python code immediately within the notebook. JupyterLab has several other handy features:
 
 - You can easily type, edit, and copy and paste blocks of code.
 - It allows you to annotate your code with links, different sized text, bullets, etc.
@@ -167,42 +175,11 @@ You can move cells around in your notebook by going to Command mode, hovering ov
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Markdown
-You can also add text to a Juypter notebook by selecting a cell, and changing the dropdown above the notebook from `Code` to `Markdown`. Markdown is a lightweight language for formatting text. This feature allows you to annotate your code, add headers, and write documentation to help explain the code.  
+You can add text to a Juypter notebook by selecting a cell, and changing the dropdown above the notebook from `Code` to `Markdown`. Markdown is a lightweight language for formatting text. This feature allows you to annotate your code, add headers, and write documentation to help explain the code. While we won't cover Markdown in this lesson, there are many helpful online guides out there:
+- [Markdown for Jupyter Cheatsheet (IBM)](https://www.ibm.com/docs/en/watson-studio-local/1.2.3?topic=notebooks-markdown-jupyter-cheatsheet)
+- [Markdown Guide (Matt Cone)](https://www.markdownguide.org/)
 
 ![Changing a cell from Code to Markdown](../episodes/fig/0_jupyter_markdown_dd.png){alt='screenshot of the Jupyter notebook dropdown to change a cell to Markdown'}
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-Markdown uses the hash symbol, `#`, at the beginning of a line to mark a header and a hyphen, `-`, to mark an un-ordered list item (e.g., a bullet point). For example:
-
-```markdown
-# This is a Header 1
-## This is a Header 2
-### This is a Header 3
-This is unformatted text. 
-- Here's the first bullet. 
-- Here's the second bullet. 
-```
-
-Add a new cell to the beginning of your notebook with a header and bullet points to introduce the workshop file. You might add your name, date, or other features that explain that the code that follows is for a Library Carpentry Intro to Python workshop. 
-
-:::::::::::::::  solution
-
-## Solution
-
-
-
-```markdown
-# Library Carpentry - Python workshop
-- Date: October 9, 2023
-- Author: Cody Hennesy
-This Jupyter notebook contains code from the Library Carpentry lesson, Intro to Python.
-
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ## Saving the code
 
@@ -218,7 +195,7 @@ use <kbd>Cmd</kbd> + <kbd>S</kbd> to save your notebook at any time. You can als
 
 - You can launch JupyterLab from the command line or from Anaconda Navigator.
 - You can use a JupyterLab notebook to edit and run Python.
-- Notebooks can include both code and markdown cells.
+- Notebooks can include both code and markdown (text) cells.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
