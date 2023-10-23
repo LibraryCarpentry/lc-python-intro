@@ -6,9 +6,8 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain key differences between integers and floating point numbers.
-- Explain key differences between numbers and character strings.
-- Use built-in functions to convert between integers, floating point numbers, and strings.
+- Write Python to view and convert the data types of Python objects.
+- Perform arithmetic on floating point numbers and integers, and perform string operations such as concatenation on strings.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -96,24 +95,7 @@ ms
 Mississippi
 ```
 
-In the example above, we didn't bother to pass the `ms` variable to a `print()` function. That's because, in Jupyter Notebooks, if a variable is in the last line of a cell, it will print the value of the variable to the output. 
-
-### Strings have a length (but numbers don't).
-
-We've already seen that the function `len` counts the number of characters in a string, but numbers (floats and integers) don't have a length.
-
-```python
-print(len(52))
-```
-
-```error
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-<ipython-input-3-f769e8e8097d> in <module>()
-----> 1 print(len(52))
-
-TypeError: object of type 'int' has no len()
-```
+In the example above, we didn't bother to pass the `ms` variable to a `print()` function. That's because, in Jupyter Notebooks, if a variable is in the last line of a cell, it will output the value of the object to the Notebook. 
 
 ### Can't add numbers and strings.
 
@@ -150,20 +132,6 @@ print(str(1) + '2')
 ```output
 3
 12
-```
-
-### You can mix integers and floats in operations.
-
-Integers and floating-point numbers can be mixed when you do  arithmetic. Python will automatically convert integers to floats as needed.
-
-```python
-print('half is', 1 / 2.0)
-print('three squared is', 3.0 ** 2)
-```
-
-```output
-half is 0.5
-three squared is 9.0
 ```
 
 ### Variables only change value when something is assigned to them.
@@ -218,8 +186,7 @@ What type of value is 3.25 + 4?
 
 ## Solution
 
-It is a float:
-integers are automatically converted to floats as necessary.
+It is a float: integers are automatically converted to floats as necessary.
 
 ```python
 result = 3.25 + 4
@@ -287,111 +254,7 @@ print(num_classes, 'full workshops, plus an extra section with only ', remainder
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
 
-## Strings to Numbers
-
-Where reasonable, `float()` will convert a string to a floating point number,
-and `int()` will convert a floating point number to an integer:
-
-```python
-print("string to float:", float("3.4"))
-print("float to int:", int(3.4))
-```
-
-```output
-string to float: 3.4
-float to int: 3
-```
-If the conversion doesn't make sense, however, an error message will occur
-
-```python
-print("string to float:", float("Hello world!"))
-```
-
-```error
----------------------------------------------------------------------------
-ValueError                                Traceback (most recent call last)
-<ipython-input-5-df3b790bf0a2> in <module>()
-----> 1 print("string to float:", float("Hello world!"))
-
-ValueError: could not convert string to float: 'Hello world!'
-```
-
-Given this information, what do you expect the following program to do?
-
-What does it actually do?
-
-Why do you think it does that?
-
-```python
-print("fractional string to int:", int("3.4"))
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-What do you expect this program to do? It would not be unreasonable to expect the Python `int` command to convert the string "3.4" to 3.4 and an additional type conversion to 3. After all, Python performs a lot of other magic - isn't that part of its charm?
-
-However, Python throws an error. Why? To be consistent, possibly. If you ask Python to perform two consecutive conversions, you must convert it explicitly in code.
-
-```python
-num_as_string = "3.4"
-num_as_float = float(num_as_string)
-num_as_int = int(num_as_float)
-print(num_as_int)
-```
-
-```output
-3
-```
-
-We could also write it in a single line like this: `int(float("3.4"))`
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Arithmetic with Different Types
-
-Which of the following will print 2.0?
-Note: there may be more than one right answer.
-
-```python
-first = 1.0
-second = "1"
-third = "1.1"
-```
-
-1. `first + float(second)`
-2. `float(second) + float(third)`
-3. `first + int(third)`
-4. `first + int(float(third))`
-5. `int(first) + int(float(third))`
-6. `2.0 * second`
-
-:::::::::::::::  solution
-
-## Solution
-
-Answer: 1 and 4.
-
-1. is correct
-2. gives 2.1
-3. gives an error because we cannot convert text to int directly
-4. is correct
-5. gives 2 (as an integer not as a float)
-6. gives an error because `second` is a string.
-  
-  
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 

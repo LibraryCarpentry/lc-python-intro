@@ -6,83 +6,182 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain why programs need collections of values.
-- Write programs that create flat lists, index them, slice them, and modify them through assignment and method calls.
+- Create collections of values to work with in Python using lists.
+- Write Python code to index, slice, and modify lists through assignment and method calls.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I store multiple values?
+- How can I store multiple values in Python?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## A list stores many values in a single structure.
+The most popular kind of data collection in Python is the list. Lists have two primary important characteristics:
 
-- Scenario: You have set up an Arduino to do temperature measurements
-  in a storage room for rare books.
-- Doing calculations with a hundred variables called `temperature_001`, `temperature_002`, etc.,
-  would be at least as slow as doing them by hand.
-- Use a *list* to store many values together.
-  - Contained within square brackets `[...]`.
-  - Values separated by commas `,`.
-- Use `len` to find out how many values are in a list.
+1. They are mutable, i.e., they can be changed after they are created.
+2. They are heterogeneous, i.e., they can store values of many different types.
+
+In the dataset we will be working with soon, we'll look at the circulation numbers from a variety of branch libraries in Chicago, Illinois (USA). Each branch library has some metadata associated with it, including its zip (postal) code. We could use a Python list to organize some of those codes.
+
+To create a new list, you can just put some values in square brackets with commas in between.
 
 ```python
-temperatures = [17.3, 17.5, 17.7, 17.5, 17.6]
-print('temperatures:', temperatures)
-print('length:', len(temperatures))
+zip_codes = [60625, 60827, 60632, 60644, 60634]
+print('Zip codes:', zip_codes)
 ```
 
 ```output
-temperatures: [17.3, 17.5, 17.7, 17.5, 17.6]
-length: 5
+Zip codes: [60625, 60827, 60632, 60644, 60634]
+```
+
+We can use `len()` to find out how many values are in a list.
+
+```python
+print('Number of zip codes:', len(zip_codes))
+```
+
+```output
+Number of zip codes: 5
 ```
 
 ## Use an item's index to fetch it from a list.
 
-- Just like strings.
+In the same way we used index numbers for strings, we can reference elements in a list.
 
 ```python
-print('zeroth item of temperatures:', temperatures[0])
-print('fourth item of temperatures:', temperatures[4])
+print('zeroth item of zip_codes:', zip_codes[0])
+print('fourth item of zip_codes:', zip_codes[4])
 ```
 
 ```output
-zeroth item of temperatures: 17.3
-fourth item of temperatures: 17.6
+zeroth item of zip_codes: 60625
+fourth item of zip_codes: 60634
 ```
 
-## Lists' values can be replaced by assigning to them.
+## List values can be replaced by assigning them with their index.
 
-- Use an index expression on the left of assignment to replace a value.
+Use an index expression on the left of assignment to replace a value.
 
 ```python
-temperatures[0] = 16.5
-print('temperatures is now:', temperatures)
+print('zip_codes was:', zip_codes)
+zip_codes[0] = 60640
+print('zip_codes is now:', zip_codes)
 ```
 
 ```output
-temperatures is now: [16.5, 17.5, 17.7, 17.5, 17.6]
+zip_codes was: [60625, 60827, 60632, 60644, 60634]
+zip_codes is now: [60640, 60827, 60632, 60644, 60634]
+```
+
+## View a slice of a list with index values. 
+
+We can also use the same syntax to view a part of a list by its index values.
+
+```python
+print('The first three zip codes:', zip_codes[0:3])
+```
+
+```output
+The first three zip codes: [60640, 60827, 60632]
+```
+
+## Character strings are immutable.
+
+Unlike lists, we cannot change the characters in a string using its index value. In other words strings are *immutable* (cannot be changed in-place after creation), while lists are *mutable*: they can be modified in place. Python considers the string to be a single value with parts,
+  not a collection of values.
+
+```python
+branch_library = 'Ulbany Park' # misspelled Albany
+branch_library[0] = 'A'
+```
+
+```error
+TypeError: 'str' object does not support item assignment
+```
+
+## You can create an empty list for later use.
+
+Use `[]` on its own to represent a list that doesn't contain any values. This is helpful as a starting point for collecting values
+  (which we will see in our episode on loops](07-for-loops.md)).
+
+```python
+future_list = []
+```
+
+## Lists may contain values of different types.
+
+A single list may contain numbers, strings, and anything else (including other lists!). If you're dealing with a list within a list you can continue to use the square bracket notation to reference specific items.
+
+```python
+mixed_list = ['word', 3, 10.2, ['list', 'of', 'items']]
+print('1st word in sub-list:', mixed_list[3][0])
+```
+
+```output
+1st word in sub-list: list
+```
+
+## You can copy lists, but not using straightforward variable assignment. 
+
+The variable names you assign to lists are like sticky notes that you're attaching to a specific collection of values. When you change the values in the underlying list, it will update any variables that have been assigned to the collection. 
+
+```python
+numbers = [1,2,3,4]
+numbers_dupe = numbers
+numbers_dupe[0] = 100
+print(numbers)
+print(numbers_dupe)
+```
+
+```output
+[100, 2, 3, 4]
+[100, 2, 3, 4]
+```
+
+In the example above, numbers doesn't retain its original values of [1,2,3,4] because when we changed the value of the zeroth element of the numbers_dupe list it also updated the value in the numbers list. To account for this we can use the `.copy()` method.
+
+```python
+numbers = [1,2,3,4]
+numbers_dupe = numbers.copy()
+numbers_dupe[0] = 200
+print(numbers)
+print(numbers_dupe)
+```
+
+```output
+[1, 2, 3, 4]
+[200, 2, 3, 4]
+```
+
+## Indexing beyond the end of the collection is an error.
+
+Python reports an `IndexError` if we attempt to access a value that doesn't exist.
+```python
+print('99th element of branch_library is:', branch_library[99])
+```
+
+```output
+IndexError: string index out of range
 ```
 
 ## Appending items to a list lengthens it.
 
-- Use `list_name.append` to add items to the end of a list.
+Use `list_name.append` to add items to the end of a list.
 
 ```python
-print('temperatures is initially:', temperatures)
-temperatures.append(17.9)
-temperatures.append(18.2)
-print('temperatures has become:', temperatures)
+print('zip_codes was:', zip_codes)
+zip_codes.append(60647)
+print('zip_codes is now:', zip_codes)
 ```
 
 ```output
-temperatures is initially: [16.5, 17.5, 17.7, 17.5, 17.6]
-temperatures has become: [16.5, 17.5, 17.7, 17.5, 17.6, 17.9, 18.2]
+zip_codes was: [60640, 60827, 60632, 60644, 60634]
+zip_codes is now: [60640, 60827, 60632, 60644, 60634, 60647]
 ```
 
-- `append` is a *method* of lists.
+- `.append` is a *method* of lists.
   - Like a function, but tied to a particular object.
 - Use `object_name.method_name` to call methods.
   - Deliberately resembles the way we refer to things in a library.
@@ -106,68 +205,6 @@ primes before removing last item: [2, 3, 5, 7, 11]
 primes after removing last item: [2, 3, 5, 7]
 ```
 
-## The empty list contains no values.
-
-- Use `[]` on its own to represent a list that doesn't contain any values.
-  - "The zero of lists."
-- Helpful as a starting point for collecting values
-  (which we will see in the [next episode](12-for-loops.md)).
-
-## Lists may contain values of different types.
-
-- A single list may contain numbers, strings, and anything else.
-
-```python
-goals = [1, 'Create lists.', 2, 'Extract items from lists.', 3, 'Modify lists.']
-```
-
-## Character strings can be indexed like lists.
-
-- Get single characters from a character string using indexes in square brackets.
-
-```python
-element = 'carbon'
-print('zeroth character:', element[0])
-print('third character:', element[3])
-```
-
-```output
-zeroth character: c
-third character: b
-```
-
-## Character strings are immutable.
-
-- Cannot change the characters in a string after it has been created.
-  - *Immutable*: cannot be changed after creation.
-  - In contrast, lists are *mutable*: they can be modified in place.
-- Python considers the string to be a single value with parts,
-  not a collection of values.
-
-```python
-element[0] = 'C'
-```
-
-```error
-TypeError: 'str' object does not support item assignment
-```
-
-- Lists and character strings are both *collections*.
-
-## Indexing beyond the end of the collection is an error.
-
-- Python reports an `IndexError` if we attempt to access a value that doesn't exist.
-  - This is a kind of runtime error.
-  - Cannot be detected as the code is parsed
-    because the index might be calculated based on data.
-
-```python
-print('99th element of element is:', element[99])
-```
-
-```output
-IndexError: string index out of range
-```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 

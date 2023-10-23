@@ -1,5 +1,5 @@
 ---
-title: Variables and Assignment
+title: Variables and Strings
 teaching: 10
 exercises: 10
 ---
@@ -7,13 +7,13 @@ exercises: 10
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Write programs that assign values to variables and perform calculations with those values.
-- Correctly trace value changes in programs that use assignment.
+- Use indexing to manipulate elements within a string.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I store data in programs?
+- How can I store data in Python?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -30,10 +30,11 @@ first_name = 'Ahmed'
   - cannot start with a digit
   - cannot contain spaces, quotation marks, or other punctuation
   - *may* contain an underscore (typically used to separate words in long variable names)
+  - are case sensitive. `first_name` and `First_Name` would be different variables.
 
 ## Use `print()` to display values.
 
-Python has a built-in function called `print()` that outputs things as text. You call the function by typing `print` followed by a pair of parentheses - `print()`. Inside of the parentheses we can add the Python objects that we want print. The items we put inside of the parentheses are the `print` function's arguments. You can pass variables and text strings (by placing text within quotation marks) directly to the print function, and you can separate multiple items with commas. 
+Python has a built-in function called `print()` to display Python objects to the display. You can print Python objects to the Jupyter notebook output using the built-in function, `print()`. Inside of the parentheses we can add the Python objects that we want print, which are known as the `print()` function's arguments. You can pass variables and text strings (by placing text within quotation marks) directly to the print function, and you can separate multiple items with commas. 
 
 ```python
 print(first_name, 'is', age, 'years old')
@@ -69,8 +70,7 @@ The last line of an error message is usually the most informative. In this case 
 ## Variables Persist Between Cells
 
 Variables defined in one cell exist in all other cells once they have been executed, so the relative location of cells in the notebook do not matter. In other words if you execute a cell at the bottom of your notebook, the variables in the cell will be available afterwards in cells at the top of the notebook.
-Notebook cells are a way to organize your code,
-but Python only cares about the order in which the code has been executed.
+Notebook cells are a way to organize your code, but Python only cares about the order in which the code has been executed.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -129,12 +129,8 @@ print(len('helium'))
 
 In the example above we have nested the `print()` and `len()` functions. When nesting functions, they are evaluated from the inside out, just like in mathematics, so `len()` is evaluated first, followed by the `print()` function.
 
-## Variable naming conventions
 
-### Python is case-sensitive. 
-Python thinks that upper- and lower-case letters are different, so `Name` and `name` would be different variables.
-
-### Use meaningful variable names. 
+## Use meaningful variable names. 
 Python doesn't care what you call variables as long as they obey the rules (alphanumeric characters and the underscore).
 
 ```python

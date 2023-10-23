@@ -158,19 +158,11 @@ While Python runs both calculations Juypter will only display the output from th
 :::::::::::::::::::::::::::::::::::::::::  callout
 ### Editing the notebook
 
-- If you press <kbd>Esc</kbd> and <kbd>Return</kbd> alternately, the outer border of your code cell will change from gray to blue.
-- These are the **Command** (gray) and **Edit** (blue) modes of your notebook.
-- When in Command mode (esc/gray),
-  - The <kbd>b</kbd> key will make a new cell below the currently selected cell.
-  - The <kbd>a</kbd> key will make one above.
-  - The <kbd>x</kbd> key will delete the current cell.
-  - The <kbd>z</kbd> key will undo your last cell operation (which could be a deletion, creation, etc).
-  
-You can also use the icons above the notebook to make a few of the same cell operations:
+You can use the icons at the top of your notebook to edit the cells in your Notebook:
 - The `+` icon adds a new cell below the selected cell.
 - The scissors icon will delete the current cell. 
 
-You can move cells around in your notebook by going to Command mode, hovering over the left-hand margin of a cell until your cursor changes into a four-pointed arrow, and then dragging and dropping the cell where you want it.
+You can move cells around in your notebook by hovering over the left-hand margin of a cell until your cursor changes into a four-pointed arrow, and then dragging and dropping the cell where you want it.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -180,11 +172,6 @@ You can add text to a Juypter notebook by selecting a cell, and changing the dro
 - [Markdown Guide (Matt Cone)](https://www.markdownguide.org/)
 
 ![Changing a cell from Code to Markdown](../episodes/fig/0_jupyter_markdown_dd.png){alt='screenshot of the Jupyter notebook dropdown to change a cell to Markdown'}
-
-## Saving the code
-
-Changes you make to your notebook will periodically save automatically, but you can also 
-use <kbd>Cmd</kbd> + <kbd>S</kbd> to save your notebook at any time. You can also explore options to save the notebook to a new file or export it to other formats (including HTML, LaTeX, and Markdown) from the `File >` dropdown menu.
 
 [anaconda]: https://docs.anaconda.com/anaconda/install/
 [spyder]: https://www.spyder-ide.org/
