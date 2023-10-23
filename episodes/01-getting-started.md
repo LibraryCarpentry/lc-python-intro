@@ -25,11 +25,11 @@ exercises: 0
 
 Python is a popular programming language for tasks such as data collection, cleaning, and analysis. Python can help you to create reproducible workflows to accomplish repetitive tasks more efficiently. Let's consider a few examples of folks using Python in different library settings:
 
-1. **Metadata work.**
+1. **Metadata work.** Many cataloging teams use Python to migrate, transform and enrich metadata that they receive from different sources. For example, the [pymarc library](https://pypi.org/project/pymarc/) is a popular Python package for working with MARC21 records.
 
-2. **Collection and citation analysis.**
+2. **Collection and citation analysis.** Python can be used automate workflows to analyze library collections. In cases where spreadsheets and OpenRefine are unable to support specific forms of analysis, Python is a more flexible and powerful tool.
 
-3. **Assessment.** Many library workers need to collect metrics or statistics on some aspect of their work. Python can be a valuable tool to collect, clean, analyze, and visualize that data in a consistent way over time.
+3. **Assessment.** Library workers often need to collect metrics or statistics on some aspect of their work. Python can be a valuable tool to collect, clean, analyze, and visualize that data in a consistent way over time.
 
 4. **Accessing data.** Researchers often use Python to collect data (including textual data) from web sites and social media platforms. Academic librarians are often well-positioned to help teach those researchers use Python for web scraping or to query Application Programming Interface (APIs) to access the data they need. 
 

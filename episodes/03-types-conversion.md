@@ -21,7 +21,7 @@ exercises: 10
 
 ## Every Python object has a type.
 
-Everything in Python is some type of object. Objects contain attributes, usually data and related functions, called methods. Every object that you work with in Python will be of a specific type. 
+Everything in Python is some type of object. Objects contain attributes, usually data and related functions, called methods. Every object that you work with in Python will be of a specific type and understanding an object's type will help you know what you can and can't do with that object. 
 
 ### Use the built-in function `type()` to find an object's type.
 
@@ -168,7 +168,7 @@ three squared is 9.0
 
 ### Variables only change value when something is assigned to them.
 
-In a spreadsheet, if we make one cell depend on another, and then update the latter, the former updates automatically. This does **not** happen in programming languages.
+In a spreadsheet, if we make cell A1 depend on the value in cell C3, and then update the C3, A1 updates automatically. This does **not** happen with Python variables.
 
 ```python
 first = 1 
@@ -234,33 +234,6 @@ print(result, 'is', type(result))
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Choose a Type
-
-What type of value (integer, floating point number, or character string) would you use to represent each of the following?  Try to come up with more than one good answer for each problem.  For example, in  # 1, when would counting days with a floating point variable make more sense than using an integer?
-
-1. Number of days since the start of the year.
-2. Time elapsed since the start of the year.
-3. Call number of a book.
-4. Standard book loan period.
-5. Number of reference queries in a year.
-6. Average library classes taught per semester.
-
-:::::::::::::::  solution
-
-## Solution
-
-1. Integer
-2. Float
-3. String
-4. Integer
-5. Integer
-6. Float  
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -288,17 +261,12 @@ print('5 % 3:', 5%3)
 5 % 3: 2
 ```
 
-If `num_students` is the number of students who registered for a workshop (let say 150),
-and `num_per_workshop` is the number that can attend a single section of the workshop (let say 20),
-write an expression that calculates the number of workshop sections needed to teach everyone. Can you also calculate 
+If `num_students` is the number of students who registered for a workshop (let's say 150), and `num_per_workshop` is the number that can attend a single section of the workshop (let say 20), write an expression that calculates the number of workshop sections needed to teach everyone. It will be helpful to detect when the number of students per class doesn't divide the number of students evenly. Detect that number with the `%` operator and test if the remainder that it returns is greater than
+0.
 
 :::::::::::::::  solution
 
 ## Solution
-
-Depending on requirements it might be important to detect when the number of students per class doesn't divide the
-number of students evenly. Detect it with the `%` operator and test if the remainder that it returns is greater than
-0\.
 
 ```python
 num_students = 150
@@ -312,7 +280,7 @@ print(num_classes, 'full workshops, plus an extra section with only ', remainder
 
 ```output
 150 students, 20 per workshop
-7 full workshops, plus an extra class with only  10 students
+7 full workshops, plus an extra section with only  10 students
 ```
 
 :::::::::::::::::::::::::
