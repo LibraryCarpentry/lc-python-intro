@@ -36,7 +36,7 @@ name = 'Library Carpentry'   # Neither is this comment
 
 We have seen some functions such as `print()` and `len()` already but let's take a closer look at their structure. 
 
-An *argument* is a value passed into a function. Any arguments you want to pass into a function must go into the `()`
+An *argument* is a value passed into a function. Any arguments you want to pass into a function must go into the `()`.
 
 ```python
 print("I am an argument and must go here.")
@@ -51,8 +51,7 @@ Sometimes you don't need to pass an argument.
 ```
 You always need to use parentheses at the end of a function, because this tells Python you are calling a function. Leave the parentheses empty if you don't want or need to pass any arguments.
 
-
-## Commonly-used built-in functions include `max`, `min`, and `round`.
+## Commonly-used built-in functions include `max()`, `min()`, and `round()`.
 
 - Use `max()` to find the largest value of one or more values.
 - Use `min()` to find the smallest.
