@@ -64,6 +64,13 @@ Capitalise This Sentence Please.
 - You have to refer to each item with the module's name.
   - `string.capwords(ascii_lowercase)` won't work: the reference to `ascii_lowercase`
     doesn't somehow "inherit" the function's reference to `string`.
+    
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Dot notation
+We introduced Python dot notation when we looked at methods like `list_name.append()`. We can use the same syntax when we call fucntions of a specific Python library, such as `string.capwords()`. In fact, this dot notation is common in Python, and can refer to relationships between different types of Python objects. Remember that it is always the case that the object to the right of the dot is a part of the larger object to the left. If we expressed capitals of countries using this syntax, for example, we would say, `Brazil.São_Paulo()` or `Japan.Tokyo()`.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Use `help` to learn about the contents of a library module.
 

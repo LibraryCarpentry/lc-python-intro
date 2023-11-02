@@ -61,18 +61,18 @@ contact: 'team@carpentries.org'
 episodes: 
 - 01-getting-started.md
 - 02-variables.md
-- 03-types-conversion.md
-- 04-built-in.md
-- 05-libraries.md
-- 06-pandas.Rmd
+- 03-types.md
+- 04-lists.md
+- 05-functions.md
+- 06-libraries.md
 - 07-for-loops.md
 - 08-looping-data-sets.md
 - 09-writing-functions.md
 - 10-wrap.md
-#- 15-scope.md
-#- 17-conditionals.md
-#- 18-style.md
-#- 20-feedback.md
+- 15-scope.md
+- 17-conditionals.md
+- 18-style.md
+- 20-feedback.md
 
 
 # Information for Learners

@@ -23,7 +23,7 @@ The most popular kind of data collection in Python is the list. Lists have two p
 1. They are mutable, i.e., they can be changed after they are created.
 2. They are heterogeneous, i.e., they can store values of many different types.
 
-In the dataset we will be working with soon, we'll look at the circulation numbers from a variety of branch libraries in Chicago, Illinois (USA). Each branch library has some metadata associated with it, including its zip (postal) code. We could use a Python list to organize some of those codes.
+In the dataset we will be working with soon, we'll look at the circulation numbers from a variety of branch libraries in Chicago, Illinois (USA). Each branch library has some metadata associated with it, including its zip (postal) code. We could use a Python list to organize some of those zip codes.
 
 To create a new list, you can just put some values in square brackets with commas in between.
 
@@ -62,7 +62,7 @@ fourth item of zip_codes: 60634
 
 ## List values can be replaced by assigning them with their index.
 
-Use an index expression on the left of assignment to replace a value.
+Use an index value along with your list variable to replace a value from the list.
 
 ```python
 print('zip_codes was:', zip_codes)
@@ -77,7 +77,7 @@ zip_codes is now: [60640, 60827, 60632, 60644, 60634]
 
 ## View a slice of a list with index values. 
 
-We can also use the same syntax to view a part of a list by its index values.
+We can use the same syntax to view a part of a list by referencing its index values.
 
 ```python
 print('The first three zip codes:', zip_codes[0:3])
@@ -130,6 +130,8 @@ The variable names you assign to lists are like sticky notes that you're attachi
 ```python
 numbers = [1,2,3,4]
 numbers_dupe = numbers
+
+#change the first value from 1 to 100
 numbers_dupe[0] = 100
 print(numbers)
 print(numbers_dupe)
@@ -140,7 +142,7 @@ print(numbers_dupe)
 [100, 2, 3, 4]
 ```
 
-In the example above, numbers doesn't retain its original values of [1,2,3,4] because when we changed the value of the zeroth element of the numbers_dupe list it also updated the value in the numbers list. To account for this we can use the `.copy()` method.
+In the example above, the `numbers` variable doesn't retain its original values of [1,2,3,4] because when we changed the value of the zeroth element of the `numbers_dupe` list it also updated the value in `numbers`. To account for this we can use the `.copy()` method.
 
 ```python
 numbers = [1,2,3,4]
@@ -168,7 +170,7 @@ IndexError: string index out of range
 
 ## Appending items to a list lengthens it.
 
-Use `list_name.append` to add items to the end of a list.
+Use `list_name.append` to add items to the end of a list. In Python, we would call `.append()` a *method* of the list object. You can use the syntax of `object.method()` to call methods.
 
 ```python
 print('zip_codes was:', zip_codes)
@@ -181,17 +183,10 @@ zip_codes was: [60640, 60827, 60632, 60644, 60634]
 zip_codes is now: [60640, 60827, 60632, 60644, 60634, 60647]
 ```
 
-- `.append` is a *method* of lists.
-  - Like a function, but tied to a particular object.
-- Use `object_name.method_name` to call methods.
-  - Deliberately resembles the way we refer to things in a library.
-- We will meet other methods of lists as we go along.
-  - Use `help(list)` for a preview.
 
 ## Use `del` to remove items from a list entirely.
 
-- `del list_name[index]` removes an item from a list and shortens the list.
-- Not a function or a method, but a statement in the language.
+`del list_name[index]` removes an item from a list and shortens the list. Unlike `.append()`, `del` is not a method, but a statement in Python. In the example below, `del` performs an "in-place" operation on a list of prime numbers. This means that the `primes` variable will be reassigned when you use the `del` statement, without needing to use an assignment operator (e.g., `primes = ...`) .
 
 ```python
 primes = [2, 3, 5, 7, 11]
