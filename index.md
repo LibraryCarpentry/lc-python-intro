@@ -3,8 +3,7 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 
-This lesson is an introduction to programming in Python
-for library and information workers with little or no previous programming experience. It uses examples that are relevant to a range of library use cases, and is designed as a prerequisite for other Python lessons that will be developed in the future (e.g., web scraping, APIs). The lesson uses the JupyterLab computing environment and Python 3.
+This lesson is an introduction to programming in Python for library and information workers with little or no previous programming experience. It uses examples that are relevant to a range of library use cases, and is designed as a prerequisite for other Python lessons that will be developed in the future (e.g., web scraping, APIs). The lesson uses the JupyterLab computing environment and Python 3.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 

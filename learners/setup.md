@@ -47,7 +47,7 @@ This lesson uses circulation data in multiple CSV files from the Chicago Public 
 
 1. Create a new folder on your Desktop called ```lc-python```.
 2. Download [this zip file][dataset] and save it in the ```lc-python``` folder you just created. 
-3. Unzip the ```lc-python-circ.zip``` file, which should create a new folder called ```lc-python-circ```.
+3. Unzip the ```data.zip``` file, which should create a new folder called ```data```.
 
 [python]: https://python.org
 [anaconda]: https://www.anaconda.com/distribution
@@ -56,4 +56,4 @@ This lesson uses circulation data in multiple CSV files from the Chicago Public 
 [video-mac]: https://www.youtube.com/watch?v=TcSAln46u9U
 [jupyter]: https://docs.jupyter.org/en/latest/
 [jupyter-install]: https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html
-[dataset]: episodes/files/lc-python-circ.zip
+[dataset]: episodes/files/data.zip

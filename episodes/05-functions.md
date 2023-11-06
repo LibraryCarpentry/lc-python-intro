@@ -51,17 +51,14 @@ Sometimes you don't need to pass an argument.
 ```
 You always need to use parentheses at the end of a function, because this tells Python you are calling a function. Leave the parentheses empty if you don't want or need to pass any arguments.
 
-## Commonly-used built-in functions include `max()`, `min()`, and `round()`.
+## Commonly-used built-in functions include `max()` and `min()`.
 
 - Use `max()` to find the largest value of one or more values.
 - Use `min()` to find the smallest.
-- Both work on character strings as well as numbers.
-  - "Larger" and "smaller" use (0-9, A-Z, a-z) to compare letters.
-  - This means that:
-    - `'a'` is smaller than `'b'`
-    - `'A'` is smaller than `'a'`
-    - `'0'` is smaller than `'a'`
-  - This is useful for ordering alphabetically.
+
+Both `max()` and `min()` work on character strings as well as numbers, so can be used for numerical and alphabetical comparisons. Note that alphabetical comparisons follow some specific rules about what is larger or smaller:
+- `'a'` is smaller than `'b'`
+- `'A'` is smaller than `'a'`
 
 ```python
 print(max(1, 2, 3))
@@ -87,9 +84,9 @@ print(max(1, 'a'))
 TypeError: unorderable types: str() > int()
 ```
 
-## Functions may have default values for some arguments.
+## Function argument default values, and `round()`.
 
-`round()` will round off a floating-point number. By default, it will round to zero decimal places.
+`round()` will round off a floating-point number. By default, it will round to zero decimal places, which is how it will operate if you don't pass a second argument.
 
 ```python
 round(3.712)
@@ -99,7 +96,7 @@ round(3.712)
 4
 ```
 
-But we cab use a second argument (or parameter) to specify the number of decimal places we want.
+We can use a second argument (or parameter) to specify the number of decimal places we want though.
 
 ```python
 round(3.712, 1)
@@ -132,60 +129,6 @@ round(...)
     same type as the number. ndigits may be negative.
 ```
 
-## Python reports a syntax error when Python's grammar rules have been violated.
-
-You've already seen errors when you try to use a function incorrectly, but you can also have errors when you use punctuation incorrectly. Python will run a program up until a point where it encounters an error, and when the grammar of a line
-  of code has produced an error, the program will shut down and output the error.
-
-```python
-# Forgot to close the quotation marks around the string.
-name = 'Feng
-```
-
-```error
-SyntaxError: EOL while scanning string literal
-```
-
-```python
-# An extra '=' in the assignment.
-age = = 52
-```
-
-```error
-SyntaxError: invalid syntax
-```
-
-Let's breakdown each line of this error message:
-
-```python
-print("hello world"
-```
-
-```error
-  File "<ipython-input-6-d1cc229bf815>", line 1
-    print ("hello world"
-                        ^
-SyntaxError: unexpected EOF while parsing
-```
-
-- At the end of the first line of this error message it notes there is a problem on first line of the input ("line 1").
-- The "ipython-input" section of the file name tells us that we are working with input into IPython and the `-6-` part of the filename indicates that the error occurred in cell 6 of our Notebook.
-- Next is the problematic line of code - `print ("hello world"` -  indicating where the problem is found with a `^` pointer.
-- Finally we get the SyntaxError message, which tells us that Python expected an 'EOF' or end of file. It's often helpful to look at the end of the Error message first. Our SyntaxError, in this case, indicates that Python ran through all of the code but expected to find more information. In this case it expected to encounter a closing parenthesis in the `print("hello world")` function. 
-
-## Python reports a runtime error when something goes wrong while a program is executing.
-
-```python
-age = 53
-remaining = 100 - aege # mis-spelled 'age'
-```
-
-```error
-NameError: name 'aege' is not defined
-```
-
-You can fix syntax errors by reading the source and runtime errors by tracing execution.
-
 ## Every function returns something.
 
 Every function call produces some result and if the function doesn't have a useful result to return, it usually returns the special value `None`.
@@ -200,32 +143,6 @@ example
 result of print is None
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## What Happens When
-
-1. Explain in simple terms the order of operations in the following program:
-  when does the addition happen, when does the subtraction happen,
-  when is each function called, etc.
-2. What is the final value of `word`?
-
-```python
-word = 'blah '
-word = max(min(word * 2 + 'blur ', 'aaah '), 'ping')
-print(word)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```
-ping
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -280,26 +197,7 @@ TypeError: max expected 1 arguments, got 0
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
 
-## Last Character of a String
-
-If Python starts counting from zero,
-and `len` returns the number of characters in a string,
-what index expression will get the last character in the string `name`?
-(Note: we will see a simpler way to do this in a later episode.)
-
-:::::::::::::::  solution
-
-## Solution
-
-`name[len(name) - 1]`
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -310,9 +208,6 @@ what index expression will get the last character in the string `name`?
 - Functions may have default values for some arguments.
 - Use the built-in function `help` to get help for a function.
 - Every function returns something.
-- Python reports a syntax error when it can't understand the source of a program.
-- Python reports a runtime error when something goes wrong while a program is executing.
-- Fix syntax errors by reading the source code, and runtime errors by tracing the program's execution.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

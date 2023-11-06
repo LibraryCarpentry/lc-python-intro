@@ -6,189 +6,183 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain what for loops are normally used for.
-- Trace the execution of a simple (unnested) loop and correctly state the values of variables in each iteration.
-- Write for loops that use the Accumulator pattern to aggregate values.
+- Explain what "for loops"" are normally used for.
+- Trace the execution of an un-nested loop and correctly state the values of variables in each iteration.
+- Write for loops that use the accumulator pattern to aggregate values.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I make a program do many things?
+- How can I execute Python code iteratively across a collection of values?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## A *for loop* executes commands once for each value in a collection.
+## For loops
 
-- Doing calculations on the values in a list one by one
-  is as painful as working with `temperature_001`, `temperature_002`, etc.
-- A *for loop* tells Python to execute some statements once for each value in a list,
-  a character string,
-  or some other collection.
-- "for each thing in this group, do these operations"
+Let's create a short list of numbers in Python, and then attempt to print out each value in the list. 
 
 ```python
-for number in [2, 3, 5]:
-    print(number)
+odds = [1, 3, 5, 7]
 ```
 
-- This `for` loop is equivalent to:
+One way to print each number is to use four `print` statements--if you recall from episode 4--using the index values of each item in the list:
 
 ```python
-print(2)
-print(3)
-print(5)
+print(odds[0])
+print(odds[1])
+print(odds[2])
+print(odds[3])
 ```
-
-- And the `for` loop's output is:
 
 ```output
-2
+1
+3
+5
+7
+```
+
+This is a bad approach for three reasons:
+
+1. **Not scalable**. Imagine you need to print a list that has hundreds
+  of elements.  
+
+2. **Difficult to maintain**. If we want to add another change -- multiplying each number by 5, for example -- we would have to change four lines of code, which isn't sustainable
+
+3. **Fragile**. Hand-numbering index values for each item in a list is likely to cause errors if we make any mistakes.
+
+```python
+odds = [1, 3, 5]
+print(odds[0])
+print(odds[1])
+print(odds[2])
+print(odds[3])
+```
+
+```output
+1
 3
 5
 ```
 
-## The first line of the `for` loop must end with a colon, and the body must be indented.
-
-- The colon at the end of the first line signals the start of a *block* of statements.
-- Python uses indentation rather than `{}` or `begin`/`end` to show *nesting*.
-  - Any consistent indentation is legal, but almost everyone uses four spaces.
-
-```python
-for number in [2, 3, 5]:
-print(number)
-```
-
 ```error
-IndentationError: expected an indented block
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-3-7974b6cdaf14> in <module>()
+      3 print(odds[1])
+      4 print(odds[2])
+----> 5 print(odds[3])
+
+IndexError: list index out of range
 ```
 
-- Indentation is always meaningful in Python.
+A `for loop` is a better solution:
 
 ```python
-firstName="Jon"
-  lastName="Smith"
-```
-
-```error
-  File "<ipython-input-7-f65f2962bf9c>", line 2
-    lastName="Smith"
-    ^
-IndentationError: unexpected indent
-```
-
-- This error can be fixed by removing the extra spaces
-  at the beginning of the second line.
-
-## A `for` loop is made up of a collection, a loop variable, and a body.
-
-```python
-for number in [2, 3, 5]:
-    print(number)
-```
-
-- The collection, `[2, 3, 5]`, is what the loop is being run on.
-- The body, `print(number)`, specifies what to do for each value in the collection.
-- The loop variable, `number`, is what changes for each *iteration* of the loop.
-  - The "current thing".
-
-## Loop variable names follow the normal variable name conventions.
-
-- Loop variables will:
-  - Be created on demand during the course of each loop.
-  - Persist after the loop finishes.
-    - Use a new variable name to avoid overwriting a data collection you need to keep for later
-  - Often be used in the course of the loop
-    - So give them a meaningful name you'll understand as the body code in your loop grows.
-    - Example: `for single_letter in ['A', 'B', 'C', 'D']:` instead of `for asdf in ['A', 'B', 'C', 'D']:`
-
-```python
-for kitten in [2, 3, 5]:
-    print(kitten)
-```
-
-## The body of a loop can contain many statements.
-
-- But no loop should be more than a few lines long.
-- Hard for human beings to keep larger chunks of code in mind.
-
-```python
-primes = [2, 3, 5]
-for p in primes:
-    squared = p ** 2
-    cubed = p ** 3
-    print(p, squared, cubed)
+odds = [1, 3, 5, 7]
+for num in odds:
+    print(num)
 ```
 
 ```output
-2 4 8
-3 9 27
-5 25 125
+1
+3
+5
+7
+```
+
+This code is shorter, and more robust as well. Even if the values of the `odds` list changes, the loop will still work.
+
+```python
+odds = [1, 3, 5, 7, 9, 11]
+for num in odds:
+    print(num)
+```
+
+```output
+1
+3
+5
+7
+9
+11
+```
+
+A `for loop` repeats an operation -- in this case, printing -- once for each element it encounters in a collection. The general structure of a loop is:
+
+```python
+for variable in collection:
+    # do things using variable, such as print
+```
+
+We can call the loop variable anything we like, there must be a colon at the end of the line starting the loop, and we must indent anything we want to run inside the loop. Unlike many other languages, there is no command to signify the end of the loop body; everything indented after the `for` statement belongs to the loop.
+
+## Loop variables 
+
+Loop variables are created on demand when you define the loop and they will persist after the loop finishes. In other words, in the loop:
+
+```python
+odds = [1, 3, 5, 7]
+for num in odds:
+    print(num)
+print(num)
+```
+We are creating a new variable called `num` that will correspond to each element in the `odds` list as it passes through the loop. At the end of the loop, `num` is still equal to the last element in the list it was assigned to.
+
+Like all variable names, it's helpful to give for loop variables meaningful names that you'll understand as the code in your loop grows. For example, `even` is probably a better variable to use than `kitten` here:
+
+
+```python
+for kitten in [2, 4, 6, 8]:
+    print(kitten)
 ```
 
 ## Use `range` to iterate over a sequence of numbers.
 
-- The built-in function `range` produces a sequence of numbers.
-  - *Not* a list: the numbers are produced on demand
-    to make looping over large ranges more efficient.
-- `range(N)` is the numbers 0..N-1
-  - Exactly the legal indices of a list or character string of length N
+The built-in function `range()` produces a sequence of numbers. You can pass a single parameter to identify how many items in the sequence to range over (e.g. `range(5)`) or if you pass two arguments, the first corresponds to the starting point and the second to the end point. The end point works in the same way as Python index values ("up to, but not including").
 
 ```python
-print('a range is not a list: range(0, 3)')
 for number in range(0,3):
     print(number)
 ```
 
 ```output
-a range is not a list: range(0, 3)
 0
 1
 2
 ```
 
-## Or use `range` to repeat an action an arbitrary number of times.
 
-- You don't actually have to use the iterable variable's value.
-- Use this structure to simply repeat an action some number of times.
-  - That number of times goes into the `range` function.
+## Accumulators
 
-```python
-for number in range(5):
-    print("Again!")
-```
-
-```output
-Again!
-Again!
-Again!
-Again!
-Again!
-```
-
-## The Accumulator pattern turns many values into one.
-
-- A common pattern in programs is to:
-  1. Initialize an *accumulator* variable to zero, the empty string, or the empty list.
-  2. Update the variable with values from a collection.
+A common pattern for loops is to initialize an *accumulator* variable to zero, an empty string, or an empty list before the loop begins. Then the loop updates the accumulator variable with values from a collection.
 
 ```python
 # Sum the first 10 integers.
 total = 0
-for number in range(10):
-   total = total + (number + 1)
-print(total)
+for number in range(1, 11):
+    print('number is:', number, 'total is:', total)
+    total = total + number
+print('At the end of the loop')
+print('number is:', number, 'total is:', total)
 ```
 
 ```output
-55
+number is: 1 total is: 0
+number is: 2 total is: 1
+number is: 3 total is: 3
+number is: 4 total is: 6
+number is: 5 total is: 10
+number is: 6 total is: 15
+number is: 7 total is: 21
+number is: 8 total is: 28
+number is: 9 total is: 36
+number is: 10 total is: 45
+At the end of the loop
+number is: 10 total is: 55
 ```
 
-- Read `total = total + (number + 1)` as:
-  - Add 1 to the current value of the loop variable `number`.
-  - Add that to the current value of the accumulator variable `total`.
-  - Assign that to `total`, replacing the current value.
-- We have to add `number + 1` because `range` produces 0..9, not 1..10.
+
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 

@@ -111,9 +111,6 @@ To the right you will see a `Launcher` tab. Here we have options to launch a Pyt
 
 When you start a new Notebook you should see a new tab labeled `Untitled.ipynb`. You will also see this file listed in the file browser to the left. Right-click on the `Untitled.ipynb` file in the file browser and choose `Rename` from the dropdown options. Let's call the notebook file, `workshop.ipynb`.
 
-From the file browser in the left sidebar you can also select the `lc-python-circ` folder to view the contents of the folder. If you downloaded and uncompressed the dataset correctly, you should see a series of CSV files from 2011 to 2022. If you double-click on the first file, `2011_circ.csv`, you will see a preview of the CSV file in a new tab in the main panel of JupyterLab. This is a helpful way to take a peek at the data before loading it into Python.
-
-![Viewing CSVs from the file browser](../episodes/fig/0_jupyterlab_filebrowser.png){alt='screenshot of the file browser JuypterLab'}
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 

@@ -1,53 +1,44 @@
 ---
-title: Libraries
-teaching: 10
+title: Libraries & Pandas
+teaching: 20
 exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain what software libraries are and why programmers create and use them.
+- Explain what Python libraries are and why to create and use them.
 - Write programs that import and use libraries from Python's standard library.
-- Find and read documentation for standard libraries interactively (in the interpreter) and online.
+- Find and read documentation for standard libraries.
+- Import the Pandas library.
+- Use Pandas to load a CSV file as a data set.
+- Get some basic information about a Pandas DataFrame.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How can I extend the capabilities of Python?
-- How can I use software that other people have written?
-- How can I find out what that software does?
+- How can I use Python code that other people have written?
+- How can I read tabular data?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Most of the power of a programming language is in its (software) libraries.
+## Python libraries are powerful collections of tools.
 
-- A *(software) library* is a collection of files (called *modules*) that contains
-  functions for use by other programs.
-  - May also contain data values (e.g., numerical constants) and other things.
-  - Library's contents are supposed to be related, but there's no way to enforce that.
-- The Python [standard library][stdlib] is an extensive suite of modules that comes
-  with Python itself.
-- Many additional libraries are available from [PyPI][pypi] (the Python Package Index).
-- We will see later how to write new libraries.
+A *Python library* is a collection of files (called *modules*) that contains functions that you can use in your programs. Some libraries (sometimes referred to as packages) contain standard data values or language resources that you can reference in your code. So far, we have used the Python [standard library][stdlib], which is an extensive suite of built-in modules. You can find additional libraries from [PyPI][pypi] (the Python Package Index), though you'll often find references to useful packages as you're reading tutorials or trying to solve specific programming problems. Some popular packages for working with data in library fields are:
 
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Libraries and modules
-
-A library is a collection of modules, but the terms are often used
-interchangeably, especially since many libraries only consist of a single
-module, so don't worry if you mix them.
+- [Pandas](https://pandas.pydata.org/) - tabular data analysis tool.
+- [Pymarc](https://pypi.org/project/pymarc/) - for working with bibliographic data encoded in MARC21.
+- [Matplotlib](https://matplotlib.org/) - data visualization tools.
+- [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) - for parsing HTML and XML documents.
+- [Requests](https://pypi.org/project/requests/) - for making HTTP requests (e.g., for web scraping, using APIs)
+- [Scikit-learn](https://scikit-learn.org/stable/) - machine learning tools for predictive data analysis.
+- [NumPy](https://numpy.org/) - numerical computing tools such as mathematical functions and random number generators.
 
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+## You must import a library before using it.
 
-## A program must import a library module before using it.
-
-- Use `import` to load a library module into a program's memory.
-- Then refer to things from the module as `module_name.thing_name`.
-  - Python uses `.` to mean "part of".
-- Using `string`, one of the modules in the standard library:
+Use `import` to load a library into a program's memory. Then you can refer to things from the library as `library_name.thing_name`. Let's import and use the `string` library to generate a list of lowercase ASCII letters and to change the case of a text string:
 
 ```python
 import string
@@ -61,10 +52,6 @@ The lower ascii letters are abcdefghijklmnopqrstuvwxyz
 Capitalise This Sentence Please.
 ```
 
-- You have to refer to each item with the module's name.
-  - `string.capwords(ascii_lowercase)` won't work: the reference to `ascii_lowercase`
-    doesn't somehow "inherit" the function's reference to `string`.
-    
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Dot notation
@@ -72,9 +59,9 @@ We introduced Python dot notation when we looked at methods like `list_name.appe
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use `help` to learn about the contents of a library module.
+## Use `help` to learn about the contents of a library "module."
 
-- Works just like help for a function.
+The `help()` function can tell us more about a library, including more information about its functions and/or variables. Note that in the help documentation below the library is referred to as a "module." These terms are often used interchangeably.
 
 ```python
 help(string)
@@ -115,10 +102,9 @@ CLASSES
 ⋮ ⋮ ⋮
 ```
 
-## Import specific items from a library module to shorten programs.
+## Import specific items
 
-- Use `from ... import ...` to load only specific items from a library module.
-- Then refer to them directly without library name as prefix.
+You can use `from ... import ...` to load specific items from a library module to save space. This also helps you write briefer code since you can refer to them directly without using the library name as a prefix everytime.
 
 ```python
 from string import ascii_letters
@@ -129,44 +115,204 @@ print('The ASCII letters are', ascii_letters)
 ```output
 The ASCII letters are abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 ```
+:::::::::::::::::::::::::::::::::::::::::  callout
 
-## Create an alias for a library module when importing it to shorten programs.
+## ModuleNotFoundError
 
-- Use `import ... as ...` to give a library a short *alias* while importing it.
-- Then refer to items in the library using that shortened name.
+Before you can import a Python library, you sometimes will need to download and install it on your machine. Anaconda comes with many of the most popular Python libraries for scientific computing applications built-in, so if you installed Anaconda for this workshop, you'll be able to import many common libraries directly. Some less common tools, like the PyMarc package, however, would need to be installed first.
 
 ```python
-import string as s
+import pymarc
+```
 
-print(s.capwords('capitalise this sentence again please.'))
+```error
+ModuleNotFoundError: No module named 'pymarc'
+```
+
+You can find out how to install the package by looking at the documentation. [PyMarc](https://pypi.org/project/pymarc/), for example, recommends using a command line tool, `pip`, to install it. You can install with pip in a Jupyter notebook by starting the command with a percentage symbol, which allows you to run shell commands from Jupyter:
+
+```python
+%pip install pymarc
+import pymarc
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Use library aliases
+
+You can use `import ... as ...` to give a library a short *alias* while importing it. This helps you refer to items more efficiently. 
+
+```python
+import pandas as pd
+```
+
+Many popular libraries have common aliases. For example:
+
+- ```import pandas as pd```
+- ```import numpy as np```
+- ```import matplotlib as plt```
+
+Using these common aliases can make it easier to work with existing documentation and tutorials. 
+
+## Pandas
+`Pandas` is a widely-used Python library for statistics using tabular data.
+Essentially, it give you access to 2-dimensional tables whose columns have names and can have different data types. We can start using Pandas by reading a `Comma Separated Values` (CSV) data file with the function `pd.read_csv()`. `read_csv()` expects as an argument the path to and name of the file to be read. This returns a dataframe that you can assign to a variable.
+
+### Find your CSV files
+
+From the file browser in the left sidebar you can select the `data` folder to view the contents of the folder. If you downloaded and uncompressed the dataset correctly, you should see a series of CSV files from 2011 to 2022. If you double-click on the first file, `2011_circ.csv`, you will see a preview of the CSV file in a new tab in the main panel of JupyterLab. 
+
+Let's load that file into a Pandas DataFrame, and save it to a new variable called `df`.
+
+```python
+df = pd.read_csv('data/2011_circ.csv')
+print(df)
 ```
 
 ```output
-Capitalise This Sentence Again Please.
+                       branch                  address     city  zip code  \
+0                 Albany Park     5150 N. Kimball Ave.  Chicago   60625.0   
+1                     Altgeld    13281 S. Corliss Ave.  Chicago   60827.0   
+2              Archer Heights      5055 S. Archer Ave.  Chicago   60632.0   
+3                      Austin        5615 W. Race Ave.  Chicago   60644.0   
+4               Austin-Irving  6100 W. Irving Park Rd.  Chicago   60634.0   
+..                        ...                      ...      ...       ...   
+78           Woodson Regional      9525 S. Halsted St.  Chicago   60628.0   
+79         Wrightwood-Ashburn      8530 S. Kedzie Ave.  Chicago   60652.0   
+80          Renewals - Online                      NaN      NaN       NaN   
+81  Talking Books and Braille                      NaN      NaN       NaN   
+82         Downloadable Media                      NaN      NaN       NaN   
+
+```
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## File Not Found
+
+Our lessons store their data files in a `data` sub-directory,
+which is why the path to the file is `data/2011_circ.csv`.
+If you forget to include `data/`, or if you include it but your copy of the file is somewhere else in relation to your Jupyter Notebook, you will get a [runtime error](04-built-in.md) that ends with a line like this:
+
+```error
+FileNotFoundError: [Errno 2] No such file or directory: 'data/2011_circ.csv'
 ```
 
-- Commonly used for libraries that are frequently used or have long names.
-  - E.g., The `pandas` library is often aliased as `pd`.
-- But can make programs harder to understand,
-  since readers must learn your program's aliases.
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+`df` is a common variable name that you'll encounter in Pandas tutorials online, but in practice it's often better to use more meaningful variable names. Since we have twelve different CSVs to work with, for example, we might want to add the year to the variable name to differentiate between the datasets.
+
+Also, as seen above, the output when you print a dataframe in Jupyter isn't very easy to read. We can use `.head()` to look at just the first few rows in our dataframe formatted in a more convenient way for our Notebook.
+
+```python
+df_2011 = pd.read_csv('data/2011_circ.csv')
+df_2011.head()
+```
+
+## Use the `DataFrame.info()` method to find out more about a dataframe.
+
+```python
+df_2011.info()
+```
+
+```output
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 83 entries, 0 to 82
+Data columns (total 18 columns):
+ #   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+ 0   branch     83 non-null     object 
+ 1   address    80 non-null     object 
+ 2   city       80 non-null     object 
+ 3   zip code   80 non-null     float64
+ 4   january    83 non-null     int64  
+ 5   february   83 non-null     int64  
+ 6   march      83 non-null     int64  
+ 7   april      83 non-null     int64  
+ 8   may        83 non-null     int64  
+ 9   june       83 non-null     int64  
+ 10  july       83 non-null     int64  
+ 11  august     83 non-null     int64  
+ 12  september  83 non-null     int64  
+ 13  october    83 non-null     int64  
+ 14  november   83 non-null     int64  
+ 15  december   83 non-null     int64  
+ 16  ytd        83 non-null     int64  
+ 17  year       83 non-null     int64  
+dtypes: float64(1), int64(14), object(3)
+memory usage: 11.8+ KB
+```
+
+The `info()` method tells us
+- we have a RangeIndex of 83, which means we have 83 rows.
+- there are 18 columns, with datatypes of
+  - objects (3 columns)
+  - 64-bit floating point number (1 column)
+  - 64-bit integers (14 columns).
+- the dataframe uses 11.8 kilobytes of memory.
+
+## The `DataFrame.columns` variable stores info about the dataframe's columns.
+
+Note that this is data, *not* a method, so do not use `()` to try to call it. It helpfully gives us a list of all of the column names.
+
+```python
+print(df_2011.columns)
+```
+
+```output
+Index(['branch', 'address', 'city', 'zip code', 'january', 'february', 'march',
+       'april', 'may', 'june', 'july', 'august', 'september', 'october',
+       'november', 'december', 'ytd', 'year'],
+      dtype='object')
+```
+
+## Use `DataFrame.describe()` to get summary statistics about data.
+
+`DataFrame.describe()` gets the summary statistics of only the columns that have numerical data. All other columns are ignored, unless you use the argument `include='all'`.
+
+```python
+df_2011.describe()
+```
+
+This gives us, for example, the count, minimum, maximum, and mean values from each numeric column. In the case of the `zip code` column, this isn't helpful, but for the usage data for each month, it's a quick way to scan the range of data over the course of the year.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exploring the os Library
+## Importing With Aliases
 
-The os library provides a way of accessing operating system functionality.
+1. Fill in the blanks so that the program below prints `0123456789`.
+2. Rewrite the program so that it uses `import` *without* `as`.
+3. Which form do you find easier to read?
 
-1. What function from the `os` library can you use to determine the current
-  working directory?
+```python
+import string as s
+numbers = ____.digits
+print(____)
+```
 
 :::::::::::::::  solution
 
 ## Solution
 
-1. Using `help(os)` we see that we've got `os.getcwd()` which returns
-  a string representing the current working directory.
-  
-  
+```python
+import string as s
+numbers = s.digits
+print(numbers)
+```
+
+can be written as
+
+```python
+import string
+numbers = string.digits
+print(numbers)
+```
+
+Since you just wrote the code and are familiar with it, you might actually
+find the first version easier to read. But when trying to read a huge piece
+of code written by someone else, or when getting back to your own huge piece
+of code after several months, non-abbreviated names are often easier, expect
+where there are clear abbreviation conventions.
+
+
 
 :::::::::::::::::::::::::
 
@@ -215,175 +361,9 @@ print(datetime.date(year, month, day).isoformat())
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## When Is Help Available?
-
-When a colleague of yours types `help(os)`,
-Python reports an error:
-
-```error
-NameError: name 'os' is not defined
-```
-
-What has your colleague forgotten to do?
-
-:::::::::::::::  solution
-
-## Solution
-
-Importing the os module (`import os`)
 
 
 
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Importing With Aliases
-
-1. Fill in the blanks so that the program below prints `0123456789`.
-2. Rewrite the program so that it uses `import` *without* `as`.
-3. Which form do you find easier to read?
-
-```python
-import string as s
-numbers = ____.digits
-print(____)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-import string as s
-numbers = s.digits
-print(numbers)
-```
-
-can be written as
-
-```python
-import string
-numbers = string.digits
-print(numbers)
-```
-
-Since you just wrote the code and are familiar with it, you might actually
-find the first version easier to read. But when trying to read a huge piece
-of code written by someone else, or when getting back to your own huge piece
-of code after several months, non-abbreviated names are often easier, expect
-where there are clear abbreviation conventions.
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## There Are Many Ways To Import Libraries!
-
-Match the following print statements with the appropriate library calls
-
-Library calls:
-
-```python
-A) from string import digits
-B) import string
-C) import string as s
-```
-
-Print commands:
-
-```python
-1. print(list(s.digits))
-2. print(list(digits))
-3. print(string.ascii_uppercase)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-A2) Importing `digits` from `string` provides the `digits` methods
-B3) Importing `string` provides methods such as `ascii_uppercase`, but
-requires the `string.` syntax.
-C1) Importing `string` with the alias `s` allows `s.digits`
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Importing Specific Items
-
-1. Fill in the blanks so that the program below prints `90.0`.
-2. Do you find this version easier to read than preceding ones?
-3. Why *wouldn't* programmers always use this form of `import`?
-
-```python
-____ math import ____, ____
-angle = degrees(pi / 2)
-print(angle)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-from math import degrees, pi
-angle = degrees(pi / 2)
-print(angle)
-```
-
-Most likely you find this version easier to read since it's less dense.
-The main reason not to use this form of import is to avoid name clashes.
-For instance, you wouldn't import `degrees` this way if you also wanted to
-use the name `degrees` for a variable or function of your own. Or if you
-were to also import a function named `degrees` from another library.
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Reading Error Messages
-
-1. Read the code below and try to identify what the errors are without running it.
-2. Run the code, and read the error message. What type of error is it?
-
-```python
-import datetime
-datetime.date(2017,13,1)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-1. The date object takes arguments in the order year, month, day, so 13 is
-  an invalid value for month.
-2. You get an error of type "ValueError", indicating that the object
-  received an inappropriate argument value. The additional message
-  "month must be in 1..12" makes it clearer what the problem is.
-  
-  
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 [stdlib]: https://docs.python.org/3/library/
 [pypi]: https://pypi.org/
