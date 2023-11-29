@@ -19,95 +19,85 @@ exercises: 15
 
 ## Use `if` statements to control whether or not a block of code is executed.
 
-- An `if` statement (more properly called a *conditional* statement)
-  controls whether some block of code is executed or not.
-- Structure is similar to a `for` statement:
-  - First line opens with `if` and ends with a colon
-  - Body containing one or more statements is indented (usually by 4 spaces)
+An `if` statement is a *conditional* statement that controls whether a block of code is executed or not. The syntax of an `if` statement is similar to a `for` statement:
+  - The first line opens with `if` and ends with a colon.
+  - The body is indented (usually by 4 spaces)
 
 ```python
-mass = 3.54
-if mass > 3.0:
-    print(mass, 'is larger')
+checkouts = 11
+if checkouts > 10.0:
+    print(checkouts, 'is over the checkout limit.')
 
-mass = 2.07
-if mass > 3.0:
-    print (mass, 'is larger')
+checkouts = 8
+if checkouts > 10.0:
+    print(checkouts, 'is over the checkout limit.')
 ```
 
 ```output
-3.54 is larger
+11 is over the checkout limit.
 ```
 
 ## Conditionals are often used inside loops.
 
-- Not much point using a conditional when we know the value (as above).
-- But useful when we have a collection to process.
+There is not much of a point using a conditional when we know the value (as above), but they're useful when we have a collection to process.
 
 ```python
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
-    if m > 3.0:
-        print(m, 'is larger')
+checkouts = [3, 5, 12, 22, 0]
+for checkout in checkouts:
+    if checkout > 10.0:
+        print(checkout, 'is over the checkout limit.')
 ```
 
 ```output
-3.54 is larger
-9.22 is larger
+12 is over the checkout limit.
+22 is over the checkout limit.
 ```
 
 ## Use `else` to execute a block of code when an `if` condition is *not* true.
 
-- `else` can be used following an `if`.
-- Allows us to specify an alternative to execute when the `if` *branch* isn't taken.
+And `else` statement can be used following `if` to allow us to specify an alternative code block to execute when the `if` *branch* isn't taken.
 
 ```python
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for mass in masses:
-    if mass > 3.0:
-        print(mass, 'is larger')
+checkouts = [3, 5, 12, 22, 0]
+for checkout in checkouts:
+    if checkout > 10.0:
+        print('Warning:', checkout, 'is over the checkout limit.')
     else:
-        print(mass, 'is smaller')
+        print(checkout, 'is under the limit.')
 ```
 
 ```output
-3.54 is larger
-2.07 is smaller
-9.22 is larger
-1.86 is smaller
-1.71 is smaller
+3 is under the limit.
+5 is under the limit.
+*Warning* 12 is over the checkout limit.
+*Warning* 22 is over the checkout limit.
+0 is under the limit.
 ```
 
 ## Use `elif` to specify additional tests.
 
-- May want to provide several alternative choices, each with its own test.
-- Use `elif` (short for "else if") and a condition to specify these.
-- Always associated with an `if`.
-- Must come before the `else` (which is the "catch all").
+You can use `elif` (short for "else if") to provide several alternative choices, each with its own test. An `elif` statement should always be associated with an `if` statement, and must come before the `else` statement (which is the catch all).
 
 ```python
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for mass in masses:
-    if mass > 9.0:
-        print(mass, 'is HUGE')
-    elif mass > 3.0:
-        print(mass, 'is larger')
+checkouts = [3, 5, 10, 22, 0]
+for checkout in checkouts:
+    if checkout > 10.0:
+        print('Warning:', checkout, 'is over the checkout limit.')
+    elif checkout == 10:
+        print(checkout, 'is at the exact checkout limit.')
     else:
-        print(mass, 'is smaller')
+        print(checkout, 'is under the limit.')
 ```
 
 ```output
-3.54 is larger
-2.07 is smaller
-9.22 is HUGE
-1.86 is smaller
-1.71 is smaller
+3 is under the limit.
+5 is under the limit.
+10 is at the exact checkout limit.
+Warning: 22 is over the checkout limit.
+0 is under the limit.
 ```
 
-## Conditions are tested once, in order.
-
-- Python steps through the branches of the conditional in order, testing each in turn.
-- So ordering matters.
+Conditions are tested once, in order and are not re-evaluated if values change. Python steps through the branches of the conditional in order, testing each in turn, so the order of your statements matters. 
 
 ```python
 grade = 85
@@ -123,104 +113,91 @@ elif grade >= 90:
 grade is C
 ```
 
-- Does *not* automatically go back and re-evaluate if values change.
+If a value is adjusted inside of a statement which would change the outcome of previous `if` or `elif` statement, those earlier statements won't be evaluated again unless you re-run the code. 
 
 ```python
-velocity = 10.0
-if velocity > 20.0:
+velocity = 15.0
+if velocity > 30.0:
     print('moving too fast')
 else:
     print('adjusting velocity')
-    velocity = 50.0
+    velocity = velocity + 15.0
 ```
 
 ```output
 adjusting velocity
 ```
 
-- Often use conditionals in a loop to "evolve" the values of variables.
+You can use conditionals inside of a loop to adjust values as the loop iterates.
 
 ```python
-velocity = 10.0
+checkouts = 15.0
 for i in range(5): # execute the loop 5 times
-    print(i, ':', velocity)
-    if velocity > 20.0:
-        print('moving too fast')
-        velocity = velocity - 5.0
+    print(i, ':', checkouts)
+    if checkouts >= 30.0:
+        print('too many checkouts')
+        checkouts = checkouts - 5.0
     else:
-        print('moving too slow')
-        velocity = velocity + 10.0
-print('final velocity:', velocity)
+        print('too few checkouts')
+        checkouts = checkouts + 10.0
+print('final checkouts:', checkouts)
 ```
 
 ```output
-0 : 10.0
-moving too slow
-1 : 20.0
-moving too slow
-2 : 30.0
-moving too fast
-3 : 25.0
-moving too fast
-4 : 20.0
-moving too slow
-final velocity: 30.0
+0 : 15.0
+too few checkouts
+1 : 25.0
+too few checkouts
+2 : 35.0
+too many checkouts
+3 : 30.0
+too many checkouts
+4 : 25.0
+too few checkouts
+final checkouts: 35.0
 ```
-
-## Create a table showing variables' values to trace a program's execution.
-
-<table>
-  <tr>   <td><strong>i</strong></td>   <td>0</td>   <td>.</td>   <td>1</td>   <td>.</td>   <td>2</td>   <td>.</td>   <td>3</td>   <td>.</td>   <td>4</td>   <td>.</td>
-  </tr>
-  <tr>   <td><strong>velocity</strong></td>   <td>10.0</td>   <td>20.0</td>   <td>.</td>   <td>30.0</td>   <td>.</td>   <td>25.0</td>   <td>.</td>   <td>20.0</td>   <td>.</td>   <td>30.0</td>
-  </tr>
-</table>
-
-- The program must have a `print` statement *outside* the body of the loop
-  to show the final value of `velocity`,
-  since its value is updated by the last iteration of the loop.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Compound Relations Using `and`, `or`, and Parentheses
+## Compound conditionals using `and` and `or`
 
 Often, you want some combination of things to be true.  You can combine
-relations within a conditional using `and` and `or`.  Continuing the example
-above, suppose you have
+relations within a conditional using `and` and `or`.  
 
 ```python
-mass     = [ 3.54,  2.07,  9.22,  1.86,  1.71]
-velocity = [10.00, 20.00, 30.00, 25.00, 20.00]
+checkouts = [3, 70, 120]
+user_type = ['faculty', 'graduate', 'undergraduate']
 
-i = 0
-for i in range(5):
-    if mass[i] > 5 and velocity[i] > 20:
-        print("Fast heavy object.  Duck!")
-    elif mass[i] > 2 and mass[i] <= 5 and velocity[i] <= 20:
-        print("Normal traffic")
-    elif mass[i] <= 2 and velocity <= 20:
-        print("Slow light object.  Ignore it")
-    else:
-        print("Whoa!  Something is up with the data.  Check it")
+for user in user_type:
+    print(user)
+    for checkout in checkouts:
+        if checkout > 100 and user == 'faculty':
+            print(checkout, "Over the faculty checkout limit.")
+        elif checkout > 50 and user == 'graduate':
+            print(checkout, "Over the graduate student checkout limit.")
+        elif checkout > 20 and user == 'undergraduate':
+            print(checkout, "Over the undergraduate student checkout limit.")
+        else:
+            print(checkout, "Under the checkout limit.")
+    print()
+
 ```
+```output
+faculty
+3 Under the checkout limit.
+70 Under the checkout limit.
+120 Over the faculty checkout limit.
 
-Just like with arithmetic, you can and should use parentheses whenever there
-is possible ambiguity.  A good general rule is to *always* use parentheses
-when mixing `and` and `or` in the same condition.  That is, instead of:
+graduate
+3 Under the checkout limit.
+70 Over the graduate student checkout limit.
+120 Over the graduate student checkout limit.
 
-```python
-if mass[i] <= 2 or mass[i] >= 5 and velocity[i] > 20:
+undergraduate
+3 Under the checkout limit.
+70 Over the undergraduate student checkout limit.
+120 Over the undergraduate student checkout limit.
 ```
-
-write one of these:
-
-```python
-if (mass[i] <= 2 or mass[i] >= 5) and velocity[i] > 20:
-if mass[i] <= 2 or (mass[i] >= 5 and velocity[i] > 20):
-```
-
-so it is perfectly clear to a reader (and to Python) what you really mean.
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

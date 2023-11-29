@@ -21,7 +21,7 @@ keywords: 'software, data, lesson, The Carpentries'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'alpha'
+life_cycle: 'pre-alpha'
 
 # License of the lesson materials (recommended CC-BY 4.0)
 license: 'CC-BY 4.0'
@@ -67,10 +67,10 @@ episodes:
 - 06-libraries.md
 - 07-for-loops.md
 - 08-looping-data-sets.md
+- 09-conditionals.md
 - 09-writing-functions.md
 - 10-wrap.md
 - 15-scope.md
-- 17-conditionals.md
 - 18-style.md
 - 20-feedback.md
 

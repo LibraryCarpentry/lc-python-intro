@@ -42,7 +42,7 @@ Fortunately, we don't have to manually type in a list of all of our filenames. W
 
 The `glob` library contains a function also called `glob` to match file patterns. For example, `glob.glob('*.txt')` would match all files in the current directory with names that end with `.txt`.
 
-Let's create a list of the usage data CSV files
+Let's create a list of the usage data CSV files.
 
 ```python
 import glob
