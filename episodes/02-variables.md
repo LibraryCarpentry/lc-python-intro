@@ -1,25 +1,28 @@
 ---
-title: Variables and Strings
-teaching: 10
-exercises: 10
+title: Variables and Types
+teaching: 20
+exercises: 15
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Write programs that assign values to variables and perform calculations with those values.
 - Use indexing to manipulate elements within a string.
+- View and convert the data types of Python objects.
+- Perform arithmetic on floating point numbers and integers, and perform string operations such as concatenation on strings.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How can I store data in Python?
+- What are some types of data that I can work with in Python?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Use variables to store values.
 
-Variables are names given to certain values. In Python the `=` symbol assigns a value on the right to the name on the left. A variable is created when a value is assigned to it. Here, Python assigns the number `42` to the variable `age` and the name `Ahmed` in quotation marks to a variable `first_name`.
+Variables are names given to certain values. In Python the `=` symbol assigns a value to a variable. Here, Python assigns the number `42` to the variable `age` and the name `Ahmed` in single quote to a variable `first_name`.
 
 ```python
 age = 42
@@ -34,7 +37,7 @@ first_name = 'Ahmed'
 
 ## Use `print()` to display values.
 
-Python has a built-in function called `print()` to display Python objects to the display. You can print Python objects to the Jupyter notebook output using the built-in function, `print()`. Inside of the parentheses we can add the Python objects that we want print, which are known as the `print()` function's arguments. You can pass variables and text strings (by placing text within quotation marks) directly to the print function, and you can separate multiple items with commas. 
+You can print Python objects to the Jupyter notebook output using the built-in function, `print()`. Inside of the parentheses we can add the objects that we want print, which are known as the `print()` function's arguments. You can pass variables and text strings (by placing text within quotes) directly to the print function, and you can separate multiple items with commas. 
 
 ```python
 print(first_name, 'is', age, 'years old')
@@ -48,7 +51,7 @@ Ahmed is 42 years old
 
 ## Variables must be created before they are used.
 
-If a variable doesn't exist yet, or if the name has been misspelled, Python reports an error.
+If a variable doesn't exist yet, or if the name has been misspelled, Python reports an error called a `NameError`.
 
 ```python
 print(eye_color)
@@ -63,20 +66,19 @@ NameError                                 Traceback (most recent call last)
 NameError: name 'eye_color' is not defined
 ```
 
-The last line of an error message is usually the most informative. In this case it tells us that the `eye_color` variable is not defined. NameErrors often refer to variables that haven't been assigned yet.
+The last line of an error message is usually the most informative. In this case it tells us that the `eye_color` variable is not defined. NameErrors often refer to variables that haven't been created or assigned yet.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Variables Persist Between Cells
 
-Variables defined in one cell exist in all other cells once they have been executed, so the relative location of cells in the notebook do not matter. In other words if you execute a cell at the bottom of your notebook, the variables in the cell will be available afterwards in cells at the top of the notebook.
-Notebook cells are a way to organize your code, but Python only cares about the order in which the code has been executed.
+Variables defined in one Notebook cell are available in all other cells once they have been executed, so the location of cells in the notebook do not matter. In other words once you execute a cell at the bottom of your notebook, the variables in that cell will be available to cells at the top of the notebook. Notebook cells are a great way to organize your code, but Python only cares about the order in which the code has been executed.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Variables can be used in calculations.
 
-We can use variables in calculations just as if they were values. We assigned 42 to `age` a few lines ago, so we can reference that value within a new variable assignment.
+We can use variables in calculations as if they were values. We assigned 42 to `age` a few lines ago, so we can reference that value within a new variable assignment.
 
 ```python
 age = age + 3
@@ -87,17 +89,101 @@ print('Age in three years:', age)
 Age in three years: 45
 ```
 
+## Every Python object has a type.
+
+Everything in Python is some type of object. Objects contain attributes, usually data and related functions, called methods. Every object that you work with in Python will be of a specific type and understanding an object's type will help you know what you can and can't do with that object. 
+
+### Use the built-in function `type()` to find an object's type.
+
+You can use the built-in Python function `type()` to find out an object's type. 
+
+```python
+print(type(140.2))
+print(type(age))
+print(type(first_name))
+print(type(print))
+```
+
+```output
+<class 'float'>
+<class 'int'>
+<class 'str'>
+<class 'builtin_function_or_method'>
+```
+
+1. 140.2 is an example of a floating point number or `float`. These are fractional numbers. 
+2. The value of the `age` variable is 45, which is a whole number, or integer (`int`). Note that you can pass a variable to the `type()` function, but it is the *value* of the variable that has a type in Python - the variable is just a label.
+3. The first_name variable refers to the string (`str`) of 'Ahmed'.
+4. The built-in Python function `print()` is also an object with a type, in this case it's a `builtin_function_or_method`. Built-in functions refer to those that are included in the core Python library, but you can also define your own functions in Python.
+
+## Types control what operations (or methods) can be performed on objects.
+
+An object's type determines what the program can do with it.
+
+```python
+print(5 - 3)
+```
+
+```output
+2
+```
+
+```python
+print('hello' - 'h')
+```
+
+```error
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-2-67f5626a1e07> in <module>()
+----> 1 print('hello' - 'h')
+
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+```
+
+### You can use the `+` and `*` operators on strings.
+
+In the example above, we see that we can't subtract a single character from a string. But some arithmetic operators can be "overloaded" in Python so that they will work on strings. For example, adding" character strings together will concatenate them.
+
+```python
+full_name = 'Ahmed' + ' ' + 'Walsh'
+print(full_name)
+```
+
+```output
+Ahmed Walsh
+```
+## Convert data types
+Some types can be converted to other types by using the type name as a function. We would get a TypeError if we tried to add `1 + A` since you can't add numbers to strings. But we can change an integer to a string using the `str()` function, allowing us to concatenate the objects as strings. 
+
+```python
+print(str(1) + 'A')
+```
+
+```output
+1A
+```
+
+```python
+print(1 + int('2'))
+print(str(1) + '2')
+```
+
+```output
+3
+12
+```
 ## Use an index to get a single character from a string.
 
 We can reference the specific location of a character (individual letters, numbers, and so on) in a text string by using its index position. In Python, each character in a string (first, second, etc.) is given a number, which is called an index. Indices are numbered to begin from 0 rather than 1. We can use an index number in square brackets to refer to the character at that position.
 
 ```python
-element = 'helium'
+library = 'Alexandria'
 print(element[0])
 ```
 
 ```output
-h
+A
 ```
 
 ## Use a slice to get multiple characters from a string.
@@ -105,30 +191,45 @@ h
 A slice is a part of a string that we can reference using `[start:stop]`, where `start` is the index of the first character we want and `stop` is the last character. Referencing a string slice does not change the contents of the original string. Instead, the slice returns a copy of the part of the original string we want. 
 
 ```python
-element = 'sodium'
-print(element[0:3])
+print(library[0:3])
 ```
 
 ```output
-sod
+Ale
 ```
 
-Note that in the example above, `element[0:3]` begins with zero, which refers to the first element in the string, and ends with a 3. When working with slices the end point is interpreted as going up to, *but not including* the index number provided. In other words, the character in the index position of 3 in the string `sodium` is `i`, so the slice `[0:3]` will go up to but not include that character, and therefore give us `sod`.
+Note that in the example above, `element[0:3]` begins with zero, which refers to the first element in the string, and ends with a 3. When working with slices the end point is interpreted as going up to, *but not including* the index number provided. In other words, the character in the index position of 3 in the string `Alexandria` is `x`, so the slice `[0:3]` will go up to but not include that character, and therefore give us `Ale`.
 
 ## Use the built-in function `len` to find the length of a string.
 
 The `len()`function will tell us the length of an item. In the case of a string, it will tell us how many characters are in the string. 
 
 ```python
-print(len('helium'))
+print(len('Babel'))
 ```
 
 ```output
-6
+5
 ```
 
 In the example above we have nested the `print()` and `len()` functions. When nesting functions, they are evaluated from the inside out, just like in mathematics, so `len()` is evaluated first, followed by the `print()` function.
 
+### Variables only change value when something is assigned to them.
+
+We can do arithmetic within a variable assignment, as we saw when we assigned the age variable. But This does **not** happen with Python variables.
+
+```python
+age = 42
+older_age = age + 3
+age = 50
+print('older age is', older_age, 'and age is', age)
+```
+
+```output
+older age is 45 and age is 50
+```
+
+A variable in Python is analogous to a sticky note with a name written on it: assigning a value to a variable is like putting a sticky note on a particular value. When we assigned the variable `older_age`, it was like we put a sticky note with the name `older_age` on the value of `45`. Remember, `45` was the result of `age + 3` because `age` at that point in the code was equal to `42`. The `older_age` sticky note (variable) was never attached to (assigned to) another value, so it doesn't change when the `age` variable is updated to be `50`.
 
 ## Use meaningful variable names. 
 Python doesn't care what you call variables as long as they obey the rules (alphanumeric characters and the underscore).
@@ -302,6 +403,109 @@ But we can also use implicit and negative index values when we define a slice. T
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Fractions
+
+What type of value is 3.4?
+How can you find out?
+
+:::::::::::::::  solution
+
+## Solution
+
+It is a floating-point number (often abbreviated "float").
+
+```python
+print(type(3.4))
+```
+
+```output
+<class 'float'>
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Automatic Type Conversion
+
+What type of value is 3.25 + 4?
+
+:::::::::::::::  solution
+
+## Solution
+
+It is a float: integers are automatically converted to floats as necessary.
+
+```python
+result = 3.25 + 4
+print(result, 'is', type(result))
+```
+
+```output
+7.25 is <class 'float'>
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Division Types
+
+There are three different types of division:
+
+1. 'Normal' division (aka floating-point division) is what most people may be familiar with: `5 / 2 = 2.5`
+2. Floor division cuts out everything after a decimal point: `5 / 2 = 2`
+3. Modulo division returns the remainder after division: `5 / 2 = 1`
+
+In Python 3,  the `/` operator performs floating-point division, the `//`
+operator performs floor division, and the '%' (or *modulo*) operator
+calculates the modulo division:
+
+```python
+print('5 / 3:', 5/3)
+print('5 // 3:', 5//3)
+print('5 % 3:', 5%3)
+```
+
+```output
+5 // 3: 1
+5 / 3: 1.6666666666666667
+5 % 3: 2
+```
+
+If `num_students` is the number of students who registered for a workshop (let's say 150), and `num_per_workshop` is the number that can attend a single section of the workshop (let say 20), write an expression that calculates the number of workshop sections needed to teach everyone. It will be helpful to detect when the number of students per class doesn't divide the number of students evenly. Detect that number with the `%` operator and test if the remainder that it returns is greater than
+0.
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+num_students = 150
+num_per_workshop = 20
+num_classes = num_students // num_per_workshop
+remainder = num_students % num_per_workshop
+
+print(num_students, 'students,', num_per_workshop, 'per workshop')
+print(num_classes, 'full workshops, plus an extra section with only ', remainder, 'students')
+```
+
+```output
+150 students, 20 per workshop
+7 full workshops, plus an extra section with only  10 students
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Use variables to store values.
@@ -314,6 +518,14 @@ But we can also use implicit and negative index values when we define a slice. T
 - Use the built-in function `len` to find the length of a string.
 - Python is case-sensitive.
 - Use meaningful variable names.
+- Every object has a type.
+- Use the built-in function `type` to find the type of an object.
+- Types control what operations can be done on objects.
+- Strings can be added and multiplied.
+- Strings have a length but numbers don't.
+- You have to convert numbers to strings or vice versa when operating on them.
+- You can mix integers and floats freely in operations.
+- Variables only change value when something is assigned to them.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

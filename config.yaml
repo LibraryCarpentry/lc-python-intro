@@ -61,12 +61,11 @@ contact: 'team@carpentries.org'
 episodes: 
 - 01-getting-started.md
 - 02-variables.md
-- 03-types.md
-- 04-lists.md
-- 05-functions.md
-- 06-libraries.md
-- 07-for-loops.md
-- 08-looping-data-sets.md
+- 03-lists.md
+- 04-functions.md
+- 05-libraries.md
+- 06-for-loops.md
+- 07-looping-data-sets.md
 - 09-conditionals.md
 - 10-writing-functions.md
 - 11-scope.md

@@ -125,7 +125,7 @@ print('1st word in sub-list:', mixed_list[3][0])
 
 ## You can copy lists, but not using straightforward variable assignment. 
 
-The variable names you assign to lists are like sticky notes that you're attaching to a specific collection of values. When you change the values in the underlying list, it will update any variables that have been assigned to the collection. 
+Remember our sticky note analogy? Well, the variable names you assign to lists are also like sticky notes that you're attaching to a specific collection of values. When you change the values in the underlying list, it will change the values associated with any variables that have been assigned to the collection. 
 
 ```python
 numbers = [1,2,3,4]
@@ -142,7 +142,9 @@ print(numbers_dupe)
 [100, 2, 3, 4]
 ```
 
-In the example above, the `numbers` variable doesn't retain its original values of [1,2,3,4] because when we changed the value of the zeroth element of the `numbers_dupe` list it also updated the value in `numbers`. To account for this we can use the `.copy()` method.
+In the example above, the `numbers` variable doesn't retain its original values of [1,2,3,4] because when we changed the value of the zeroth element of the `numbers_dupe` list it also updated the value in `numbers`. This behavior is due to the list being a mutable (changeable) object. When we change the value of the first item in the list, we're changing the list object itself. We could assign dozens of variables (sticky notes) to that list object, but they're all pointing to the same thing. 
+
+To account for this we can use the `.copy()` method which will create a new list object that is no longer connected with the original list.
 
 ```python
 numbers = [1,2,3,4]
@@ -182,7 +184,6 @@ print('zip_codes is now:', zip_codes)
 zip_codes was: [60640, 60827, 60632, 60644, 60634]
 zip_codes is now: [60640, 60827, 60632, 60644, 60634, 60647]
 ```
-
 
 ## Use `del` to remove items from a list entirely.
 
