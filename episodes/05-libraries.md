@@ -190,7 +190,7 @@ print(df)
 
 Our lessons store their data files in a `data` sub-directory,
 which is why the path to the file is `data/2011_circ.csv`.
-If you forget to include `data/`, or if you include it but your copy of the file is somewhere else in relation to your Jupyter Notebook, you will get a [runtime error](04-built-in.md) that ends with a line like this:
+If you forget to include `data/`, or if you include it but your copy of the file is somewhere else in relation to your Jupyter Notebook, you will get an error that ends with a line like this:
 
 ```error
 FileNotFoundError: [Errno 2] No such file or directory: 'data/2011_circ.csv'

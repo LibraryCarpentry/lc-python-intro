@@ -66,6 +66,7 @@ episodes:
 - 05-libraries.md
 - 06-for-loops.md
 - 07-looping-data-sets.md
+- 08-pandas.md
 - 09-conditionals.md
 - 10-writing-functions.md
 - 11-scope.md
