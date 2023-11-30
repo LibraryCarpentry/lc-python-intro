@@ -21,7 +21,9 @@ exercises: 10
 
 ## The scope of a variable is the part of a program that can 'see' that variable.
 
-- There are only so many sensible names for variables.
+When we define a variable inside of a function in Python, it's known as a `local` variable, which means that it's not visible to (or "known" by) the rest of the program. Variables that we define outside of functions are "global" and are therefore visible throughout the program, *including* from within other functions. 
+
+There are only so many sensible names for variables.
 - People using functions shouldn't have to worry about
   what variable names the author of the function used.
 - People writing functions shouldn't have to worry about
@@ -29,36 +31,41 @@ exercises: 10
 - The part of a program in which a variable is visible is called its *scope*.
 
 ```python
-pressure = 103.9
+initial_fine = 0.25
+late_fine = 0.50
 
-def adjust(t):
-    temperature = t * 1.43 / pressure
-    return temperature
+def calc_fine(days_overdue):
+    if days_overdue <= 10:
+        days_overdue =  days_overdue * initial_fine
+    else:
+        days_overdue = (days_overdue * initial_fine) + (days_overdue * late_fine)
+    return days_overdue
+    
 ```
 
-- `pressure` is a *global variable*.
-  - Defined outside any particular function.
-  - Visible everywhere.
-- `t` and `temperature` are *local variables* in `adjust`.
-  - Defined in the function.
-  - Not visible in the main program.
-  - Remember: a function parameter is a variable
-    that is automatically assigned a value when the function is called.
+- `initial_fine` and `late_fine` are *global variables*.
+- `days_overdue` is a *local variable* in `calc_fine`. Note that a function parameter is a variable that is automatically assigned a value when the function is called and so acts as a local variable.
 
 ```python
-print('adjusted:', adjust(0.9))
-print('temperature after call:', temperature)
+fine = calc_fine(12)
+print('Fine owed:', fine)
+print('Fine rates:', initial_fine, late_fine)
+print('Days overdue:', days_overdue)
 ```
 
 ```output
-adjusted: 0.01238691049085659
+Fine owed: 9.0
+Fine rates: 0.25 0.5
 ```
 
 ```error
-Traceback (most recent call last):
-  File "/Users/swcarpentry/foo.py", line 8, in <module>
-    print('temperature after call:', temperature)
-NameError: name 'temperature' is not defined
+NameError                                 Traceback (most recent call last)
+Cell In[23], line 14
+     12 print('Fine owed:', fine)
+     13 print('Fine rates:', initial_fine, late_fine)
+---> 14 print('Days overdue:', days_overdue)
+
+NameError: name 'days_overdue' is not defined
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge

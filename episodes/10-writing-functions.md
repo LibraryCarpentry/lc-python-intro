@@ -17,41 +17,23 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Break programs down into functions to make them easier to understand.
+## Use functions to make your code easier to understand.
 
-- Human beings can only keep a few items in working memory at a time.
-- Understand larger/more complicated ideas by understanding and combining pieces.
-  - Components in a machine.
-  - Lemmas when proving theorems.
-- Functions serve the same purpose in programs.
-  - *Encapsulate* complexity so that we can treat it as a single "thing".
-- Also enables *re-use*.
-  - Write one time, use many times.
+Human beings can only keep a few items in working memory at a time. But we can work with larger and more complicated ideas by breaking content down into pieces. Functions serve a similar purpose in Python. We can create our own functions to *encapsulate* complexity and treat specific actions or ideas as a single "thing". Functions also enable us to *re-use* code so we can write code one time, but use it many times.
 
 ## Define a function using `def` with a name, parameters, and a block of code.
 
-- Begin the definition of a new function with `def`.
-- Followed by the name of the function.
-  - Must obey the same rules as variable names.
-- Then *parameters* in parentheses.
-  - Empty parentheses if the function doesn't take any inputs.
-  - We will discuss this in detail in a moment.
-- Then a colon.
-- Then an indented block of code.
+Begin each definition of a new function with the keyword `def` (for "define"), followed by the name of the function. Function names follow the same rules as variable names. Next, add your *parameters* in parentheses. You should still use empty parentheses if the function doesn't take any inputs. Finally, like in conditionals and loops, you'll add a colon and an indented block of code that will contain the body of your function.
 
 ```python
 def print_greeting():
     print('Hello!')
 ```
 
+
 ## Defining a function does not run it.
 
-- Defining a function does not run it.
-  - Like assigning a value to a variable.
-- Must call the function to execute the code it contains.
-- The commands for the function are read and stored after the `def` block, but not actually executed until the function is called later on.
-  - Imagine getting a recipe card and keeping it in your kitchen.  You can cook it anytime, but you haven't completed any of the steps until you start that cooking process.
-  - This means that Python won't complain about problems until you call the function.  More specifically, just because the definition of a function runs without error doesn't mean that there won't be errors when it executes later.
+Note that we don't have any output when we run code to define a function. This is similar to assigning a value to a variable. The function definition is sort of like a recipe in a cookbook - the recipe doesn't create a meal until we use it. So we need to "call" a function to execute the code it contains. This means that Python won't show you errors in your function until you call it.  So when a definition of a function runs without error it doesn't mean that there won't be errors when it executes later.
 
 ```python
 print_greeting()
@@ -63,10 +45,7 @@ Hello!
 
 ## Arguments in call are matched to parameters in definition.
 
-- Functions are most useful when they can operate on different data.
-- Specify *parameters* when defining a function.
-  - These become variables when the function is executed.
-  - Are assigned the arguments in the call (i.e., the values passed to the function).
+Functions are highly useful when they use parameters to pull in data. You can specify *parameters* when you define a function which become variables when the function is executed.
 
 ```python
 def print_date(year, month, day):
@@ -80,52 +59,65 @@ print_date(1871, 3, 19)
 1871/3/19
 ```
 
-- Via [Twitter](https://twitter.com/minisciencegirl/status/693486088963272705):
-  `()` contains the ingredients for the function
-  while the body contains the recipe.
+To expand on the recipe metaphor above, the arguments you add to the `()` contain the ingredients for the function, while the body contains the recipe.
 
-## Functions may return a result to their caller using `return`.
-
-- Use `return ...` to give a value back to the caller.
-- May occur anywhere in the function.
-- But functions are easier to understand if `return` occurs:
-  - At the start to handle special cases.
-  - At the very end, with a final result.
+Functions with defined parameters will result in an error if they are called without passing an argument:
 
 ```python
-def average(values):
-    if len(values) == 0:
-        return None
-    return sum(values) / len(values)
+calc_fine()
 ```
 
+```error
+TypeError                                 Traceback (most recent call last)
+Cell In[15], line 1
+----> 1 calc_fine()
+
+TypeError: calc_fine() missing 1 required positional argument: 'days_overdue'
+```
+
+## Use `return` to pass values back from a function.
+
+In the date example above, we printed the results of the function code to output, but there are better way to handle data and objects created within a function. We can use the keyword `return ...` to send a value back to the "global" environment. (We'll talk more about local and global variables in [episode 11 on function scope](11-scope.md)). A return command can occur anywhere in the function, but is often placed at the very end of a function with the final result. 
+
 ```python
-a = average([1, 3, 4])
-print('average of actual values:', a)
+def calc_fine(days_overdue):
+    if days_overdue <= 10:
+        days_overdue =  days_overdue * 0.25
+    else:
+        days_overdue = (days_overdue * 0.25) + (days_overdue * .50)
+    return days_overdue
+    
+fine = calc_fine(12)
+print('Fine owed:', fine)
 ```
 
 ```output
-2.6666666666666665
+Fine owed: 8.5
 ```
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+### Use the %f formatter to specify the number of float decimals to display
+In the example above, the fine value is displayed as `8.5`, though ideally it would print as `$8.50`. We can use `%f` to tell Python how many decimal points to show when we're working with a float. The syntax is a little different than what we've seen for other Python objects. To start, because we're converting the float to a string, we need a quotation mark, followed by the `%` symbol. Next, add a dot, followed by the number of decimal places to display, and ending with `f` and a closing quote. Finally add another `%` symbol before the float you'd like to convert.
 
 ```python
-print('average of empty list:', average([]))
+fine = calc_fine(12)
+print('Fine owed: $' + "%.2f" % fine)
 ```
-
 ```output
-None
+Fine owed: $8.50
 ```
 
-- Remember: [every function returns something](04-built-in.md).
-- A function that doesn't explicitly `return` a value automatically returns `None`.
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+A function that doesn't explicitly `return` a value will automatically return `None`.
 
 ```python
-result = print_date(1871, 3, 19)
+result = print_date(1970, 6, 21)
 print('result of call is:', result)
 ```
 
 ```output
-1871/3/19
+1970/6/21
 result of call is: None
 ```
 

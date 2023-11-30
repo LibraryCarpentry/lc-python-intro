@@ -137,7 +137,7 @@ Which of these files is *not* matched by the expression `glob.glob('data/*as*.cs
 
 :::::::::::::::  solution
 
-\##Solution
+##Solution
 
 1 is not matched by the regular expresion.
 
