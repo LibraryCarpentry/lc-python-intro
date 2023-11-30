@@ -1,0 +1,280 @@
+---
+title: Using pandas
+teaching: 20
+exercises: 10
+---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- 
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- 
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Pinpoint specific rows and columns in a dataframe
+
+If you don't already have all of the CSV files loaded into a dataframe, let's do that now: 
+
+```python
+import glob
+import pandas as pd
+
+dfs = [] 
+
+for csv in glob.glob('data/*.csv'):
+    data = pd.read_csv(csv)
+    dfs.append(data)
+
+df = pd.concat(dfs, ignore_index=True)
+df.head()
+```
+
+### Use `tail()` to look at the end of the dataframe
+
+We've seen how to look at the first rows in your dataframe using `.head()`. You can use `.tail()` to look at the final rows. You can also pass the number of rows you'd like to view as an argument for `.head()` and `.tail()` in case the the default of five rows doesn't work for you.
+
+```python
+df.tail(10)
+```
+
+### Slicing a dataframe
+
+We can use the same slicing syntax that we used for strings and lists to look at a specific range of rows in a dataframe. 
+
+```python
+df[50:60] #look at rows 50 to 59
+```
+
+### Look at specific columns
+To work specifically with one column of a dataframe we can use a similar syntax, but refer to the name the column of interest. 
+
+```python
+df['year'] #look at the year column
+```
+```output
+0       2011
+1       2011
+2       2011
+3       2011
+4       2011
+        ... 
+998     2014
+999     2014
+1000    2014
+1001    2014
+1002    2014
+Name: year, Length: 1003, dtype: int64
+```
+
+We can add a second square bracket after a column name to refer to specific row indices, either on their own, or using slices to look at ranges.
+
+```python
+print('first row:', df['year'][0])
+print('rows 100 to 102:') #adding a new print statement to create a new line
+print(df['year'][100:103])
+```
+```output
+first row: 2011
+rows 100 to 102:
+100    2016
+101    2016
+102    2016
+Name: year, dtype: int64
+```
+
+Columns display differently in our notebook since a column is a different type of object than a full dataframe. 
+
+```python
+type(df['year'])
+```
+```output
+pandas.core.series.Series
+```
+
+## Summary statistics on columns
+A column is a pandas series object. One of the advantages of pandas is that we can use built-in functions to provide summary statistics across series such as columns. Since it can be difficult to get a sense of the range of data in a large dataframe by looking over the whole thing manually, these functions can help us understand our dataset quickly and ask specific questions. 
+
+If we wanted to know the range of years covered in this data, for example, we can look at the maximum and minimum values in the `year` column. 
+
+```python
+print('max year:', df['year'].max())
+print('min year:', df['year'].min())
+```
+```output
+max year: 2022
+min year: 2011
+```
+
+### Summarize columns that hold string objects
+We might also want to quickly understand the range of values in columns that contain strings, the `branch` column, for example. We can look at a range of values, but it's hard to tell how many different branches are present in the dataset this way.
+
+```python
+df['branch']
+```
+
+```output
+0                     Albany Park
+1                         Altgeld
+2                  Archer Heights
+3                          Austin
+4                   Austin-Irving
+                  ...            
+998              Woodson Regional
+999            Wrightwood-Ashburn
+1000           Downloadable Media
+1001            Renewals - Online
+1002    Talking Books and Braille
+Name: branch, Length: 1003, dtype: object
+```
+
+We can use the `.unique()` function to output an array (like a list) of all of the unique values in the `branch` column, and the `.nunique()` function to tell us how many unique values are present.
+
+```python
+print('Number of unique branches:', df['branch'].nunique())
+print(df['branch'].unique())
+```
+```output
+Number of unique branches: 88
+['Albany Park', 'Altgeld', 'Archer Heights', 'Austin',
+       'Austin-Irving', 'Avalon', 'Back of the Yards', 'Beverly',
+       'Bezazian', 'Blackstone', 'Brainerd', 'Brighton Park',
+       'Bucktown-Wicker Park', 'Budlong Woods', 'Canaryville',
+       'Chicago Bee', 'Chicago Lawn', 'Chinatown', 'Clearing', 'Coleman',
+       'Daley, Richard J. - Bridgeport', 'Daley, Richard M. - W Humboldt',
+       'Douglass', 'Dunning', 'Edgebrook', 'Edgewater', 'Gage Park',
+       'Galewood-Mont Clare', 'Garfield Ridge', 'Greater Grand Crossing',
+       'Hall', 'Harold Washington Library Center', 'Hegewisch',
+       'Humboldt Park', 'Independence', 'Jefferson Park', 'Jeffery Manor',
+       'Kelly', 'King', 'Legler Regional', 'Lincoln Belmont',
+       'Lincoln Park', 'Little Village', 'Logan Square', 'Lozano',
+       'Manning', 'Mayfair', 'McKinley Park', 'Merlo', 'Mount Greenwood',
+       'Near North', 'North Austin', 'North Pulaski', 'Northtown',
+       'Oriole Park', 'Portage-Cragin', 'Pullman', 'Roden', 'Rogers Park',
+       'Roosevelt', 'Scottsdale', 'Sherman Park', 'South Chicago',
+       'South Shore', 'Sulzer Regional', 'Thurgood Marshall', 'Toman',
+       'Uptown', 'Vodak-East Side', 'Walker', 'Water Works',
+       'West Belmont', 'West Chicago Avenue', 'West Englewood',
+       'West Lawn', 'West Pullman', 'West Town', 'Whitney M. Young, Jr.',
+       'Woodson Regional', 'Wrightwood-Ashburn', 'Renewals - Online',
+       'Talking Books and Braille', 'Downloadable Media',
+       'Renewals - Itivia', 'Renewals - Auto', 'Renewals - Phone',
+       'Little Italy', 'West Loop']
+```
+
+## Use .groupby() to analyze subsets of data
+A reasonable question to ask of the library usage data might be to see which branch library has seen the most checkouts over this ten + year period. We can use `.groupby()` to create subsets of data based on the values in specific columns. For example, let's group our data by branch name, and then look at the `ytd` column to see which branch has the highest usage. `.groupby()` takes a column name as its argument and then for each group we can sum the `ytd` columns using `.sum()`.
+
+```python
+df.groupby('branch')['ytd'].sum()
+```
+
+```output
+branch
+Albany Park              1024714
+Altgeld                    68358
+Archer Heights            803014
+Austin                    200107
+Austin-Irving            1359700
+                          ...   
+West Pullman              295327
+West Town                 922876
+Whitney M. Young, Jr.     259680
+Woodson Regional          823793
+Wrightwood-Ashburn        302285
+Name: ytd, Length: 88, dtype: int64
+```
+
+### Sort pandas series using .sort_values()
+The output for code above is another pandas series object. Let's save the output to a new variable so we can then apply the `.sort_values()` method which allows us to view the branches with the *most* usage. The `ascending` parameter for `.sort_values()` takes `True` or `False`. We want to pass `False` so that we sort from the highest values down...
+
+```python
+circ_by_branch = df.groupby('branch')['ytd'].sum()
+circ_by_branch.sort_values(ascending=False).head(10)
+```
+```output
+branch
+Renewals - Online                   28441560
+Renewals - Auto                     21188737
+Downloadable Media                  15709651
+Harold Washington Library Center     7498041
+Sulzer Regional                      5089225
+Lincoln Belmont                      1850964
+Edgewater                            1668693
+Logan Square                         1539816
+Rogers Park                          1515964
+Bucktown-Wicker Park                 1456669
+Name: ytd, dtype: int64
+```
+Now we have a list of the branches (including some checkout types) with the highest number of uses across the whole dataset. 
+
+We can pass multiple columns to `groupby()` to subset the data even further and breakdown the highest usage per year and branch. To do that, we need to pass the column names as a list. We can also chain together many methods into a single line of code. 
+
+```python
+circ_by_year_branch = df.groupby(['year', 'branch'])['ytd'].sum().sort_values(ascending=False)
+circ_by_year_branch.head(5)
+```
+```output
+year  branch           
+2020  Renewals - Auto      8222810
+2021  Renewals - Auto      6629348
+2022  Renewals - Auto      6336579
+2019  Renewals - Online    4821180
+2018  Renewals - Online    4006963
+Name: ytd, dtype: int64
+```
+
+## Save dataframes
+
+You might want to export the series of usage by year and branch that we just created so that you can share it with colleagues. Pandas includes a variety of methods that begin with `.to_...` that allow us to convert and export data in different ways. First, let's save our series as a dataframe so we can more view the output in a better format in our Jupyter notebook. 
+
+```python
+circ_df = circ_by_year_branch.to_frame()
+circ_df.head(5)
+```
+
+### Save to CSV
+Next, let's export the new dataframe to a CSV file so we can share it with colleagues who love spreadsheets. The `.to_csv()` method expects a string that will be the name of the file as a parameter. Make sure to add the .csv filetype to your file name. 
+
+```python
+circ_df.to_csv('high_usage.csv')
+```
+You should now see, in the JupyterLab file explorer to the left, the new CSV file. If you don't see it, you can hit the refresh icon (it looks like a spinning arrow) above the files pane. You can double-click on the CSV to preview the full spreadsheet in a new Jupyter tab.
+
+::::::::::::::::::::::::::::::::::::::: callout
+### Save pickle files
+Working with your data in CSVs (especially via tools like Microsoft Excel) can introduce reproducibility issues. For example, you'll sometimes have character encoding problems, where certain characters in your dataset will no longer display properly. Sometimes tools like Excel will auto format columns (such as dates) in ways that will make it hard to work with them later on. 
+
+One way to avoid issues like this is to save Python objects as [pickles](https://docs.python.org/3/library/pickle.html). Technically speaking, the Python pickle module serializes and de-serializes a Python object's structure. In practical terms, pickling allows you to store Python objects (like dataframes, lists, etc.) efficiently and in a way that you can reload them into Python later on without losing any data. 
+
+You can save a dataframe to pickle by using the `to_pickle()` method and using the filetype of `pkl`.
+
+```python
+circ_df.to_pickle('high_usage.pkl')
+```
+
+But you can only "see" the data in the pickle file by reloading it into Python. This is a great way to save a dataframe that you created during one JupyterLab session so that you can reload it later on, or share it with a colleague who's familiar with Python. 
+
+```python
+new_df = pd.read_pickle('high_usage.pkl')
+new_df.head()
+```
+:::::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Use `.loc()` and `.iloc()` to pinpoint specific locations in Pandas dataframes.
+- Use builtin methods `.sum()`, `.mean()`, `unique()`, and `nunique()` to explore summary statistics on the rows and colums in your dataframe.
+- Use `.groupby()` to work with subsets of your dataset.
+- Sort pandas series with `.sort_values()`.
+- Save dataframes to CSV and pickle files using `.to_csv()` and `.to_pickle()`.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

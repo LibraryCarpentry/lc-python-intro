@@ -116,12 +116,12 @@ Number of saved dataframes: 12
 There are many different ways to merge, join, and concatenate pandas dataframes together. The [pandas documentation has good examples](https://pandas.pydata.org/docs/user_guide/merging.html) of how to use the `.merge()`, `.join()`, and `.concat()` methods to accomplish different goals. Because all of our CSVs have the exact same columns, if we want to concatenate them vertically (adding all of the rows from each dataframe together in order), we can do so using `concat()`, which takes a list of dataframes as its first argument. Since we aren't using a specific column as a pandas index, we'll set the argument of `ignore_index` to be True. 
 
 ```python
-full_df = pd.concat(dfs, ignore_index=True)
-print('Number of rows in full_df:', len(full_df))
+df = pd.concat(dfs, ignore_index=True)
+print('Number of rows in df:', len(df))
 ```
 
 ```output
-Number of rows in full_df: 1003
+Number of rows in df: 1003
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
