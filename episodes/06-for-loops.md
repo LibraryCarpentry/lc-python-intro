@@ -76,7 +76,7 @@ IndexError                                Traceback (most recent call last)
 IndexError: list index out of range
 ```
 
-A `for loop` is a better solution:
+A *for loop* is a better solution:
 
 ```python
 odds = [1, 3, 5, 7]
