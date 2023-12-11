@@ -76,7 +76,7 @@ IndexError                                Traceback (most recent call last)
 IndexError: list index out of range
 ```
 
-A `for loop` is a better solution:
+A `for` loop is a better solution:
 
 ```python
 odds = [1, 3, 5, 7]
@@ -108,7 +108,7 @@ for num in odds:
 11
 ```
 
-A `for loop` repeats an operation -- in this case, printing -- once for each element it encounters in a collection. The general structure of a loop is:
+A `for` loop repeats an operation -- in this case, printing -- once for each element it encounters in a collection. The general structure of a loop is:
 
 ```python
 for variable in collection:
