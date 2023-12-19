@@ -156,7 +156,7 @@ Using these common aliases can make it easier to work with existing documentatio
 
 ## Pandas
 `Pandas` is a widely-used Python library for statistics using tabular data.
-Essentially, it give you access to 2-dimensional tables whose columns have names and can have different data types. We can start using Pandas by reading a `Comma Separated Values` (CSV) data file with the function `pd.read_csv()`. `read_csv()` expects as an argument the path to and name of the file to be read. This returns a dataframe that you can assign to a variable.
+Essentially, it give you access to 2-dimensional tables whose columns have names and can have different data types. We can start using Pandas by reading a `Comma Separated Values` (CSV) data file with the function `pd.read_csv()`. The function `.read_csv()` expects as an argument the path to and name of the file to be read. This returns a dataframe that you can assign to a variable.
 
 ### Find your CSV files
 

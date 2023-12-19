@@ -143,7 +143,7 @@ TypeError: unsupported operand type(s) for -: 'str' and 'str'
 
 ### You can use the `+` and `*` operators on strings.
 
-In the example above, we see that we can't subtract a single character from a string. But some arithmetic operators can be "overloaded" in Python so that they will work on strings. For example, adding" character strings together will concatenate them.
+In the example above, we see that we can't subtract a single character from a string. But some arithmetic operators can be "overloaded" in Python so that they will work on strings. `Operator overloading` refers to an operator's ability to perform different roles depending on the data type (e.g., string or integer) its applied to. For example, adding character strings together will concatenate them.
 
 ```python
 full_name = 'Ahmed' + ' ' + 'Walsh'

@@ -68,7 +68,7 @@ Once you have created the `lc-python` directory on your Desktop, you can start J
 
 #### Mac users - Command Line
 
-1. In your `Applications` folder, open `Utilities` and double-click on `Terminal`.
+1. Press the <kbd>cmd</kbd> + <kbd>spacebar</kbd> keys and search for `Terminal`. Click the result or press <kbd>return</kbd>. (You can also find `Terminal` in your `Applications` folder, under `Utilities`.)
 2. After you have launched Terminal, change directories to the `lc-python` folder you created earlier and type `jupyter lab`:
 
 ```bash
@@ -101,7 +101,7 @@ After you have launched Anaconda Navigator, click the `Launch` button under Jupy
 
 Launching JupyterLab opens a new tab or window in your preferred web browser. While JupyterLab enables you to run code from your browser, it does not require you to be online. If you take a look at the URL in your browser address bar, you should see that the environment is located at your localhost, meaning it is running from your computer: `http://localhost:8888/lab`.
 
-When you first open JupyterLab you will see two main panels. In the left sidebar is your file browser. You should see a folder in the file browser named `lc-python-circ` that contains all of our data. 
+When you first open JupyterLab you will see two main panels. In the left sidebar is your file browser. You should see a folder in the file browser named `data` that contains all of our data. 
 
 ### Creating a Juypter Notebook
 

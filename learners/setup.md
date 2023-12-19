@@ -5,7 +5,7 @@ title: Setup
 ## Installing Python Using Anaconda
 Python is a popular language for research computing, and great for general-purpose programming as well. Installing all of its research packages individually can be a bit difficult, so we recommend Anaconda, an all-in-one installer.
 
-Regardless of how you choose to install it, please make sure you install Python version 3.x (e.g., 3.6 is fine).
+Regardless of how you choose to install it, please make sure you install Python 3.x. The latest 3.x version recommended on [Python.org][python] is fine.
 
 We will teach Python using JupyterLab, a programming environment that runs in a web browser (JupyterLab will be installed by Anaconda). For this to work you will need a reasonably up-to-date browser. The current versions of the Chrome, Safari and Firefox browsers are all supported (some older browsers, including Internet Explorer version 9 and below, are not).
 
@@ -43,14 +43,14 @@ If you aren't comfortable doing the installation yourself stop here and request 
 We will teach Python using JupyterLab, a part of a family of [Jupyter][jupyter] tools that includes Jupyter Notebook and JupyterLab, both of which provide interactive web environments where you can write and run Python code. If you installed Anaconda, JupyterLab is installed on your system. If you did not install Anaconda, you can [install JupyterLab][jupyter-install] on its own using conda, pip, or other popular package managers.
 
 ## Download the data
-This lesson uses circulation data in multiple CSV files from the Chicago Public Library system. The data was compiled from records shared by the Chicago Public Library in [the data.gov catalog](https://catalog.data.gov/dataset/?q=chicago+%22circulation+by+location%22). Please do not download the circulation data from data.gov since the dataset we'll use below has been altered for our purposes.
 
 1. Create a new folder on your Desktop called ```lc-python```.
 2. Download [this zip file][dataset] and save it in the ```lc-python``` folder you just created. 
 3. Unzip the ```data.zip``` file, which should create a new folder called ```data```.
 
-[python]: https://python.org
-[anaconda]: https://www.anaconda.com/distribution
+This lesson uses circulation data in multiple CSV files from the Chicago Public Library system. The data was compiled from records shared by the Chicago Public Library in [the data.gov catalog](https://catalog.data.gov/dataset/?q=chicago+%22circulation+by+location%22). Please do not download the circulation data from data.gov since the dataset you downloaded following the steps above has been altered for our purposes.
+
+[python]: https://python.org/downloads
 [video-windows]: https://www.youtube.com/watch?v=xxQ0mzZ8UvA
 [anaconda-dl]: https://www.anaconda.com/download/
 [video-mac]: https://www.youtube.com/watch?v=TcSAln46u9U

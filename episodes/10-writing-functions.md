@@ -82,26 +82,26 @@ In the date example above, we printed the results of the function code to output
 ```python
 def calc_fine(days_overdue):
     if days_overdue <= 10:
-        days_overdue =  days_overdue * 0.25
+        fine =  days_overdue * 0.25
     else:
-        days_overdue = (days_overdue * 0.25) + (days_overdue * .50)
-    return days_overdue
+        fine = (days_overdue * 0.25) + (days_overdue * .50)
+    return fine
     
 fine = calc_fine(12)
 print('Fine owed:', fine)
 ```
 
 ```output
-Fine owed: 8.5
+Fine owed: 9.0
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
-### Use the %f formatter to specify the number of float decimals to display
-In the example above, the fine value is displayed as `8.5`, though ideally it would print as `$8.50`. We can use `%f` to tell Python how many decimal points to show when we're working with a float. The syntax is a little different than what we've seen for other Python objects. To start, because we're converting the float to a string, we need a quotation mark, followed by the `%` symbol. Next, add a dot, followed by the number of decimal places to display, and ending with `f` and a closing quote. Finally add another `%` symbol before the float you'd like to convert.
+### Use f-strings to specify the number of float decimals to display
+In the example above, the fine value is displayed as `8.5`, though ideally it would print as `$8.50`. We can use `f-strings` to format specific aspects of strings in Python, such as defining how many decimal points to show. To tell Python the string that follows is an f-string, we simply start it with `f` before the open single (or double) quote. For example: `print(f'This is an f-string')`. But to take advantage of the f-string we should add a `replacement field`, which is an expression delimited by curly braces `{}`. Within the replacement field we can refer to a Python variable and add a `format specifier` of `.2f` to format a float variable to display with two decimal places. Our replacement field, for example, would be `{fine:.2f}`. If you wanted to display a float with three decimal points you would change the format specifier to `{fine:.3f}`.
 
 ```python
 fine = calc_fine(12)
-print('Fine owed: $' + "%.2f" % fine)
+print(f'Fine owed: ${fine:.2f}')
 ```
 ```output
 Fine owed: $8.50
