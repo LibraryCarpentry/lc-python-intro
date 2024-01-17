@@ -51,13 +51,13 @@ Number of zip codes: 5
 In the same way we used index numbers for strings, we can reference elements in a list.
 
 ```python
-print('zeroth item of zip_codes:', zip_codes[0])
-print('fourth item of zip_codes:', zip_codes[4])
+print('1st item of zip_codes (0th index):', zip_codes[0])
+print('5th item of zip_codes (4th index):', zip_codes[4])
 ```
 
 ```output
-zeroth item of zip_codes: 60625
-fourth item of zip_codes: 60634
+1st item of zip_codes (0th index): 60625
+5th item of zip_codes (4th index): 60634
 ```
 
 ## List values can be replaced by assigning them with their index.
@@ -104,7 +104,7 @@ TypeError: 'str' object does not support item assignment
 ## You can create an empty list for later use.
 
 Use `[]` on its own to represent a list that doesn't contain any values. This is helpful as a starting point for collecting values
-  (which we will see in our episode on loops](07-for-loops.md)).
+  ([which we will see in our episode on For Loops](06-for-loops.html)).
 
 ```python
 future_list = []
@@ -142,7 +142,7 @@ print(numbers_dupe)
 [100, 2, 3, 4]
 ```
 
-In the example above, the `numbers` variable doesn't retain its original values of [1,2,3,4] because when we changed the value of the zeroth element of the `numbers_dupe` list it also updated the value in `numbers`. This behavior is due to the list being a mutable (changeable) object. When we change the value of the first item in the list, we're changing the list object itself. We could assign dozens of variables (sticky notes) to that list object, but they're all pointing to the same thing. 
+In the example above, the `numbers` variable doesn't retain its original values of [1,2,3,4] because when we changed the value of the 1st element of the `numbers_dupe` list - `numbers_dupe[0]` - it also updated the value in `numbers`. This behavior is due to the list being a mutable (changeable) object. When we change the value of the first item in the list, we're changing the list object itself. We could assign dozens of variables (sticky notes) to that list object, but they're all pointing to the same thing. 
 
 To account for this we can use the `.copy()` method which will create a new list object that is no longer connected with the original list.
 
