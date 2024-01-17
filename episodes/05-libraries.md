@@ -117,7 +117,7 @@ The ASCII letters are abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 ```
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## ModuleNotFoundError
+## Module not found error
 
 Before you can import a Python library, you sometimes will need to download and install it on your machine. Anaconda comes with many of the most popular Python libraries for scientific computing applications built-in, so if you installed Anaconda for this workshop, you'll be able to import many common libraries directly. Some less common tools, like the PyMarc package, however, would need to be installed first.
 
