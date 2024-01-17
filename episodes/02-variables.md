@@ -179,7 +179,7 @@ We can reference the specific location of a character (individual letters, numbe
 
 ```python
 library = 'Alexandria'
-print(element[0])
+print(library[0])
 ```
 
 ```output
@@ -198,7 +198,7 @@ print(library[0:3])
 Ale
 ```
 
-Note that in the example above, `element[0:3]` begins with zero, which refers to the first element in the string, and ends with a 3. When working with slices the end point is interpreted as going up to, *but not including* the index number provided. In other words, the character in the index position of 3 in the string `Alexandria` is `x`, so the slice `[0:3]` will go up to but not include that character, and therefore give us `Ale`.
+Note that in the example above, `library[0:3]` begins with zero, which refers to the first element in the string, and ends with a 3. When working with slices the end point is interpreted as going up to, *but not including* the index number provided. In other words, the character in the index position of 3 in the string `Alexandria` is `x`, so the slice `[0:3]` will go up to but not include that character, and therefore give us `Ale`.
 
 ## Use the built-in function `len` to find the length of a string.
 
@@ -216,7 +216,7 @@ In the example above we have nested the `print()` and `len()` functions. When ne
 
 ### Variables only change value when something is assigned to them.
 
-We can do arithmetic within a variable assignment, as we saw when we assigned the age variable. But This does **not** happen with Python variables.
+We can do arithmetic within a variable assignment, as we saw when we assigned the age variable. But once a Python variable is assigned it will not change value unless the assignment code is run again. The value of `older_age` does not get updated when we change the assignment of `age` to `50`, for example:
 
 ```python
 age = 42
@@ -263,9 +263,9 @@ y = swap
 ## Solution
 
 ```
-swap = x  #  x->1.0 y->3.0 swap->1.0
-x = y     #  x->3.0 y->3.0 swap->1.0
-y = swap  #  x->3.0 y->1.0 swap->1.0
+swap = x  #  x = 1.0 y = 3.0 swap = 1.0
+x = y     #  x = 3.0 y = 3.0 swap = 1.0
+y = swap  #  x = 3.0 y = 1.0 swap = 1.0
 ```
 
 These three lines exchange the values in `x` and `y` using the `swap`
