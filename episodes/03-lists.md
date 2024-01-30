@@ -6,14 +6,14 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Create collections of values to work with in Python using lists.
+- Create collections to work with in Python using lists.
 - Write Python code to index, slice, and modify lists through assignment and method calls.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I store multiple values in Python?
+- How can I store multiple items in a Python variable?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -251,7 +251,7 @@ second time [3, 5]
 ## How Large is a Slice?
 
 If 'low' and 'high' are both non-negative integers,
-how long is the list `values[low:high]`?
+how long is the list returned by this slicing operation `values[low:high]`?
 
 :::::::::::::::  solution
 
@@ -272,17 +272,17 @@ The list's length would be equal to `high - low`.
 Given this:
 
 ```python
-print('string to list:', list('tin'))
-print('list to string:', ''.join(['g', 'o', 'l', 'd']))
+print('string to list:', list('book'))
+print('list to string:', ''.join(['a', 'r', 't', 'i', 'c', 'l', 'e']))
 ```
 
 ```output
-['t', 'i', 'n']
-'gold'
+['b', 'o', 'o', 'k']
+'article'
 ```
 
 1. Explain in simple terms what `list('some string')` does.
-2. What does `'-'.join(['x', 'y'])` generate?
+2. What does `'-'.join(['x', 'y'])` generate? Note that the first set of single quotes is not empty.
 
 :::::::::::::::  solution
 
@@ -304,16 +304,17 @@ print('list to string:', ''.join(['g', 'o', 'l', 'd']))
 What does the following program print?
 
 ```python
-element = 'helium'
-print(element[-1])
+resources = ['books','periodicals','DVDs','maps',
+'databases','abstracts']
+print(resource[-1])
 ```
 
 1. How does Python interpret a negative index?
 2. If a list or string has N elements,
   what is the most negative index that can safely be used with it,
   and what location does that index represent?
-3. If `values` is a list, what does `del values[-1]` do?
-4. How can you display all elements but the last one without changing `values`?
+3. If `resources` is a list, what does `del resources[-1]` do?
+4. How can you display all elements but the last one without changing `resources`?
   (Hint: you will need to combine slicing and negative indexing.)
 
 :::::::::::::::  solution
@@ -321,13 +322,13 @@ print(element[-1])
 ## Solution
 
 ```output
-m
+abstracts
 ```
 
 1. A negative index begins at the final element.
 2. `-(N)` corresponds to the first index, which is the [0] index.
 3. It removes the final element of the list.
-4. You could do the following: `print(values[0:-1])`
+4. You could do the following: `print(resources[0:-1])`
   
   
 
@@ -342,9 +343,10 @@ m
 What does the following program print?
 
 ```python
-element = 'fluorine'
-print(element[::2])
-print(element[::-1])
+resources = ['books','periodicals','DVDs','maps',
+'databases','abstracts'] 
+print(resources[::2])
+print(resources[::-1])
 ```
 
 1. If we write a slice as `low:high:stride`, what does `stride` do?
@@ -355,12 +357,12 @@ print(element[::-1])
 ## Solution
 
 ```output
-furn
-eniroulf
+['books', 'DVDs', 'databases']
+['abstracts', 'databases', 'maps', 'DVDs', 'periodicals', 'books']
 ```
 
 1. `stride` indicates both the number of steps, and from which end: positive starts from first element, negative from the last element.
-2. `element[1::2]`
+2. `resources[1::2]`
   
   
 
@@ -375,9 +377,10 @@ eniroulf
 What does the following program print?
 
 ```python
-element = 'lithium'
-print(element[0:20])
-print(element[-1:3])
+resources = ['books','periodicals','DVDs','maps',
+'databases','abstracts'] 
+print(resources[0:20])
+print(resources[-1:3])
 ```
 
 :::::::::::::::  solution
@@ -385,12 +388,12 @@ print(element[-1:3])
 ## Solution
 
 ```output
-lithium 
-''
+['books', 'periodicals', 'DVDs', 'maps', 'databases', 'abstracts']
+[]
 ```
 
-There is no 20th index, so the entire string is captured.  
-There is no element after the -1 index.  
+There is no 20th index, so the entire list is captured.  
+There is no element after the -1 index, so an empty list is returned as empty square brackets.  
 
 
 
@@ -403,20 +406,22 @@ There is no element after the -1 index.
 ## Sort and Sorted
 
 What do these two programs print?
-In simple terms, explain the difference between `sorted(letters)` and `letters.sort()`.
+In simple terms, explain the difference between `sorted(resources)` and `resources.sort()`.
 
 ```python
 # Program A
-letters = list('gold')
-result = sorted(letters)
-print('letters is', letters, 'and result is', result)
+resources =  ['books','periodicals','DVDs','maps',
+'databases','abstracts'] 
+result = sorted(resources)
+print('resources is', resources, 'and result is', result)
 ```
 
 ```python
 # Program B
-letters = list('gold')
-result = letters.sort()
-print('letters is', letters, 'and result is', result)
+resources = ['books','periodicals','DVDs','maps',
+'databases','abstracts'] 
+result = resources.sort()
+print('resources is', resources, 'and result is', result)
 ```
 
 :::::::::::::::  solution
@@ -426,16 +431,17 @@ print('letters is', letters, 'and result is', result)
 Program A:
 
 ```output
-letters is ['g', 'o', 'l', 'd'] and result is ['d', 'g', 'l', 'o']
+resources is ['books', 'periodicals', 'DVDs', 'maps', 'databases', 'abstracts'] and result is ['DVDs', 'abstracts', 'books', 'databases', 'maps', 'periodicals']
 ```
+Notice that the capital letters in acronym DVD sort before lowercase letters.
 
 Program B:
 
 ```output
-letters is ['d', 'g', 'l', 'o'] and result is None
+resources is ['DVDs', 'abstracts', 'books', 'databases', 'maps', 'periodicals'] and result is None
 ```
 
-`sorted(letters)` returns a sorted copy of the list, while `letters.sort()` sorted the list *in place*. Thus, it was already sorted, and calling a further sort returns `None`.  
+`sorted(resources)` returns a sorted copy of the list, while `resources.sort()` function call sorts the list *in place* and returns `None`.  
 
 
 
@@ -452,7 +458,7 @@ In simple terms, explain the difference between `new = old` and `new = old[:]`.
 
 ```python
 # Program A
-old = list('gold')
+old = list('book')
 new = old      # simple assignment
 new[0] = 'D'
 print('new is', new, 'and old is', old)
@@ -460,7 +466,7 @@ print('new is', new, 'and old is', old)
 
 ```python
 # Program B
-old = list('gold')
+old = list('book')
 new = old[:]   # assigning a slice
 new[0] = 'D'
 print('new is', new, 'and old is', old)
@@ -473,13 +479,13 @@ print('new is', new, 'and old is', old)
 Program A:
 
 ```output
-new is ['D', 'o', 'l', 'd'] and old is ['D', 'o', 'l', 'd']
+new is ['D', 'o', 'o', 'k'] and old is ['D', 'o', 'o', 'k']
 ```
 
 Program B:
 
 ```output
-new is ['D', 'o', 'l', 'd'] and old is ['g', 'o', 'l', 'd']
+new is ['D', 'o', 'o', 'k'] and old is ['b', 'o', 'o', 'k']
 ```
 
 `new = old` is assigning `old` to `new`, whereas `new = old[:]` is a **slice assignment**, which will only return a copy of `old`.
