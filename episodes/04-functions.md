@@ -108,7 +108,7 @@ round(3.712, 1)
 
 ## Use the built-in function `help` to get help for a function.
 
-Every built-in function has online documentation. You can access the documentation using the `help()` function or by adding a `?` at the end of your function name in Jupyter.
+Every built-in function has online documentation. You can always access the documentation using the built-in `help()` function. In the jupyter environment, you can access help by either adding a `?` at the end of your function and running it or Hold down <kbd>Shift</kbd>, and press <kbd>Tab</kbd> when your insertion cursor is in or near the function name.
 
 ```python
 help(round)
