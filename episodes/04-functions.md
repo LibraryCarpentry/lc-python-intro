@@ -61,8 +61,8 @@ Both `max()` and `min()` work on character strings as well as numbers, so can be
 - `'A'` is smaller than `'a'`
 
 ```python
-print(max(1, 2, 3))
-print(min('a', 'b', 'c'))
+print(max(1, 2, 3)) # notice that functions are nestable
+print(min('a', 'b', max('c', 'd'))) # nest with care since code gets less readable
 print(min('a', 'A'))
 ```
 
