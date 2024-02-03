@@ -149,23 +149,29 @@ result of print is None
 ## Spot the Difference
 
 1. Predict what each of the `print` statements in the program below will print.
-2. Does `max(len(rich), poor)` run or produce an error message?
+2. Does `max(len(cataloger), assistant_librarian)` run or produce an error message?
   If it runs, does its result make any sense?
 
 ```python
-rich = "gold"
-poor = "tin"
-print(max(rich, poor))
-print(max(len(rich), len(poor)))
+cataloger = "metadata_curation"
+assistant_librarian = "archives"
+print(max(cataloger, assistant_librarian))
+print(max(len(cataloger), assistant_librarian))
 ```
 
 :::::::::::::::  solution
 
 ## Solution
 
-```
-tin
-4
+```output
+metadata_curation
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[2], line 4
+      2 assistant_librarian = "archives"
+      3 print(max(cataloger, assistant_librarian))
+----> 4 print(max(len(cataloger), assistant_librarian))
+
 TypeError: '>' not supported between instances of 'str' and 'int'
 ```
 
