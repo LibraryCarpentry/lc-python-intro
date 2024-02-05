@@ -325,9 +325,9 @@ where there are clear abbreviation conventions.
 Given the variables `year`, `month` and `day`, how would you generate a date in the standard iso format:
 
 ```python
-year = 2016
-month = 10
-day = 22
+year = 1971
+month = 08
+day = 26
 ```
 
 1. Which [standard library][stdlib] module could help you?
@@ -361,13 +361,14 @@ print(datetime.date(year, month, day).isoformat())
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-
-
 [stdlib]: https://docs.python.org/3/library/
 [pypi]: https://pypi.org/
 
+:::::::::: spoiler
+### Is there something special about that date in library history?
+According to [Washington County Cooperative Library Services](https://www.wccls.org/news/brief-history-library-catalog):
+"1971, August 26 – Ohio University’s Alden Library takes computer cataloging online for the first time, building a system where libraries could electronically share catalog records over a network instead of by mailing printed cards or re-entering records in each catalog. That catalog eventually became the core of OCLC WorldCat – a shared online catalog used by libraries in 107 countries and containing 517,963,343 records."
+::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
