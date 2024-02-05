@@ -61,8 +61,8 @@ Both `max()` and `min()` work on character strings as well as numbers, so can be
 - `'A'` is smaller than `'a'`
 
 ```python
-print(max(1, 2, 3))
-print(min('a', 'b', 'c'))
+print(max(1, 2, 3)) # notice that functions are nestable
+print(min('a', 'b', max('c', 'd'))) # nest with care since code gets less readable
 print(min('a', 'A'))
 ```
 
@@ -108,7 +108,7 @@ round(3.712, 1)
 
 ## Use the built-in function `help` to get help for a function.
 
-Every built-in function has online documentation. You can access the documentation using the `help()` function or by adding a `?` at the end of your function name in Jupyter.
+Every built-in function has online documentation. You can always access the documentation using the built-in `help()` function. In the jupyter environment, you can access help by either adding a `?` at the end of your function and running it or Hold down <kbd>Shift</kbd>, and press <kbd>Tab</kbd> when your insertion cursor is in or near the function name.
 
 ```python
 help(round)
@@ -149,23 +149,29 @@ result of print is None
 ## Spot the Difference
 
 1. Predict what each of the `print` statements in the program below will print.
-2. Does `max(len(rich), poor)` run or produce an error message?
+2. Does `max(len(cataloger), assistant_librarian)` run or produce an error message?
   If it runs, does its result make any sense?
 
 ```python
-rich = "gold"
-poor = "tin"
-print(max(rich, poor))
-print(max(len(rich), len(poor)))
+cataloger = "metadata_curation"
+assistant_librarian = "archives"
+print(max(cataloger, assistant_librarian))
+print(max(len(cataloger), assistant_librarian))
 ```
 
 :::::::::::::::  solution
 
 ## Solution
 
-```
-tin
-4
+```output
+metadata_curation
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[2], line 4
+      2 assistant_librarian = "archives"
+      3 print(max(cataloger, assistant_librarian))
+----> 4 print(max(len(cataloger), assistant_librarian))
+
 TypeError: '>' not supported between instances of 'str' and 'int'
 ```
 
