@@ -204,7 +204,7 @@ for csv in sorted(glob.glob('data/*.csv')):
 
 ## Compile CSVs into one dataframe
 
-Imagine you had a folder named `outputs/` that included all kinds of different file types. Use `glob` and a `for` loop to iterate through all of the CSV files in the folder that have a file name that begins with `data`... Save them to a list called `dfs`, and then use `pd.concat()` to concatenate all of the dataframes from the `dfs` list together into a new dataframe called, `new_df`. You can assume that all of the data CSV files have the same columns so they will concatenate together cleanly using `pd.concat()`.
+Imagine you had a folder named `outputs/` that included all kinds of different file types. Use `glob` and a `for` loop to iterate through all of the CSV files in the folder that have a file name that begins with `data`. Save them to a list called `dfs`, and then use `pd.concat()` to concatenate all of the dataframes from the `dfs` list together into a new dataframe called, `new_df`. You can assume that all of the data CSV files have the same columns so they will concatenate together cleanly using `pd.concat()`.
 
 :::::::::::::::  solution
 
