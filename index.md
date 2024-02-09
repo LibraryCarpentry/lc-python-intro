@@ -14,8 +14,7 @@ This lesson is an introduction to programming in Python for library and informat
 
 2. Learners must install Python and JupyterLab, and download the dataset that will be used in the lesson, before the workshop begins.
   
-  Please see [the setup instructions](learners/setup.md)
-  for details.
+  Please see setup instructions below for details.
   
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
