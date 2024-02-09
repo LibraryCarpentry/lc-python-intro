@@ -1,6 +1,6 @@
 ---
 title: Looping Over Data Sets
-teaching: 5
+teaching: 10
 exercises: 10
 ---
 
@@ -55,7 +55,7 @@ all csv files in data directory: ['data/2011_circ.csv', 'data/2016_circ.csv', 'd
 
 ## Use `glob` and `for` to process batches of files.
 
-Now we can use glob in a `for` loop to create dataframes from all of the CSV files in the `data` directory. To use tools like `glob` it helps a lot if files are named and stored consistently so that simple patterns will find the right data.
+Now we can use glob in a `for` loop to create dataframes from all of the CSV files in the `data` directory. To use tools like `glob` it helps a lot if files are named and stored consistently so that simple patterns will find the right data. You can learn more about how to name files to improve machine-readability from the [Open Science Foundation article on file naming](https://help.osf.io/article/146-file-naming).
 
 ```python
 for csv in glob.glob('data/*.csv'):
@@ -78,6 +78,29 @@ data/2015_circ.csv 3195053
 data/2014_circ.csv 2792631
 ```
 
+The output of the files above may be different for you, depending on what operating system you use. The glob library doesn't have its own internal system for determining how filenames are sorted, but instead relies on the operating system's filesystem. Since operating systems can differ, it is helpful to use Python to manually sort the glob files so that everyone will see the same results, regardless of their operating system. You can do that by applying the Python method `sorted()` to the `glob.glob` list.
+
+```python
+for csv in sorted(glob.glob('data/*.csv')):
+    data = pd.read_csv(csv)
+    print(csv, data['ytd'].max())
+```
+
+```output
+data/2011_circ.csv 1678047
+data/2012_circ.csv 1707032
+data/2013_circ.csv 2069537
+data/2014_circ.csv 2792631
+data/2015_circ.csv 3195053
+data/2016_circ.csv 3478369
+data/2017_circ.csv 3623318
+data/2018_circ.csv 4006963
+data/2019_circ.csv 4821180
+data/2020_circ.csv 8222810
+data/2021_circ.csv 6629348
+data/2022_circ.csv 6336579
+```
+
 ## Appending dataframes to a list
 
 In the example above, we can print out results from each dataframe as we cycle through them, but it would be more convenient if we saved all of the yearly usage data in these CSV files into dataframes that we could work with later on. We can do that by using a list "accumulator" (as we covered in the last episode). 
@@ -86,7 +109,7 @@ In the example above, we can print out results from each dataframe as we cycle t
 dfs = [] # this is an empty list to hold all of our dataframes
 counter = 1
 
-for csv in glob.glob('data/*.csv'):
+for csv in sorted(glob.glob('data/*.csv')):
   data = pd.read_csv(csv)
   print(counter, 'Saving', len(data), 'rows from', csv)
   dfs.append(data)
@@ -97,23 +120,23 @@ print('Number of saved dataframes:', len(dfs))
 
 ```output
 1 Saving 83 rows from data/2011_circ.csv
-2 Saving 83 rows from data/2016_circ.csv
-3 Saving 83 rows from data/2017_circ.csv
-4 Saving 86 rows from data/2022_circ.csv
-5 Saving 83 rows from data/2018_circ.csv
-6 Saving 84 rows from data/2019_circ.csv
-7 Saving 82 rows from data/2012_circ.csv
-8 Saving 83 rows from data/2013_circ.csv
-9 Saving 85 rows from data/2021_circ.csv
+2 Saving 82 rows from data/2012_circ.csv
+3 Saving 83 rows from data/2013_circ.csv
+4 Saving 83 rows from data/2014_circ.csv
+5 Saving 83 rows from data/2015_circ.csv
+6 Saving 83 rows from data/2016_circ.csv
+7 Saving 83 rows from data/2017_circ.csv
+8 Saving 83 rows from data/2018_circ.csv
+9 Saving 84 rows from data/2019_circ.csv
 10 Saving 85 rows from data/2020_circ.csv
-11 Saving 83 rows from data/2015_circ.csv
-12 Saving 83 rows from data/2014_circ.csv
+11 Saving 85 rows from data/2021_circ.csv
+12 Saving 86 rows from data/2022_circ.csv
 Number of saved dataframes: 12
 ```
 
 ## Concatenating dataframes 
 
-There are many different ways to merge, join, and concatenate pandas dataframes together. The [pandas documentation has good examples](https://pandas.pydata.org/docs/user_guide/merging.html) of how to use the `.merge()`, `.join()`, and `.concat()` methods to accomplish different goals. Because all of our CSVs have the exact same columns, if we want to concatenate them vertically (adding all of the rows from each dataframe together in order), we can do so using `concat()`, which takes a list of dataframes as its first argument. Since we aren't using a specific column as a pandas index, we'll set the argument of `ignore_index` to be True. 
+There are many different ways to merge, join, and concatenate pandas dataframes together. The [pandas documentation has good examples](https://pandas.pydata.org/docs/user_guide/merging.html) of how to use the `.merge()`, `.join()`, and `.concat()` methods to accomplish different goals. Because all of our CSVs have the exact same columns, if we want to concatenate them vertically (adding all of the rows from each dataframe together in order), we can do so using `concat()`, which takes a list of dataframes as its first argument. Since we aren't using a specific column as a Pandas index, we'll set the argument of `ignore_index` to be True. 
 
 ```python
 df = pd.concat(dfs, ignore_index=True)
@@ -128,18 +151,18 @@ Number of rows in df: 1003
 
 ## Determining Matches
 
-Which of these files is *not* matched by the expression `glob.glob('data/*as*.csv')`?
+Which of these files would be matched by the expression `glob.glob('data/*circ.csv')`?
 
-1. `data/gapminder_gdp_africa.csv`
-2. `data/gapminder_gdp_americas.csv`
-3. `data/gapminder_gdp_asia.csv`
-4. 1 and 2 are not matched.
+1. `data/2011_circ.csv`
+2. `data/2012_circ_stats.csv`
+3. `circ/2013_circ.csv`
+4. Both 1 and 3
 
 :::::::::::::::  solution
 
-##Solution
+## Solution
 
-1 is not matched by the regular expresion.
+Only item 1 is matched by the wildcard expression `data/*circ.csv`. 
 
 
 
@@ -149,34 +172,28 @@ Which of these files is *not* matched by the expression `glob.glob('data/*as*.cs
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Minimum File Size
+## Minimum circulation per year
 
-Modify this program so that it prints the number of records in
-the file that has the fewest records.
+Modify the following code to print out the lowest value in the `ytd` column from each year/file.
 
 ```python
-import pandas
-fewest = ____
-for filename in glob.glob('data/*.csv'):
-    dataframe = pandas.____(filename)
-    fewest = min(____, dataframe.shape[0]) 
-print('smallest file has', fewest, 'records')
+import pandas as pd
+for csv in sorted(glob.glob('data/*.csv')):
+    data = pd.read_csv(____)
+    print(csv, data['____'].____())
+    
 ```
-
-Notice that the shape method returns a tuple with
-the number of rows and columns of the data frame.
 
 :::::::::::::::  solution
 
-\##Solution
+## Solution
 
 ```python
-import pandas
-fewest = 0
-for filename in glob.glob('data/*.csv'):
-    dataframe = pandas.read_csv(filename)
-    fewest = min(fewest , dataframe.shape[0]) 
-print('smallest file has', fewest, 'records')
+import pandas as pd
+for csv in sorted(glob.glob('data/*.csv')):
+    data = pd.read_csv(csv)
+    print(csv, data['ytd'].min())
+    
 ```
 
 :::::::::::::::::::::::::
@@ -185,13 +202,28 @@ print('smallest file has', fewest, 'records')
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Comparing Data
+## Compile CSVs into one dataframe
 
-Write a program that reads in the regional data sets
-and plots the average GDP per capita for each region over time
-in a single chart.
+Imagine you had a folder named `outputs/` that included all kinds of different file types. Use `glob` and a `for` loop to iterate through all of the CSV files in the folder that have a file name that begins with `data`. Save them to a list called `dfs`, and then use `pd.concat()` to concatenate all of the dataframes from the `dfs` list together into a new dataframe called, `new_df`. You can assume that all of the data CSV files have the same columns so they will concatenate together cleanly using `pd.concat()`.
 
+:::::::::::::::  solution
 
+## Solution
+
+```python
+import pandas as pd
+
+dfs = []
+
+for csv in sorted(glob.glob('outputs/data*.csv')):
+    data = pd.read_csv(csv)
+    dfs.append(data)
+    
+new_df = pd.concat(dfs, ignore_index=True)
+    
+```
+
+:::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
