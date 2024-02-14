@@ -16,9 +16,9 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Pinpoint specific rows and columns in a dataframe
+## Pinpoint specific rows and columns in a DataFrame
 
-If you don't already have all of the CSV files loaded into a dataframe, let's do that now: 
+If you don't already have all of the CSV files loaded into a DataFrame, let's do that now: 
 
 ```python
 import glob
@@ -34,24 +34,24 @@ df = pd.concat(dfs, ignore_index=True)
 df.head()
 ```
 
-### Use `tail()` to look at the end of the dataframe
+### Use `tail()` to look at the end of the DataFrame
 
-We've seen how to look at the first rows in your dataframe using `.head()`. You can use `.tail()` to look at the final rows. You can also pass the number of rows you'd like to view as an argument for `.head()` and `.tail()` in case the the default of five rows doesn't work for you.
+We've seen how to look at the first rows in your DataFrame using `.head()`. You can use `.tail()` to look at the final rows. You can also pass the number of rows you'd like to view as an argument for `.head()` and `.tail()` in case the the default of five rows doesn't work for you.
 
 ```python
 df.tail(10)
 ```
 
-### Slicing a dataframe
+### Slicing a DataFrame
 
-We can use the same slicing syntax that we used for strings and lists to look at a specific range of rows in a dataframe. 
+We can use the same slicing syntax that we used for strings and lists to look at a specific range of rows in a DataFrame. 
 
 ```python
 df[50:60] #look at rows 50 to 59
 ```
 
 ### Look at specific columns
-To work specifically with one column of a dataframe we can use a similar syntax, but refer to the name the column of interest. 
+To work specifically with one column of a DataFrame we can use a similar syntax, but refer to the name the column of interest. 
 
 ```python
 df['year'] #look at the year column
@@ -87,7 +87,7 @@ rows 100 to 102:
 Name: year, dtype: int64
 ```
 
-Columns display differently in our notebook since a column is a different type of object than a full dataframe. 
+Columns display differently in our notebook since a column is a different type of object than a full DataFrame. 
 
 ```python
 type(df['year'])
@@ -97,7 +97,7 @@ pandas.core.series.Series
 ```
 
 ## Summary statistics on columns
-A column is a pandas series object. One of the advantages of pandas is that we can use built-in functions to provide summary statistics across series such as columns. Since it can be difficult to get a sense of the range of data in a large dataframe by looking over the whole thing manually, these functions can help us understand our dataset quickly and ask specific questions. 
+A pandas Series is a one-dimensional array, like a column in a spreadsheet, while a pandas DataFrame is a two-dimensional tabular data structure with labeled axes, similar to a spreadsheet. One of the advantages of pandas is that we can use built-in functions to provide summary statistics across Series such as columns. Since it can be difficult to get a sense of the range of data in a large DataFrame by looking over the whole thing manually, these functions can help us understand our dataset quickly and ask specific questions. 
 
 If we wanted to know the range of years covered in this data, for example, we can look at the maximum and minimum values in the `year` column. 
 
@@ -228,9 +228,37 @@ year  branch
 Name: ytd, dtype: int64
 ```
 
-## Save dataframes
+## Use .iloc[] and .loc[] to select DataFrame locations.
+You can point to specific locations in a DataFrame using two-dimensional numerical indexes with `.iloc[]`.
 
-You might want to export the series of usage by year and branch that we just created so that you can share it with colleagues. Pandas includes a variety of methods that begin with `.to_...` that allow us to convert and export data in different ways. First, let's save our series as a dataframe so we can more view the output in a better format in our Jupyter notebook. 
+```python
+# print values in the 1st and 2nd to last columns in the first row
+print('Branch:', df.iloc[0,0], '\nYTD circ:', df.iloc[0,-2])
+
+# '\n' prints a linebreak
+```
+
+```output
+Branch: Albany Park 
+YTD circ: 120059
+```
+
+`.loc[]` uses the same structure but takes row (index) and column names instead of numerical indexes. Since our `df` rows don't have index names we would still use the default numerical index.
+
+```python
+# print the same values as above, using the column names
+print('Branch:', df.loc[0,'branch'], '\nYTD circ:', df.loc[0, 'ytd'])
+
+```
+
+```output
+Branch: Albany Park 
+YTD circ: 120059
+```
+
+## Save DataFrames
+
+You might want to export the series of usage by year and branch that we just created so that you can share it with colleagues. Pandas includes a variety of methods that begin with `.to_...` that allow us to convert and export data in different ways. First, let's save our series as a DataFrame so we can more view the output in a better format in our Jupyter notebook. 
 
 ```python
 circ_df = circ_by_year_branch.to_frame()
@@ -238,7 +266,7 @@ circ_df.head(5)
 ```
 
 ### Save to CSV
-Next, let's export the new dataframe to a CSV file so we can share it with colleagues who love spreadsheets. The `.to_csv()` method expects a string that will be the name of the file as a parameter. Make sure to add the .csv filetype to your file name. 
+Next, let's export the new DataFrame to a CSV file so we can share it with colleagues who love spreadsheets. The `.to_csv()` method expects a string that will be the name of the file as a parameter. Make sure to add the .csv filetype to your file name. 
 
 ```python
 circ_df.to_csv('high_usage.csv')
@@ -247,17 +275,17 @@ You should now see, in the JupyterLab file explorer to the left, the new CSV fil
 
 ::::::::::::::::::::::::::::::::::::::: callout
 ### Save pickle files
-Working with your data in CSVs (especially via tools like Microsoft Excel) can introduce reproducibility issues. For example, you'll sometimes have character encoding problems, where certain characters in your dataset will no longer display properly. Sometimes tools like Excel will auto format columns (such as dates) in ways that will make it hard to work with them later on. 
+Working with your data in CSVs (especially via tools like Microsoft Excel) can introduce reproducibility issues. For example, you'll sometimes encounter character encoding problems, where certain characters in your dataset will no longer display properly after editing them in a spreadsheet software like Excel, and re-importing them to a pandas DataFrame. 
 
-One way to avoid issues like this is to save Python objects as [pickles](https://docs.python.org/3/library/pickle.html). Technically speaking, the Python pickle module serializes and de-serializes a Python object's structure. In practical terms, pickling allows you to store Python objects (like dataframes, lists, etc.) efficiently and in a way that you can reload them into Python later on without losing any data. 
+One way to avoid issues like this is to save Python objects as [pickles](https://docs.python.org/3/library/pickle.html). Technically speaking, the Python pickle module serializes and de-serializes a Python object's structure. In practical terms, pickling allows you to store Python objects (like DataFrames, lists, etc.) efficiently and without losing or corrupting your data. 
 
-You can save a dataframe to pickle by using the `to_pickle()` method and using the filetype of `pkl`.
+You can save a DataFrame to pickle by using the `to_pickle()` method and using the filetype of `pkl`.
 
 ```python
 circ_df.to_pickle('high_usage.pkl')
 ```
 
-But you can only "see" the data in the pickle file by reloading it into Python. This is a great way to save a dataframe that you created during one JupyterLab session so that you can reload it later on, or share it with a colleague who's familiar with Python. 
+You can only "see" the data in a pickle file by reloading it into Python. This is a great way to save a DataFrame that you created in one JupyterLab session so that you can reload it later on, or share it with a colleague who's familiar with Python. 
 
 ```python
 new_df = pd.read_pickle('high_usage.pkl')
@@ -269,11 +297,11 @@ new_df.head()
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Use `.loc()` and `.iloc()` to pinpoint specific locations in Pandas dataframes.
-- Use builtin methods `.sum()`, `.mean()`, `unique()`, and `nunique()` to explore summary statistics on the rows and colums in your dataframe.
+- Use builtin methods `.sum()`, `.mean()`, `unique()`, and `nunique()` to explore summary statistics on the rows and colums in your DataFrame.
 - Use `.groupby()` to work with subsets of your dataset.
 - Sort pandas series with `.sort_values()`.
-- Save dataframes to CSV and pickle files using `.to_csv()` and `.to_pickle()`.
+- Use `.loc()` and `.iloc()` to pinpoint specific locations in Pandas DataFrames.
+- Save DataFrames to CSV and pickle files using `.to_csv()` and `.to_pickle()`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
