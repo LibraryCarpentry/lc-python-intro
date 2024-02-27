@@ -60,7 +60,7 @@ contact: 'team@carpentries.org'
 # Order of episodes in your lesson
 episodes: 
 - 01-getting-started.md
-- 02-variables.md
+- variables.md
 - 03-lists.md
 - 04-functions.md
 - 05-libraries.md
@@ -71,7 +71,6 @@ episodes:
 - 10-writing-functions.md
 - 11-scope.md
 - 12-style.md
-- 13-errors.md
 - 14-wrap.md
 
 # Information for Learners

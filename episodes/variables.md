@@ -1,7 +1,7 @@
 ---
-title: Variables and Types
-teaching: 20
-exercises: 15
+title: Variables and types
+teaching: 15
+exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -9,7 +9,6 @@ exercises: 15
 - Write programs that assign values to variables and perform calculations with those values.
 - Use indexing to manipulate elements within a string.
 - View and convert the data types of Python objects.
-- Perform arithmetic on floating point numbers and integers, and perform string operations such as concatenation on strings.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -47,8 +46,6 @@ print(first_name, 'is', age, 'years old')
 Ahmed is 42 years old
 ```
 
-`print()` automatically puts a single space between items to separate them, and add a new line at the end of every printout.
-
 ## Variables must be created before they are used.
 
 If a variable doesn't exist yet, or if the name has been misspelled, Python reports an error called a `NameError`.
@@ -72,7 +69,7 @@ The last line of an error message is usually the most informative. In this case 
 
 ## Variables Persist Between Cells
 
-Variables defined in one Notebook cell are available in all other cells once they have been executed, so the location of cells in the notebook do not matter. In other words once you execute a cell at the bottom of your notebook, the variables in that cell will be available to cells at the top of the notebook. Notebook cells are a great way to organize your code, but Python only cares about the order in which the code has been executed.
+Variables defined in one Notebook cell are available in all other cells once they have been executed, so the location of cells in the notebook do not matter. In other words, if you execute a cell at the bottom of your notebook the variables in that cell will be available to cells at the top of the notebook. Notebook cells are a great way to organize your code, but Python only cares about the order in which the code has been executed.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -91,7 +88,7 @@ Age in three years: 45
 
 ## Every Python object has a type.
 
-Everything in Python is some type of object. Objects contain attributes, usually data and related functions, called methods. Every object that you work with in Python will be of a specific type and understanding an object's type will help you know what you can and can't do with that object. 
+Everything in Python is some type of object. Every object that you work with in Python will be of a specific type and understanding an object's type will help you know what you can and can't do with that object. 
 
 ### Use the built-in function `type()` to find an object's type.
 
@@ -112,9 +109,9 @@ print(type(print))
 ```
 
 1. 140.2 is an example of a floating point number or `float`. These are fractional numbers. 
-2. The value of the `age` variable is 45, which is a whole number, or integer (`int`). Note that you can pass a variable to the `type()` function, but it is the *value* of the variable that has a type in Python - the variable is just a label.
+2. The value of the `age` variable is 45, which is a whole number, or integer (`int`).
 3. The first_name variable refers to the string (`str`) of 'Ahmed'.
-4. The built-in Python function `print()` is also an object with a type, in this case it's a `builtin_function_or_method`. Built-in functions refer to those that are included in the core Python library, but you can also define your own functions in Python.
+4. The built-in Python function `print()` is also an object with a type, in this case it's a `builtin_function_or_method`. Built-in functions refer to those that are included in the core Python library.
 
 ## Types control what operations (or methods) can be performed on objects.
 
@@ -141,38 +138,6 @@ TypeError                                 Traceback (most recent call last)
 TypeError: unsupported operand type(s) for -: 'str' and 'str'
 ```
 
-### You can use the `+` and `*` operators on strings.
-
-In the example above, we see that we can't subtract a single character from a string. But some arithmetic operators can be "overloaded" in Python so that they will work on strings. `Operator overloading` refers to an operator's ability to perform different roles depending on the data type (e.g., string or integer) its applied to. For example, adding character strings together will concatenate them.
-
-```python
-full_name = 'Ahmed' + ' ' + 'Walsh'
-print(full_name)
-```
-
-```output
-Ahmed Walsh
-```
-## Convert data types
-Some types can be converted to other types by using the type name as a function. We would get a TypeError if we tried to add `1 + A` since you can't add numbers to strings. But we can change an integer to a string using the `str()` function, allowing us to concatenate the objects as strings. 
-
-```python
-print(str(1) + 'A')
-```
-
-```output
-1A
-```
-
-```python
-print(1 + int('2'))
-print(str(1) + '2')
-```
-
-```output
-3
-12
-```
 ## Use an index to get a single character from a string.
 
 We can reference the specific location of a character (individual letters, numbers, and so on) in a text string by using its index position. In Python, each character in a string (first, second, etc.) is given a number, which is called an index. Indices are numbered to begin from 0 rather than 1. We can use an index number in square brackets to refer to the character at that position.
@@ -230,17 +195,6 @@ older age is 45 and age is 50
 ```
 
 A variable in Python is analogous to a sticky note with a name written on it: assigning a value to a variable is like putting a sticky note on a particular value. When we assigned the variable `older_age`, it was like we put a sticky note with the name `older_age` on the value of `45`. Remember, `45` was the result of `age + 3` because `age` at that point in the code was equal to `42`. The `older_age` sticky note (variable) was never attached to (assigned to) another value, so it doesn't change when the `age` variable is updated to be `50`.
-
-## Use meaningful variable names. 
-Python doesn't care what you call variables as long as they obey the rules (alphanumeric characters and the underscore).
-
-```python
-flabadab = 42
-ewr_422_yY = 'Ahmed'
-print(ewr_422_yY, 'is', flabadab, 'years old')
-```
-
-But it's important to use meaningful variable names to help other people understand what the program does. Often, the most important "other person" is your future self.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -341,31 +295,6 @@ TypeError: 'int' object is not subscriptable
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Choosing a Name
-
-Which is a better variable name, `m`, `min`, or `minutes`?
-Why?
-Hint: think about which code you would rather inherit
-from someone who is leaving the library:
-
-1. `ts = m * 60 + s`
-2. `tot_sec = min * 60 + sec`
-3. `total_seconds = minutes * 60 + seconds`
-
-:::::::::::::::  solution
-
-## Solution
-
-`minutes` is better because `min` might mean something like "minimum"
-(and actually does in Python, but we haven't seen that yet).
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -392,10 +321,10 @@ But we can also use implicit and negative index values when we define a slice. T
 
 ## Solution
 
-1. It will slice the string, starting at the `low` index and stopping at the end of the string
-2. It will slice the string, starting at the beginning on the string, and ending an element before the `high` index
-3. It will print the entire string
-4. It will slice the string, starting the `number` index, and ending a distance of the absolute value of `negative-number` elements from the end of the string
+1. It will slice the string, starting at the `low` index and stopping at the end of the string.
+2. It will slice the string, starting at the beginning on the string, and ending an element before the `high` index.
+3. It will print the entire string.
+4. It will slice the string, starting the `number` index, and ending a distance of the absolute value of `negative-number` elements from the end of the string.
   
   
 
@@ -454,58 +383,6 @@ print(result, 'is', type(result))
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Division Types
-
-There are three different types of division:
-
-1. 'Normal' division (aka floating-point division) is what most people may be familiar with: `5 / 2 = 2.5`
-2. Floor division cuts out everything after a decimal point: `5 / 2 = 2`
-3. Modulo division returns the remainder after division: `5 / 2 = 1`
-
-In Python 3,  the `/` operator performs floating-point division, the `//`
-operator performs floor division, and the '%' (or *modulo*) operator
-calculates the modulo division:
-
-```python
-print('5 / 3:', 5/3)
-print('5 // 3:', 5//3)
-print('5 % 3:', 5%3)
-```
-
-```output
-5 // 3: 1
-5 / 3: 1.6666666666666667
-5 % 3: 2
-```
-
-If `num_students` is the number of students who registered for a workshop (let's say 150), and `num_per_workshop` is the number that can attend a single section of the workshop (let say 20), write an expression that calculates the number of workshop sections needed to teach everyone. It will be helpful to detect when the number of students per class doesn't divide the number of students evenly. Detect that number with the `%` operator and test if the remainder that it returns is greater than
-0.
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-num_students = 150
-num_per_workshop = 20
-num_classes = num_students // num_per_workshop
-remainder = num_students % num_per_workshop
-
-print(num_students, 'students,', num_per_workshop, 'per workshop')
-print(num_classes, 'full workshops, plus an extra section with only ', remainder, 'students')
-```
-
-```output
-150 students, 20 per workshop
-7 full workshops, plus an extra section with only  10 students
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Use variables to store values.
@@ -517,14 +394,9 @@ print(num_classes, 'full workshops, plus an extra section with only ', remainder
 - Use a slice to get a portion of a string.
 - Use the built-in function `len` to find the length of a string.
 - Python is case-sensitive.
-- Use meaningful variable names.
 - Every object has a type.
 - Use the built-in function `type` to find the type of an object.
 - Types control what operations can be done on objects.
-- Strings can be added and multiplied.
-- Strings have a length but numbers don't.
-- You have to convert numbers to strings or vice versa when operating on them.
-- You can mix integers and floats freely in operations.
 - Variables only change value when something is assigned to them.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
