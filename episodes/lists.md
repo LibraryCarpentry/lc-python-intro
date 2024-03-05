@@ -29,45 +29,45 @@ To create a new list, you can just put some values in square brackets with comma
 
 ```python
 zip_codes = [60625, 60827, 60632, 60644, 60634]
-print('Zip codes:', zip_codes)
+f'Zip codes: {zip_codes}'
 ```
 
 ```output
-Zip codes: [60625, 60827, 60632, 60644, 60634]
+'Zip codes: [60625, 60827, 60632, 60644, 60634]'
 ```
 
 We can use `len()` to find out how many values are in a list.
 
 ```python
-print('Number of zip codes:', len(zip_codes))
+f'Number of zip codes: {len(zip_codes)}'
 ```
 
 ```output
-Number of zip codes: 5
+'Number of zip codes: 5'
 ```
 
 ## Use an item's index to fetch it from a list.
 
-In the same way we used index numbers for strings, we can reference elements in a list.
+In the same way we used index numbers for strings, we can reference elements and slices in a list.
 
 ```python
-print('1st item of zip_codes (0th index):', zip_codes[0])
-print('5th item of zip_codes (4th index):', zip_codes[4])
+print(f'1st item of zip_codes: {zip_codes[0]}')
+print(f'The first three zip codes: {zip_codes[0:3]}')
 ```
 
 ```output
-1st item of zip_codes (0th index): 60625
-5th item of zip_codes (4th index): 60634
+1st item of zip_codes: 60625
+The first three zip codes: [60625, 60827, 60632]
 ```
 
-## List values can be replaced by assigning them with their index.
+## Reassign list values with their index.
 
 Use an index value along with your list variable to replace a value from the list.
 
 ```python
-print('zip_codes was:', zip_codes)
+print(f'zip_codes was: {zip_codes}')
 zip_codes[0] = 60640
-print('zip_codes is now:', zip_codes)
+print(f'zip_codes is now: {zip_codes}')
 ```
 
 ```output
@@ -75,22 +75,10 @@ zip_codes was: [60625, 60827, 60632, 60644, 60634]
 zip_codes is now: [60640, 60827, 60632, 60644, 60634]
 ```
 
-## View a slice of a list with index values. 
 
-We can use the same syntax to view a part of a list by referencing its index values.
+### Character strings are immutable.
 
-```python
-print('The first three zip codes:', zip_codes[0:3])
-```
-
-```output
-The first three zip codes: [60640, 60827, 60632]
-```
-
-## Character strings are immutable.
-
-Unlike lists, we cannot change the characters in a string using its index value. In other words strings are *immutable* (cannot be changed in-place after creation), while lists are *mutable*: they can be modified in place. Python considers the string to be a single value with parts,
-  not a collection of values.
+Unlike lists, we cannot change the characters in a string using its index value. In other words strings are *immutable* (cannot be changed in-place after creation), while lists are *mutable*: they can be modified in place. Python considers the string to be a single value with parts, not a collection of values.
 
 ```python
 branch_library = 'Ulbany Park' # misspelled Albany
@@ -101,73 +89,17 @@ branch_library[0] = 'A'
 TypeError: 'str' object does not support item assignment
 ```
 
-## You can create an empty list for later use.
-
-Use `[]` on its own to represent a list that doesn't contain any values. This is helpful as a starting point for collecting values
-  ([which we will see in our episode on For Loops](06-for-loops.html)).
-
-```python
-future_list = []
-```
-
 ## Lists may contain values of different types.
 
 A single list may contain numbers, strings, and anything else (including other lists!). If you're dealing with a list within a list you can continue to use the square bracket notation to reference specific items.
 
 ```python
 mixed_list = ['word', 3, 10.2, ['list', 'of', 'items']]
-print('1st word in sub-list:', mixed_list[3][0])
+print(f'1st word in sublist: {mixed_list[3][0]}')
 ```
 
 ```output
-1st word in sub-list: list
-```
-
-## You can copy lists, but not using straightforward variable assignment. 
-
-Remember our sticky note analogy? Well, the variable names you assign to lists are also like sticky notes that you're attaching to a specific collection of values. When you change the values in the underlying list, it will change the values associated with any variables that have been assigned to the collection. 
-
-```python
-numbers = [1,2,3,4]
-numbers_dupe = numbers
-
-#change the first value from 1 to 100
-numbers_dupe[0] = 100
-print(numbers)
-print(numbers_dupe)
-```
-
-```output
-[100, 2, 3, 4]
-[100, 2, 3, 4]
-```
-
-In the example above, the `numbers` variable doesn't retain its original values of [1,2,3,4] because when we changed the value of the 1st element of the `numbers_dupe` list - `numbers_dupe[0]` - it also updated the value in `numbers`. This behavior is due to the list being a mutable (changeable) object. When we change the value of the first item in the list, we're changing the list object itself. We could assign dozens of variables (sticky notes) to that list object, but they're all pointing to the same thing. 
-
-To account for this we can use the `.copy()` method which will create a new list object that is no longer connected with the original list.
-
-```python
-numbers = [1,2,3,4]
-numbers_dupe = numbers.copy()
-numbers_dupe[0] = 200
-print(numbers)
-print(numbers_dupe)
-```
-
-```output
-[1, 2, 3, 4]
-[200, 2, 3, 4]
-```
-
-## Indexing beyond the end of the collection is an error.
-
-Python reports an `IndexError` if we attempt to access a value that doesn't exist.
-```python
-print('99th element of branch_library is:', branch_library[99])
-```
-
-```output
-IndexError: string index out of range
+1st word in sublist: list
 ```
 
 ## Appending items to a list lengthens it.
@@ -175,9 +107,9 @@ IndexError: string index out of range
 Use `list_name.append` to add items to the end of a list. In Python, we would call `.append()` a *method* of the list object. You can use the syntax of `object.method()` to call methods.
 
 ```python
-print('zip_codes was:', zip_codes)
+print(f'zip_codes was:{zip_codes}')
 zip_codes.append(60647)
-print('zip_codes is now:', zip_codes)
+print(f'zip_codes is now: {zip_codes}')
 ```
 
 ```output
@@ -191,9 +123,9 @@ zip_codes is now: [60640, 60827, 60632, 60644, 60634, 60647]
 
 ```python
 primes = [2, 3, 5, 7, 11]
-print('primes before removing last item:', primes)
+print(f'primes before removing last item: {primes}')
 del primes[4]
-print('primes after removing last item:', primes)
+print(f'primes after removing last item: {primes}')
 ```
 
 ```output
@@ -449,52 +381,6 @@ resources is ['DVDs', 'abstracts', 'books', 'databases', 'maps', 'periodicals'] 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Copying (or Not)
-
-What do these two programs print?
-In simple terms, explain the difference between `new = old` and `new = old[:]`.
-
-```python
-# Program A
-old = list('book')
-new = old      # simple assignment
-new[0] = 'D'
-print('new is', new, 'and old is', old)
-```
-
-```python
-# Program B
-old = list('book')
-new = old[:]   # assigning a slice
-new[0] = 'D'
-print('new is', new, 'and old is', old)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-Program A:
-
-```output
-new is ['D', 'o', 'o', 'k'] and old is ['D', 'o', 'o', 'k']
-```
-
-Program B:
-
-```output
-new is ['D', 'o', 'o', 'k'] and old is ['b', 'o', 'o', 'k']
-```
-
-`new = old` is assigning `old` to `new`, whereas `new = old[:]` is a **slice assignment**, which will only return a copy of `old`.
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 

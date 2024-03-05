@@ -42,11 +42,11 @@ Fortunately, we don't have to manually type in a list of all of our filenames. W
 
 The `glob` library contains a function also called `glob` to match file patterns. For example, `glob.glob('*.txt')` would match all files in the current directory with names that end with `.txt`.
 
-Let's create a list of the usage data CSV files.
+Let's create a list of the usage data CSV files. Because the `.glob()` argument includes a filepath in single quotes, we'll use double quotes around our f-string.
 
 ```python
 import glob
-print('all csv files in data directory:', glob.glob('data/*.csv'))
+print(f"all csv files in data directory: {glob.glob('data/*.csv')}")
 ```
 
 ```output
@@ -55,7 +55,7 @@ all csv files in data directory: ['data/2011_circ.csv', 'data/2016_circ.csv', 'd
 
 ## Use `glob` and `for` to process batches of files.
 
-Now we can use glob in a `for` loop to create dataframes from all of the CSV files in the `data` directory. To use tools like `glob` it helps a lot if files are named and stored consistently so that simple patterns will find the right data. You can learn more about how to name files to improve machine-readability from the [Open Science Foundation article on file naming](https://help.osf.io/article/146-file-naming).
+Now we can use glob in a `for` loop to create dataframes from all of the CSV files in the `data` directory. To use tools like `glob` it helps if files are named and stored consistently so that simple patterns will find the right data. You can learn more about how to name files to improve machine-readability from the [Open Science Foundation article on file naming](https://help.osf.io/article/146-file-naming).
 
 ```python
 for csv in glob.glob('data/*.csv'):
@@ -111,11 +111,11 @@ counter = 1
 
 for csv in sorted(glob.glob('data/*.csv')):
   data = pd.read_csv(csv)
-  print(counter, 'Saving', len(data), 'rows from', csv)
+  print(f'{counter} Saving {len(data)} rows from {csv}')
   dfs.append(data)
   counter += 1
 
-print('Number of saved dataframes:', len(dfs))
+print(f'Number of saved dataframes: {len(dfs)}')
 ```
 
 ```output
@@ -140,11 +140,11 @@ There are many different ways to merge, join, and concatenate pandas dataframes 
 
 ```python
 df = pd.concat(dfs, ignore_index=True)
-print('Number of rows in df:', len(df))
+f'Number of rows in df: {len(df)}'
 ```
 
 ```output
-Number of rows in df: 1003
+'Number of rows in df: 1003'
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
