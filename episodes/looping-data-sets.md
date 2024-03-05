@@ -103,10 +103,10 @@ data/2022_circ.csv 6336579
 
 ## Appending dataframes to a list
 
-In the example above, we can print out results from each dataframe as we cycle through them, but it would be more convenient if we saved all of the yearly usage data in these CSV files into dataframes that we could work with later on. We can do that by using a list "accumulator" (as we covered in the last episode). 
+In the example above, we can print out results from each dataframe as we cycle through them, but it would be more convenient if we saved all of the yearly usage data in these CSV files into dataframes that we could work with later on. We can do that by using a list "accumulator" (as we covered in the last episode) and appending each dataframe to an empty list. You can create an empty list by assigning a variable to empty square brackets before the loop begins.
 
 ```python
-dfs = [] # this is an empty list to hold all of our dataframes
+dfs = [] # an empty list to hold all of our dataframes
 counter = 1
 
 for csv in sorted(glob.glob('data/*.csv')):

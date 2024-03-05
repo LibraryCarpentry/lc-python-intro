@@ -26,20 +26,14 @@ Let's create a short list of numbers in Python, and then attempt to print out ea
 odds = [1, 3, 5, 7]
 ```
 
-One way to print each number is to use four `print` statements--if you recall from episode 4--using the index values of each item in the list:
+One way to print each number is to use a `print` statement with the index value for each item in the list:
 
 ```python
-print(odds[0])
-print(odds[1])
-print(odds[2])
-print(odds[3])
+print(odds[0], odds[1], odds[2], odds[3])
 ```
 
 ```output
-1
-3
-5
-7
+1 3 5 7
 ```
 
 This is a bad approach for three reasons:
@@ -47,23 +41,20 @@ This is a bad approach for three reasons:
 1. **Not scalable**. Imagine you need to print a list that has hundreds
   of elements.  
 
-2. **Difficult to maintain**. If we want to add another change -- multiplying each number by 5, for example -- we would have to change four lines of code, which isn't sustainable
+2. **Difficult to maintain**. If we want to add another change -- multiplying each number by 5, for example -- we would have to change the code for every item in the list, which isn't sustainable
 
 3. **Fragile**. Hand-numbering index values for each item in a list is likely to cause errors if we make any mistakes.
 
+
 ```python
 odds = [1, 3, 5]
-print(odds[0])
-print(odds[1])
-print(odds[2])
-print(odds[3])
+print(odds[0], odds[1], odds[2], odds[3])
 ```
 
 ```output
-1
-3
-5
+1 3 5 
 ```
+We get an IndexError when we try to refer to an item in a list that does not exist.
 
 ```error
 ---------------------------------------------------------------------------
@@ -115,7 +106,7 @@ for variable in collection:
     # do things using variable, such as print
 ```
 
-We can call the loop variable anything we like, there must be a colon at the end of the line starting the loop, and we must indent anything we want to run inside the loop. Unlike many other languages, there is no command to signify the end of the loop body; everything indented after the `for` statement belongs to the loop.
+We can call the loop variable anything we like, there must be a colon at the end of the line starting the loop, and we must indent anything we want to run inside the loop. Unlike many other programming languages, there is no command to signify the end of the loop body; everything indented after the `for` statement belongs to the loop.
 
 ## Loop variables 
 
@@ -129,7 +120,7 @@ print(num)
 ```
 We are creating a new variable called `num` that will correspond to each element in the `odds` list as it passes through the loop. At the end of the loop, `num` is still equal to the last element in the list it was assigned to.
 
-Like all variable names, it's helpful to give for loop variables meaningful names that you'll understand as the code in your loop grows. For example, `even` is probably a better variable to use than `kitten` here:
+Like all variable names, it's helpful to give `for` loop variables meaningful names that you'll understand as the code in your loop grows. For example, `even` is probably a better variable to use than `kitten` here:
 
 
 ```python
@@ -161,10 +152,9 @@ A common pattern for loops is to initialize an *accumulator* variable to zero, a
 # Sum the first 10 integers.
 total = 0
 for number in range(1, 11):
-    print('number is:', number, 'total is:', total)
+    print(f'number is: {number} total is: {total}')
     total = total + number
-print('At the end of the loop')
-print('number is:', number, 'total is:', total)
+print(f'At the end of the loop, number is {number} and total is {total}')
 ```
 
 ```output
@@ -178,8 +168,7 @@ number is: 7 total is: 21
 number is: 8 total is: 28
 number is: 9 total is: 36
 number is: 10 total is: 45
-At the end of the loop
-number is: 10 total is: 55
+At the end of the loop number is 10 and total is 55
 ```
 
 
