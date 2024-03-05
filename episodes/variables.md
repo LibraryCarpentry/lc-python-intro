@@ -6,8 +6,9 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Write programs that assign values to variables and perform calculations with those values.
-- Use indexing to manipulate elements within a string.
+- Write Python to assign values to variables.
+- Print outputs to a Jupyter notebook.
+- Use indexing to manipulate string elements.
 - View and convert the data types of Python objects.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -21,29 +22,56 @@ exercises: 10
 
 ## Use variables to store values.
 
-Variables are names given to certain values. In Python the `=` symbol assigns a value to a variable. Here, Python assigns the number `42` to the variable `age` and the name `Ahmed` in single quote to a variable `first_name`.
+Variables are names given to certain values. In Python the `=` symbol assigns a value to a variable. Here, Python assigns the number `42` to the variable `age` and the name `Ahmed` in single quote to a variable `name`.
 
 ```python
 age = 42
-first_name = 'Ahmed'
+name = 'Ahmed'
 ```
 
-- Variable names:
+:::::::::::::::::::::::::::::::::::::::::  callout
+## Naming variables
+Variable names:
+
   - cannot start with a digit
   - cannot contain spaces, quotation marks, or other punctuation
   - *may* contain an underscore (typically used to separate words in long variable names)
-  - are case sensitive. `first_name` and `First_Name` would be different variables.
+  - are case sensitive. `name` and `Name` would be different variables.
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Use `print()` to display values.
 
-You can print Python objects to the Jupyter notebook output using the built-in function, `print()`. Inside of the parentheses we can add the objects that we want print, which are known as the `print()` function's arguments. You can pass variables and text strings (by placing text within quotes) directly to the print function, and you can separate multiple items with commas. 
+You can print Python objects to the Jupyter notebook output using the built-in function, `print()`. Inside of the parentheses we can add the objects that we want print, which are known as the `print()` function's arguments.  
 
 ```python
-print(first_name, 'is', age, 'years old')
+print(name, age)
 ```
 
 ```output
-Ahmed is 42 years old
+Ahmed 42 
+```
+
+In Jupyter notebooks, you can leave out the `print()` function for objects -- such as variables -- that are on the last line of a cell. If the final line of Jupyter cell includes the name of a variable, its value will display in the notebook when you run the cell.
+
+```python
+name
+age
+```
+
+```output
+42
+```
+
+## Format output with f-strings
+
+You can format variables and other Python objects as text strings in your output using an f-string. To do so, start a string with `f` before the open single (or double) quote. Then add any replacement fields, such as variable names, between curly braces `{}`. 
+
+```python
+f'{name} is {age} years old'
+```
+
+```output
+'Ahmed is 42 years old'
 ```
 
 ## Variables must be created before they are used.
@@ -65,52 +93,39 @@ NameError: name 'eye_color' is not defined
 
 The last line of an error message is usually the most informative. In this case it tells us that the `eye_color` variable is not defined. NameErrors often refer to variables that haven't been created or assigned yet.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Variables Persist Between Cells
-
-Variables defined in one Notebook cell are available in all other cells once they have been executed, so the location of cells in the notebook do not matter. In other words, if you execute a cell at the bottom of your notebook the variables in that cell will be available to cells at the top of the notebook. Notebook cells are a great way to organize your code, but Python only cares about the order in which the code has been executed.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 ## Variables can be used in calculations.
 
 We can use variables in calculations as if they were values. We assigned 42 to `age` a few lines ago, so we can reference that value within a new variable assignment.
 
 ```python
 age = age + 3
-print('Age in three years:', age)
+f'Age equals: {age}'
 ```
 
 ```output
-Age in three years: 45
+Age equals: 45
 ```
 
 ## Every Python object has a type.
 
-Everything in Python is some type of object. Every object that you work with in Python will be of a specific type and understanding an object's type will help you know what you can and can't do with that object. 
-
-### Use the built-in function `type()` to find an object's type.
+Everything in Python is some type of object and every Python object will be of a specific type. Understanding an object's type will help you know what you can and can't do with that object. 
 
 You can use the built-in Python function `type()` to find out an object's type. 
 
 ```python
-print(type(140.2))
-print(type(age))
-print(type(first_name))
-print(type(print))
+print(type(140.2), 
+      type(age), 
+      type(name), 
+      type(print))
 ```
 
 ```output
-<class 'float'>
-<class 'int'>
-<class 'str'>
-<class 'builtin_function_or_method'>
+<class 'float'> <class 'int'> <class 'str'> <class 'builtin_function_or_method'>
 ```
 
 1. 140.2 is an example of a floating point number or `float`. These are fractional numbers. 
 2. The value of the `age` variable is 45, which is a whole number, or integer (`int`).
-3. The first_name variable refers to the string (`str`) of 'Ahmed'.
+3. The `name` variable refers to the string (`str`) of 'Ahmed'.
 4. The built-in Python function `print()` is also an object with a type, in this case it's a `builtin_function_or_method`. Built-in functions refer to those that are included in the core Python library.
 
 ## Types control what operations (or methods) can be performed on objects.
@@ -118,33 +133,35 @@ print(type(print))
 An object's type determines what the program can do with it.
 
 ```python
-print(5 - 3)
+5 - 3
 ```
 
 ```output
 2
 ```
 
+We get an error if we try to subtract a letter from a string:
+
 ```python
-print('hello' - 'h')
+'hello' - 'h'
 ```
 
 ```error
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
 <ipython-input-2-67f5626a1e07> in <module>()
-----> 1 print('hello' - 'h')
+----> 1 'hello' - 'h'
 
 TypeError: unsupported operand type(s) for -: 'str' and 'str'
 ```
 
 ## Use an index to get a single character from a string.
 
-We can reference the specific location of a character (individual letters, numbers, and so on) in a text string by using its index position. In Python, each character in a string (first, second, etc.) is given a number, which is called an index. Indices are numbered to begin from 0 rather than 1. We can use an index number in square brackets to refer to the character at that position.
+We can reference the specific location of a character (individual letters, numbers, and so on) in a string by using its index position. In Python, each character in a string (first, second, etc.) is given a number, which is called an index. Indexes begin from 0 rather than 1. We can use an index in square brackets to refer to the character at that position.
 
 ```python
 library = 'Alexandria'
-print(library[0])
+library[0]
 ```
 
 ```output
@@ -156,7 +173,7 @@ A
 A slice is a part of a string that we can reference using `[start:stop]`, where `start` is the index of the first character we want and `stop` is the last character. Referencing a string slice does not change the contents of the original string. Instead, the slice returns a copy of the part of the original string we want. 
 
 ```python
-print(library[0:3])
+library[0:3]
 ```
 
 ```output
@@ -170,28 +187,26 @@ Note that in the example above, `library[0:3]` begins with zero, which refers to
 The `len()`function will tell us the length of an item. In the case of a string, it will tell us how many characters are in the string. 
 
 ```python
-print(len('Babel'))
+len('Babel')
 ```
 
 ```output
 5
 ```
 
-In the example above we have nested the `print()` and `len()` functions. When nesting functions, they are evaluated from the inside out, just like in mathematics, so `len()` is evaluated first, followed by the `print()` function.
+## Variables only change value when something is assigned to them.
 
-### Variables only change value when something is assigned to them.
-
-We can do arithmetic within a variable assignment, as we saw when we assigned the age variable. But once a Python variable is assigned it will not change value unless the assignment code is run again. The value of `older_age` does not get updated when we change the assignment of `age` to `50`, for example:
+Once a Python variable is assigned it will not change value unless the code is run again. The value of `older_age` below does not get updated when we change the value of `age` to `50`, for example:
 
 ```python
 age = 42
 older_age = age + 3
 age = 50
-print('older age is', older_age, 'and age is', age)
+f'Older age is {older_age} and age is {age}'
 ```
 
 ```output
-older age is 45 and age is 50
+Older age is 45 and age is 50
 ```
 
 A variable in Python is analogous to a sticky note with a name written on it: assigning a value to a variable is like putting a sticky note on a particular value. When we assigned the variable `older_age`, it was like we put a sticky note with the name `older_age` on the value of `45`. Remember, `45` was the result of `age + 3` because `age` at that point in the code was equal to `42`. The `older_age` sticky note (variable) was never attached to (assigned to) another value, so it doesn't change when the `age` variable is updated to be `50`.
@@ -224,7 +239,6 @@ y = swap  #  x = 3.0 y = 1.0 swap = 1.0
 
 These three lines exchange the values in `x` and `y` using the `swap`
 variable for temporary storage. This is a fairly common programming idiom.
-
 
 
 :::::::::::::::::::::::::
@@ -304,10 +318,10 @@ We know how to slice using an explicit start and end point:
 
 ```python
 library_name = 'Library of Babel'
-print('library_name[1:3] is:', library_name[1:3])
+f'library_name[1:3] is: {library_name[1:3]}'
 ```
 ```output
-library_name[1:3] is: ib
+'library_name[1:3] is: ib'
 ```
 
 But we can also use implicit and negative index values when we define a slice. Try the following (replacing `low` and `high` with index positions of your choosing) to figure out how these different forms of slicing work:
