@@ -146,7 +146,7 @@ for number in range(0,3):
 
 ## Accumulators
 
-A common pattern for loops is to initialize an *accumulator* variable to zero, an empty string, or an empty list before the loop begins. Then the loop updates the accumulator variable with values from a collection.
+A common loop pattern is to initialize an *accumulator* variable to zero, an empty string, or an empty list before the loop begins. Then the loop updates the accumulator variable with values from a collection.
 
 ```python
 # Sum the first 10 integers.
@@ -172,50 +172,20 @@ At the end of the loop number is 10 and total is 55
 ```
 
 
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Classifying Errors
-
-Is an indentation error a syntax error or a runtime error?
-
-:::::::::::::::  solution
-
-## Solution
-
-It is a syntax error. The problem has to do with the placement of the code, not its logic.
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Tracing Execution
-
-Create a table showing the numbers of the lines that are executed when this program runs,
-and the values of the variables after each line is executed.
-
-```python
-total = 0
-for char in "tin":
-    total = total + 1
-```
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Reversing a String
 
 Fill in the blanks in the program below so that it prints "nit"
-(the reverse of the original character string "tin").
+(the reverse of the original character string "tin"). 
+
+Tip: you can concatenate two strings together using the `+` operator. For example, `'librar' + 'ian'` will create one string, `'librarian'`.
 
 ```python
 original = "tin"
 result = ____
 for char in original:
-    result = ____
+    result = ____ _ _____
 print(result)
 ```
 
@@ -259,75 +229,57 @@ char + result = "nit"
 
 ## Practice Accumulating
 
-Fill in the blanks in each of the programs below
-to produce the indicated result.
+Fill in the blanks to sum the lengths of each string in the list, `["book", "magazine", "dvd"]`
 
 ```python
-# Total length of the strings in the list: ["red", "green", "blue"] => 12
+# Total length of the strings in the list: ["book", "magazine", "dvd"] 
 total = 0
-for word in ["red", "green", "blue"]:
-    ____ = ____ + len(word)
+for word in ["book", "magazine", "dvd"] :
+    ____ = total + ___(word)
+print(total)
+```
+:::::::::::::::  solution
+
+## Solution
+
+```python
+total = 0
+for word in ["book", "magazine", "dvd"] :
+    total = total + len(word)
 print(total)
 ```
 
-```python
-# List of word lengths: ["red", "green", "blue"] => [3, 5, 4]
-lengths = ____
-for word in ["red", "green", "blue"]:
-    lengths.____(____)
-print(lengths)
+```output
+15
 ```
 
-```python
-# Concatenate all words: ["red", "green", "blue"] => "redgreenblue"
-words = ["red", "green", "blue"]
-result = ____
-for ____ in ____:
-    ____
-print(result)
-```
+:::::::::::::::::::::::::
 
-```python
-# Create acronym: ["red", "green", "blue"] => "RGB"
-# write the whole thing
-```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Cumulative Sum
+## Use slices in a loop
 
-Reorder and properly indent the lines of code below
-so that they print an array with the cumulative sum of data.
-The result should be `[1, 3, 5, 10]`.
+How would you loop through a list, `["red", "green", "blue"]` to create (and print out) the acronym `RGB`, pulling from the first letters in each string?
 
-```python
-cumulative += [sum]
-for number in data:
-cumulative = []
-sum += number
-print(cumulative)
-sum = 0
-data = [1,2,2,5]
-```
+Tip: You can apply the .capitalize() function to capitalize the first letter of a string. For example, `'university'.capitalize()` will yield `'University'`.
+
 
 :::::::::::::::  solution
 
 ## Solution
 
 ```python
-data = [1,2,2,5]
-cumulative = []
-sum = 0
-for number in data:
-  sum += number
-  cumulative += [sum]
-print(cumulative)
+acronym = ''
+for color in ['red', 'green', 'blue']:
+    acronym = acronym + color[0].capitalize()
+print(acronym)
 ```
 
 ```output
-[1, 3, 5, 10]
+RGB
 ```
 
 :::::::::::::::::::::::::
@@ -336,57 +288,30 @@ print(cumulative)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Identifying Variable Name Errors
+## Use range() in a loop
 
-1. Read the code below and try to identify what the errors are
-  *without* running it.
-2. Run the code and read the error message.
-  What type of `NameError` do you think this is?
-  Is it a string with no quotes, a misspelled variable, or a
-  variable that should have been defined but was not?
-3. Fix the error.
-4. Repeat steps 2 and 3, until you have fixed all the errors.
+How would you create a list including the numbers 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10, using range() in a `for` loop?
 
-```python
-for number in range(10):
-    # use a if the number is a multiple of 3, otherwise use b
-    if (Number % 3) == 0:
-        message = message + a
-    else:
-        message = message + "b"
-print(message)
-```
+Tips: 
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Identifying Item Errors
-
-1. Read the code below and try to identify what the errors are
-  *without* running it.
-2. Run the code, and read the error message. What type of error is it?
-3. Fix the error.
-
-```python
-seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-print('My favorite season is ', seasons[4])
-```
+- You can create a blank list before the `for` loop by assigning a variable to `[]`. For example, `container_list = []`.
+- You can use the .append() method to add items to a list.
 
 :::::::::::::::  solution
 
 ## Solution
 
-It is an index error:
-
-```error
-IndexError: list index out of range
+```python
+container = []
+for num in range(1, 11):
+    container.append(num)
+print(container)
+    
 ```
 
-The problem is that `4` points to an item that doesn't exist in the list. Remember the first item of a list in Python is `0`.  
-Replace `seasons[4]` with `seasons[0]`, `seasons[1]`, `seasons[2]` or `seasons[3]` to have the different items of the list printed.  
-
-
+```output
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
 
 :::::::::::::::::::::::::
 
