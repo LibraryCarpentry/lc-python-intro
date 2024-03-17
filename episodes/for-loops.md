@@ -51,9 +51,6 @@ odds = [1, 3, 5]
 print(odds[0], odds[1], odds[2], odds[3])
 ```
 
-```output
-1 3 5 
-```
 We get an IndexError when we try to refer to an item in a list that does not exist.
 
 ```error
