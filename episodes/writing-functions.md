@@ -8,12 +8,16 @@ exercises: 15
 
 - Explain and identify the difference between function definition and function call.
 - Write a function that takes a small, fixed number of arguments and produces a single result.
+- Identify local and global variables.
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How can I create my own functions?
+- How do variables inside and outside of functions work?
+- How can I make my functions easier to understand?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -49,7 +53,7 @@ Functions are highly useful when they use parameters to pull in data. You can sp
 
 ```python
 def print_date(year, month, day):
-    joined = str(year) + '/' + str(month) + '/' + str(day)
+    joined = f'{year}/{month}/{day}'
     print(joined)
 
 print_date(1871, 3, 19)
@@ -77,7 +81,7 @@ TypeError: calc_fine() missing 1 required positional argument: 'days_overdue'
 
 ## Use `return` to pass values back from a function.
 
-In the date example above, we printed the results of the function code to output, but there are better way to handle data and objects created within a function. We can use the keyword `return ...` to send a value back to the "global" environment. (We'll talk more about local and global variables in [episode 11 on function scope](11-scope.md)). A return command can occur anywhere in the function, but is often placed at the very end of a function with the final result. 
+In the date example above, we printed the results of the function code to output, but there are better way to handle data and objects created within a function. We can use the keyword `return ...` to send a value back to the "global" environment. (We'll learn about local and global variables below). A return command can occur anywhere in the function, but is often placed at the very end of a function with the final result. 
 
 ```python
 def calc_fine(days_overdue):
@@ -88,23 +92,23 @@ def calc_fine(days_overdue):
     return fine
     
 fine = calc_fine(12)
-print('Fine owed:', fine)
+f'Fine owed: ${fine}'
 ```
 
 ```output
-Fine owed: 9.0
+'Fine owed: $9.0'
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
-### Use f-strings to specify the number of float decimals to display
-In the example above, the fine value is displayed as `8.5`, though ideally it would print as `$8.50`. We can use `f-strings` to format specific aspects of strings in Python, such as defining how many decimal points to show. To tell Python the string that follows is an f-string, we simply start it with `f` before the open single (or double) quote. For example: `print(f'This is an f-string')`. But to take advantage of the f-string we should add a `replacement field`, which is an expression delimited by curly braces `{}`. Within the replacement field we can refer to a Python variable and add a `format specifier` of `.2f` to format a float variable to display with two decimal places. Our replacement field, for example, would be `{fine:.2f}`. If you wanted to display a float with three decimal points you would change the format specifier to `{fine:.3f}`.
+### Specify the number of float decimals to display
+In the example above, the fine value is displayed as `9.0`, though ideally it would print as `$9.00`. We can use the `f-string format specifier` of `.2f` to display two decimal points: `{fine:.2f}`. If you wanted to display a float with three decimal points you would change the format specifier to `{fine:.3f}`. Here's a [cheat sheet of other f-string number formats](https://fstring.help/cheat/).
 
 ```python
 fine = calc_fine(12)
-print(f'Fine owed: ${fine:.2f}')
+f'Fine owed: ${fine:.2f}'
 ```
 ```output
-Fine owed: $8.50
+'Fine owed: $9.00'
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -113,13 +117,91 @@ A function that doesn't explicitly `return` a value will automatically return `N
 
 ```python
 result = print_date(1970, 6, 21)
-print('result of call is:', result)
+print(f'result of call is: {result}')
 ```
 
 ```output
 1970/6/21
 result of call is: None
 ```
+
+## Variable scope
+
+When we define a variable inside of a function in Python, it's known as a `local` variable, which means that it's not visible to -- or known by -- the rest of the program. Variables that we define outside of functions are `global` and are therefore visible throughout the program, *including* from within other functions. The part of a program in which a variable is visible is called its *scope*.
+
+This is helpful for people using or writing functions, because they don't need to worry about repeating variable names that have been created elsewhere in the program. 
+
+```python
+initial_fine = 0.25
+late_fine = 0.50
+
+def calc_fine(days_overdue):
+    if days_overdue <= 10:
+        days_overdue =  days_overdue * initial_fine
+    else:
+        days_overdue = (days_overdue * initial_fine) + (days_overdue * late_fine)
+    return days_overdue
+    
+```
+
+- `initial_fine` and `late_fine` are *global variables*.
+- `days_overdue` is a *local variable* in `calc_fine`. Note that a function parameter is a variable that is automatically assigned a value when the function is called and so acts as a local variable.
+
+```python
+fine = calc_fine(12)
+print(f'Fine owed: ${fine:.2f}')
+print(f'Fine rates: ${initial_fine:.2f}, ${late_fine:.2f}')
+print(f'Days overdue: {days_overdue}')
+```
+
+```output
+Fine owed: $9.00
+Fine rates: $0.25, $0.50
+```
+
+```error
+NameError                                 Traceback (most recent call last)
+Cell In[22], line 4
+      2 print(f'Fine owed: ${fine:.2f}')
+      3 print(f'Fine rates: ${initial_fine:.2f}, ${late_fine:.2f}')
+----> 4 print(f'Days overdue: {days_overdue}')
+
+NameError: name 'days_overdue' is not defined
+```
+
+## Use docstrings to provide online help.
+
+If the first thing in a function is a string that isn’t assigned to a variable, that string is attached to the function as its documentation. This kind of documentation at the beginning of a function is called a `docstring`. 
+
+```python
+def fahr_to_celsius(temp):
+    "Input a fahrenheit temperature and return the value in celsius"
+    return ((temp - 32) * (5/9))
+```
+
+This is helpful because we can now ask Python’s built-in help system to show us the documentation for the function:
+
+```python
+help(fahr_to_celsius)
+```
+
+```output
+Help on function fahr_to_celsius in module __main__:
+
+fahr_to_celsius(temp)
+    Input a fahrenheit temperature and return the value in celsius
+```
+
+We don’t need to use triple quotes when we write a docstring, but if we do, we can break the string across multiple lines:
+
+```python
+def fahr_to_celsius(temp):
+    """Convert fahrenheit values to celsius
+    Input a value in fahrenheit
+    Output a value in celsius"""
+    return ((temp - 32) * (5/9))
+```
+
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -129,7 +211,7 @@ What does the following program print?
 
 ```python
 def report(pressure):
-    print('pressure is', pressure)
+    print(f'pressure is {pressure}')
 
 report(22.5)
 ```
@@ -154,7 +236,7 @@ The example above:
 
 ```python
 result = print_date(1871, 3, 19)
-print('result of call is:', result)
+print(f'result of call is: {result}')
 ```
 
 printed:
@@ -251,7 +333,7 @@ What does this short program print?
 
 ```python
 def print_date(year, month, day):
-    joined = str(year) + '/' + str(month) + '/' + str(day)
+    joined = f'{year}/{month}/{day}'
     print(joined)
 
 print_date(day=1, month=2, year=2003)
@@ -259,7 +341,6 @@ print_date(day=1, month=2, year=2003)
 
 1. When have you seen a function call like this before?
 2. When and why is it useful to call functions this way?
-  {: .python}
 
 :::::::::::::::  solution
 
@@ -431,6 +512,52 @@ def avg_gdp_in_decade(country, continent, year):
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Local and Global Variable Use
+
+Trace the values of all variables in this program as it is executed.
+(Use '---' as the value of variables before and after they exist.)
+
+```python
+limit = 100
+
+def clip(value):
+    return min(max(0.0, value), limit)
+
+value = -22.5
+print(clip(value))
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+# limit = ---
+# value = ---
+
+limit = 100   
+
+def clip(value):  
+  return min(max(0.0, value), limit)
+
+# limit = 100
+# value = ---
+
+value = -22.5    # value = -22.5, limit = 100
+
+print(clip(value))   # result is 0.0
+
+# value = -22.5
+# limit = 100
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
