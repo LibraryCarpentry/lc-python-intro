@@ -6,13 +6,19 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- 
+- Select specific columns and rows from Pandas DataFrames.
+- Use Pandas methods to calculate sums and means, and to display unique items.
+- Sort DataFrame columns (Pandas series).
+- Save a DataFrame as a CSV or Pickle file.
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- 
+- How can I work with subsets of data in a Pandas DataFrame?
+- How can I run summary statistics and sort columns of a DataFrame? 
+- How can I save DataFrames to other file formats?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -74,7 +80,7 @@ Name: year, Length: 1003, dtype: int64
 We can add a second square bracket after a column name to refer to specific row indices, either on their own, or using slices to look at ranges.
 
 ```python
-print('first row:', df['year'][0])
+print(f"first row: {df['year'][0]}") #use double quotes around your fstring if it contains single quotes
 print('rows 100 to 102:') #adding a new print statement to create a new line
 print(df['year'][100:103])
 ```
@@ -97,13 +103,13 @@ pandas.core.series.Series
 ```
 
 ## Summary statistics on columns
-A pandas Series is a one-dimensional array, like a column in a spreadsheet, while a pandas DataFrame is a two-dimensional tabular data structure with labeled axes, similar to a spreadsheet. One of the advantages of pandas is that we can use built-in functions to provide summary statistics across Series such as columns. Since it can be difficult to get a sense of the range of data in a large DataFrame by looking over the whole thing manually, these functions can help us understand our dataset quickly and ask specific questions. 
+A pandas Series is a one-dimensional array, like a column in a spreadsheet, while a pandas DataFrame is a two-dimensional tabular data structure with labeled axes, similar to a spreadsheet. One of the advantages of pandas is that we can use built-in functions like `max()`, `min()`, `mean()`, and `sum()` to provide summary statistics across Series such as columns. Since it can be difficult to get a sense of the range of data in a large DataFrame by looking over the whole thing manually, these functions can help us understand our dataset quickly and ask specific questions. 
 
 If we wanted to know the range of years covered in this data, for example, we can look at the maximum and minimum values in the `year` column. 
 
 ```python
-print('max year:', df['year'].max())
-print('min year:', df['year'].min())
+print(f"max year: {df['year'].max()}")
+print(f"min year: {df['year'].min()}")
 ```
 ```output
 max year: 2022
@@ -135,7 +141,7 @@ Name: branch, Length: 1003, dtype: object
 We can use the `.unique()` function to output an array (like a list) of all of the unique values in the `branch` column, and the `.nunique()` function to tell us how many unique values are present.
 
 ```python
-print('Number of unique branches:', df['branch'].nunique())
+print(f"Number of unique branches: {df['branch'].nunique()}")
 print(df['branch'].unique())
 ```
 ```output
@@ -233,9 +239,9 @@ You can point to specific locations in a DataFrame using two-dimensional numeric
 
 ```python
 # print values in the 1st and 2nd to last columns in the first row
-print('Branch:', df.iloc[0,0], '\nYTD circ:', df.iloc[0,-2])
-
 # '\n' prints a linebreak
+print(f"Branch: {df.iloc[0,0]} \nYTD circ: {df.iloc[0,-2]}")
+
 ```
 
 ```output
@@ -247,7 +253,7 @@ YTD circ: 120059
 
 ```python
 # print the same values as above, using the column names
-print('Branch:', df.loc[0,'branch'], '\nYTD circ:', df.loc[0, 'ytd'])
+print(f"Branch: {df.loc[0,'branch']} \nYTD circ: {df.loc[0, 'ytd']}")
 
 ```
 
@@ -258,7 +264,7 @@ YTD circ: 120059
 
 ## Save DataFrames
 
-You might want to export the series of usage by year and branch that we just created so that you can share it with colleagues. Pandas includes a variety of methods that begin with `.to_...` that allow us to convert and export data in different ways. First, let's save our series as a DataFrame so we can more view the output in a better format in our Jupyter notebook. 
+You might want to export the series of usage by year and branch that we just created so that you can share it with colleagues. Pandas includes a variety of methods that begin with `.to_...` that allow us to convert and export data in different ways. First, let's save our series as a DataFrame so we can view the output in a better format in our Jupyter notebook. 
 
 ```python
 circ_df = circ_by_year_branch.to_frame()
@@ -293,6 +299,106 @@ new_df.head()
 ```
 :::::::::::::::::::::::::::::::::::::::
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Displaying rows and columns
+
+How would you use slicing and column names to select the following subsets of rows and columns from the circulation DataFrame?
+
+1. The city column.
+2. Rows 10 to 20.
+3. Rows 20 to 30 from the zip code column.
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+#1
+df['city']
+
+#2
+df[10:21]
+
+#3 
+df['zip code'][20:31]
+
+```
+
+
+:::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Using loc()
+
+How would you use `loc()` to select rows 20 to 30 from the zip code column (the same rows as the last example in the challenge above)?
+
+Tip: slices use "non-inclusive" indexing -- so require you to ask for `df[10:21]` to see row 20, but `loc()` uses inclusive indexing.
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+df.loc[20:30, 'zip code']
+
+```
+:::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Unique items
+
+How would you display:
+
+1. all of the unique zip codes in the dataset?
+2. the number of unique zip codes in the dataset?
+
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+
+#1
+df['zip code'].unique()
+
+#2
+df['zip code'].nunique()
+
+```
+:::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Summary statistics and groupby()
+
+We can apply `mean()` to Pandas series' in the same way we used `sum()`, `min()`, and `max()` above. How would you display the following? 
+
+1. the mean number of ytd checkouts grouped by zip code?
+2. the mean number of ytd checkouts grouped by zip code, and sorted from smallest to largest?
+
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+#1
+df.groupby('zip code')['ytd'].mean()
+
+#2
+df.groupby('zip code')['ytd'].mean().sort_values()
+
+```
+:::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
