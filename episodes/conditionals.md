@@ -6,7 +6,7 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Correctly write programs that use if and else statements and simple Boolean expressions (without logical operators).
+- Correctly write programs that use if and else statements using Boolean expressions.
 - Trace the execution of unnested conditionals and conditionals inside loops.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -26,11 +26,11 @@ An `if` statement is a *conditional* statement that controls whether a block of 
 ```python
 checkouts = 11
 if checkouts > 10.0:
-    print(checkouts, 'is over the checkout limit.')
+    print(f'{checkouts}, is over the checkout limit.')
 
 checkouts = 8
 if checkouts > 10.0:
-    print(checkouts, 'is over the checkout limit.')
+    print(f'{checkouts}, is over the checkout limit.')
 ```
 
 ```output
@@ -45,7 +45,7 @@ There is not much of a point using a conditional when we know the value (as abov
 checkouts = [3, 5, 12, 22, 0]
 for checkout in checkouts:
     if checkout > 10.0:
-        print(checkout, 'is over the checkout limit.')
+        print(f'{checkout}, is over the checkout limit.')
 ```
 
 ```output
@@ -61,9 +61,9 @@ And `else` statement can be used following `if` to allow us to specify an altern
 checkouts = [3, 5, 12, 22, 0]
 for checkout in checkouts:
     if checkout > 10.0:
-        print('Warning:', checkout, 'is over the checkout limit.')
+        print(f'Warning: {checkout} is over the checkout limit.')
     else:
-        print(checkout, 'is under the limit.')
+        print(f'{checkout} is under the limit.')
 ```
 
 ```output
@@ -82,11 +82,11 @@ You can use `elif` (short for "else if") to provide several alternative choices,
 checkouts = [3, 5, 10, 22, 0]
 for checkout in checkouts:
     if checkout > 10.0:
-        print('Warning:', checkout, 'is over the checkout limit.')
+        print(f'Warning: {checkout} is over the checkout limit.')
     elif checkout == 10:
-        print(checkout, 'is at the exact checkout limit.')
+        print(f'{checkout} is at the exact checkout limit.')
     else:
-        print(checkout, 'is under the limit.')
+        print(f'{checkout} is under the limit.')
 ```
 
 ```output
@@ -133,14 +133,14 @@ You can use conditionals inside of a loop to adjust values as the loop iterates.
 ```python
 checkouts = 15.0
 for i in range(5): # execute the loop 5 times
-    print(i, ':', checkouts)
+    print(f'{i} : {checkouts}')
     if checkouts >= 30.0:
         print('too many checkouts')
         checkouts = checkouts - 5.0
     else:
         print('too few checkouts')
         checkouts = checkouts + 10.0
-print('final checkouts:', checkouts)
+print(f'final checkouts: {checkouts}')
 ```
 
 ```output
@@ -172,13 +172,13 @@ for user in user_type:
     print(user)
     for checkout in checkouts:
         if checkout > 100 and user == 'faculty':
-            print(checkout, "Over the faculty checkout limit.")
+            print(f"{checkout} Over the faculty checkout limit.")
         elif checkout > 50 and user == 'graduate':
-            print(checkout, "Over the graduate student checkout limit.")
+            print(f"{checkout} Over the graduate student checkout limit.")
         elif checkout > 20 and user == 'undergraduate':
-            print(checkout, "Over the undergraduate student checkout limit.")
+            print(f"{checkout} Over the undergraduate student checkout limit.")
         else:
-            print(checkout, "Under the checkout limit.")
+            print(f"{checkout} Under the checkout limit.")
     print()
 
 ```
@@ -207,16 +207,16 @@ undergraduate
 
 What does this program print?
 
-```
-pressure = 71.9
-if pressure > 50.0:
-    pressure = 25.0
-elif pressure <= 50.0:
-    pressure = 0.0
-print(pressure)
+```python
+velocity = 71.9
+if velocity > 50.0:
+    velocity = 25.0
+elif velocity <= 50.0:
+    velocity = 0.0
+print(velocity)
 ```
 
-{: python}
+
 
 :::::::::::::::  solution
 
@@ -232,7 +232,7 @@ print(pressure)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Trimming Values
+## Acummulating Results Conditionally
 
 Fill in the blanks so that this program creates a new list
 containing zeroes where the original list's values were negative
@@ -274,7 +274,7 @@ print(result)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Processing Small Files
+## Processing Files Based on Record Length
 
 Modify this program so that it only processes files with fewer than 50 records.
 
@@ -284,7 +284,7 @@ import pandas
 for filename in glob.glob('data/*.csv'):
     contents = pandas.read_csv(filename)
     ____:
-        print(filename, len(contents))
+        print(f'{filename} : {len(contents)}')
 ```
 
 :::::::::::::::  solution
@@ -296,8 +296,8 @@ import glob
 import pandas
 for filename in glob.glob('data/*.csv'):
    contents = pandas.read_csv(filename)
-   if len(contents) < 50:
-       print(filename, len(contents))
+   if len(contents) < 85:
+       print(f'{filename} : {len(contents)}')
 ```
 
 :::::::::::::::::::::::::
@@ -306,7 +306,7 @@ for filename in glob.glob('data/*.csv'):
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Initializing
+## Range Finding
 
 Modify this program so that it finds the largest and smallest values in the list
 no matter what the range of values originally is.
