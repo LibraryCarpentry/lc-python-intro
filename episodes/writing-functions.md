@@ -68,15 +68,15 @@ To expand on the recipe metaphor above, the arguments you add to the `()` contai
 Functions with defined parameters will result in an error if they are called without passing an argument:
 
 ```python
-calc_fine()
+print_date()
 ```
 
 ```error
 TypeError                                 Traceback (most recent call last)
 Cell In[15], line 1
-----> 1 calc_fine()
+----> 1 print_date()
 
-TypeError: calc_fine() missing 1 required positional argument: 'days_overdue'
+TypeError: print_date() missing 3 required positional arguments: 'year', 'month', and 'day'
 ```
 
 ## Use `return` to pass values back from a function.
