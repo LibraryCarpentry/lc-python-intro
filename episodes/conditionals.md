@@ -276,7 +276,7 @@ print(result)
 
 ## Processing Files Based on Record Length
 
-Modify this program so that it only processes files with fewer than 50 records.
+Modify this program so that it only processes files with fewer than 85 records.
 
 ```python
 import glob
@@ -296,7 +296,7 @@ import glob
 import pandas
 for filename in glob.glob('data/*.csv'):
    contents = pandas.read_csv(filename)
-   if len(contents) < 50:
+   if len(contents) < 85:
        print(f'{filename} : {len(contents)}')
 ```
 
