@@ -5,7 +5,7 @@ title: Setup
 ## Installing Python Using Anaconda
 Python is a popular language for research computing, and great for general-purpose programming as well. Installing all of its research packages individually can be a bit difficult, so we recommend Anaconda, an all-in-one installer.
 
-Regardless of how you choose to install it, please make sure you install Python 3.x. The latest 3.x version recommended on [Python.org][python] is fine.
+Regardless of how you choose to install it, please make sure you install Python 3.6 or above. The latest 3.x version recommended on [Python.org][python] is fine.
 
 We will teach Python using JupyterLab, a programming environment that runs in a web browser (JupyterLab will be installed by Anaconda). For this to work you will need a reasonably up-to-date browser. The current versions of the Chrome, Safari and Firefox browsers are all supported (some older browsers, including Internet Explorer version 9 and below, are not).
 

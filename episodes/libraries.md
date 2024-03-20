@@ -43,7 +43,7 @@ Use `import` to load a library into a program's memory. Then you can refer to th
 ```python
 import string
 
-print('The lower ascii letters are', string.ascii_lowercase)
+print(f'The lower ascii letters are {string.ascii_lowercase}')
 print(string.capwords('capitalise this sentence please.'))
 ```
 
@@ -109,7 +109,7 @@ You can use `from ... import ...` to load specific items from a library module t
 ```python
 from string import ascii_letters
 
-print('The ASCII letters are', ascii_letters)
+print(f'The ASCII letters are {ascii_letters}')
 ```
 
 ```output

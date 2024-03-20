@@ -77,11 +77,15 @@ A
 `max()` and `min()` must be given at least one argument and they must be given things that can meaningfully be compared.
 
 ```python
-print(max(1, 'a'))
+max(1, 'a')
 ```
 
 ```error
-TypeError: unorderable types: str() > int()
+TypeError                                 Traceback (most recent call last)
+Cell In[6], line 1
+----> 1 max(1, 'a')
+
+TypeError: '>' not supported between instances of 'str' and 'int'
 ```
 
 ## Function argument default values, and `round()`.
@@ -131,11 +135,11 @@ round(...)
 
 ## Every function returns something.
 
-Every function call produces some result and if the function doesn't have a useful result to return, it usually returns the special value `None`.
+Every function call produces some result and if the function doesn't have a useful result to return, it usually returns the special value `None`. Each line of Python code is executed in order. In this case, the second line call to `{result}` returns 'None' since the `print` statement in the previous line didn't return a value to the `result` variable.
 
 ```python
 result = print('example')
-print('result of print is', result)
+print(f'result of print is {result}')
 ```
 
 ```output
