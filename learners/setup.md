@@ -13,7 +13,7 @@ We will teach Python using JupyterLab, a programming environment that runs in a 
 1. Open [anaconda.com/download][anaconda-dl]
   with your web browser.
 
-2.Download the Anaconda for Windows installer with Python 3. (If you are not sure which version to choose, you probably want the 64-bit Graphical Installer *Anaconda3-...-Windows-x86_64.exe*)
+2.  Download the Anaconda for Windows installer with Python 3. (If you are not sure which version to choose, you probably want the 64-bit Graphical Installer *Anaconda3-...-Windows-x86_64.exe*)
 
 3. Install Python 3 by running the Anaconda Installer, using all of the defaults for installation except make sure to check *Add Anaconda to my PATH environment variable*.
 
