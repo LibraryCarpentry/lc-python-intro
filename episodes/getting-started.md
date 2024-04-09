@@ -157,7 +157,7 @@ While Python runs both calculations Juypter will only display the output from th
 
 You can use the icons at the top of your notebook to edit the cells in your Notebook:
 - The `+` icon adds a new cell below the selected cell.
-- The scissors icon will delete the current cell. 
+ The scissors icon will delete the current cell. 
 
 You can move cells around in your notebook by hovering over the left-hand margin of a cell until your cursor changes into a four-pointed arrow, and then dragging and dropping the cell where you want it.
 
