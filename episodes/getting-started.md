@@ -139,7 +139,7 @@ You should see the output appear immediately below the cell, and Jupyter will al
 21
 ```
 
-If you move your cursor back to the first cell, just after the `7 * 3` code, and hit the kbd>Return</kbd> key (without shift), you should see a new line in the cell where you can add more Python code. Let's add another calculation to the same cell:
+If you move your cursor back to the first cell, just after the `7 * 3` code, and hit the <kbd>Return</kbd> key (without shift), you should see a new line in the cell where you can add more Python code. Let's add another calculation to the same cell:
 
 ```python
 7 * 3
