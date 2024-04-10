@@ -401,6 +401,7 @@ print(result, 'is', type(result))
 
 - Use variables to store values.
 - Use `print` to display values.
+- Format output with f-strings.
 - Variables persist between cells.
 - Variables must be created before they are used.
 - Variables can be used in calculations.
