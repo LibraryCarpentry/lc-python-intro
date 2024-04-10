@@ -64,7 +64,7 @@ age
 
 ## Format output with f-strings
 
-You can format variables and other Python objects as text strings in your output using an f-string. To do so, start a string with `f` before the open single (or double) quote. Then add any replacement fields, such as variable names, between curly braces `{}`. 
+F-strings provide a concise and readable way to format strings by embedding Python expressions within them. You can format variables as text strings in your output using an f-string. To do so, start a string with `f` before the open single (or double) quote. Then add any replacement fields, such as variable names, between curly braces `{}`. (Note the f string syntax can only be used with Python 3.6 or higher.)
 
 ```python
 f'{name} is {age} years old'
