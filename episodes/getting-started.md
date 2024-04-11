@@ -27,11 +27,11 @@ Python is a popular programming language for tasks such as data collection, clea
 
 1. **Metadata work.** Many cataloging teams use Python to migrate, transform and enrich metadata that they receive from different sources. For example, the [pymarc library](https://pypi.org/project/pymarc/) is a popular Python package for working with MARC21 records.
 
-2. **Collection and citation analysis.** Python can be used automate workflows to analyze library collections. In cases where spreadsheets and OpenRefine are unable to support specific forms of analysis, Python is a more flexible and powerful tool.
+2. **Collection and citation analysis.** Python can automate workflows to analyze library collections. In cases where spreadsheets and OpenRefine are unable to support specific forms of analysis, Python is a more flexible and powerful tool.
 
 3. **Assessment.** Library workers often need to collect metrics or statistics on some aspect of their work. Python can be a valuable tool to collect, clean, analyze, and visualize that data in a consistent way over time.
 
-4. **Accessing data.** Researchers often use Python to collect data (including textual data) from web sites and social media platforms. Academic librarians are often well-positioned to help teach those researchers use Python for web scraping or to query Application Programming Interface (APIs) to access the data they need. 
+4. **Accessing data.** Researchers often use Python to collect data (including textual data) from websites and social media platforms. Academic librarians are often well-positioned to help teach these researchers how to use Python for web scraping or querying Application Programming Interfaces (APIs) to access the data they need. 
 
 5. **Analyzing data.** Python is widely used by scholars who are embarking on different forms of computational research (e.g., network analysis, natural language processing, machine learning). Library workers can leverage Python for their own research in these areas, but also take part in larger networks of academic support related to data science, computational social sciences, and/or digital humanities.
 
@@ -60,7 +60,7 @@ Jupyter notebooks let us execute and view the results of our Python code immedia
 - It allows you to annotate your code with links, different sized text, bullets, etc.
   to make it more accessible to you and your collaborators.
 - It allows you to display figures next to the code 
-  to better explore your data and visualize the fruits of your analysis.
+  to better explore your data and visualize the results of your analysis.
 - Each notebook contains one or more cells that contain code, text, or images.
 
 ### Start JupyterLab
@@ -125,7 +125,7 @@ We will share more features of the JupyterLab environment as we advance through 
 
 ### Running Python code 
 
-Jupyter allows you to add code and formatted text in different types of blocks, called cells. By default, each new cell in a Jupyter Notebook will be a "code cell" that allows you to input and run Python code. Let's start by having Python do some arithmetic for us. 
+Jupyter allows you to add code and formatted text in different types of blocks called cells. By default, each new cell in a Jupyter Notebook will be a "code cell" that allows you to input and run Python code. Let's start by having Python do some arithmetic for us. 
 
 In the first cell type 7 * 3, and then press the <kbd>Shift</kbd>\+<kbd>Return</kbd> keys together to execute the contents of the cell. (You can also run a cell by making sure your cursor is in the cell and choosing `Run > Run Selected Cells` or selecting the "Play" icon (the sideways triangle) at the top of the noteboook.)
 
