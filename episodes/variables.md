@@ -213,9 +213,11 @@ A variable in Python is analogous to a sticky note with a name written on it: as
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## f String Syntax
+## F-string Syntax
 
-To demonstrate the flexibility and power of f-strings in constructing dynamic and expressive messages in Python fill in the blanks using the variables and f string syntax to tell Christina how old she will be 10 years. 
+Use an f-string to construct output in Python by filling in the blanks with variables and f-string syntax to tell Christina how old she will be in 10 years.
+
+Tip: You can combine variables and mathematical expressions in an f-string in the same way you can in variable assignment. We'll see more examples of dynamic f-string output as we go through the lesson.
 
 ```python
 name = 'Christina'
@@ -238,7 +240,7 @@ f'{name}, you will be {age + 10} in 10 years.'
 
 ```
 
-You can combine variables and mathematical expressions in an f string. We'll see more examples of how dynamic f strings are as we go through the lesson.
+
 
 :::::::::::::::::::::::::
 
