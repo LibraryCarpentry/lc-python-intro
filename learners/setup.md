@@ -44,9 +44,9 @@ We will teach Python using JupyterLab, a part of a family of [Jupyter][jupyter] 
 
 ## Download the data
 
-1. Create a new folder on your Desktop called ```lc-python```.
-2. Download [this zip file][dataset] and save it in the ```lc-python``` folder you just created. 
-3. Unzip the ```data.zip``` file, which should create a new folder called ```data```.
+1. Download [this zip file][dataset] and save it to your Desktop. 
+2. Unzip the ```data.zip``` file, which should create a new folder called ```data```.
+3. Create a new folder on your Desktop called ```lc-python``` and put the ```data``` folder in this folder.
 
 This lesson uses circulation data in multiple CSV files from the Chicago Public Library system. The data was compiled from records shared by the Chicago Public Library in [the data.gov catalog](https://catalog.data.gov/dataset/?q=chicago+%22circulation+by+location%22). Please do not download the circulation data from data.gov since the dataset you downloaded following the steps above has been altered for our purposes.
 
