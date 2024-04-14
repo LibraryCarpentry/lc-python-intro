@@ -9,9 +9,9 @@ exercises: 10
 - Explain what Python libraries are and why to create and use them.
 - Write programs that import and use libraries from Python's standard library.
 - Find and read documentation for standard libraries.
-- Import the Pandas library.
-- Use Pandas to load a CSV file as a data set.
-- Get some basic information about a Pandas DataFrame.
+- Import the pandas library.
+- Use pandas to load a CSV file as a data set.
+- Get some basic information about a pandas DataFrame.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -156,13 +156,13 @@ Using these common aliases can make it easier to work with existing documentatio
 
 ## Pandas
 `Pandas` is a widely-used Python library for statistics using tabular data.
-Essentially, it give you access to 2-dimensional tables whose columns have names and can have different data types. We can start using Pandas by reading a `Comma Separated Values` (CSV) data file with the function `pd.read_csv()`. The function `.read_csv()` expects as an argument the path to and name of the file to be read. This returns a dataframe that you can assign to a variable.
+Essentially, it give you access to 2-dimensional tables whose columns have names and can have different data types. We can start using pandas by reading a `Comma Separated Values` (CSV) data file with the function `pd.read_csv()`. The function `.read_csv()` expects as an argument the path to and name of the file to be read. This returns a dataframe that you can assign to a variable.
 
 ### Find your CSV files
 
 From the file browser in the left sidebar you can select the `data` folder to view the contents of the folder. If you downloaded and uncompressed the dataset correctly, you should see a series of CSV files from 2011 to 2022. If you double-click on the first file, `2011_circ.csv`, you will see a preview of the CSV file in a new tab in the main panel of JupyterLab. 
 
-Let's load that file into a Pandas DataFrame, and save it to a new variable called `df`.
+Let's load that file into a pandas DataFrame, and save it to a new variable called `df`.
 
 ```python
 df = pd.read_csv('data/2011_circ.csv')
@@ -198,7 +198,7 @@ FileNotFoundError: [Errno 2] No such file or directory: 'data/2011_circ.csv'
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-`df` is a common variable name that you'll encounter in Pandas tutorials online, but in practice it's often better to use more meaningful variable names. Since we have twelve different CSVs to work with, for example, we might want to add the year to the variable name to differentiate between the datasets.
+`df` is a common variable name that you'll encounter in pandas tutorials online, but in practice it's often better to use more meaningful variable names. Since we have twelve different CSVs to work with, for example, we might want to add the year to the variable name to differentiate between the datasets.
 
 Also, as seen above, the output when you print a dataframe in Jupyter isn't very easy to read. We can use `.head()` to look at just the first few rows in our dataframe formatted in a more convenient way for our Notebook.
 
