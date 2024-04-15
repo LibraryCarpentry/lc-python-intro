@@ -138,7 +138,7 @@ primes after removing last item: [2, 3, 5, 7]
 
 ## Fill in the Blanks
 
-Fill in the blanks so that the program below produces the output shown.
+Fill in the blanks so that the program below produces the output shown. (Hint: Use [] on its own to represent a list that doesn’t contain any values.)
 
 ```python
 values = ____
