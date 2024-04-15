@@ -389,7 +389,6 @@ resources is ['DVDs', 'abstracts', 'books', 'databases', 'maps', 'periodicals'] 
 - Lists' values can be replaced by assigning to them.
 - Appending items to a list lengthens it.
 - Use `del` to remove items from a list entirely.
-- The empty list contains no values.
 - Lists may contain values of different types.
 - Character strings can be indexed like lists.
 - Character strings are immutable.
