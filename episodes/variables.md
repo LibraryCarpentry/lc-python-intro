@@ -1,5 +1,5 @@
 ---
-title: Variables and types
+title: Variables and Types
 teaching: 15
 exercises: 10
 ---
