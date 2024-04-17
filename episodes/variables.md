@@ -1,5 +1,5 @@
 ---
-title: Variables and types
+title: Variables and Types
 teaching: 15
 exercises: 10
 ---
@@ -64,7 +64,7 @@ age
 
 ## Format output with f-strings
 
-You can format variables and other Python objects as text strings in your output using an f-string. To do so, start a string with `f` before the open single (or double) quote. Then add any replacement fields, such as variable names, between curly braces `{}`. 
+F-strings provide a concise and readable way to format strings by embedding Python expressions within them. You can format variables as text strings in your output using an f-string. To do so, start a string with `f` before the open single (or double) quote. Then add any replacement fields, such as variable names, between curly braces `{}`. (Note the f string syntax can only be used with Python 3.6 or higher.)
 
 ```python
 f'{name} is {age} years old'
@@ -210,6 +210,41 @@ Older age is 45 and age is 50
 ```
 
 A variable in Python is analogous to a sticky note with a name written on it: assigning a value to a variable is like putting a sticky note on a particular value. When we assigned the variable `older_age`, it was like we put a sticky note with the name `older_age` on the value of `45`. Remember, `45` was the result of `age + 3` because `age` at that point in the code was equal to `42`. The `older_age` sticky note (variable) was never attached to (assigned to) another value, so it doesn't change when the `age` variable is updated to be `50`.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## F-string Syntax
+
+Use an f-string to construct output in Python by filling in the blanks with variables and f-string syntax to tell Christina how old she will be in 10 years.
+
+Tip: You can combine variables and mathematical expressions in an f-string in the same way you can in variable assignment. We'll see more examples of dynamic f-string output as we go through the lesson.
+
+```python
+name = 'Christina'
+age = 23
+
+f'{____}, you will be ______ in 10 years.'
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+f'{name}, you will be {age + 10} in 10 years.'
+
+```
+
+```output
+'Christina, you will be 33 in 10 years.'
+
+```
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -401,6 +436,7 @@ print(result, 'is', type(result))
 
 - Use variables to store values.
 - Use `print` to display values.
+- Format output with f-strings.
 - Variables persist between cells.
 - Variables must be created before they are used.
 - Variables can be used in calculations.

@@ -56,20 +56,18 @@ You always need to use parentheses at the end of a function, because this tells 
 - Use `max()` to find the largest value of one or more values.
 - Use `min()` to find the smallest.
 
-Both `max()` and `min()` work on character strings as well as numbers, so can be used for numerical and alphabetical comparisons. Note that alphabetical comparisons follow some specific rules about what is larger or smaller:
-- `'a'` is smaller than `'b'`
-- `'A'` is smaller than `'a'`
+Both `max()` and `min()` work on character strings as well as numbers, so can be used for numerical and alphabetical comparisons. Note that numerical and alphabetical comparisons follow some specific rules about what is larger or smaller: numbers are smaller than letters and upper case letters are smaller than lower case letters, so the order of operations in Python is 0-9, A-Z, a-z when comparing numbers and letters.
 
 ```python
 print(max(1, 2, 3)) # notice that functions are nestable
 print(min('a', 'b', max('c', 'd'))) # nest with care since code gets less readable
-print(min('a', 'A'))
+print(min('a', 'A', '2')) # numbers and letters can be compared if they are the same data type
 ```
 
 ```output
 3
 a
-A
+2
 ```
 
 ## Functions may only work for certain (combinations of) arguments.

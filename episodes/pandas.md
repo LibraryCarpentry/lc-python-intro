@@ -1,22 +1,22 @@
 ---
-title: Using pandas
+title: Using Pandas
 teaching: 20
 exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Select specific columns and rows from Pandas DataFrames.
-- Use Pandas methods to calculate sums and means, and to display unique items.
-- Sort DataFrame columns (Pandas series).
-- Save a DataFrame as a CSV or Pickle file.
+- Select specific columns and rows from pandas DataFrames.
+- Use pandas methods to calculate sums and means, and to display unique items.
+- Sort DataFrame columns (pandas series).
+- Save a DataFrame as a CSV or pickle file.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I work with subsets of data in a Pandas DataFrame?
+- How can I work with subsets of data in a pandas DataFrame?
 - How can I run summary statistics and sort columns of a DataFrame? 
 - How can I save DataFrames to other file formats?
 
@@ -379,7 +379,7 @@ df['zip code'].nunique()
 
 ## Summary statistics and groupby()
 
-We can apply `mean()` to Pandas series' in the same way we used `sum()`, `min()`, and `max()` above. How would you display the following? 
+We can apply `mean()` to pandas series' in the same way we used `sum()`, `min()`, and `max()` above. How would you display the following? 
 
 1. the mean number of ytd checkouts grouped by zip code?
 2. the mean number of ytd checkouts grouped by zip code, and sorted from smallest to largest?

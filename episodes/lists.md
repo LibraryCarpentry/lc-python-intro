@@ -138,7 +138,7 @@ primes after removing last item: [2, 3, 5, 7]
 
 ## Fill in the Blanks
 
-Fill in the blanks so that the program below produces the output shown.
+Fill in the blanks so that the program below produces the output shown. (Hint: Use [] on its own to represent a list that doesn’t contain any values.)
 
 ```python
 values = ____
@@ -389,7 +389,6 @@ resources is ['DVDs', 'abstracts', 'books', 'databases', 'maps', 'periodicals'] 
 - Lists' values can be replaced by assigning to them.
 - Appending items to a list lengthens it.
 - Use `del` to remove items from a list entirely.
-- The empty list contains no values.
 - Lists may contain values of different types.
 - Character strings can be indexed like lists.
 - Character strings are immutable.
