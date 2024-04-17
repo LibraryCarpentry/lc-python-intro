@@ -36,9 +36,9 @@ A *Python library* is a collection of files (called *modules*) that contains fun
 - [NumPy](https://numpy.org/) - numerical computing tools such as mathematical functions and random number generators.
 
 
-## You must import a library before using it.
+## You must import a library or module before using it.
 
-Use `import` to load a library into a program's memory. Then you can refer to things from the library as `library_name.thing_name`. Let's import and use the `string` library to generate a list of lowercase ASCII letters and to change the case of a text string:
+You can use `import` to load a library or module into a program's memory. Then you can refer to things from the library with the syntax  `library_name.thing_name`. When we get to pandas we will import a library, but right now let's import and use the `string` module from Python's standard library to generate a list of lowercase ASCII letters and to change the case of a text string:
 
 ```python
 import string
@@ -59,9 +59,9 @@ We introduced Python dot notation when we looked at methods like `list_name.appe
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use `help` to learn about the contents of a library "module."
+## Use `help` to learn about the contents of a library module.
 
-The `help()` function can tell us more about a library, including more information about its functions and/or variables. Note that in the help documentation below the library is referred to as a "module." These terms are often used interchangeably.
+The `help()` function can tell us more about a module in a library, including more information about its functions and/or variables.
 
 ```python
 help(string)
