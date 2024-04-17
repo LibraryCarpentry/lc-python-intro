@@ -6,8 +6,8 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain what Python libraries are and why to create and use them.
-- Write programs that import and use libraries from Python's standard library.
+- Explain what Python libraries and modules are.
+- Write Python code that imports and uses modules from Python's standard library.
 - Find and read documentation for standard libraries.
 - Import the pandas library.
 - Use pandas to load a CSV file as a data set.
@@ -25,7 +25,7 @@ exercises: 10
 
 ## Python libraries are powerful collections of tools.
 
-A *Python library* is a collection of files (called *modules*) that contains functions that you can use in your programs. Some libraries (sometimes referred to as packages) contain standard data values or language resources that you can reference in your code. So far, we have used the Python [standard library][stdlib], which is an extensive suite of built-in modules. You can find additional libraries from [PyPI][pypi] (the Python Package Index), though you'll often find references to useful packages as you're reading tutorials or trying to solve specific programming problems. Some popular packages for working with data in library fields are:
+A *Python library* is a collection of files (called *modules*) that contains functions that you can use in your programs. Some libraries (also referred to as packages) contain standard data values or language resources that you can reference in your code. So far, we have used the Python [standard library][stdlib], which is an extensive suite of built-in modules. You can find additional libraries from [PyPI][pypi] (the Python Package Index), though you'll often find references to useful libraries as you're reading tutorials or trying to solve specific programming problems. Some popular libraries for working with data in library fields are:
 
 - [Pandas](https://pandas.pydata.org/) - tabular data analysis tool.
 - [Pymarc](https://pypi.org/project/pymarc/) - for working with bibliographic data encoded in MARC21.
