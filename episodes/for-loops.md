@@ -198,9 +198,10 @@ result = ""
 for char in original:
    result = char + result
 print(result)
+```
+```output
 nit
 ```
-
 If you were to expand out the loop the iterations would look something like this:
 
 ```python
