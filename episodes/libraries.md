@@ -327,7 +327,7 @@ Given the variables `year`, `month` and `day`, how would you generate a date in 
 
 ```python
 year = 1971
-month = 08
+month = 8
 day = 26
 ```
 
