@@ -119,7 +119,7 @@ The ASCII letters are abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 ## Module not found error
 
-Before you can import a Python library, you sometimes will need to download and install it on your machine. Anaconda comes with many of the most popular Python libraries for scientific computing applications built-in, so if you installed Anaconda for this workshop, you'll be able to import many common libraries directly. Some less common tools, like the PyMarc package, however, would need to be installed first.
+Before you can import a Python library, you sometimes will need to download and install it on your machine. Anaconda comes with many of the most popular Python libraries for scientific computing applications built-in, so if you installed Anaconda for this workshop, you'll be able to import many common libraries directly. Some less common tools, like the PyMarc library, however, would need to be installed first.
 
 ```python
 import pymarc
@@ -129,7 +129,7 @@ import pymarc
 ModuleNotFoundError: No module named 'pymarc'
 ```
 
-You can find out how to install the package by looking at the documentation. [PyMarc](https://pypi.org/project/pymarc/), for example, recommends using a command line tool, `pip`, to install it. You can install with pip in a Jupyter notebook by starting the command with a percentage symbol, which allows you to run shell commands from Jupyter:
+You can find out how to install the library by looking at the documentation. [PyMarc](https://pypi.org/project/pymarc/), for example, recommends using a command line tool, `pip`, to install it. You can install with pip in a Jupyter notebook by starting the command with a percentage symbol, which allows you to run shell commands from Jupyter:
 
 ```python
 %pip install pymarc
