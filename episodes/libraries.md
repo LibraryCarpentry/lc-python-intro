@@ -38,7 +38,8 @@ A *Python library* is a collection of files (called *modules*) that contains fun
 
 ## You must import a library or module before using it.
 
-You can use `import` to load a library or module into a program's memory. Then you can refer to things from the library with the syntax  `library_name.thing_name`. When we get to pandas we will import a library, but right now let's import and use the `string` module from Python's standard library to generate a list of lowercase ASCII letters and to change the case of a text string:
+Use `import` to load a library into a program's memory. Then you can refer to things from the library as `library_name.function`. Let's import and use the `string` library to generate a list of lowercase ASCII letters and to change the case of a text string:
+
 
 ```python
 import string
@@ -55,7 +56,7 @@ Capitalise This Sentence Please.
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Dot notation
-We introduced Python dot notation when we looked at methods like `list_name.append()`. We can use the same syntax when we call fucntions of a specific Python library, such as `string.capwords()`. In fact, this dot notation is common in Python, and can refer to relationships between different types of Python objects. Remember that it is always the case that the object to the right of the dot is a part of the larger object to the left. If we expressed capitals of countries using this syntax, for example, we would say, `Brazil.São_Paulo()` or `Japan.Tokyo()`.
+We introduced Python dot notation when we looked at methods like `list_name.append()`. We can use the same syntax when we call functions of a specific Python library, such as `string.capwords()`. In fact, this dot notation is common in Python, and can refer to relationships between different types of Python objects. Remember that it is always the case that the object to the right of the dot is a part of the larger object to the left. If we expressed capitals of countries using this syntax, for example, we would say, `Brazil.São_Paulo()` or `Japan.Tokyo()`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
