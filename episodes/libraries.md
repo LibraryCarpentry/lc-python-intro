@@ -6,8 +6,8 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain what Python libraries are and why to create and use them.
-- Write programs that import and use libraries from Python's standard library.
+- Explain what Python libraries and modules are.
+- Write Python code that imports and uses modules from Python's standard library.
 - Find and read documentation for standard libraries.
 - Import the pandas library.
 - Use pandas to load a CSV file as a data set.
@@ -25,7 +25,7 @@ exercises: 10
 
 ## Python libraries are powerful collections of tools.
 
-A *Python library* is a collection of files (called *modules*) that contains functions that you can use in your programs. Some libraries (sometimes referred to as packages) contain standard data values or language resources that you can reference in your code. So far, we have used the Python [standard library][stdlib], which is an extensive suite of built-in modules. You can find additional libraries from [PyPI][pypi] (the Python Package Index), though you'll often find references to useful packages as you're reading tutorials or trying to solve specific programming problems. Some popular packages for working with data in library fields are:
+A *Python library* is a collection of files (called *modules*) that contains functions that you can use in your programs. Some libraries (also referred to as packages) contain standard data values or language resources that you can reference in your code. So far, we have used the Python [standard library][stdlib], which is an extensive suite of built-in modules. You can find additional libraries from [PyPI][pypi] (the Python Package Index), though you'll often find references to useful libraries as you're reading tutorials or trying to solve specific programming problems. Some popular libraries for working with data in library fields are:
 
 - [Pandas](https://pandas.pydata.org/) - tabular data analysis tool.
 - [Pymarc](https://pypi.org/project/pymarc/) - for working with bibliographic data encoded in MARC21.
@@ -36,9 +36,10 @@ A *Python library* is a collection of files (called *modules*) that contains fun
 - [NumPy](https://numpy.org/) - numerical computing tools such as mathematical functions and random number generators.
 
 
-## You must import a library before using it.
+## You must import a library or module before using it.
 
 Use `import` to load a library into a program's memory. Then you can refer to things from the library as `library_name.function`. Let's import and use the `string` library to generate a list of lowercase ASCII letters and to change the case of a text string:
+
 
 ```python
 import string
@@ -59,9 +60,9 @@ We introduced Python dot notation when we looked at methods like `list_name.appe
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use `help` to learn about the contents of a library "module."
+## Use `help` to learn about the contents of a library module.
 
-The `help()` function can tell us more about a library, including more information about its functions and/or variables. Note that in the help documentation below the library is referred to as a "module." These terms are often used interchangeably.
+The `help()` function can tell us more about a module in a library, including more information about its functions and/or variables.
 
 ```python
 help(string)
@@ -119,7 +120,7 @@ The ASCII letters are abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 ## Module not found error
 
-Before you can import a Python library, you sometimes will need to download and install it on your machine. Anaconda comes with many of the most popular Python libraries for scientific computing applications built-in, so if you installed Anaconda for this workshop, you'll be able to import many common libraries directly. Some less common tools, like the PyMarc package, however, would need to be installed first.
+Before you can import a Python library, you sometimes will need to download and install it on your machine. Anaconda comes with many of the most popular Python libraries for scientific computing applications built-in, so if you installed Anaconda for this workshop, you'll be able to import many common libraries directly. Some less common tools, like the PyMarc library, however, would need to be installed first.
 
 ```python
 import pymarc
@@ -129,7 +130,7 @@ import pymarc
 ModuleNotFoundError: No module named 'pymarc'
 ```
 
-You can find out how to install the package by looking at the documentation. [PyMarc](https://pypi.org/project/pymarc/), for example, recommends using a command line tool, `pip`, to install it. You can install with pip in a Jupyter notebook by starting the command with a percentage symbol, which allows you to run shell commands from Jupyter:
+You can find out how to install the library by looking at the documentation. [PyMarc](https://pypi.org/project/pymarc/), for example, recommends using a command line tool, `pip`, to install it. You can install with pip in a Jupyter notebook by starting the command with a percentage symbol, which allows you to run shell commands from Jupyter:
 
 ```python
 %pip install pymarc
