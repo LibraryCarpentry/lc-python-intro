@@ -16,7 +16,6 @@ exercises: 10
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-
 # Tidy Data in Pandas 
 
 To recap work in the past two episodes, we used the `glob` package to help us work with files on our machine and work on them in Python. We learned about `pandas`, Python's main data cleaning and analysis library.
@@ -34,12 +33,13 @@ We used `glob` and `pandas` to combine our Chicago public library circulation da
 %whos
 ```
 
+```output
     Variable   Type      Data/Info
     ------------------------------
     glob       module    <module 'glob' from '/Use<...>/lib/python3.11/glob.py'>
     pd         module    <module 'pandas' from '/U<...>ages/pandas/__init__.py'>
 
-
+```
 
 ```python
 dfs = [] 
@@ -49,12 +49,25 @@ for csv in glob.glob('data/*.csv'):
     dfs.append(data)
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
 ## Review
-1. What is the variable `csv` called in the context of the loop above? 
-2. What does `glob.glob('*.csv')` return?
-3. What is `*`? 
-4. What is this pattern called in programming? 
+1. What does `*` in `glob.glob('data/*.csv')` do? 
+2. What kind of a Python object is the first occurrence of `csv` in the statement `for csv in glob.glob('data/*.csv'):`?
+3. What does `dfs.append(data)` accomplish?
 
+:::::::::::::::  solution
+
+## Solution
+
+1. The asterisk is a wildcard that finds any number of characters in files in the `data/` directory with the filetype `.csv`.
+2. `for csv` creates a new variable that corresponds with each item the loop encounters when iterating across all of the files in `glob.glob('data/*.csv')`.
+3. It appends each DataFrame that was read in from the CSV file during the loop to a list called `dfs`. So `dfs` will be a list of DataFrames corresponding to each CSV file in the `data/` directory.
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Next, let's concatenate all of the DataFrames in `dfs` together.
 
 ```python
 df = pd.concat(dfs, ignore_index=True)
@@ -62,11 +75,11 @@ df = pd.concat(dfs, ignore_index=True)
 
 We can look at the head of our combined dataset: 
 
-
 ```python
 df.info()
 ```
 
+```output
     <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 1003 entries, 0 to 1002
     Data columns (total 18 columns):
@@ -93,32 +106,15 @@ df.info()
     dtypes: float64(1), int64(14), object(3)
     memory usage: 141.2+ KB
 
-
+```
 
 ```python
 df.tail()
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: left;">
       <th></th>
       <th>branch</th>
       <th>address</th>
@@ -142,7 +138,7 @@ df.tail()
   </thead>
   <tbody>
     <tr>
-      <th>998</th>
+      <td>998</td>
       <td>Woodson Regional</td>
       <td>9525 S. Halsted St.</td>
       <td>Chicago</td>
@@ -163,7 +159,7 @@ df.tail()
       <td>2014</td>
     </tr>
     <tr>
-      <th>999</th>
+      <td>999</td>
       <td>Wrightwood-Ashburn</td>
       <td>8530 S. Kedzie Ave.</td>
       <td>Chicago</td>
@@ -184,7 +180,7 @@ df.tail()
       <td>2014</td>
     </tr>
     <tr>
-      <th>1000</th>
+      <td>1000</td>
       <td>Downloadable Media</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -205,7 +201,7 @@ df.tail()
       <td>2014</td>
     </tr>
     <tr>
-      <th>1001</th>
+      <td>1001</td>
       <td>Renewals - Online</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -226,7 +222,7 @@ df.tail()
       <td>2014</td>
     </tr>
     <tr>
-      <th>1002</th>
+      <td>1002</td>
       <td>Talking Books and Braille</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -248,15 +244,13 @@ df.tail()
     </tr>
   </tbody>
 </table>
-</div>
 
 
-
-Let's take a moment to discuss the setup of our dataframe. It is structured in what is known as a wide format. This format displays an extensive amount of data directly on the screen, with each month's circulation counts spread across the columns in a pivoted manner. This layout makes it easier to read and manually manipulate the data in a spreadsheet and because of this, is often the default output for periodic reporting systems like library circulation systems.
+Let's take a moment to discuss the setup of our DataFrame. It is structured in what is known as a wide format. This format displays an extensive amount of data directly on the screen, with each month's circulation counts spread across the columns in a pivoted manner. This layout makes it easier to read and manually manipulate the data in a spreadsheet and because of this, is often the default output for periodic reporting systems like integrated library systems.
 
 However, this wide format can pose challenges when working with data analysis tools like Pandas. For instance, if we need to identify all the library branches where circulation exceeded 10,000 in any given month, we would have to individually check each column dedicated to a month, which can be quite cumbersome.
 
-This leads us to reshaping our data into a long format. This is sometimes called unpivoting the data, so the month columns become a single varible in the dataset.
+To address this we can reshape our data in a long format. This is sometimes called un-pivoting the data, and in our case the month columns will become a single variable in the dataset.
 
 ## Tidy Data 
 
@@ -265,28 +259,24 @@ Tidy data is a standard way of organizing data values within a dataset, making i
 2. Every row represents a single observation, like circulation counts by branch and month.
 3. Every cell contains a single value.
 
-The blow visual might help orient us to tidy data. 
+The image below might help orient us to the concept of tidy data. 
 
-
-![Tidy Data](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png)
+![Tidy Data](fig/tidy-1.png){alt='image showing variables in columns, observations in rows, and values in cellssan'}
 
 R for Data Science [12.1](https://r4ds.had.co.nz/tidy-data.html#fig:tidy-structure)
 
-Our current library circulation data is in a pivoted format, where each month is spread out across multiple columns. While this might be visually straightforward to read in a spreadsheet, it's not the best structure for performing more complex tasks like data analysis and visualization in Python.
-
-## Benefits of Tidy Data
+### Benefits of Tidy Data
 
 Transforming our data into a tidy data format provides several advantages:
-- Python tools, such as visualization, filtering, and statistical analysis libraries, work better with data in a tidy format.
+- Python operations, such as visualization, filtering, and statistical analysis libraries, work better with data in a tidy format.
 - Tidy data makes transforming, summarizing, and visualizing information easier. For instance, comparing monthly trends or calculating annual averages becomes more straightforward.
 - As datasets grow, tidy data ensures that they remain manageable and analyses remain accurate.
 
 ## Making Our Data Tidy
 
-A good step towards tidying our data would be to consolidate the separate month columns into a column called `month,` and the circulation counts into another column called `circulation_counts.` This adjustment simplifies our dataset and aligns with the principles of tidy data.
+A good step towards tidying our data would be to consolidate the separate month columns into a column called `month,` and the circulation counts into another column called `circulation_counts.` This simplifies our data and aligns with the principles of tidy data.
 
-To achieve this transformation, we can use a pandas function called `melt()`. This function will help us reshape the data from wide to long format, where each row represents one month's circulation data for a branch, making the dataset tidy and ready for analysis. Let's look at the help for `melt` first.
-
+To achieve this transformation, we can use a Pandas function called `melt()`. This function reshapes the data from wide to long format, where each row will represent one month's circulation data for a branch. Let's look at the help for `melt` first.
 
 
 ```python
@@ -301,36 +291,18 @@ df_long = df.melt(id_vars=['branch', 'address', 'city', 'zip code', 'ytd', 'year
                     value_vars=['january', 'february', 'march', 'april', 'may', 'june', 
                                 'july', 'august', 'september', 'october', 'november', 'december'],
                     var_name='month', value_name='circulation')
-
 ```
 
-In our above code we defined `id_vars` for the columns we do not want to melt. We then identify the columns we do want to melt into rows. `var_name` is the variable name for those columns transformed into rows, e.g. month. `value_names` is the measured varible or in our case `ciruculation`. Let's now look at the new structure of our data.
+In the above code we use `id_vars` to list the columns we do not want to melt. We then identify the columns we do want to melt into rows in the `value_vars` parameter. `var_name` is the variable name for the columns that will be transformed into rows. `value_names` is the measured variable, `circulation` in our case. Let's now look at the new structure of our data.
 
 
 ```python
 df_long
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: left;">
       <th></th>
       <th>branch</th>
       <th>address</th>
@@ -344,7 +316,7 @@ df_long
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>Albany Park</td>
       <td>5150 N. Kimball Ave.</td>
       <td>Chicago</td>
@@ -355,7 +327,7 @@ df_long
       <td>8427</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>Altgeld</td>
       <td>13281 S. Corliss Ave.</td>
       <td>Chicago</td>
@@ -366,7 +338,7 @@ df_long
       <td>1258</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>Archer Heights</td>
       <td>5055 S. Archer Ave.</td>
       <td>Chicago</td>
@@ -377,7 +349,7 @@ df_long
       <td>8104</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>Austin</td>
       <td>5615 W. Race Ave.</td>
       <td>Chicago</td>
@@ -388,7 +360,7 @@ df_long
       <td>1755</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>Austin-Irving</td>
       <td>6100 W. Irving Park Rd.</td>
       <td>Chicago</td>
@@ -399,7 +371,7 @@ df_long
       <td>12593</td>
     </tr>
     <tr>
-      <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -410,7 +382,7 @@ df_long
       <td>...</td>
     </tr>
     <tr>
-      <th>12031</th>
+      <td>12031</td>
       <td>Woodson Regional</td>
       <td>9525 S. Halsted St.</td>
       <td>Chicago</td>
@@ -421,7 +393,7 @@ df_long
       <td>7748</td>
     </tr>
     <tr>
-      <th>12032</th>
+      <td>12032</td>
       <td>Wrightwood-Ashburn</td>
       <td>8530 S. Kedzie Ave.</td>
       <td>Chicago</td>
@@ -432,7 +404,7 @@ df_long
       <td>2959</td>
     </tr>
     <tr>
-      <th>12033</th>
+      <td>12033</td>
       <td>Downloadable Media</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -443,7 +415,7 @@ df_long
       <td>71276</td>
     </tr>
     <tr>
-      <th>12034</th>
+      <td>12034</td>
       <td>Renewals - Online</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -454,7 +426,7 @@ df_long
       <td>265531</td>
     </tr>
     <tr>
-      <th>12035</th>
+      <td>12035</td>
       <td>Talking Books and Braille</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -467,12 +439,10 @@ df_long
   </tbody>
 </table>
 <p>12036 rows × 8 columns</p>
-</div>
 
 
 
 For this episode, let's focus on branches and not `Renewals - Online`, `Renewals - Auto`, `Downloadable Media`. We can remove an individual one like so: 
-
 
 ```python
 df_long = df_long[df_long['branch'] != 'Downloadable Media']
@@ -480,14 +450,11 @@ df_long = df_long[df_long['branch'] != 'Downloadable Media']
 
 Ok let's look at the branches now: 
 
-
 ```python
 df_long['branch'].unique()
 ```
 
-
-
-
+```output
     array(['Albany Park', 'Altgeld', 'Archer Heights', 'Austin',
            'Austin-Irving', 'Avalon', 'Back of the Yards', 'Beverly',
            'Bezazian', 'Blackstone', 'Brainerd', 'Brighton Park',
@@ -513,41 +480,20 @@ df_long['branch'].unique()
            'Renewals - Auto', 'Renewals - Phone', 'Little Italy', 'West Loop'],
           dtype=object)
 
+```
 
-
-Whate if we want to remove multiple ones at once? To do this we can introduce a handy function called `isin`. It tests if elements in a list are present in the dataframe. In the below code, this will return `True` when the list element is present in our branch column. We combine this with the `~` operator to negate the expression and remove those rows.
+What if we want to remove multiple ones at once? To do this we can introduce a handy function called `isin`. It tests if elements in a list are present in the dataframe. In the below code, this will return `True` when the list element is present in our branch column. We combine this with the `~` operator to negate the expression and remove those rows.
 
 
 ```python
 df_long = df_long[~df_long['branch'].isin(["Renewals - Online", "Renewals - Auto", 'Renewals - Itivia',
        'Renewals - Phone', 'Talking Books and Braille'])]
-```
-
-
-```python
 df_long
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: left;">
       <th></th>
       <th>branch</th>
       <th>address</th>
@@ -561,7 +507,7 @@ df_long
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>Albany Park</td>
       <td>5150 N. Kimball Ave.</td>
       <td>Chicago</td>
@@ -572,7 +518,7 @@ df_long
       <td>8427</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>Altgeld</td>
       <td>13281 S. Corliss Ave.</td>
       <td>Chicago</td>
@@ -583,7 +529,7 @@ df_long
       <td>1258</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>Archer Heights</td>
       <td>5055 S. Archer Ave.</td>
       <td>Chicago</td>
@@ -594,7 +540,7 @@ df_long
       <td>8104</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>Austin</td>
       <td>5615 W. Race Ave.</td>
       <td>Chicago</td>
@@ -605,7 +551,7 @@ df_long
       <td>1755</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>Austin-Irving</td>
       <td>6100 W. Irving Park Rd.</td>
       <td>Chicago</td>
@@ -616,7 +562,7 @@ df_long
       <td>12593</td>
     </tr>
     <tr>
-      <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -627,7 +573,7 @@ df_long
       <td>...</td>
     </tr>
     <tr>
-      <th>12028</th>
+      <td>12028</td>
       <td>West Pullman</td>
       <td>830 W. 119th St.</td>
       <td>Chicago</td>
@@ -638,7 +584,7 @@ df_long
       <td>2391</td>
     </tr>
     <tr>
-      <th>12029</th>
+      <td>12029</td>
       <td>West Town</td>
       <td>1625 W. Chicago Ave.</td>
       <td>Chicago</td>
@@ -649,7 +595,7 @@ df_long
       <td>6879</td>
     </tr>
     <tr>
-      <th>12030</th>
+      <td>12030</td>
       <td>Whitney M. Young, Jr.</td>
       <td>7901 S. King Dr.</td>
       <td>Chicago</td>
@@ -660,7 +606,7 @@ df_long
       <td>2334</td>
     </tr>
     <tr>
-      <th>12031</th>
+      <td>12031</td>
       <td>Woodson Regional</td>
       <td>9525 S. Halsted St.</td>
       <td>Chicago</td>
@@ -671,7 +617,7 @@ df_long
       <td>7748</td>
     </tr>
     <tr>
-      <th>12032</th>
+      <td>12032</td>
       <td>Wrightwood-Ashburn</td>
       <td>8530 S. Kedzie Ave.</td>
       <td>Chicago</td>
@@ -684,8 +630,6 @@ df_long
   </tbody>
 </table>
 <p>11556 rows × 8 columns</p>
-</div>
-
 
 
 
@@ -693,9 +637,7 @@ df_long
 df_long['branch'].unique()
 ```
 
-
-
-
+```output
     array(['Albany Park', 'Altgeld', 'Archer Heights', 'Austin',
            'Austin-Irving', 'Avalon', 'Back of the Yards', 'Beverly',
            'Bezazian', 'Blackstone', 'Brainerd', 'Brighton Park',
@@ -719,211 +661,17 @@ df_long['branch'].unique()
            'Woodson Regional', 'Wrightwood-Ashburn', 'Little Italy',
            'West Loop'], dtype=object)
 
-
-
-Alright! Now we have the data tidied what can we do with it? What about seeing what branches had over 10,000 circulations counts in any given month.
-
-
-```python
-df_long
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>branch</th>
-      <th>address</th>
-      <th>city</th>
-      <th>zip code</th>
-      <th>ytd</th>
-      <th>year</th>
-      <th>month</th>
-      <th>circulation_count</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2011-01-01</th>
-      <td>Albany Park</td>
-      <td>5150 N. Kimball Ave.</td>
-      <td>Chicago</td>
-      <td>60625.0</td>
-      <td>120059</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>8427</td>
-    </tr>
-    <tr>
-      <th>2011-01-01</th>
-      <td>Altgeld</td>
-      <td>13281 S. Corliss Ave.</td>
-      <td>Chicago</td>
-      <td>60827.0</td>
-      <td>9611</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>1258</td>
-    </tr>
-    <tr>
-      <th>2011-01-01</th>
-      <td>Archer Heights</td>
-      <td>5055 S. Archer Ave.</td>
-      <td>Chicago</td>
-      <td>60632.0</td>
-      <td>101951</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>8104</td>
-    </tr>
-    <tr>
-      <th>2011-01-01</th>
-      <td>Austin</td>
-      <td>5615 W. Race Ave.</td>
-      <td>Chicago</td>
-      <td>60644.0</td>
-      <td>25527</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>1755</td>
-    </tr>
-    <tr>
-      <th>2011-01-01</th>
-      <td>Austin-Irving</td>
-      <td>6100 W. Irving Park Rd.</td>
-      <td>Chicago</td>
-      <td>60634.0</td>
-      <td>165634</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>12593</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>2014-12-01</th>
-      <td>West Pullman</td>
-      <td>830 W. 119th St.</td>
-      <td>Chicago</td>
-      <td>60643.0</td>
-      <td>30407</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>2391</td>
-    </tr>
-    <tr>
-      <th>2014-12-01</th>
-      <td>West Town</td>
-      <td>1625 W. Chicago Ave.</td>
-      <td>Chicago</td>
-      <td>60622.0</td>
-      <td>92772</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>6879</td>
-    </tr>
-    <tr>
-      <th>2014-12-01</th>
-      <td>Whitney M. Young, Jr.</td>
-      <td>7901 S. King Dr.</td>
-      <td>Chicago</td>
-      <td>60619.0</td>
-      <td>31993</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>2334</td>
-    </tr>
-    <tr>
-      <th>2014-12-01</th>
-      <td>Woodson Regional</td>
-      <td>9525 S. Halsted St.</td>
-      <td>Chicago</td>
-      <td>60628.0</td>
-      <td>105925</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>7748</td>
-    </tr>
-    <tr>
-      <th>2014-12-01</th>
-      <td>Wrightwood-Ashburn</td>
-      <td>8530 S. Kedzie Ave.</td>
-      <td>Chicago</td>
-      <td>60652.0</td>
-      <td>36329</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>2959</td>
-    </tr>
-  </tbody>
-</table>
-<p>11556 rows × 8 columns</p>
-</div>
-
-
-
+Alright! Now that we have the data tidied what can we do with it? Let's look at which branches circulated over 10,000 items in any given month. We can filter the `df_long` DataFrame to only show rows that have a number greater than 10,000 in the `circulation` column.
 
 ```python
 df_long[df_long['circulation'] > 10000]
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: left;">
       <th></th>
       <th>branch</th>
       <th>address</th>
@@ -937,7 +685,7 @@ df_long[df_long['circulation'] > 10000]
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>Austin-Irving</td>
       <td>6100 W. Irving Park Rd.</td>
       <td>Chicago</td>
@@ -948,7 +696,7 @@ df_long[df_long['circulation'] > 10000]
       <td>12593</td>
     </tr>
     <tr>
-      <th>12</th>
+      <td>12</td>
       <td>Bucktown-Wicker Park</td>
       <td>1701 N. Milwaukee Ave.</td>
       <td>Chicago</td>
@@ -959,7 +707,7 @@ df_long[df_long['circulation'] > 10000]
       <td>13113</td>
     </tr>
     <tr>
-      <th>13</th>
+      <td>13</td>
       <td>Budlong Woods</td>
       <td>5630 N. Lincoln Ave.</td>
       <td>Chicago</td>
@@ -970,7 +718,7 @@ df_long[df_long['circulation'] > 10000]
       <td>12841</td>
     </tr>
     <tr>
-      <th>17</th>
+      <td>17</td>
       <td>Chinatown</td>
       <td>2353 S. Wentworth Ave.</td>
       <td>Chicago</td>
@@ -981,7 +729,7 @@ df_long[df_long['circulation'] > 10000]
       <td>14027</td>
     </tr>
     <tr>
-      <th>24</th>
+      <td>24</td>
       <td>Edgebrook</td>
       <td>5331 W. Devon Ave.</td>
       <td>Chicago</td>
@@ -992,7 +740,7 @@ df_long[df_long['circulation'] > 10000]
       <td>10231</td>
     </tr>
     <tr>
-      <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1003,7 +751,7 @@ df_long[df_long['circulation'] > 10000]
       <td>...</td>
     </tr>
     <tr>
-      <th>11978</th>
+      <td>11978</td>
       <td>Edgewater</td>
       <td>1210 W. Elmdale Ave.</td>
       <td>Chicago</td>
@@ -1014,7 +762,7 @@ df_long[df_long['circulation'] > 10000]
       <td>15132</td>
     </tr>
     <tr>
-      <th>11984</th>
+      <td>11984</td>
       <td>Harold Washington Library Center</td>
       <td>400 S. State St.</td>
       <td>Chicago</td>
@@ -1025,7 +773,7 @@ df_long[df_long['circulation'] > 10000]
       <td>55067</td>
     </tr>
     <tr>
-      <th>11993</th>
+      <td>11993</td>
       <td>Lincoln Belmont</td>
       <td>1659 W. Melrose St.</td>
       <td>Chicago</td>
@@ -1036,7 +784,7 @@ df_long[df_long['circulation'] > 10000]
       <td>11857</td>
     </tr>
     <tr>
-      <th>12011</th>
+      <td>12011</td>
       <td>Rogers Park</td>
       <td>6907 N. Clark St.</td>
       <td>Chicago</td>
@@ -1047,7 +795,7 @@ df_long[df_long['circulation'] > 10000]
       <td>10293</td>
     </tr>
     <tr>
-      <th>12017</th>
+      <td>12017</td>
       <td>Sulzer Regional</td>
       <td>4455 N. Lincoln Ave.</td>
       <td>Chicago</td>
@@ -1060,37 +808,18 @@ df_long[df_long['circulation'] > 10000]
   </tbody>
 </table>
 <p>1434 rows × 8 columns</p>
-</div>
 
 
 
 We can look at specific columns: 
 
-
 ```python
 df_long[['branch', 'circulation']]
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: left;">
       <th></th>
       <th>branch</th>
       <th>circulation</th>
@@ -1098,94 +827,75 @@ df_long[['branch', 'circulation']]
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>Albany Park</td>
       <td>8427</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>Altgeld</td>
       <td>1258</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>Archer Heights</td>
       <td>8104</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>Austin</td>
       <td>1755</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>Austin-Irving</td>
       <td>12593</td>
     </tr>
     <tr>
-      <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
     </tr>
     <tr>
-      <th>12028</th>
+      <td>12028</td>
       <td>West Pullman</td>
       <td>2391</td>
     </tr>
     <tr>
-      <th>12029</th>
+      <td>12029</td>
       <td>West Town</td>
       <td>6879</td>
     </tr>
     <tr>
-      <th>12030</th>
+      <td>12030</td>
       <td>Whitney M. Young, Jr.</td>
       <td>2334</td>
     </tr>
     <tr>
-      <th>12031</th>
+      <td>12031</td>
       <td>Woodson Regional</td>
       <td>7748</td>
     </tr>
     <tr>
-      <th>12032</th>
+      <td>12032</td>
       <td>Wrightwood-Ashburn</td>
       <td>2959</td>
     </tr>
   </tbody>
 </table>
 <p>11556 rows × 2 columns</p>
-</div>
 
 
 
-We can sort our table: 
-
+We can sort our table using `.sort_values()`: 
 
 ```python
 df_long.sort_values('circulation', ascending=False)
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: left;">
       <th></th>
       <th>branch</th>
       <th>address</th>
@@ -1199,7 +909,7 @@ df_long.sort_values('circulation', ascending=False)
   </thead>
   <tbody>
     <tr>
-      <th>2037</th>
+      <td>2037</td>
       <td>Harold Washington Library Center</td>
       <td>400 S. State St.</td>
       <td>Chicago</td>
@@ -1210,7 +920,7 @@ df_long.sort_values('circulation', ascending=False)
       <td>89122</td>
     </tr>
     <tr>
-      <th>3040</th>
+      <td>3040</td>
       <td>Harold Washington Library Center</td>
       <td>400 S. State St.</td>
       <td>Chicago</td>
@@ -1221,7 +931,7 @@ df_long.sort_values('circulation', ascending=False)
       <td>88527</td>
     </tr>
     <tr>
-      <th>3541</th>
+      <td>3541</td>
       <td>Harold Washington Library Center</td>
       <td>400 S. State St.</td>
       <td>Chicago</td>
@@ -1232,7 +942,7 @@ df_long.sort_values('circulation', ascending=False)
       <td>87689</td>
     </tr>
     <tr>
-      <th>7052</th>
+      <td>7052</td>
       <td>Harold Washington Library Center</td>
       <td>400 S. State St.</td>
       <td>Chicago</td>
@@ -1243,7 +953,7 @@ df_long.sort_values('circulation', ascending=False)
       <td>85193</td>
     </tr>
     <tr>
-      <th>2538</th>
+      <td>2538</td>
       <td>Harold Washington Library Center</td>
       <td>400 S. State St.</td>
       <td>Chicago</td>
@@ -1254,7 +964,7 @@ df_long.sort_values('circulation', ascending=False)
       <td>84255</td>
     </tr>
     <tr>
-      <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1265,7 +975,7 @@ df_long.sort_values('circulation', ascending=False)
       <td>...</td>
     </tr>
     <tr>
-      <th>10511</th>
+      <td>10511</td>
       <td>South Shore</td>
       <td>2505 E. 73rd St.</td>
       <td>Chicago</td>
@@ -1276,7 +986,7 @@ df_long.sort_values('circulation', ascending=False)
       <td>0</td>
     </tr>
     <tr>
-      <th>8436</th>
+      <td>8436</td>
       <td>Whitney M. Young, Jr.</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1287,7 +997,7 @@ df_long.sort_values('circulation', ascending=False)
       <td>0</td>
     </tr>
     <tr>
-      <th>5549</th>
+      <td>5549</td>
       <td>Humboldt Park</td>
       <td>1605 N. Troy St.</td>
       <td>Chicago</td>
@@ -1298,7 +1008,7 @@ df_long.sort_values('circulation', ascending=False)
       <td>0</td>
     </tr>
     <tr>
-      <th>5599</th>
+      <td>5599</td>
       <td>Albany Park</td>
       <td>5150 N. Kimball Ave.</td>
       <td>Chicago</td>
@@ -1309,7 +1019,7 @@ df_long.sort_values('circulation', ascending=False)
       <td>0</td>
     </tr>
     <tr>
-      <th>2332</th>
+      <td>2332</td>
       <td>Galewood-Mont Clare</td>
       <td>6871 W. Belden Ave.</td>
       <td>Chicago</td>
@@ -1322,9 +1032,6 @@ df_long.sort_values('circulation', ascending=False)
   </tbody>
 </table>
 <p>11556 rows × 8 columns</p>
-</div>
-
-
 
 What if we want to tally up the total circulation for each branch over all years and also see the mean circulation? 
 
@@ -1333,209 +1040,166 @@ What if we want to tally up the total circulation for each branch over all years
 df_long.groupby('branch')['circulation'].agg(total_circulation='sum', mean_circulation='mean')
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+1. `df.groupby('branch')`: This groups the data by the 'branch' column so that all entries in the DataFrame with the same library branch are grouped together. (This is similar to the SQL `GROUP BY` statement or the `group_by` function in `dplyr` in R.)
+2. `['circulation']`: After grouping the data by branch, this specifies that subsequent operations should be performed on the 'circulation' column.
+3. `.agg(...)`: The `agg` function is used to apply one or more aggregation operations to the grouped data. Inside the `agg` function:
+     - `total_circulation='sum'`: This creates a new column named 'total_circulation' where each entry is the sum of 'circulation' for that branch. It totals up all circulation figures within each branch.
+     - `mean_circulation='mean'`: This creates a new column named 'mean_circulation' where each entry is the average 'circulation' for that branch. It calculates the mean circulation figures for each branch.
+     
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
+    <tr style="text-align: left;">
+      <th>branch</th>
       <th>total_circulation</th>
       <th>mean_circulation</th>
-    </tr>
-    <tr>
-      <th>branch</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Albany Park</th>
+      <td>Albany Park</td>
       <td>1024714</td>
       <td>7116.069444</td>
     </tr>
     <tr>
-      <th>Altgeld</th>
+      <td>Altgeld</td>
       <td>68358</td>
       <td>474.708333</td>
     </tr>
     <tr>
-      <th>Archer Heights</th>
+      <td>Archer Heights</td>
       <td>803014</td>
       <td>5576.486111</td>
     </tr>
     <tr>
-      <th>Austin</th>
+      <td>Austin</td>
       <td>200107</td>
       <td>1389.631944</td>
     </tr>
     <tr>
-      <th>Austin-Irving</th>
+      <td>Austin-Irving</td>
       <td>1359700</td>
       <td>9442.361111</td>
     </tr>
     <tr>
-      <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
     </tr>
     <tr>
-      <th>West Pullman</th>
+      <td>West Pullman</td>
       <td>295327</td>
       <td>2050.881944</td>
     </tr>
     <tr>
-      <th>West Town</th>
+      <td>West Town</td>
       <td>922876</td>
       <td>6408.861111</td>
     </tr>
     <tr>
-      <th>Whitney M. Young, Jr.</th>
+      <td>Whitney M. Young, Jr.</td>
       <td>259680</td>
       <td>1803.333333</td>
     </tr>
     <tr>
-      <th>Woodson Regional</th>
+      <td>Woodson Regional</td>
       <td>823793</td>
       <td>5720.784722</td>
     </tr>
     <tr>
-      <th>Wrightwood-Ashburn</th>
+      <td>Wrightwood-Ashburn</td>
       <td>302285</td>
       <td>2099.201389</td>
     </tr>
   </tbody>
 </table>
 <p>82 rows × 2 columns</p>
-</div>
 
-
-
-Let's walk through the parts of the code: 
-1. `df.groupby('branch')`: This part groups the data by the 'branch' column. That means it organizes the dataframe so that all entries with the same library branch are grouped together. This is similar to the SQL `GROUP BY` statement or the `group_by` function in `dplyr` in R.
-2. `['circulation']`: After grouping the data by branch, this specifies that subsequent operations should be performed on the 'circulation' column.
-3. `.agg(...)`: The `agg` function is used to apply one or more aggregation operations to the grouped data. Inside the `agg` function:
-     - `total_circulation='sum'`: This creates a new column named 'total_circulation' where each entry is the sum of 'circulation' for that branch. It totals up all circulation figures within each branch.
-     - `mean_circulation='mean'`: This creates another new column named 'mean_circulation' where each entry is the average 'circulation' for that branch. It calculates the mean circulation figures for each branch.
-
-If we want to group by more than one varible, we add two in a list in the groupby function. 
-
+If we want to group by more than one variable, we can list those column names in the `.groupby()` function.  
 
 ```python
 df_long.groupby(['branch', 'month'])['circulation'].agg(['sum', 'mean'])
 ```
+Your output will look a little different than this, with each Branch listed only once in the left hand index column:
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>sum</th>
-      <th>mean</th>
-    </tr>
-    <tr>
+    <tr style="text-align: left;">
       <th>branch</th>
       <th>month</th>
-      <th></th>
-      <th></th>
+      <th>sum</th>
+      <th>mean</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th rowspan="5" valign="top">Albany Park</th>
-      <th>april</th>
+      <td>Albany Park</td>
+      <td>april</td>
       <td>79599</td>
       <td>6633.250000</td>
     </tr>
     <tr>
-      <th>august</th>
+      <td>Albany Park</td>
+      <td>august</td>
       <td>91416</td>
       <td>7618.000000</td>
     </tr>
     <tr>
-      <th>december</th>
+      <td>Albany Park</td>
+      <td>december</td>
       <td>77849</td>
       <td>6487.416667</td>
     </tr>
     <tr>
-      <th>february</th>
+      <td>Albany Park</td>
+      <td>february</td>
       <td>76747</td>
       <td>6395.583333</td>
     </tr>
     <tr>
-      <th>january</th>
+      <td>Albany Park</td>
+      <td>january</td>
       <td>85952</td>
       <td>7162.666667</td>
     </tr>
     <tr>
-      <th>...</th>
-      <th>...</th>
+      <td>...</td>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
     </tr>
     <tr>
-      <th rowspan="5" valign="top">Wrightwood-Ashburn</th>
-      <th>march</th>
+      <td>Wrightwood-Ashburn</td>
+      <td>march</td>
       <td>25817</td>
       <td>2151.416667</td>
     </tr>
     <tr>
-      <th>may</th>
+      <td>Wrightwood-Ashburn</td>
+      <td>may</td>
       <td>22049</td>
       <td>1837.416667</td>
     </tr>
     <tr>
-      <th>november</th>
+      <td>Wrightwood-Ashburn</td>
+      <td>november</td>
       <td>24124</td>
       <td>2010.333333</td>
     </tr>
     <tr>
-      <th>october</th>
+      <td>Wrightwood-Ashburn</td>
+      <td>october</td>
       <td>27345</td>
       <td>2278.750000</td>
     </tr>
     <tr>
-      <th>september</th>
+      <td>Wrightwood-Ashburn</td>
+      <td>september</td>
       <td>25692</td>
       <td>2141.000000</td>
     </tr>
   </tbody>
 </table>
 <p>984 rows × 2 columns</p>
-</div>
-
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
