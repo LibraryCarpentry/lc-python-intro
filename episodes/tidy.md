@@ -1114,11 +1114,16 @@ df_long.groupby('branch')['circulation'].agg(total_circulation='sum', mean_circu
 </table>
 <p>82 rows × 2 columns</p>
 
+<<<<<<< HEAD
 If we want to group by more than one variable, we can list those column names in the `.groupby()` function. 
+=======
+If we want to group by more than one variable, we can list those column names in the `.groupby()` function.  
+>>>>>>> 248e209f35b5e9c39cbd89473a4007551168673b
 
 ```python
 df_long.groupby(['branch', 'month'])['circulation'].agg(['sum', 'mean'])
 ```
+Your output will look a little different than this, with each Branch listed only once in the left hand index column:
 
 <table border="1" class="dataframe">
   <thead>
