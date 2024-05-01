@@ -1,14 +1,14 @@
 ---
 title: For Loops
-teaching: 10
+teaching: 25
 exercises: 15
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain what "for loops"" are normally used for.
+- Explain what `for` loops are normally used for.
 - Trace the execution of an un-nested loop and correctly state the values of variables in each iteration.
-- Write for loops that use the accumulator pattern to aggregate values.
+- Write `for` loops that use the accumulator pattern to aggregate values.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -79,7 +79,16 @@ for num in odds:
 7
 ```
 
-This code is shorter, and more robust as well. Even if the values of the `odds` list changes, the loop will still work.
+A `for` loop repeats an operation -- in this case, printing -- once for each element it encounters in a collection. The general structure of a loop is:
+
+```python
+for variable in collection:
+    # do things using variable, such as print
+```
+
+We can call the loop variable anything we like, there must be a colon at the end of the line starting the loop, and we must indent anything we want to run inside the loop. Unlike many other programming languages, there is no command to signify the end of the loop body; everything indented after the `for` statement belongs to the loop.
+
+Loops are more robust ways to deal with containers like lists. Even if the values of the `odds` list changes, the loop will still work.
 
 ```python
 odds = [1, 3, 5, 7, 9, 11]
@@ -96,34 +105,45 @@ for num in odds:
 11
 ```
 
-A `for` loop repeats an operation -- in this case, printing -- once for each element it encounters in a collection. The general structure of a loop is:
+Using a shorter version of the odds example above, the loop might look like this:
 
-```python
-for variable in collection:
-    # do things using variable, such as print
-```
+![](fig/for_loop.png){alt="Loop variable 'num' being assigned the value of each element in the list odds in turn and then being printed"}
 
-We can call the loop variable anything we like, there must be a colon at the end of the line starting the loop, and we must indent anything we want to run inside the loop. Unlike many other programming languages, there is no command to signify the end of the loop body; everything indented after the `for` statement belongs to the loop.
+Each number (`num`) variable in the `odds` list is looped through and printed one number after another. 
 
 ## Loop variables 
 
-Loop variables are created on demand when you define the loop and they will persist after the loop finishes. In other words, in the loop:
+Loop variables are created on demand when you define the loop and they will persist after the loop finishes. Like all variable names, it's helpful to give `for` loop variables meaningful names that you'll understand as the code in your loop grows. `for num in odds` is easier to understand than `for kitten in odds`, for example.
+
+
+## You can loop through other Python objects
+
+You can use a `for` loop to iterate through each element in a string. `for` loops are not limited to operating on lists. 
 
 ```python
-odds = [1, 3, 5, 7]
-for num in odds:
-    print(num)
-print(num)
+for letter in 'library of babel':
+  print(letter)
 ```
-We are creating a new variable called `num` that will correspond to each element in the `odds` list as it passes through the loop. At the end of the loop, `num` is still equal to the last element in the list it was assigned to.
 
-Like all variable names, it's helpful to give `for` loop variables meaningful names that you'll understand as the code in your loop grows. For example, `even` is probably a better variable to use than `kitten` here:
-
-
-```python
-for kitten in [2, 4, 6, 8]:
-    print(kitten)
+```output
+L
+i
+b
+r
+a
+r
+y
+ 
+o
+f
+ 
+B
+a
+b
+e
+l
 ```
+
 
 ## Use `range` to iterate over a sequence of numbers.
 
@@ -140,129 +160,128 @@ for number in range(0,3):
 2
 ```
 
-
 ## Accumulators
 
 A common loop pattern is to initialize an *accumulator* variable to zero, an empty string, or an empty list before the loop begins. Then the loop updates the accumulator variable with values from a collection.
 
+We can use the `+=` operator to add a value to `total` in the loop below, so that each time we iterate through the loop we'll add the index value of the `range()` to `total`.
+
 ```python
 # Sum the first 10 integers.
 total = 0
-for number in range(1, 11):
-    print(f'number is: {number} total is: {total}')
-    total = total + number
-print(f'At the end of the loop, number is {number} and total is {total}')
+
+# range(1,11) will give us the numbers 1 through 10
+for num in range(1, 11):
+    print(f'num is: {num} total is: {total}')
+    total += num
+
+print(f'Loop finished. num is: {num} total is: {total}')
 ```
 
 ```output
-number is: 1 total is: 0
-number is: 2 total is: 1
-number is: 3 total is: 3
-number is: 4 total is: 6
-number is: 5 total is: 10
-number is: 6 total is: 15
-number is: 7 total is: 21
-number is: 8 total is: 28
-number is: 9 total is: 36
-number is: 10 total is: 45
-At the end of the loop number is 10 and total is 55
+num is: 1 total is: 0
+num is: 2 total is: 1
+num is: 3 total is: 3
+num is: 4 total is: 6
+num is: 5 total is: 10
+num is: 6 total is: 15
+num is: 7 total is: 21
+num is: 8 total is: 28
+num is: 9 total is: 36
+num is: 10 total is: 45
+Loop finished. Num is: 10 total is: 55
 ```
+
+- The first time through the loop, `total` is equal to 0, and `num` is 1 (the range starts at 1). After those values print out we add 1 to the value of `total` (0), to get 1. 
+- The second time through the loop, `total` is equal to 1, and `num` is 2. After those print out we add 2 to the value of `total` (1), to get 3.
+- The third time through the loop, `total` is equal to 3, and `num` is 3. After those print out we add 3 to the value of `total` (3), to bring us to 6.
+- And so on.
+- After the loop is finished the values of `total` and `num` retain the values that were assigned the last time through the loop. So `num` is equal to 10 (the last index value of `range()`) and `total` is equal to 55 (45 + 10). 
 
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Reversing a String
+## Loop through a list
 
-Fill in the blanks in the program below so that it prints "nit"
-(the reverse of the original character string "tin"). 
+Create a list of three vegetables, and then build a `for` loop to print out each vegetable from the list.
 
-Tip: you can concatenate two strings together using the `+` operator. For example, `'librar' + 'ian'` will create one string, `'librarian'`.
-
-```python
-original = "tin"
-result = ____
-for char in original:
-    result = ____ _ _____
-print(result)
-```
+Bonus: Create an accumulator variable to print out the index value of each item in the list along with the vegetable name.
 
 :::::::::::::::  solution
 
 ## Solution
 
-`result` is an empty string because we use it to build or accumulate on our reverse string. `char` is the loop variable for `original`. Each time through the loop `char` takes on one value from `original`. Use `char` with `result` to control the order of the string. Our loop code should look like this:
+```python
+vegetables = ['lettuce', 'carrots', 'celery']
+for veg in vegetables:
+    print(veg)
+    
+```
 
-```
-original = "tin"
-result = ""
-for char in original:
-   result = char + result
-print(result)
-```
 ```output
-nit
+lettuce
+carrots
+celery
 ```
-If you were to expand out the loop the iterations would look something like this:
+Bonus:
 
 ```python
-#First loop
-char = "t"
-result = ""
-char + result = "t"
-#Second loop
-char = 'i"
-result = "t"
-char + result = "it"
-#Third loop
-char = "n"
-result = "it"
-char + result = "nit"
+idx = 0
+vegetables = ['lettuce', 'carrots', 'celery']
+for veg in vegetables:
+    print(idx, veg)
+    idx += 1
+    
 ```
+
+```output
+0 lettuce
+1 carrots
+2 celery
+```
+
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Practice Accumulating
+## Use range() in a loop
 
-Fill in the blanks to sum the lengths of each string in the list, `["book", "magazine", "dvd"]`
+Print out the numbers 10, 11, 12, 13, 14, 15, using range() in a `for` loop.
 
-```python
-# Total length of the strings in the list: ["book", "magazine", "dvd"] 
-total = 0
-for word in ["book", "magazine", "dvd"] :
-    ____ = total + ___(word)
-print(total)
-```
 :::::::::::::::  solution
 
 ## Solution
 
 ```python
-total = 0
-for word in ["book", "magazine", "dvd"] :
-    total = total + len(word)
-print(total)
+
+for num in range(10, 16):
+    print(num)
+    
 ```
 
 ```output
+10
+11
+12
+13
+14
 15
 ```
 
-:::::::::::::::::::::::::
 
+:::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Use slices in a loop
+## Use a string index in a loop
 
-How would you loop through a list, `["red", "green", "blue"]` to create (and print out) the acronym `RGB`, pulling from the first letters in each string?
+How would you loop through a list with the values 'red', 'green', and 'blue' to create the acronym `rgb`, pulling from the first letters in each string? Print the acronym when the loop is finished.
 
-Tip: You can apply the .capitalize() function to capitalize the first letter of a string. For example, `'university'.capitalize()` will yield `'University'`.
+Hint: Use the `+` operator to concatenate strings together. For example, `lib = 'lib' + 'rary'` will assign the value of 'library' to `lib`.
 
 
 :::::::::::::::  solution
@@ -272,48 +291,54 @@ Tip: You can apply the .capitalize() function to capitalize the first letter of 
 ```python
 acronym = ''
 for color in ['red', 'green', 'blue']:
-    acronym = acronym + color[0].capitalize()
+    acronym = acronym + color[0]
 print(acronym)
 ```
 
 ```output
-RGB
+rgb
 ```
 
+You could also concatenate inside of the loop with `acronym += color[0]`.
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Use range() in a loop
+## Subtract a list of values in a loop
 
-How would you create a list including the numbers 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10, using range() in a `for` loop?
+1. Create an accumulator variable called `total` that starts at 100.
+2. Create a list called `numbers` with the values of 10, 15, 20, 25, 30.
+3. Create a `for` loop to iterate through each item in the list.
+4. Each time through the list update the value of `total` to subtract the value of the current list item from `total`. Tip: `-=` works for subtraction in the same way that `+=` works for addition.
+5. Print the value of `total` inside of the loop to keep track of its value throughout.
 
-Tips: 
-
-- You can create a blank list before the `for` loop by assigning a variable to `[]`. For example, `container_list = []`.
-- You can use the .append() method to add items to a list.
 
 :::::::::::::::  solution
 
 ## Solution
 
 ```python
-container = []
-for num in range(1, 11):
-    container.append(num)
-print(container)
-    
+total = 100
+numbers = [10, 15, 20, 25, 30]
+for num in numbers:
+    total -= num
+    print(total)
 ```
 
 ```output
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+90
+75
+55
+30
+0
 ```
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
