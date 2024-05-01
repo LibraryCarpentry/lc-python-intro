@@ -105,13 +105,11 @@ for num in odds:
 11
 ```
 
-Using the odds example above, the loop might look like this:
+Using a shorter version of the odds example above, the loop might look like this:
 
-![](fig/loops_image_num.png){alt="Loop variable 'num' being assigned the value of each element in the list odds in turn and then being printed"}
+![](fig/for_loop.png){alt="Loop variable 'num' being assigned the value of each element in the list odds in turn and then being printed"}
 
-where each number (`num`) in the variable `odds` is looped through and printed one number after
-another. The other numbers in the diagram denote which loop cycle the number was printed in (1
-being the first loop cycle, and 6 being the final loop cycle).
+Each number (`num`) variable in the `odds` list is looped through and printed one number after another. 
 
 ## Loop variables 
 
