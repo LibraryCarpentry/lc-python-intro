@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 teaching: 15
-exercises: 0
+exercises: 5
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -23,24 +23,31 @@ exercises: 0
 
 ## Why Python?
 
-Python is a popular programming language for tasks such as data collection, cleaning, and analysis. Python can help you to create reproducible workflows to accomplish repetitive tasks more efficiently. Let's consider a few examples of folks using Python in different library settings:
+Python is a popular programming language for tasks such as data collection, cleaning, and analysis. Python can help you to create reproducible workflows to accomplish repetitive tasks more efficiently. 
 
-1. **Metadata work.** Many cataloging teams use Python to migrate, transform and enrich metadata that they receive from different sources. For example, the [pymarc library](https://pypi.org/project/pymarc/) is a popular Python package for working with MARC21 records.
+This lesson works with a series of CSV files of circulation data from the Chicago Public Library system to demonstrate how to use Python to clean, analyze, and visualize usage data that spans over the course of multiple years. 
 
-2. **Collection and citation analysis.** Python can automate workflows to analyze library collections. In cases where spreadsheets and OpenRefine are unable to support specific forms of analysis, Python is a more flexible and powerful tool.
+:::::::::::::::::::::::::::::::::::::::  challenge
+## Python in Libraries
+There are a lot of ways that library and information science folks use Python in their work. Go around the room and have helpers and co-teachers share how they have used Python.
 
-3. **Assessment.** Library workers often need to collect metrics or statistics on some aspect of their work. Python can be a valuable tool to collect, clean, analyze, and visualize that data in a consistent way over time.
+Learners: Can you think of other ways to use Python in libraries? Do you have hopes for how you'd like to use Python in the future?
 
-4. **Accessing data.** Researchers often use Python to collect data (including textual data) from websites and social media platforms. Academic librarians are often well-positioned to help teach these researchers how to use Python for web scraping or querying Application Programming Interfaces (APIs) to access the data they need. 
+:::::::::::::::  solution
 
-5. **Analyzing data.** Python is widely used by scholars who are embarking on different forms of computational research (e.g., network analysis, natural language processing, machine learning). Library workers can leverage Python for their own research in these areas, but also take part in larger networks of academic support related to data science, computational social sciences, and/or digital humanities.
+Here a few areas where you might apply Python in your work.
 
+**Metadata work.** Many cataloging teams use Python to migrate, transform and enrich metadata that they receive from different sources. For example, the [pymarc library](https://pypi.org/project/pymarc/) is a popular Python package for working with MARC21 records.
 
-::::::::::::::::::::::::::::::::::::: instructor
+**Collection and citation analysis.** Python can automate workflows to analyze library collections. In cases where spreadsheets and OpenRefine are unable to support specific forms of analysis, Python is a more flexible and powerful tool.
 
-Instructors: Along with the examples above, it can be helpful to ask your co-instructors and helpers to share real-world examples of how they integrate Python into their own work and why they find it useful. You can also ask learners if they have any particular Python projects in mind.
+**Assessment.** Library workers often need to collect metrics or statistics on some aspect of their work. Python can be a valuable tool to collect, clean, analyze, and visualize that data in a consistent way over time.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::
+**Accessing data.** Researchers often use Python to collect data (including textual data) from websites and social media platforms. Academic librarians are often well-positioned to help teach these researchers how to use Python for web scraping or querying Application Programming Interfaces (APIs) to access the data they need. 
+
+**Analyzing data.** Python is widely used by scholars who are embarking on different forms of computational research (e.g., network analysis, natural language processing, machine learning). Library workers can leverage Python for their own research in these areas, but also take part in larger networks of academic support related to data science, computational social sciences, and/or digital humanities.
+:::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Use JupyterLab to edit and run Python code.
   
@@ -152,28 +159,40 @@ While Python runs both calculations Juypter will only display the output from th
 3
 ```
 
-:::::::::::::::::::::::::::::::::::::::::  callout
 ### Editing the notebook
 
 You can use the icons at the top of your notebook to edit the cells in your Notebook:
+
 - The `+` icon adds a new cell below the selected cell.
- The scissors icon will delete the current cell. 
+- The scissors icon will delete the current cell. 
 
 You can move cells around in your notebook by hovering over the left-hand margin of a cell until your cursor changes into a four-pointed arrow, and then dragging and dropping the cell where you want it.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
+:::::::::::::::::::::::::::::::::::::::::  callout
 ### Markdown
+::::::::::::::::::::::::::::::::::::: instructor
+
+Instructors: Since the lesson is focused on Python we don't include any Markdown examples here. If you want to teach Markdown, note that it will slow down the lesson.
+
+:::::::::::::::::::::::::::::::::::::::::::::::::
+
 You can add text to a Juypter notebook by selecting a cell, and changing the dropdown above the notebook from `Code` to `Markdown`. Markdown is a lightweight language for formatting text. This feature allows you to annotate your code, add headers, and write documentation to help explain the code. While we won't cover Markdown in this lesson, there are many helpful online guides out there:
 - [Markdown for Jupyter Cheatsheet (IBM)](https://www.ibm.com/docs/en/watson-studio-local/1.2.3?topic=notebooks-markdown-jupyter-cheatsheet)
 - [Markdown Guide (Matt Cone)](https://www.markdownguide.org/)
 
 ![Changing a cell from Code to Markdown](../episodes/fig/0_jupyter_markdown_dd.png){alt='screenshot of the Jupyter notebook dropdown to change a cell to Markdown'}
 
+You can also use "hotkeys"" to change Jupyter cells from Code to Markdown and back:
+
+- Click on the code cell that you want to convert to a Markdown cell.
+- Press the <kbd>Esc</kbd> key to enter command mode.
+- Press the <kbd>M</kbd> key to convert the cell to Markdown.
+- Press the <kbd>y</kbd> key to convert the cell back to Code.
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 [anaconda]: https://docs.anaconda.com/anaconda/install/
 [spyder]: https://www.spyder-ide.org/
 [jupyterlab]: https://jupyterlab.readthedocs.io/en/stable/
-
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -182,5 +201,3 @@ You can add text to a Juypter notebook by selecting a cell, and changing the dro
 - Notebooks can include both code and markdown (text) cells.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
