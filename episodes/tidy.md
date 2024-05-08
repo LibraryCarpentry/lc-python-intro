@@ -112,139 +112,15 @@ df.info()
 df.tail()
 ```
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th></th>
-      <th>branch</th>
-      <th>address</th>
-      <th>city</th>
-      <th>zip code</th>
-      <th>january</th>
-      <th>february</th>
-      <th>march</th>
-      <th>april</th>
-      <th>may</th>
-      <th>june</th>
-      <th>july</th>
-      <th>august</th>
-      <th>september</th>
-      <th>october</th>
-      <th>november</th>
-      <th>december</th>
-      <th>ytd</th>
-      <th>year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>998</td>
-      <td>Woodson Regional</td>
-      <td>9525 S. Halsted St.</td>
-      <td>Chicago</td>
-      <td>60628.0</td>
-      <td>8074</td>
-      <td>7208</td>
-      <td>8580</td>
-      <td>9424</td>
-      <td>8548</td>
-      <td>9093</td>
-      <td>9747</td>
-      <td>9609</td>
-      <td>9412</td>
-      <td>9631</td>
-      <td>8851</td>
-      <td>7748</td>
-      <td>105925</td>
-      <td>2014</td>
-    </tr>
-    <tr>
-      <td>999</td>
-      <td>Wrightwood-Ashburn</td>
-      <td>8530 S. Kedzie Ave.</td>
-      <td>Chicago</td>
-      <td>60652.0</td>
-      <td>2307</td>
-      <td>2496</td>
-      <td>2894</td>
-      <td>2945</td>
-      <td>2915</td>
-      <td>3516</td>
-      <td>3708</td>
-      <td>3303</td>
-      <td>3167</td>
-      <td>3246</td>
-      <td>2873</td>
-      <td>2959</td>
-      <td>36329</td>
-      <td>2014</td>
-    </tr>
-    <tr>
-      <td>1000</td>
-      <td>Downloadable Media</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>47023</td>
-      <td>41299</td>
-      <td>46942</td>
-      <td>54642</td>
-      <td>55598</td>
-      <td>57774</td>
-      <td>61783</td>
-      <td>63758</td>
-      <td>61432</td>
-      <td>62406</td>
-      <td>66028</td>
-      <td>71276</td>
-      <td>689961</td>
-      <td>2014</td>
-    </tr>
-    <tr>
-      <td>1001</td>
-      <td>Renewals - Online</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>209934</td>
-      <td>196047</td>
-      <td>219824</td>
-      <td>213200</td>
-      <td>214743</td>
-      <td>220111</td>
-      <td>245478</td>
-      <td>243202</td>
-      <td>246715</td>
-      <td>258325</td>
-      <td>259521</td>
-      <td>265531</td>
-      <td>2792631</td>
-      <td>2014</td>
-    </tr>
-    <tr>
-      <td>1002</td>
-      <td>Talking Books and Braille</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>9883</td>
-      <td>9978</td>
-      <td>9796</td>
-      <td>12551</td>
-      <td>11076</td>
-      <td>11165</td>
-      <td>12538</td>
-      <td>12080</td>
-      <td>11878</td>
-      <td>12500</td>
-      <td>9959</td>
-      <td>10277</td>
-      <td>133681</td>
-      <td>2014</td>
-    </tr>
-  </tbody>
-</table>
+Table: Tail of df
 
+| | branch                    | address             | city    |   zip code |   january |   february |   march |   april |    may |   june |   july |   august |   september |   october |   november |   december |     ytd |   year|
+|-----:|:--------------------------|:--------------------|:--------|-----------:|----------:|-----------:|--------:|--------:|-------:|-------:|-------:|---------:|------------:|----------:|-----------:|-----------:|--------:|-------:|
+|  998 | Woodson Regional          | 9525 S. Halsted St. | Chicago |      60628 |      8074 |       7208 |    8580 |    9424 |   8548 |   9093 |   9747 |     9609 |        9412 |      9631 |       8851 |       7748 |  105925 |   2014 |
+|999 | Wrightwood-Ashburn        | 8530 S. Kedzie Ave. | Chicago |      60652 |      2307 |       2496 |    2894 |    2945 |   2915 |   3516 |   3708 |     3303 |        3167 |      3246 |       2873 |       2959 |   36329 |   2014 |
+| 1000 | Downloadable Media        | nan                 | nan     |        nan |     47023 |      41299 |   46942 |   54642 |  55598 |  57774 |  61783 |    63758 |       61432 |     62406 |      66028 |      71276 |  689961 |   2014 |
+| 1001 | Renewals - Online         | nan                 | nan     |        nan |    209934 |     196047 |  219824 |  213200 | 214743 | 220111 | 245478 |   243202 |      246715 |    258325 |     259521 |     265531 | 2792631 |   2014 |
+| 1002 | Talking Books and Braille | nan                 | nan     |        nan |      9883 |       9978 |    9796 |   12551 |  11076 |  11165 |  12538 |    12080 |       11878 |     12500 |       9959 |      10277 |  133681 |   2014 |
 
 Let's take a moment to discuss the setup of our DataFrame. It is structured in what is known as a wide format. This format displays an extensive amount of data directly on the screen, with each month's circulation counts spread across the columns in a pivoted manner. This layout makes it easier to read and manually manipulate the data in a spreadsheet and because of this, is often the default output for periodic reporting systems like integrated library systems.
 
@@ -299,148 +175,21 @@ In the above code we use `id_vars` to list the columns we do not want to melt. W
 ```python
 df_long
 ```
+Table: View of the df_long table
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th></th>
-      <th>branch</th>
-      <th>address</th>
-      <th>city</th>
-      <th>zip code</th>
-      <th>ytd</th>
-      <th>year</th>
-      <th>month</th>
-      <th>circulation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>Albany Park</td>
-      <td>5150 N. Kimball Ave.</td>
-      <td>Chicago</td>
-      <td>60625.0</td>
-      <td>120059</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>8427</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Altgeld</td>
-      <td>13281 S. Corliss Ave.</td>
-      <td>Chicago</td>
-      <td>60827.0</td>
-      <td>9611</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>1258</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Archer Heights</td>
-      <td>5055 S. Archer Ave.</td>
-      <td>Chicago</td>
-      <td>60632.0</td>
-      <td>101951</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>8104</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Austin</td>
-      <td>5615 W. Race Ave.</td>
-      <td>Chicago</td>
-      <td>60644.0</td>
-      <td>25527</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>1755</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Austin-Irving</td>
-      <td>6100 W. Irving Park Rd.</td>
-      <td>Chicago</td>
-      <td>60634.0</td>
-      <td>165634</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>12593</td>
-    </tr>
-    <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <td>12031</td>
-      <td>Woodson Regional</td>
-      <td>9525 S. Halsted St.</td>
-      <td>Chicago</td>
-      <td>60628.0</td>
-      <td>105925</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>7748</td>
-    </tr>
-    <tr>
-      <td>12032</td>
-      <td>Wrightwood-Ashburn</td>
-      <td>8530 S. Kedzie Ave.</td>
-      <td>Chicago</td>
-      <td>60652.0</td>
-      <td>36329</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>2959</td>
-    </tr>
-    <tr>
-      <td>12033</td>
-      <td>Downloadable Media</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>689961</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>71276</td>
-    </tr>
-    <tr>
-      <td>12034</td>
-      <td>Renewals - Online</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2792631</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>265531</td>
-    </tr>
-    <tr>
-      <td>12035</td>
-      <td>Talking Books and Braille</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>133681</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>10277</td>
-    </tr>
-  </tbody>
-</table>
-<p>12036 rows × 8 columns</p>
-
-
+|    | branch         | address                 | city    |   zip code |    ytd |   year | month   |   circulation |
+|---:|:---------------|:------------------------|:--------|-----------:|-------:|-------:|:--------|--------------:|
+|  0 | Albany Park    | 5150 N. Kimball Ave.    | Chicago |      60625 | 120059 |   2011 | january |          8427 |
+|  1 | Altgeld        | 13281 S. Corliss Ave.   | Chicago |      60827 |   9611 |   2011 | january |          1258 |
+|  2 | Archer Heights | 5055 S. Archer Ave.     | Chicago |      60632 | 101951 |   2011 | january |          8104 |
+|  3 | Austin         | 5615 W. Race Ave.       | Chicago |      60644 |  25527 |   2011 | january |          1755 |
+|  4 | Austin-Irving  | 6100 W. Irving Park Rd. | Chicago |      60634 | 165634 |   2011 | january |         12593 |
+|  ... | ...  | ... | ... | ... | ... |   ... | ... | ... |
+| 12031 | Woodson Regional          | 9525 S. Halsted St. | Chicago |      60628 |  105925 |   2014 | december |          7748 |
+| 12032 | Wrightwood-Ashburn        | 8530 S. Kedzie Ave. | Chicago |      60652 |   36329 |   2014 | december |          2959 |
+| 12033 | Downloadable Media        | nan                 | nan     |        nan |  689961 |   2014 | december |         71276 |
+| 12034 | Renewals - Online         | nan                 | nan     |        nan | 2792631 |   2014 | december |        265531 |
+| 12035 | Talking Books and Braille | nan                 | nan     |        nan |  133681 |   2014 | december |         10277 |
 
 For this episode, let's focus on branches and not `Renewals - Online`, `Renewals - Auto`, `Downloadable Media`. We can remove an individual one like so: 
 
@@ -491,147 +240,22 @@ df_long = df_long[~df_long['branch'].isin(["Renewals - Online", "Renewals - Auto
 df_long
 ```
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th></th>
-      <th>branch</th>
-      <th>address</th>
-      <th>city</th>
-      <th>zip code</th>
-      <th>ytd</th>
-      <th>year</th>
-      <th>month</th>
-      <th>circulation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>Albany Park</td>
-      <td>5150 N. Kimball Ave.</td>
-      <td>Chicago</td>
-      <td>60625.0</td>
-      <td>120059</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>8427</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Altgeld</td>
-      <td>13281 S. Corliss Ave.</td>
-      <td>Chicago</td>
-      <td>60827.0</td>
-      <td>9611</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>1258</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Archer Heights</td>
-      <td>5055 S. Archer Ave.</td>
-      <td>Chicago</td>
-      <td>60632.0</td>
-      <td>101951</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>8104</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Austin</td>
-      <td>5615 W. Race Ave.</td>
-      <td>Chicago</td>
-      <td>60644.0</td>
-      <td>25527</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>1755</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Austin-Irving</td>
-      <td>6100 W. Irving Park Rd.</td>
-      <td>Chicago</td>
-      <td>60634.0</td>
-      <td>165634</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>12593</td>
-    </tr>
-    <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <td>12028</td>
-      <td>West Pullman</td>
-      <td>830 W. 119th St.</td>
-      <td>Chicago</td>
-      <td>60643.0</td>
-      <td>30407</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>2391</td>
-    </tr>
-    <tr>
-      <td>12029</td>
-      <td>West Town</td>
-      <td>1625 W. Chicago Ave.</td>
-      <td>Chicago</td>
-      <td>60622.0</td>
-      <td>92772</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>6879</td>
-    </tr>
-    <tr>
-      <td>12030</td>
-      <td>Whitney M. Young, Jr.</td>
-      <td>7901 S. King Dr.</td>
-      <td>Chicago</td>
-      <td>60619.0</td>
-      <td>31993</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>2334</td>
-    </tr>
-    <tr>
-      <td>12031</td>
-      <td>Woodson Regional</td>
-      <td>9525 S. Halsted St.</td>
-      <td>Chicago</td>
-      <td>60628.0</td>
-      <td>105925</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>7748</td>
-    </tr>
-    <tr>
-      <td>12032</td>
-      <td>Wrightwood-Ashburn</td>
-      <td>8530 S. Kedzie Ave.</td>
-      <td>Chicago</td>
-      <td>60652.0</td>
-      <td>36329</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>2959</td>
-    </tr>
-  </tbody>
-</table>
-<p>11556 rows × 8 columns</p>
+Table: df_long after removing rows
 
-
+|    | branch         | address                 | city    |   zip code |    ytd |   year | month   |   circulation |
+|---:|:---------------|:------------------------|:--------|-----------:|-------:|-------:|:--------|--------------:|
+|  0 | Albany Park    | 5150 N. Kimball Ave.    | Chicago |      60625 | 120059 |   2011 | january |          8427 |
+|  1 | Altgeld        | 13281 S. Corliss Ave.   | Chicago |      60827 |   9611 |   2011 | january |          1258 |
+|  2 | Archer Heights | 5055 S. Archer Ave.     | Chicago |      60632 | 101951 |   2011 | january |          8104 |
+|  3 | Austin         | 5615 W. Race Ave.       | Chicago |      60644 |  25527 |   2011 | january |          1755 |
+|  4 | Austin-Irving  | 6100 W. Irving Park Rd. | Chicago |      60634 | 165634 |   2011 | january |         12593 |
+|  ... | ...  | ... | ... | ... | ... |   ... | ... | ... |
+| 12031 | Woodson Regional          | 9525 S. Halsted St. | Chicago |      60628 |  105925 |   2014 | december |          7748 |
+| 12032 | Wrightwood-Ashburn        | 8530 S. Kedzie Ave. | Chicago |      60652 |   36329 |   2014 | december |          2959 |
+| 12033 | Downloadable Media        | nan                 | nan     |        nan |  689961 |   2014 | december |         71276 |
+| 12034 | Renewals - Online         | nan                 | nan     |        nan | 2792631 |   2014 | december |        265531 |
+| 12035 | Talking Books and Braille | nan                 | nan     |        nan |  133681 |   2014 | december |         10277 |
+ | 12028 | West Pullman          | 830 W. 119th St.     | Chicago |      60643 |  30407 |   2014 | december |          2391 || 12029 | West Town             | 1625 W. Chicago Ave. | Chicago |      60622 |  92772 |   2014 | december |          6879 || 12030 | Whitney M. Young, Jr. | 7901 S. King Dr.     | Chicago |      60619 |  31993 |   2014 | december |          2334 || 12031 | Woodson Regional      | 9525 S. Halsted St.  | Chicago |      60628 | 105925 |   2014 | december |          7748 || 12032 | Wrightwood-Ashburn    | 8530 S. Kedzie Ave.  | Chicago |      60652 |  36329 |   2014 | december |          2959 |
 
 ```python
 df_long['branch'].unique()
@@ -668,148 +292,21 @@ Alright! Now that we have the data tidied what can we do with it? Let's look at 
 ```python
 df_long[df_long['circulation'] > 10000]
 ```
+Table: df_long rows with circulation greater than 10,000
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th></th>
-      <th>branch</th>
-      <th>address</th>
-      <th>city</th>
-      <th>zip code</th>
-      <th>ytd</th>
-      <th>year</th>
-      <th>month</th>
-      <th>circulation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>4</td>
-      <td>Austin-Irving</td>
-      <td>6100 W. Irving Park Rd.</td>
-      <td>Chicago</td>
-      <td>60634.0</td>
-      <td>165634</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>12593</td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>Bucktown-Wicker Park</td>
-      <td>1701 N. Milwaukee Ave.</td>
-      <td>Chicago</td>
-      <td>60647.0</td>
-      <td>173396</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>13113</td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>Budlong Woods</td>
-      <td>5630 N. Lincoln Ave.</td>
-      <td>Chicago</td>
-      <td>60659.0</td>
-      <td>160271</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>12841</td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td>Chinatown</td>
-      <td>2353 S. Wentworth Ave.</td>
-      <td>Chicago</td>
-      <td>60616.0</td>
-      <td>158449</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>14027</td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>Edgebrook</td>
-      <td>5331 W. Devon Ave.</td>
-      <td>Chicago</td>
-      <td>60646.0</td>
-      <td>129288</td>
-      <td>2011</td>
-      <td>january</td>
-      <td>10231</td>
-    </tr>
-    <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <td>11978</td>
-      <td>Edgewater</td>
-      <td>1210 W. Elmdale Ave.</td>
-      <td>Chicago</td>
-      <td>60660.0</td>
-      <td>194415</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>15132</td>
-    </tr>
-    <tr>
-      <td>11984</td>
-      <td>Harold Washington Library Center</td>
-      <td>400 S. State St.</td>
-      <td>Chicago</td>
-      <td>60605.0</td>
-      <td>755189</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>55067</td>
-    </tr>
-    <tr>
-      <td>11993</td>
-      <td>Lincoln Belmont</td>
-      <td>1659 W. Melrose St.</td>
-      <td>Chicago</td>
-      <td>60657.0</td>
-      <td>164597</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>11857</td>
-    </tr>
-    <tr>
-      <td>12011</td>
-      <td>Rogers Park</td>
-      <td>6907 N. Clark St.</td>
-      <td>Chicago</td>
-      <td>60626.0</td>
-      <td>136193</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>10293</td>
-    </tr>
-    <tr>
-      <td>12017</td>
-      <td>Sulzer Regional</td>
-      <td>4455 N. Lincoln Ave.</td>
-      <td>Chicago</td>
-      <td>60625.0</td>
-      <td>490667</td>
-      <td>2014</td>
-      <td>december</td>
-      <td>34266</td>
-    </tr>
-  </tbody>
-</table>
-<p>1434 rows × 8 columns</p>
-
-
+|    | branch               | address                 | city    |   zip code |    ytd |   year | month   |   circulation |
+|---:|:---------------------|:------------------------|:--------|-----------:|-------:|-------:|:--------|--------------:|
+|  4 | Austin-Irving        | 6100 W. Irving Park Rd. | Chicago |      60634 | 165634 |   2011 | january |         12593 |
+| 12 | Bucktown-Wicker Park | 1701 N. Milwaukee Ave.  | Chicago |      60647 | 173396 |   2011 | january |         13113 |
+| 13 | Budlong Woods        | 5630 N. Lincoln Ave.    | Chicago |      60659 | 160271 |   2011 | january |         12841 |
+| 17 | Chinatown            | 2353 S. Wentworth Ave.  | Chicago |      60616 | 158449 |   2011 | january |         14027 |
+| 24 | Edgebrook            | 5331 W. Devon Ave.      | Chicago |      60646 | 129288 |   2011 | january |         10231 |
+| ... | ...  | ...      | ... |      ... | ... |   ... | ... |         ... |
+| 11978 | Edgewater                        | 1210 W. Elmdale Ave. | Chicago |      60660 | 194415 |   2014 | december |         15132 |
+| 11984 | Harold Washington Library Center | 400 S. State St.     | Chicago |      60605 | 755189 |   2014 | december |         55067 |
+| 11993 | Lincoln Belmont                  | 1659 W. Melrose St.  | Chicago |      60657 | 164597 |   2014 | december |         11857 |
+| 12011 | Rogers Park                      | 6907 N. Clark St.    | Chicago |      60626 | 136193 |   2014 | december |         10293 |
+| 12017 | Sulzer Regional                  | 4455 N. Lincoln Ave. | Chicago |      60625 | 490667 |   2014 | december |         34266 |
 
 We can look at specific columns: 
 
@@ -817,75 +314,21 @@ We can look at specific columns:
 df_long[['branch', 'circulation']]
 ```
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th></th>
-      <th>branch</th>
-      <th>circulation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>Albany Park</td>
-      <td>8427</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Altgeld</td>
-      <td>1258</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Archer Heights</td>
-      <td>8104</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Austin</td>
-      <td>1755</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Austin-Irving</td>
-      <td>12593</td>
-    </tr>
-    <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <td>12028</td>
-      <td>West Pullman</td>
-      <td>2391</td>
-    </tr>
-    <tr>
-      <td>12029</td>
-      <td>West Town</td>
-      <td>6879</td>
-    </tr>
-    <tr>
-      <td>12030</td>
-      <td>Whitney M. Young, Jr.</td>
-      <td>2334</td>
-    </tr>
-    <tr>
-      <td>12031</td>
-      <td>Woodson Regional</td>
-      <td>7748</td>
-    </tr>
-    <tr>
-      <td>12032</td>
-      <td>Wrightwood-Ashburn</td>
-      <td>2959</td>
-    </tr>
-  </tbody>
-</table>
-<p>11556 rows × 2 columns</p>
+Table: Two columns from df_long
 
-
+|    | branch         |   circulation |
+|---:|:---------------|--------------:|
+|  0 | Albany Park    |          8427 |
+|  1 | Altgeld        |          1258 |
+|  2 | Archer Heights |          8104 |
+|  3 | Austin         |          1755 |
+|  4 | Austin-Irving  |         12593 |
+|  ... | ...  |        ... |
+| 12028 | West Pullman          |          2391 |
+| 12029 | West Town             |          6879 |
+| 12030 | Whitney M. Young, Jr. |          2334 |
+| 12031 | Woodson Regional      |          7748 |
+| 12032 | Wrightwood-Ashburn    |          2959 |
 
 We can sort our table using `.sort_values()`: 
 
@@ -893,145 +336,21 @@ We can sort our table using `.sort_values()`:
 df_long.sort_values('circulation', ascending=False)
 ```
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th></th>
-      <th>branch</th>
-      <th>address</th>
-      <th>city</th>
-      <th>zip code</th>
-      <th>ytd</th>
-      <th>year</th>
-      <th>month</th>
-      <th>circulation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2037</td>
-      <td>Harold Washington Library Center</td>
-      <td>400 S. State St.</td>
-      <td>Chicago</td>
-      <td>60605.0</td>
-      <td>966720</td>
-      <td>2011</td>
-      <td>march</td>
-      <td>89122</td>
-    </tr>
-    <tr>
-      <td>3040</td>
-      <td>Harold Washington Library Center</td>
-      <td>400 S. State St.</td>
-      <td>Chicago</td>
-      <td>60605.0</td>
-      <td>966720</td>
-      <td>2011</td>
-      <td>april</td>
-      <td>88527</td>
-    </tr>
-    <tr>
-      <td>3541</td>
-      <td>Harold Washington Library Center</td>
-      <td>400 S. State St.</td>
-      <td>Chicago</td>
-      <td>60605.0</td>
-      <td>937649</td>
-      <td>2012</td>
-      <td>april</td>
-      <td>87689</td>
-    </tr>
-    <tr>
-      <td>7052</td>
-      <td>Harold Washington Library Center</td>
-      <td>400 S. State St.</td>
-      <td>Chicago</td>
-      <td>60605.0</td>
-      <td>966720</td>
-      <td>2011</td>
-      <td>august</td>
-      <td>85193</td>
-    </tr>
-    <tr>
-      <td>2538</td>
-      <td>Harold Washington Library Center</td>
-      <td>400 S. State St.</td>
-      <td>Chicago</td>
-      <td>60605.0</td>
-      <td>937649</td>
-      <td>2012</td>
-      <td>march</td>
-      <td>84255</td>
-    </tr>
-    <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <td>10511</td>
-      <td>South Shore</td>
-      <td>2505 E. 73rd St.</td>
-      <td>Chicago</td>
-      <td>60649.0</td>
-      <td>2571</td>
-      <td>2019</td>
-      <td>november</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>8436</td>
-      <td>Whitney M. Young, Jr.</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>4</td>
-      <td>2018</td>
-      <td>september</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>5549</td>
-      <td>Humboldt Park</td>
-      <td>1605 N. Troy St.</td>
-      <td>Chicago</td>
-      <td>60647.0</td>
-      <td>15947</td>
-      <td>2012</td>
-      <td>june</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>5599</td>
-      <td>Albany Park</td>
-      <td>5150 N. Kimball Ave.</td>
-      <td>Chicago</td>
-      <td>60625.0</td>
-      <td>572</td>
-      <td>2013</td>
-      <td>june</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>2332</td>
-      <td>Galewood-Mont Clare</td>
-      <td>6871 W. Belden Ave.</td>
-      <td>Chicago</td>
-      <td>60707.0</td>
-      <td>0</td>
-      <td>2022</td>
-      <td>march</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-<p>11556 rows × 8 columns</p>
+Table: Sorting df_long by highest circulation
+
+|      | branch                           | address          | city    |   zip code |    ytd |   year | month   |   circulation |
+|-----:|:---------------------------------|:-----------------|:--------|-----------:|-------:|-------:|:--------|--------------:|
+| 2037 | Harold Washington Library Center | 400 S. State St. | Chicago |      60605 | 966720 |   2011 | march   |         89122 |
+| 3040 | Harold Washington Library Center | 400 S. State St. | Chicago |      60605 | 966720 |   2011 | april   |         88527 |
+| 3541 | Harold Washington Library Center | 400 S. State St. | Chicago |      60605 | 937649 |   2012 | april   |         87689 |
+| 7052 | Harold Washington Library Center | 400 S. State St. | Chicago |      60605 | 966720 |   2011 | august  |         85193 |
+| 2538 | Harold Washington Library Center | 400 S. State St. | Chicago |      60605 | 937649 |   2012 | march   |         84255 |
+| ... | ... | ... |... |      ... |... |   ... |...   |         ... |
+| 10511 | South Shore           | 2505 E. 73rd St.     | Chicago |      60649 |  2571 |   2019 | november  |             0 |
+|  8436 | Whitney M. Young, Jr. | nan                  | nan     |        nan |     4 |   2018 | september |             0 |
+|  5549 | Humboldt Park         | 1605 N. Troy St.     | Chicago |      60647 | 15947 |   2012 | june      |             0 |
+|  5599 | Albany Park           | 5150 N. Kimball Ave. | Chicago |      60625 |   572 |   2013 | june      |             0 |
+|  2332 | Galewood-Mont Clare   | 6871 W. Belden Ave.  | Chicago |      60707 |     0 |   2022 | march     |             0 |
 
 What if we want to tally up the total circulation for each branch over all years and also see the mean circulation? 
 
@@ -1039,6 +358,22 @@ What if we want to tally up the total circulation for each branch over all years
 ```python
 df_long.groupby('branch')['circulation'].agg(total_circulation='sum', mean_circulation='mean')
 ```
+     
+Table: df_long aggregated by circulation sums and means
+     
+| branch         |   total_circulation |   mean_circulation |
+|:---------------|--------------------:|-------------------:|
+| Albany Park    |         1024714 |           7116.07  |
+| Altgeld        |     68358           |            474.708 |
+| Archer Heights |    803014           |           5576.49  |
+| Austin         |    200107           |           1389.63  |
+| Austin-Irving  |         1359700  |           9442.36  |
+| ...  |         ...  |           ...  |
+| West Pullman          |              295327 |            2050.88 |
+| West Town             |              922876 |            6408.86 |
+| Whitney M. Young, Jr. |              259680 |            1803.33 |
+| Woodson Regional      |              823793 |            5720.78 |
+| Wrightwood-Ashburn    |              302285 |            2099.2  |
 
 1. `df.groupby('branch')`: This groups the data by the 'branch' column so that all entries in the DataFrame with the same library branch are grouped together. (This is similar to the SQL `GROUP BY` statement or the `group_by` function in `dplyr` in R.)
 2. `['circulation']`: After grouping the data by branch, this specifies that subsequent operations should be performed on the 'circulation' column.
@@ -1046,164 +381,28 @@ df_long.groupby('branch')['circulation'].agg(total_circulation='sum', mean_circu
      - `total_circulation='sum'`: This creates a new column named 'total_circulation' where each entry is the sum of 'circulation' for that branch. It totals up all circulation figures within each branch.
      - `mean_circulation='mean'`: This creates a new column named 'mean_circulation' where each entry is the average 'circulation' for that branch. It calculates the mean circulation figures for each branch.
      
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th>branch</th>
-      <th>total_circulation</th>
-      <th>mean_circulation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Albany Park</td>
-      <td>1024714</td>
-      <td>7116.069444</td>
-    </tr>
-    <tr>
-      <td>Altgeld</td>
-      <td>68358</td>
-      <td>474.708333</td>
-    </tr>
-    <tr>
-      <td>Archer Heights</td>
-      <td>803014</td>
-      <td>5576.486111</td>
-    </tr>
-    <tr>
-      <td>Austin</td>
-      <td>200107</td>
-      <td>1389.631944</td>
-    </tr>
-    <tr>
-      <td>Austin-Irving</td>
-      <td>1359700</td>
-      <td>9442.361111</td>
-    </tr>
-    <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <td>West Pullman</td>
-      <td>295327</td>
-      <td>2050.881944</td>
-    </tr>
-    <tr>
-      <td>West Town</td>
-      <td>922876</td>
-      <td>6408.861111</td>
-    </tr>
-    <tr>
-      <td>Whitney M. Young, Jr.</td>
-      <td>259680</td>
-      <td>1803.333333</td>
-    </tr>
-    <tr>
-      <td>Woodson Regional</td>
-      <td>823793</td>
-      <td>5720.784722</td>
-    </tr>
-    <tr>
-      <td>Wrightwood-Ashburn</td>
-      <td>302285</td>
-      <td>2099.201389</td>
-    </tr>
-  </tbody>
-</table>
-<p>82 rows × 2 columns</p>
-
-<<<<<<< HEAD
-If we want to group by more than one variable, we can list those column names in the `.groupby()` function. 
-=======
 If we want to group by more than one variable, we can list those column names in the `.groupby()` function.  
->>>>>>> 248e209f35b5e9c39cbd89473a4007551168673b
 
 ```python
 df_long.groupby(['branch', 'month'])['circulation'].agg(['sum', 'mean'])
 ```
-Your output will look a little different than this, with each Branch listed only once in the left hand index column:
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th>branch</th>
-      <th>month</th>
-      <th>sum</th>
-      <th>mean</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Albany Park</td>
-      <td>april</td>
-      <td>79599</td>
-      <td>6633.250000</td>
-    </tr>
-    <tr>
-      <td>Albany Park</td>
-      <td>august</td>
-      <td>91416</td>
-      <td>7618.000000</td>
-    </tr>
-    <tr>
-      <td>Albany Park</td>
-      <td>december</td>
-      <td>77849</td>
-      <td>6487.416667</td>
-    </tr>
-    <tr>
-      <td>Albany Park</td>
-      <td>february</td>
-      <td>76747</td>
-      <td>6395.583333</td>
-    </tr>
-    <tr>
-      <td>Albany Park</td>
-      <td>january</td>
-      <td>85952</td>
-      <td>7162.666667</td>
-    </tr>
-    <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <td>Wrightwood-Ashburn</td>
-      <td>march</td>
-      <td>25817</td>
-      <td>2151.416667</td>
-    </tr>
-    <tr>
-      <td>Wrightwood-Ashburn</td>
-      <td>may</td>
-      <td>22049</td>
-      <td>1837.416667</td>
-    </tr>
-    <tr>
-      <td>Wrightwood-Ashburn</td>
-      <td>november</td>
-      <td>24124</td>
-      <td>2010.333333</td>
-    </tr>
-    <tr>
-      <td>Wrightwood-Ashburn</td>
-      <td>october</td>
-      <td>27345</td>
-      <td>2278.750000</td>
-    </tr>
-    <tr>
-      <td>Wrightwood-Ashburn</td>
-      <td>september</td>
-      <td>25692</td>
-      <td>2141.000000</td>
-    </tr>
-  </tbody>
-</table>
-<p>984 rows × 2 columns</p>
+Table: df_long sums and means grouped by multiple columns
+
+|   branch      |    month                |   sum |    mean |
+|:----------------------------|------:|--------:|
+| Albany Park | april    | 79599 | 6633.25 |
+| | august   | 91416 | 7618    |
+| |december | 77849 | 6487.42 |
+| |february | 76747 | 6395.58 |
+| |january  | 85952 | 7162.67 |
+| ...| ...  | ... | ... |
+| Wrightwood-Ashburn| march     | 25817 | 2151.42 |
+| | may      | 22049 | 1837.42 |
+| |november  | 24124 | 2010.33 |
+| |october   | 27345 | 2278.75 |
+| |september | 25692 | 2141    |
+
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
