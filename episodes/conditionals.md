@@ -7,7 +7,7 @@ exercises: 10
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Correctly write programs that use `if` and `else` statements using Boolean expressions.
-- Trace the execution of un-nested conditionals and conditionals inside loops.
+- Trace the execution of conditionals inside of loops.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -54,10 +54,9 @@ for checkout in checkouts:
 22 is over the limit.
 ```
 
-
 ## Use `else` to execute a block of code when an `if` condition is *not* true.
 
-And `else` statement can be used following `if` to allow us to specify an alternative code block to execute when the `if` *branch* is not taken.
+An `else` statement can be used following `if` to allow us to specify an alternative code block to execute when the `if` *branch* is not taken.
 
 ```python
 for checkout in checkouts:
@@ -84,7 +83,7 @@ You can use `elif` (short for "else if") to provide several alternative choices,
 ```python
 for checkout in checkouts:
     if checkout > 10.0:
-        print(f'{checkout} is over the limit.')
+        print(f'*Warning*: {checkout} is over the limit.')
     elif checkout == 10:
         print(f'{checkout} is at the exact limit.')
     else:
@@ -95,11 +94,26 @@ for checkout in checkouts:
 0 is under the limit.
 3 is under the limit.
 10 is at the exact limit.
-12 is over the limit.
-22 is over the limit.
+*Warning*: 12 is over the limit.
+*Warning*: 22 is over the limit.
 
 ```
 
+Conditions are tested once, in order and are not re-evaluated if values change. Python steps through the branches of the conditional in order, testing each in turn, so the order of your statements matters. 
+
+```python
+grade = 85
+if grade >= 70:
+    print('grade is C')
+elif grade >= 80:
+    print('grade is B')
+elif grade >= 90:
+    print('grade is A')
+```
+
+```output
+grade is C
+```
 
 ## Compound conditionals using `and` and `or`
 
@@ -116,7 +130,7 @@ for user in users:
     for checkout in checkouts:
         #faculty checkout limit is 100
         if checkout >= 100 and user == 'fac':
-            print(f"{checkout} is over the {user} limit.")
+            print(f"*Warning*: {checkout} is over the {user} limit.")
             
         #grad limit is 50
         elif checkout >= 50 and user == 'grad':
@@ -132,13 +146,12 @@ for user in users:
 ```output
 3 is under the fac limit.
 50 is under the fac limit.
-120 is over the fac limit.
+*Warning*: 120 is over the fac limit.
 
 3 is under the grad limit.
-50 is over the grad limit.
-120 is over the grad limit.
+*Warning*: 50 is over the grad limit.
+*Warning*: 120 is over the grad limit.
 ```
-
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -279,6 +292,7 @@ for filename in glob.glob('data/*.csv'):
 - Conditionals are often used inside loops.
 - Use `else` to execute a block of code when an `if` condition is *not* true.
 - Use `elif` to specify additional tests.
+- Conditions are tested once, in order.
 - Use `and` and `or` to check against multiple value statements.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
