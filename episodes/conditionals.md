@@ -1,13 +1,13 @@
 ---
 title: Conditionals
-teaching: 10
-exercises: 15
+teaching: 15
+exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Correctly write programs that use if and else statements using Boolean expressions.
-- Trace the execution of unnested conditionals and conditionals inside loops.
+- Correctly write programs that use `if` and `else` statements using Boolean expressions.
+- Trace the execution of conditionals inside of loops.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -20,21 +20,22 @@ exercises: 15
 ## Use `if` statements to control whether or not a block of code is executed.
 
 An `if` statement is a *conditional* statement that controls whether a block of code is executed or not. The syntax of an `if` statement is similar to a `for` statement:
-  - The first line opens with `if` and ends with a colon.
-  - The body is indented (usually by 4 spaces)
+
+- The first line opens with `if` and ends with a colon.
+- The body is indented (usually by 4 spaces)
 
 ```python
 checkouts = 11
 if checkouts > 10.0:
-    print(f'{checkouts}, is over the checkout limit.')
+    print(f'{checkouts} is over the limit.')
 
 checkouts = 8
 if checkouts > 10.0:
-    print(f'{checkouts}, is over the checkout limit.')
+    print(f'{checkouts} is over the limit.')
 ```
 
 ```output
-11 is over the checkout limit.
+11 is over the limit.
 ```
 
 ## Conditionals are often used inside loops.
@@ -42,59 +43,60 @@ if checkouts > 10.0:
 There is not much of a point using a conditional when we know the value (as above), but they're useful when we have a collection to process.
 
 ```python
-checkouts = [3, 5, 12, 22, 0]
+checkouts = [0, 3, 10, 12, 22]
 for checkout in checkouts:
     if checkout > 10.0:
-        print(f'{checkout}, is over the checkout limit.')
+        print(f'{checkout} is over the limit.')
 ```
 
 ```output
-12 is over the checkout limit.
-22 is over the checkout limit.
+12 is over the limit.
+22 is over the limit.
 ```
 
 ## Use `else` to execute a block of code when an `if` condition is *not* true.
 
-And `else` statement can be used following `if` to allow us to specify an alternative code block to execute when the `if` *branch* isn't taken.
+An `else` statement can be used following `if` to allow us to specify an alternative code block to execute when the `if` *branch* is not taken.
 
 ```python
-checkouts = [3, 5, 12, 22, 0]
 for checkout in checkouts:
     if checkout > 10.0:
-        print(f'Warning: {checkout} is over the checkout limit.')
+        print(f'{checkout} is over the limit.')
     else:
         print(f'{checkout} is under the limit.')
 ```
 
 ```output
-3 is under the limit.
-5 is under the limit.
-*Warning* 12 is over the checkout limit.
-*Warning* 22 is over the checkout limit.
 0 is under the limit.
+3 is under the limit.
+10 is under the limit.
+12 is over the limit.
+22 is over the limit.
 ```
+
+Notice that our `else` statement led to a false output that says 10 is under the limit. We can address this by adding a different kind of `else` statement.
 
 ## Use `elif` to specify additional tests.
 
 You can use `elif` (short for "else if") to provide several alternative choices, each with its own test. An `elif` statement should always be associated with an `if` statement, and must come before the `else` statement (which is the catch all).
 
 ```python
-checkouts = [3, 5, 10, 22, 0]
 for checkout in checkouts:
     if checkout > 10.0:
-        print(f'Warning: {checkout} is over the checkout limit.')
+        print(f'*Warning*: {checkout} is over the limit.')
     elif checkout == 10:
-        print(f'{checkout} is at the exact checkout limit.')
+        print(f'{checkout} is at the exact limit.')
     else:
         print(f'{checkout} is under the limit.')
 ```
 
 ```output
-3 is under the limit.
-5 is under the limit.
-10 is at the exact checkout limit.
-Warning: 22 is over the checkout limit.
 0 is under the limit.
+3 is under the limit.
+10 is at the exact limit.
+*Warning*: 12 is over the limit.
+*Warning*: 22 is over the limit.
+
 ```
 
 Conditions are tested once, in order and are not re-evaluated if values change. Python steps through the branches of the conditional in order, testing each in turn, so the order of your statements matters. 
@@ -113,159 +115,139 @@ elif grade >= 90:
 grade is C
 ```
 
-If a value is adjusted inside of a statement which would change the outcome of previous `if` or `elif` statement, those earlier statements won't be evaluated again unless you re-run the code. 
-
-```python
-velocity = 15.0
-if velocity > 30.0:
-    print('moving too fast')
-else:
-    print('adjusting velocity')
-    velocity = velocity + 15.0
-```
-
-```output
-adjusting velocity
-```
-
-You can use conditionals inside of a loop to adjust values as the loop iterates.
-
-```python
-checkouts = 15.0
-for i in range(5): # execute the loop 5 times
-    print(f'{i} : {checkouts}')
-    if checkouts >= 30.0:
-        print('too many checkouts')
-        checkouts = checkouts - 5.0
-    else:
-        print('too few checkouts')
-        checkouts = checkouts + 10.0
-print(f'final checkouts: {checkouts}')
-```
-
-```output
-0 : 15.0
-too few checkouts
-1 : 25.0
-too few checkouts
-2 : 35.0
-too many checkouts
-3 : 30.0
-too many checkouts
-4 : 25.0
-too few checkouts
-final checkouts: 35.0
-```
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
 ## Compound conditionals using `and` and `or`
 
 Often, you want some combination of things to be true.  You can combine
 relations within a conditional using `and` and `or`.  
 
+We can also check if something is less/greater than or equal to a value by using `>=` and `<=` operators.
+
 ```python
-checkouts = [3, 70, 120]
-user_type = ['faculty', 'graduate', 'undergraduate']
+checkouts = [3, 50, 120]
+users = ['fac', 'grad']
 
-for user in user_type:
-    print(user)
+for user in users:
     for checkout in checkouts:
-        if checkout > 100 and user == 'faculty':
-            print(f"{checkout} Over the faculty checkout limit.")
-        elif checkout > 50 and user == 'graduate':
-            print(f"{checkout} Over the graduate student checkout limit.")
-        elif checkout > 20 and user == 'undergraduate':
-            print(f"{checkout} Over the undergraduate student checkout limit.")
+        #faculty checkout limit is 100
+        if checkout >= 100 and user == 'fac':
+            print(f"*Warning*: {checkout} is over the {user} limit.")
+            
+        #grad limit is 50
+        elif checkout >= 50 and user == 'grad':
+            print(f"{checkout} is over the {user} limit.")
+        
         else:
-            print(f"{checkout} Under the checkout limit.")
+            print(f"{checkout} is under the {user} limit.")
+    
+    # print an empty line between users
     print()
-
+    
 ```
 ```output
-faculty
-3 Under the checkout limit.
-70 Under the checkout limit.
-120 Over the faculty checkout limit.
+3 is under the fac limit.
+50 is under the fac limit.
+*Warning*: 120 is over the fac limit.
 
-graduate
-3 Under the checkout limit.
-70 Over the graduate student checkout limit.
-120 Over the graduate student checkout limit.
-
-undergraduate
-3 Under the checkout limit.
-70 Over the undergraduate student checkout limit.
-120 Over the undergraduate student checkout limit.
+3 is under the grad limit.
+*Warning*: 50 is over the grad limit.
+*Warning*: 120 is over the grad limit.
 ```
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Tracing Execution
+## Age conditionals
 
-What does this program print?
+Write a Python program that checks the age of a user to determine if they will receive a youth or adult library card. The program should:
 
-```python
-velocity = 71.9
-if velocity > 50.0:
-    velocity = 25.0
-elif velocity <= 50.0:
-    velocity = 0.0
-print(velocity)
-```
+1. Store `age` in a variable.
+2. Use an `if` statement to check if the age is 16 or older. If true, print "You are eligible for an adult library card."
+3. Use an `else` statement to print "You are eligible for a youth library card" if the age is less than 16.
 
+If you finish early, try this challenge: 
 
+- In a new cell, adapt your program to loop through a list of age values, testing each age with the same output as above.
 
 :::::::::::::::  solution
 
 ## Solution
 
-```output
-25.0
+For parts 1 to 3:
+
+```python
+age = 25
+
+if age >= 16:
+  print('You are eligible for an adult library card.')
+else:
+  print('You are eligible for a youth library card.')
 ```
+
+For the challenge:
+```python
+ages = [10, 16, 30, 65]
+
+for age in ages:
+  if age >= 16:
+    print('You are eligible for an adult library card.')
+  else:
+    print('You are eligible for a youth library card.')
+```
+
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Acummulating Results Conditionally
+## Conditional logic: Fill in the blanks
 
-Fill in the blanks so that this program creates a new list
-containing zeroes where the original list's values were negative
-and ones where the original list's values were positive.
+Fill in the blanks in the following program to check if both the name variable is present in the names list and the password variable is equal to 'true' before giving a user access to a library system.
+
+If you have extra time after you solve the fill in the blanks, change the value of `password` and re-run the program to view the output. 
 
 ```python
-original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
-result = ____
-for value in original:
-    if ____:
-        result.append(0)
-    else:
-        ____
-print(result)
-```
+names = ['Wang', 'Garcia', 'Martin']
+name = 'Martin'
+password = 'true'
 
-```output
-[0, 1, 1, 1, 0, 1]
+___ item in names:
+    print(item)
+    if name == item ___ password == _____:
+        print('Login successful!')
+    elif password __ 'true':
+        print(f'Your password is incorrect. Try again.')
+    ____ name __ item:
+        print(f'- Name does not match. Testing the next item in the list for {name}...')
+  
 ```
-
 :::::::::::::::  solution
 
 ## Solution
 
 ```python
-original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
-result = []
-for value in original:
-   if value < 0:
-       result.append(0)
-   else:
-      result.append(1)
-print(result)
+names = ['Wang', 'Garcia', 'Martin']
+name = 'Martin'
+password = 'true'
+
+for item in names:
+    print(item)
+    if name == item and password == 'true':
+        print('Login successful!')
+    elif password != 'true':
+        print(f'Your password is incorrect. Try again.')
+    elif name != item:
+        print(f'- Name does not match. Testing the next item in the list for {name}...')
+```
+
+```output
+Wang
+- Name does not match. Testing the next item in the list for Martin...
+Garcia
+- Name does not match. Testing the next item in the list for Martin...
+Martin
+Login successful!
 ```
 
 :::::::::::::::::::::::::
@@ -283,7 +265,7 @@ import glob
 import pandas
 for filename in glob.glob('data/*.csv'):
     contents = pandas.read_csv(filename)
-    ____:
+    ____ ___(______) < ____:
         print(f'{filename} : {len(contents)}')
 ```
 
@@ -304,48 +286,6 @@ for filename in glob.glob('data/*.csv'):
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Range Finding
-
-Modify this program so that it finds the largest and smallest values in the list
-no matter what the range of values originally is.
-
-What are the advantages and disadvantages of using this method
-to find the range of the data?
-
-```python
-values = [...some test data...]
-smallest, largest = None, None
-for v in values:
-    if ____:
-        smallest, largest = v, v
-    ____:
-        smallest = min(____, v)
-        largest = max(____, v)
-print(smallest, largest)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-values = [1, 3, 4, 5, 10]
-smallest, largest = None, None
-for v in values:
-   if largest is None:
-       smallest, largest = v, v
-   else:
-       smallest = min(smallest, v)
-       largest = max(largest, v)
-print(smallest, largest)
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Use `if` statements to control whether or not a block of code is executed.
@@ -353,7 +293,7 @@ print(smallest, largest)
 - Use `else` to execute a block of code when an `if` condition is *not* true.
 - Use `elif` to specify additional tests.
 - Conditions are tested once, in order.
-- Create a table showing variables' values to trace a program's execution.
+- Use `and` and `or` to check against multiple value statements.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
