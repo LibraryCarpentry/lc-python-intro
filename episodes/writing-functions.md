@@ -203,6 +203,155 @@ def fahr_to_celsius(temp):
 ```
 
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Create a function
+
+Write a function called `addition` that takes two parameters and returns their sum. After defining the function, call it with several arguments and print out the results. 
+
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+def addition(x, y):
+    return x + y
+
+addition(3, 6)
+```
+
+```output
+9
+
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Conditional statements within functions
+
+Create a function called `grade_converter` that takes a numerical score (0 - 100) as its parameter and returns a letter grade based on the score:
+
+- 90 and above returns 'A'
+- 80 to 89 returns 'B'
+- 70 to 79 returns 'C'
+- 60 to 69 returns 'D'
+- Below 60 returns 'F'
+
+After defining the function, test it with a variety of scores to test it out. 
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+def grade_converter(score):
+    if score > 100 or score < 0:
+        return 'Invalid score'
+    elif score >= 90:
+        return 'A'
+    elif score >= 80:
+        return 'B'
+    elif score >= 70:
+        return 'C'
+    elif score >= 60:
+        return 'D'
+    elif score <= 59:
+        return 'F'
+
+grade_converter(88)
+```
+
+```output
+'B'
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Local and global variables
+
+List all of the global variables and all of the local variables in the following code. 
+
+```python
+fine_rate = 0.25
+
+def fine(days_overdue):
+    if days_overdue <= 10:
+        fine =  days_overdue * fine_rate
+    else:
+        fine = (days_overdue * fine_rate) + (days_overdue * (fine_rate*2))
+    return fine
+    
+total_fine = calc_fine(20)
+f'Fine owed: ${total_fine:.2f}'
+
+```
+
+```output
+'Fine owed: $15.00'
+```
+:::::::::::::::  solution
+
+## Solution
+
+Global variables:
+
+- fine_rate
+- total_fine
+
+Local variables:
+
+- days_overdue
+- fine
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## CSVs to Pandas function
+In the [Looping Data Sets episode](looping-data-sets.html#appending-dataframes-to-a-list), we learned to use glob to loop through a directory of CSV files and convert them to a Pandas DataFrame. 
+
+Write a function that converts a directory of CSV files into a single Pandas DataFrame. The function should accept one parameter: a string that includes the path and glob wildcard expression to point to a set of CSV files (e.g., `'data/*.csv'`). We can assume, for these purposes, that all of the DataFrames have the same column names so that you can use `pd.concat(dfs, ignore_index=True)` at the end of the function to concatenate a list of DataFrames into a single DataFrame.
+
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+import glob
+import pandas as pd
+
+def concat_csvs(path):
+    
+    dfs = [] 
+
+    for csv in sorted(glob.glob(path)):
+        data = pd.read_csv(csv)
+        dfs.append(data)
+    
+    df = pd.concat(dfs, ignore_index=True)
+    return df
+
+df = concat_csvs('data/*.csv')
+
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Break programs down into functions to make them easier to understand.
