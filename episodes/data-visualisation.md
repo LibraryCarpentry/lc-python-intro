@@ -1,7 +1,7 @@
 ---
 title: 'Data Visualisation'
-teaching: 10
-exercises: 2
+teaching: 20
+exercises: 10
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -49,19 +49,19 @@ df_long.head()
 4   Austin-Irving  6100 W. Irving Park Rd.  ...       12593  2011-01-01
 ```
 
+## Convert a column to datetime
 
-In order to plot this data over time we need to do two things to prepare it first. First, we need to tell Python that the data column is a datetime object using the Pandas `to_dateime` function. Second, we assign the date column as our index for the data. These two steps will set up our data for plotting.
+In order to plot this data over time we need to do two things to prepare it first. First, we need to tell Python that the data column is a [datetime object](https://docs.python.org/3/library/datetime.html) using the Pandas `to_dateime` function. Second, we assign the date column as our index for the data. These two steps will set up our data for plotting.
 
 ``` python
 df_long['date']= pd.to_datetime(df_long['date'])
 ```
 
-The above converts our date column to a data time object. Let’s confirm it worked.
+The above converts our date column to a datetime object. Let’s confirm it worked.
 
 ``` python
 df_long.info()
 ```
-
 
 ``` output
 <class 'pandas.core.frame.DataFrame'>
@@ -82,7 +82,7 @@ dtypes: datetime64[ns](1), float64(1), int64(3), object(4)
 memory usage: 812.7+ KB
 ```
 
-That worked! Now, we can make this datetime object our dataframe index.
+That worked! Now, we can make the datetime column the index of our DataFrame. In the Pandas episode we looked at Pandas default numerical index, but we can also use `.set_index()` to declare a specific column as the index of our DataFrame. Using a datetime index will make it easier for us to plot the DataFrame over time. The first parameter of `.set_index()` is the column name and the `inplace=True` parameter allows us to modify the DataFrame without assigning it to a new variable.
 
 
 ``` python
@@ -106,6 +106,8 @@ df_long.head()
 
 ```
 
+## Plotting with Pandas 
+
 Ok! We are now ready to plot our data. Since this data is monthly data, we can plot the circulation data over time.
 
 At first, let’s focus on a specific branch. We can select the rows for the Albany Park branch:
@@ -128,22 +130,22 @@ albany.head()
   2018-01-01  Albany Park                   NaN  ...  january         9381
 ```
 
-Now we can use the `plot()` function built into pandas. Let’s try it:
+Now we can use the `plot()` function that is built in to pandas. Let’s try it:
 
 ``` python
 albany.plot()
 ```
 
-![](fig/albany-plot-1.png) 
+![](fig/albany-plot-1.png){alt="Line plot of zip code, ytd, year, and circulation numbers over time from the albany DataFrame"}
 
-That’s great! By default `plot` use a line plot and will plot all numeric variables of the data frame. This isn’t exactly what we want, so let’s tell `plot` what variable to use by selecting `circulation_count`.
+That's interesting, but by default `.plot()` will use a line plot for all numeric variables of the DataFrame. This isn’t exactly what we want, so let’s tell `.plot()` what variable to use by selecting the `circulation` column.
 
 
 ``` python
 albany['circulation'].plot()
 ```
 
-![](fig/albany-circ-3.png)
+![](fig/albany-circ-3.png){alt="Line plot of the Albany Park branch circulation showing a big drop from 2013 to 2014."}
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: challenge
 
@@ -159,7 +161,14 @@ The drop from 2012 through part of 2014 corresponds to the reconstruction period
 ::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Use Matplotlib for more detailed charts
+
 What if we want to alter the axis labels and the title of the graph. In order to do that, we need to first import `matplotlib`, an extensive plotting package in Python that lets us alter all aspects of a graph.
+
+- We can pass parameters to matplotlib's `.plot()` function to assign a plot title, to declare a figsize - which accepts a width and height in inches - and to change the color of the line.
+- Next we'll add text labels for the x and y axis using `.xlabel()` and `.ylabel`.
+- Finally, we need a separate function `.show()` to display the plot using matplotlib.
+
 
 ``` python
 # the plotting package pandas is using under the hood to `plot()`  
@@ -171,9 +180,12 @@ plt.xlabel('Date')
 plt.ylabel('Circulation Count')
 plt.show()
 ```
-![](fig/albany-circ-labeling-5.png)
 
-What if we want to use a different plot type for this graphic? To do so, we can change the `kind` parameters in our `plot` function.
+![](fig/albany-circ-labeling-5.png){alt="Line plot of the Albany Park branch circulation with matplotlib styles applied."}
+
+### Changing plot types with Matplotlib
+
+What if we want to use a different plot type for this graphic? To do so, we can change the `kind` parameters in our `.plot()` function.
 
 ``` python
 albany['circulation'].plot(kind='area', title='Circulation Count Area Plot at Albany Park', alpha=0.5)
@@ -181,7 +193,7 @@ plt.xlabel('Date')
 plt.ylabel('Circulation Count')
 plt.show()
 ```
-![](fig/albany-circ-area-7.png)
+![](fig/albany-circ-area-7.png){alt="Area plot of the Albany Park branch circulation."}
 
 We can also look at our circulation data as a histogram.
 
@@ -191,25 +203,20 @@ plt.xlabel('Circulation Count')
 plt.show()
 ```
 
-![](fig/albany-circ-hist-9.png)
+![](fig/albany-circ-hist-9.png){alt="histogram of the Albany branch circulation."}
 
-## Interactive Line Plot for Circulation Over Time
+## Use Plotly for interactive plots 
 
-Let’s switch back to the full dataframe in `df_long` and use another
-plotting package in Python called Plotly. First let’s install and then use
-the package.
+Let’s switch back to the full DataFrame in `df_long` and use another
+plotting package in Python called Plotly. First let’s install and then use the package.
 
-```{python}
+```python
 # uncomment below to install plotly if the import fails. 
 # !pip install plotly
 import plotly.express as px
 ```
-Now we can visualize how circulation counts have changed over time for selected
-branches. This can be especially useful for identifying trends,
-seasonality, or anomalies. We will first create a subset of our data and
-only look at branches starting with the letter A. Feel free to select
-different branches. After subsetting, we will sort our new dataframe by
-date and then plot our data by date and ciculation count.
+
+Now we can visualize how circulation counts have changed over time for selected branches. This can be especially useful for identifying trends, seasonality, or data anomalies. We willfirst create a subset of our data to look at branches starting with the letter 'A'. Feel free to select different branches. After subsetting, we will sort our new DataFrame by date and then plot our data by date and circulation count.
 
 ``` python
 # Creating a line plot for a few selected branches to avoid clutter
@@ -225,18 +232,17 @@ selected_branches = selected_branches.sort_values(by='date')
 fig = px.line(selected_branches, x=selected_branches.index, y='circulation', color='branch', title='Circulation Over Time for Selected Branches')
 fig.show()
 ```
-TODO: include either a static, gif, or html output of plotly 
-* https://plotly.com/python/interactive-html-export/ 
-* https://pypi.org/project/plotly-gif/
 
-Plotly provides some nice interactive features out of the box. Hover
-over the data and interact witht he plot controls.
+Here is a view of the [interactive output of the Plotly line chart](learners/line_plot_int.html).  
 
-#### Barplot to Compare Circulation Distributions Among Branches
+
+One advantage that Plotly provides over matplotlib is that it has some interactive features out of the box. Hover your cursor over the lines in the output to find out more granular data about specific branches over time.
+
+
+### Bar plots with Plotly
 
 Let’s use a barplot to compare the distribution of circulation counts
-among branches. We first need to group our data by branch and sum up the
-circulation counts. Then we can use the bar plot to show the
+among branches. We first need to group our data by branch and sum up the circulation counts. Then we can use the bar plot to show the
 distribution of total circulation over branches.
 
 ``` python
@@ -247,9 +253,9 @@ total_circulation_by_branch = df_long.groupby('branch')['circulation'].sum().res
 fig = px.bar(total_circulation_by_branch, x='branch', y='circulation', title='Total Circulation by Branch')
 fig.show()
 ```
-TODO: include either a static, gif, or html output of plotly 
-* https://plotly.com/python/interactive-html-export/ 
-* https://pypi.org/project/plotly-gif/
+
+Here is a view of the [interactive output of the Plotly bar chart](learners/bar_plot_int.html).  
+
 
 ::: keypoints
 -   Explored the use of pandas for basic data manipulation, ensuring correct indexing with DatetimeIndex to enable time-series operations like resampling.
