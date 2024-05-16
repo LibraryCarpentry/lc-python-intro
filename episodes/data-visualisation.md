@@ -18,21 +18,14 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-For this module, we will use a different version of our circulation data that is in a tidy data format, where each variable forms a column, each observation forms a row, and each type of observation unit forms a row. If your workshop included the Tidy Data episode, you should be set and have an object called `df_long` in your Jupyter environment. If not, we’ll read that dataset in now, as it was provided for this lesson.
+For this module, we will use the tidy (long) version of our circulation data, where each variable forms a column, each observation forms a row, and each type of observation unit forms a row. If your workshop included the Tidy Data episode, you should be set and have an object called `df_long` in your Jupyter environment. If not, we’ll read that dataset in now, as it was provided for this lesson.
 
 
 ``` python
 #import if it is already not
 import pandas as pd
+df_long = pd.read_pickle('data/df_long.pkl')
 ```
-
-If `df_long` isn’t loaded already, we can read it in using `read_csv`. Note, if it isn’t present in your local `data/` folder.
-
-``` python
-df_long = pd.read_csv('data/circ_long.tsv', sep="\t")
-```
-
-We are using a couple of new parameters in our `read_csv` function above. Since the file we want to read in is a tab-separated values (TSV) file, we tell our `read_csv` function that using the `sep="\t"` parameter. `\t` is encoding for tab character in Python. Other separators or delimeters could include `|` or `;` depending on your data file.
 
 Let’s look at the data:
 
@@ -40,24 +33,49 @@ Let’s look at the data:
 df_long.head()
 ```
 
-``` output
-            branch                  address  ... circulation        date
-0     Albany Park     5150 N. Kimball Ave.  ...        8427  2011-01-01
-1         Altgeld    13281 S. Corliss Ave.  ...        1258  2011-01-01
-2  Archer Heights      5055 S. Archer Ave.  ...        8104  2011-01-01
-3          Austin        5615 W. Race Ave.  ...        1755  2011-01-01
-4   Austin-Irving  6100 W. Irving Park Rd.  ...       12593  2011-01-01
-```
+|     | branch         | address                 | city    | zip code | ytd    | year | month   | circulation |
+|-----|----------------|-------------------------|---------|----------|--------|------|---------|-------------|
+| 0   | Albany Park    | 5150 N. Kimball Ave.    | Chicago | 60625.0  | 120059 | 2011 | january | 8427        |
+| 1   | Altgeld        | 13281 S. Corliss Ave.   | Chicago | 60827.0  | 9611   | 2011 | january | 1258        |
+| 2   | Archer Heights | 5055 S. Archer Ave.     | Chicago | 60632.0  | 101951 | 2011 | january | 8104        |
+| 3   | Austin         | 5615 W. Race Ave.       | Chicago | 60644.0  | 25527  | 2011 | january | 1755        |
+| 4   | Austin-Irving  | 6100 W. Irving Park Rd. | Chicago | 60634.0  | 165634 | 2011 | january | 12593       |
 
-## Convert a column to datetime
+## Convert year and month to datetime
 
-In order to plot this data over time we need to do two things to prepare it first. First, we need to tell Python that the data column is a [datetime object](https://docs.python.org/3/library/datetime.html) using the Pandas `to_dateime` function. Second, we assign the date column as our index for the data. These two steps will set up our data for plotting.
+In order to plot this data over time we need to do two things to prepare it first. First, we need to combine the year and month columns into a single [datetime](https://docs.python.org/3/library/datetime.html) column using the Pandas `to_datetime` function. Second, we assign the date column as our index for the data. These two steps will set up our data for plotting.
 
 ``` python
-df_long['date']= pd.to_datetime(df_long['date'])
+df_long['date'] = pd.to_datetime(df_long['year'].astype(str) + '-' + df_long['month'], format='%Y-%B')
 ```
 
-The above converts our date column to a datetime object. Let’s confirm it worked.
+Let's unpack that code:
+
+- `df_long['date']` - First, we create a new `date` column. 
+- `pd.to_datetime()` - Next we package everything into a datetime object.
+- `df_long['year'].astype(str)` - We use the `.astype(str)` method to convert the year column to a string
+- `+ '-' + df_long['month'],` - We concatenate a `-` to the string as a separator, followed by the month column.
+- `format='%Y-%B'` - We pass the datetime parameter to tell Python to expect a 4 digit year (%Y), followed by a dash, followed by the month's full name (%B).
+
+If we take a look at the date column, we'll see that datetime automatically adds a day (always `01`) in the absence of any specific day input.
+
+```python
+df_long['date']
+```
+```output
+0       2011-01-01
+1       2011-01-01
+2       2011-01-01
+3       2011-01-01
+4       2011-01-01
+           ...    
+11551   2022-12-01
+11552   2022-12-01
+11553   2022-12-01
+11554   2022-12-01
+11555   2022-12-01
+Name: date, Length: 11556, dtype: datetime64[ns]
+```
 
 ``` python
 df_long.info()
@@ -67,18 +85,18 @@ df_long.info()
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 11556 entries, 0 to 11555
 Data columns (total 9 columns):
-#   Column       Non-Null Count  Dtype         
- ---  ------       --------------  -----         
+ #   Column       Non-Null Count  Dtype         
+---  ------       --------------  -----         
  0   branch       11556 non-null  object        
  1   address      7716 non-null   object        
  2   city         7716 non-null   object        
  3   zip code     7716 non-null   float64       
  4   ytd          11556 non-null  int64         
- 5   year         11556 non-null  int64         
+ 5   year         11556 non-null  object        
  6   month        11556 non-null  object        
  7   circulation  11556 non-null  int64         
  8   date         11556 non-null  datetime64[ns]
-dtypes: datetime64[ns](1), float64(1), int64(3), object(4)
+dtypes: datetime64[ns](1), float64(1), int64(2), object(5)
 memory usage: 812.7+ KB
 ```
 
@@ -95,16 +113,15 @@ If we look at the data again, we will see our index will be set to date.
 df_long.head()
 ```
 
-``` output
-                     branch                  address  ...    month  circulation
- date                                                 ...                      
- 2011-01-01     Albany Park     5150 N. Kimball Ave.  ...  january         8427
- 2011-01-01         Altgeld    13281 S. Corliss Ave.  ...  january         1258
- 2011-01-01  Archer Heights      5055 S. Archer Ave.  ...  january         8104
- 2011-01-01          Austin        5615 W. Race Ave.  ...  january         1755
- 2011-01-01   Austin-Irving  6100 W. Irving Park Rd.  ...  january        12593
+|            | branch         | address                 | city    | zip code | ytd    | year | month   | circulation |
+|------------|----------------|-------------------------|---------|----------|--------|------|---------|-------------|
+| date       |                |                         |         |          |        |      |         |             |
+| 2011-01-01 | Albany Park    | 5150 N. Kimball Ave.    | Chicago | 60625.0  | 120059 | 2011 | january | 8427        |
+| 2011-01-01 | Altgeld        | 13281 S. Corliss Ave.   | Chicago | 60827.0  | 9611   | 2011 | january | 1258        |
+| 2011-01-01 | Archer Heights | 5055 S. Archer Ave.     | Chicago | 60632.0  | 101951 | 2011 | january | 8104        |
+| 2011-01-01 | Austin         | 5615 W. Race Ave.       | Chicago | 60644.0  | 25527  | 2011 | january | 1755        |
+| 2011-01-01 | Austin-Irving  | 6100 W. Irving Park Rd. | Chicago | 60634.0  | 165634 | 2011 | january | 12593       |
 
-```
 
 ## Plotting with Pandas 
 
@@ -120,15 +137,14 @@ albany = df_long[df_long['branch'] == 'Albany Park']
 albany.head()
 ```
 
-``` output
-                   branch               address  ...    month  circulation
-  date                                           ...                      
-  2011-01-01  Albany Park  5150 N. Kimball Ave.  ...  january         8427
-  2016-01-01  Albany Park                   NaN  ...  january        10905
-  2017-01-01  Albany Park                   NaN  ...  january        11031
-  2022-01-01  Albany Park   3401 W. Foster Ave.  ...  january         5561
-  2018-01-01  Albany Park                   NaN  ...  january         9381
-```
+|            | branch      | address              | city    | zip code | ytd    | year | month   | circulation |
+|------------|-------------|----------------------|---------|----------|--------|------|---------|-------------|
+| date       |             |                      |         |          |        |      |         |             |
+| 2011-01-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 120059 | 2011 | january | 8427        |
+| 2012-01-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 83297  | 2012 | january | 10173       |
+| 2013-01-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 572    | 2013 | january | 0           |
+| 2014-01-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 50484  | 2014 | january | 35          |
+| 2015-01-01 | Albany Park | NaN                  | NaN     | NaN      | 133366 | 2015 | january | 10889       |
 
 Now we can use the `plot()` function that is built in to pandas. Let’s try it:
 
@@ -165,9 +181,9 @@ The drop from 2012 through part of 2014 corresponds to the reconstruction period
 
 What if we want to alter the axis labels and the title of the graph. In order to do that, we need to first import `matplotlib`, an extensive plotting package in Python that lets us alter all aspects of a graph.
 
-- We can pass parameters to matplotlib's `.plot()` function to assign a plot title, to declare a figsize - which accepts a width and height in inches - and to change the color of the line.
+- We can pass parameters to Matplotlib's `.plot()` function to assign a plot title, to declare a figsize - which accepts a width and height in inches - and to change the color of the line.
 - Next we'll add text labels for the x and y axis using `.xlabel()` and `.ylabel`.
-- Finally, we need a separate function `.show()` to display the plot using matplotlib.
+- Finally, we need a separate function `.show()` to display the plot using Matplotlib.
 
 
 ``` python
@@ -233,10 +249,10 @@ fig = px.line(selected_branches, x=selected_branches.index, y='circulation', col
 fig.show()
 ```
 
-Here is a view of the [interactive output of the Plotly line chart](learners/line_plot_int.html).  
+Here is a view of the <a href='learners/line_plot_int.html', target='_blank'>interactive output of the Plotly line chart</a>.  
 
 
-One advantage that Plotly provides over matplotlib is that it has some interactive features out of the box. Hover your cursor over the lines in the output to find out more granular data about specific branches over time.
+One advantage that Plotly provides over Matplotlib is that it has some interactive features out of the box. Hover your cursor over the lines in the output to find out more granular data about specific branches over time.
 
 
 ### Bar plots with Plotly
@@ -254,7 +270,8 @@ fig = px.bar(total_circulation_by_branch, x='branch', y='circulation', title='To
 fig.show()
 ```
 
-Here is a view of the [interactive output of the Plotly bar chart](learners/bar_plot_int.html).  
+Here is a view of the <a href='learners/bar_plot_int.html', target='_blank'>interactive output of the Plotly bar chart</a>.  
+
 
 
 ::: keypoints

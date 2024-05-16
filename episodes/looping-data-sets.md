@@ -20,7 +20,7 @@ exercises: 10
 
 ## Use a `for` loop to process files given a list of their names.
 
-If you recall from episode 06, the `pd.read_csv()` method takes a text string referencing a filename as an argument. If we have a list of strings that point to our filenames, we can loop through the list to read in each CSV file as a dataframe. Let's print out the maximum values from the 'ytd' (year to date) column for each dataframe.
+If you recall from episode 06, the `pd.read_csv()` method takes a text string referencing a filename as an argument. If we have a list of strings that point to our filenames, we can loop through the list to read in each CSV file as a DataFrame. Let's print out the maximum values from the 'ytd' (year to date) column for each DataFrame.
 
 ```python
 for filename in ['data/2011_circ.csv', 'data/2012_circ.csv']:
@@ -29,8 +29,8 @@ for filename in ['data/2011_circ.csv', 'data/2012_circ.csv']:
 ```
 
 ```output
-data/2011_circ.csv 9218
-data/2012_circ.csv 10010
+data/2011_circ.csv 966720
+data/2012_circ.csv 937649
 ```
 
 ## Use `glob` to find sets of files whose names match a pattern.
@@ -55,7 +55,7 @@ all csv files in data directory: ['data/2011_circ.csv', 'data/2016_circ.csv', 'd
 
 ## Use `glob` and `for` to process batches of files.
 
-Now we can use glob in a `for` loop to create dataframes from all of the CSV files in the `data` directory. To use tools like `glob` it helps if files are named and stored consistently so that simple patterns will find the right data. You can learn more about how to name files to improve machine-readability from the [Open Science Foundation article on file naming](https://help.osf.io/article/146-file-naming).
+Now we can use glob in a `for` loop to create DataFrames from all of the CSV files in the `data` directory. To use tools like `glob` it helps if files are named and stored consistently so that simple patterns will find the right data. You can learn more about how to name files to improve machine-readability from the [Open Science Foundation article on file naming](https://help.osf.io/article/146-file-naming).
 
 ```python
 for csv in glob.glob('data/*.csv'):
@@ -64,18 +64,18 @@ for csv in glob.glob('data/*.csv'):
 ```
 
 ```output
-data/2011_circ.csv 1678047
-data/2016_circ.csv 3478369
-data/2017_circ.csv 3623318
-data/2022_circ.csv 6336579
-data/2018_circ.csv 4006963
-data/2019_circ.csv 4821180
-data/2012_circ.csv 1707032
-data/2013_circ.csv 2069537
-data/2021_circ.csv 6629348
-data/2020_circ.csv 8222810
-data/2015_circ.csv 3195053
-data/2014_circ.csv 2792631
+data/2011_circ.csv 966720
+data/2016_circ.csv 670077
+data/2017_circ.csv 634570
+data/2022_circ.csv 301340
+data/2018_circ.csv 614313
+data/2019_circ.csv 581151
+data/2012_circ.csv 937649
+data/2013_circ.csv 821749
+data/2021_circ.csv 271811
+data/2020_circ.csv 276878
+data/2015_circ.csv 694528
+data/2014_circ.csv 755189
 ```
 
 The output of the files above may be different for you, depending on what operating system you use. The glob library doesn't have its own internal system for determining how filenames are sorted, but instead relies on the operating system's filesystem. Since operating systems can differ, it is helpful to use Python to manually sort the glob files so that everyone will see the same results, regardless of their operating system. You can do that by applying the Python method `sorted()` to the `glob.glob` list.
@@ -87,56 +87,100 @@ for csv in sorted(glob.glob('data/*.csv')):
 ```
 
 ```output
-data/2011_circ.csv 1678047
-data/2012_circ.csv 1707032
-data/2013_circ.csv 2069537
-data/2014_circ.csv 2792631
-data/2015_circ.csv 3195053
-data/2016_circ.csv 3478369
-data/2017_circ.csv 3623318
-data/2018_circ.csv 4006963
-data/2019_circ.csv 4821180
-data/2020_circ.csv 8222810
-data/2021_circ.csv 6629348
-data/2022_circ.csv 6336579
+data/2011_circ.csv 966720
+data/2012_circ.csv 937649
+data/2013_circ.csv 821749
+data/2014_circ.csv 755189
+data/2015_circ.csv 694528
+data/2016_circ.csv 670077
+data/2017_circ.csv 634570
+data/2018_circ.csv 614313
+data/2019_circ.csv 581151
+data/2020_circ.csv 276878
+data/2021_circ.csv 271811
+data/2022_circ.csv 301340
 ```
 
-## Appending dataframes to a list
 
-In the example above, we can print out results from each dataframe as we cycle through them, but it would be more convenient if we saved all of the yearly usage data in these CSV files into dataframes that we could work with later on. We can do that by using a list "accumulator" (as we covered in the last episode) and appending each dataframe to an empty list. You can create an empty list by assigning a variable to empty square brackets before the loop begins.
+## Appending DataFrames to a list
+
+In the example above, we can print out results from each DataFrame as we cycle through them, but it would be more convenient if we saved all of the yearly usage data in these CSV files into DataFrames that we could work with later on. 
+
+### Convert Year in filenames to a column
+Before we join the data from each CSV into a single DataFrame, we'll want to make sure we keep track of which year each dataset comes from. To do that we can capture the year from each file name and save it to a new column for all of the rows in each CSV. Let's see how this works by looping through each of our CSVs.
 
 ```python
-dfs = [] # an empty list to hold all of our dataframes
+for csv in sorted(glob.glob('data/*.csv')):
+        year = csv[5:9] #the 5th to 9th characters in each file match the year
+        print(f'filename: {csv} year: {year}')
+```
+
+```output
+filename: data/2011_circ.csv year: 2011
+filename: data/2012_circ.csv year: 2012
+filename: data/2013_circ.csv year: 2013
+filename: data/2014_circ.csv year: 2014
+filename: data/2015_circ.csv year: 2015
+filename: data/2016_circ.csv year: 2016
+filename: data/2017_circ.csv year: 2017
+filename: data/2018_circ.csv year: 2018
+filename: data/2019_circ.csv year: 2019
+filename: data/2020_circ.csv year: 2020
+filename: data/2021_circ.csv year: 2021
+filename: data/2022_circ.csv year: 2022
+```
+
+Once we've saved the `year` variable from each file name, we can assign it to every row in a column for each CSV by assigning `data['year'] = year` inside of the loop. 
+
+To collect the data from each CSV we'll use a list "accumulator" (as we covered in the last episode) and append each DataFrame to an empty list. You can create an empty list by assigning a variable to empty square brackets before the loop begins.
+
+```python
+dfs = [] # an empty list to hold all of our DataFrames
 counter = 1
 
 for csv in sorted(glob.glob('data/*.csv')):
-  data = pd.read_csv(csv)
+  year = csv[5:9] 
+  data = pd.read_csv(csv) 
+  data['year'] = year 
   print(f'{counter} Saving {len(data)} rows from {csv}')
   dfs.append(data)
   counter += 1
 
-print(f'Number of saved dataframes: {len(dfs)}')
+print(f'Number of saved DataFrames: {len(dfs)}')
 ```
 
 ```output
-1 Saving 83 rows from data/2011_circ.csv
-2 Saving 82 rows from data/2012_circ.csv
-3 Saving 83 rows from data/2013_circ.csv
-4 Saving 83 rows from data/2014_circ.csv
-5 Saving 83 rows from data/2015_circ.csv
-6 Saving 83 rows from data/2016_circ.csv
-7 Saving 83 rows from data/2017_circ.csv
-8 Saving 83 rows from data/2018_circ.csv
-9 Saving 84 rows from data/2019_circ.csv
-10 Saving 85 rows from data/2020_circ.csv
-11 Saving 85 rows from data/2021_circ.csv
-12 Saving 86 rows from data/2022_circ.csv
-Number of saved dataframes: 12
+1 Saving 80 rows from data/2011_circ.csv
+2 Saving 79 rows from data/2012_circ.csv
+3 Saving 80 rows from data/2013_circ.csv
+4 Saving 80 rows from data/2014_circ.csv
+5 Saving 80 rows from data/2015_circ.csv
+6 Saving 80 rows from data/2016_circ.csv
+7 Saving 80 rows from data/2017_circ.csv
+8 Saving 80 rows from data/2018_circ.csv
+9 Saving 81 rows from data/2019_circ.csv
+10 Saving 81 rows from data/2020_circ.csv
+11 Saving 81 rows from data/2021_circ.csv
+12 Saving 81 rows from data/2022_circ.csv
+Number of saved DataFrames: 12
 ```
 
-## Concatenating dataframes 
+We can check to make sure the year was properly saved by looking at the first DataFrame in the `dfs` list. If you scroll to the right you should see the first two rows of the `year` column both have the value `2011`.
 
-There are many different ways to merge, join, and concatenate pandas dataframes together. The [pandas documentation has good examples](https://pandas.pydata.org/docs/user_guide/merging.html) of how to use the `.merge()`, `.join()`, and `.concat()` methods to accomplish different goals. Because all of our CSVs have the exact same columns, if we want to concatenate them vertically (adding all of the rows from each dataframe together in order), we can do so using `concat()`, which takes a list of dataframes as its first argument. Since we aren't using a specific column as a pandas index, we'll set the argument of `ignore_index` to be True. 
+```python
+dfs[0].head(2) # we can add a number to head() to ask for a specific number of rows
+```
+```output
+|     | branch      | address               | city    | zip code | january | february | march | april | may  | june  | july  | august | september | october | november | december | ytd    | year |
+|-----|-------------|-----------------------|---------|----------|---------|----------|-------|-------|------|-------|-------|--------|-----------|---------|----------|----------|--------|------|
+| 0   | Albany Park | 5150 N. Kimball Ave.  | Chicago | 60625.0  | 8427    | 7023     | 9702  | 9344  | 8865 | 11650 | 11778 | 11306  | 10466     | 10997   | 10567    | 9934     | 120059 | 2011 |
+| 1   | Altgeld     | 13281 S. Corliss Ave. | Chicago | 60827.0  | 1258    | 708      | 854   | 804   | 816  | 870   | 713   | 480    | 702       | 927     | 787      | 692      | 9611   | 2011 |
+
+```
+
+## Concatenating DataFrames 
+
+There are many different ways to merge, join, and concatenate pandas DataFrames together. The [pandas documentation has good examples](https://pandas.pydata.org/docs/user_guide/merging.html) of how to use the `.merge()`, `.join()`, and `.concat()` methods to accomplish different goals. Because all of our CSVs have the exact same columns, if we want to concatenate them vertically (adding all of the rows from each DataFrame together in order), we can do so using `concat()`, which takes a list of DataFrames as its first argument. Since we aren't using a specific column as a pandas index, we'll set the argument of `ignore_index` to be True. 
 
 ```python
 df = pd.concat(dfs, ignore_index=True)
@@ -144,7 +188,7 @@ f'Number of rows in df: {len(df)}'
 ```
 
 ```output
-'Number of rows in df: 1003'
+'Number of rows in df: 963'
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -163,8 +207,6 @@ Which of these files would be matched by the expression `glob.glob('data/*circ.c
 ## Solution
 
 Only item 1 is matched by the wildcard expression `data/*circ.csv`. 
-
-
 
 :::::::::::::::::::::::::
 
@@ -202,9 +244,9 @@ for csv in sorted(glob.glob('data/*.csv')):
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Compile CSVs into one dataframe
+## Compile CSVs into one DataFrame
 
-Imagine you had a folder named `outputs/` that included all kinds of different file types. Use `glob` and a `for` loop to iterate through all of the CSV files in the folder that have a file name that begins with `data`. Save them to a list called `dfs`, and then use `pd.concat()` to concatenate all of the dataframes from the `dfs` list together into a new dataframe called, `new_df`. You can assume that all of the data CSV files have the same columns so they will concatenate together cleanly using `pd.concat()`.
+Imagine you had a folder named `outputs/` that included all kinds of different file types. Use `glob` and a `for` loop to iterate through all of the CSV files in the folder that have a file name that begins with `data`. Save them to a list called `dfs`, and then use `pd.concat()` to concatenate all of the DataFrames from the `dfs` list together into a new DataFrame called, `new_df`. You can assume that all of the data CSV files have the same columns so they will concatenate together cleanly using `pd.concat()`.
 
 :::::::::::::::  solution
 
@@ -231,8 +273,8 @@ new_df = pd.concat(dfs, ignore_index=True)
 - Use a `for` loop to process files given a list of their names.
 - Use `glob.glob` to find sets of files whose names match a pattern.
 - Use `glob` and `for` to process batches of files.
-- Use a list “accumulator” to append a dataframe to an empty list `[]`.
-- The `.merge()`, `.join()`, and `.concat()` methods can combine pandas dataframes.
+- Use a list “accumulator” to append a DataFrame to an empty list `[]`.
+- The `.merge()`, `.join()`, and `.concat()` methods can combine pandas DataFrames.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

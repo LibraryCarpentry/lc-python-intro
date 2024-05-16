@@ -169,22 +169,49 @@ Let's load that file into a pandas DataFrame, and save it to a new variable call
 df = pd.read_csv('data/2011_circ.csv')
 print(df)
 ```
-
 ```output
                        branch                  address     city  zip code  \
-0                 Albany Park     5150 N. Kimball Ave.  Chicago   60625.0   
-1                     Altgeld    13281 S. Corliss Ave.  Chicago   60827.0   
-2              Archer Heights      5055 S. Archer Ave.  Chicago   60632.0   
-3                      Austin        5615 W. Race Ave.  Chicago   60644.0   
-4               Austin-Irving  6100 W. Irving Park Rd.  Chicago   60634.0   
-..                        ...                      ...      ...       ...   
-78           Woodson Regional      9525 S. Halsted St.  Chicago   60628.0   
-79         Wrightwood-Ashburn      8530 S. Kedzie Ave.  Chicago   60652.0   
-80          Renewals - Online                      NaN      NaN       NaN   
-81  Talking Books and Braille                      NaN      NaN       NaN   
-82         Downloadable Media                      NaN      NaN       NaN   
+    0             Albany Park     5150 N. Kimball Ave.  Chicago   60625.0   
+    1                 Altgeld    13281 S. Corliss Ave.  Chicago   60827.0   
+    2          Archer Heights      5055 S. Archer Ave.  Chicago   60632.0   
+    3                  Austin        5615 W. Race Ave.  Chicago   60644.0   
+    4           Austin-Irving  6100 W. Irving Park Rd.  Chicago   60634.0   
+    ..                    ...                      ...      ...       ...   
+    75           West Pullman         830 W. 119th St.  Chicago   60643.0   
+    76              West Town     1625 W. Chicago Ave.  Chicago   60622.0   
+    77  Whitney M. Young, Jr.         7901 S. King Dr.  Chicago   60619.0   
+    78       Woodson Regional      9525 S. Halsted St.  Chicago   60628.0   
+    79     Wrightwood-Ashburn      8530 S. Kedzie Ave.  Chicago   60652.0   
 
+        january  february  march  april    may   june   july  august  september  \
+    0      8427      7023   9702   9344   8865  11650  11778   11306      10466   
+    1      1258       708    854    804    816    870    713     480        702   
+    2      8104      6899   9329   9124   7472   8314   8116    9177       9033   
+    3      1755      1316   1942   2200   2133   2359   2080    2405       2417   
+    4     12593     11791  14807  14382  11754  14402  14605   15164      14306   
+    ..      ...       ...    ...    ...    ...    ...    ...     ...        ...   
+    75     3312      2713   3495   3550   3010   2968   3844    3811       3209   
+    76     9030      7727  10450  10607  10139  10410  10601   11311      11084   
+    77     2588      2033   3099   3087   3005   2911   3123    3644       3547   
+    78    10564      8874  10948   9299   9025  10020  10366   10892      10901   
+    79     3062      2780   3334   3279   3036   3801   4600    3953       3536   
+
+        october  november  december     ytd  
+    0     10997     10567      9934  120059  
+    1       927       787       692    9611  
+    2      9709      8809      7865  101951  
+    3      2571      2233      2116   25527  
+    4     15357     14069     12404  165634  
+    ..      ...       ...       ...     ...  
+    75     3923      3162      3147   40144  
+    76    10657     10797      9275  122088  
+    77     3848      3324      3190   37399  
+    78    13272     11421      9474  125056  
+    79     4093      3583      3200   42257  
+
+    [80 rows x 17 columns]
 ```
+
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## File Not Found
@@ -207,6 +234,13 @@ Also, as seen above, the output when you print a dataframe in Jupyter isn't very
 df_2011 = pd.read_csv('data/2011_circ.csv')
 df_2011.head()
 ```
+|     | branch         | address                 | city    | zip code | january | february | march | april | may   | june  | july  | august | september | october | november | december | ytd    |
+|-----|----------------|-------------------------|---------|----------|---------|----------|-------|-------|-------|-------|-------|--------|-----------|---------|----------|----------|--------|
+| 0   | Albany Park    | 5150 N. Kimball Ave.    | Chicago | 60625.0  | 8427    | 7023     | 9702  | 9344  | 8865  | 11650 | 11778 | 11306  | 10466     | 10997   | 10567    | 9934     | 120059 |
+| 1   | Altgeld        | 13281 S. Corliss Ave.   | Chicago | 60827.0  | 1258    | 708      | 854   | 804   | 816   | 870   | 713   | 480    | 702       | 927     | 787      | 692      | 9611   |
+| 2   | Archer Heights | 5055 S. Archer Ave.     | Chicago | 60632.0  | 8104    | 6899     | 9329  | 9124  | 7472  | 8314  | 8116  | 9177   | 9033      | 9709    | 8809     | 7865     | 101951 |
+| 3   | Austin         | 5615 W. Race Ave.       | Chicago | 60644.0  | 1755    | 1316     | 1942  | 2200  | 2133  | 2359  | 2080  | 2405   | 2417      | 2571    | 2233     | 2116     | 25527  |
+| 4   | Austin-Irving  | 6100 W. Irving Park Rd. | Chicago | 60634.0  | 12593   | 11791    | 14807 | 14382 | 11754 | 14402 | 14605 | 15164  | 14306     | 15357   | 14069    | 12404    | 165634 |
 
 ## Use the `DataFrame.info()` method to find out more about a dataframe.
 
@@ -216,30 +250,29 @@ df_2011.info()
 
 ```output
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 83 entries, 0 to 82
-Data columns (total 18 columns):
+RangeIndex: 80 entries, 0 to 79
+Data columns (total 17 columns):
  #   Column     Non-Null Count  Dtype  
 ---  ------     --------------  -----  
- 0   branch     83 non-null     object 
+ 0   branch     80 non-null     object 
  1   address    80 non-null     object 
  2   city       80 non-null     object 
  3   zip code   80 non-null     float64
- 4   january    83 non-null     int64  
- 5   february   83 non-null     int64  
- 6   march      83 non-null     int64  
- 7   april      83 non-null     int64  
- 8   may        83 non-null     int64  
- 9   june       83 non-null     int64  
- 10  july       83 non-null     int64  
- 11  august     83 non-null     int64  
- 12  september  83 non-null     int64  
- 13  october    83 non-null     int64  
- 14  november   83 non-null     int64  
- 15  december   83 non-null     int64  
- 16  ytd        83 non-null     int64  
- 17  year       83 non-null     int64  
-dtypes: float64(1), int64(14), object(3)
-memory usage: 11.8+ KB
+ 4   january    80 non-null     int64  
+ 5   february   80 non-null     int64  
+ 6   march      80 non-null     int64  
+ 7   april      80 non-null     int64  
+ 8   may        80 non-null     int64  
+ 9   june       80 non-null     int64  
+ 10  july       80 non-null     int64  
+ 11  august     80 non-null     int64  
+ 12  september  80 non-null     int64  
+ 13  october    80 non-null     int64  
+ 14  november   80 non-null     int64  
+ 15  december   80 non-null     int64  
+ 16  ytd        80 non-null     int64  
+dtypes: float64(1), int64(13), object(3)
+memory usage: 10.8+ KB
 ```
 
 The `info()` method tells us
@@ -261,7 +294,7 @@ print(df_2011.columns)
 ```output
 Index(['branch', 'address', 'city', 'zip code', 'january', 'february', 'march',
        'april', 'may', 'june', 'july', 'august', 'september', 'october',
-       'november', 'december', 'ytd', 'year'],
+       'november', 'december', 'ytd'],
       dtype='object')
 ```
 
@@ -272,6 +305,16 @@ Index(['branch', 'address', 'city', 'zip code', 'january', 'february', 'march',
 ```python
 df_2011.describe()
 ```
+|       | zip code     | january      | february     | march       | april        | may          | june         | july         | august       | september    | october      | november     | december    | ytd           |
+|-------|--------------|--------------|--------------|-------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|-------------|---------------|
+| count | 80.000000    | 80.000000    | 80.000000    | 80.00000    | 80.000000    | 80.000000    | 80.000000    | 80.000000    | 80.000000    | 80.000000    | 80.000000    | 80.000000    | 80.00000    | 80.000000     |
+| mean  | 60632.675000 | 7216.175000  | 6247.162500  | 8367.36250  | 8209.225000  | 7551.725000  | 8581.125000  | 8708.887500  | 8918.550000  | 8289.975000  | 9033.437500  | 8431.112500  | 7622.73750  | 97177.475000  |
+| std   | 28.001254    | 10334.622299 | 8815.945718  | 11667.93342 | 11241.223544 | 10532.352671 | 10862.742953 | 10794.030461 | 11301.149192 | 10576.005552 | 10826.494853 | 10491.875418 | 9194.44616  | 125678.282307 |
+| min   | 60605.000000 | 0.000000     | 0.000000     | 0.00000     | 0.000000     | 0.000000     | 0.000000     | 0.000000     | 2.000000     | 0.000000     | 0.000000     | 0.000000     | 0.00000     | 9218.000000   |
+| 25%   | 60617.000000 | 2388.500000  | 1979.250000  | 2708.50000  | 2864.250000  | 2678.500000  | 2953.750000  | 3344.750000  | 3310.500000  | 3196.750000  | 3747.000000  | 3168.000000  | 3049.75000  | 37119.250000  |
+| 50%   | 60629.000000 | 5814.500000  | 5200.000000  | 6468.50000  | 6286.000000  | 5733.000000  | 6764.500000  | 6194.000000  | 6938.500000  | 6599.500000  | 7219.500000  | 6766.000000  | 5797.00000  | 73529.000000  |
+| 75%   | 60643.000000 | 9021.000000  | 8000.000000  | 10737.00000 | 10794.250000 | 9406.250000  | 10852.750000 | 11168.000000 | 11291.750000 | 10520.000000 | 11347.500000 | 10767.000000 | 9775.00000  | 124195.750000 |
+| max   | 60827.000000 | 79210.000000 | 67574.000000 | 89122.00000 | 88527.000000 | 82581.000000 | 82100.000000 | 80219.000000 | 85193.000000 | 81400.000000 | 82236.000000 | 79702.000000 | 68856.00000 | 966720.000000 |
 
 This gives us, for example, the count, minimum, maximum, and mean values from each numeric column. In the case of the `zip code` column, this isn't helpful, but for the usage data for each month, it's a quick way to scan the range of data over the course of the year.
 
