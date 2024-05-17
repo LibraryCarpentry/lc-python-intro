@@ -249,7 +249,7 @@ fig = px.line(selected_branches, x=selected_branches.index, y='circulation', col
 fig.show()
 ```
 
-Here is a view of the <a href='learners/line_plot_int.html', target='_blank'>interactive output of the Plotly line chart</a>.  
+Here is a view of the [interactive output of the Plotly line chart](learners/line_plot_int.html).  
 
 
 One advantage that Plotly provides over Matplotlib is that it has some interactive features out of the box. Hover your cursor over the lines in the output to find out more granular data about specific branches over time.
@@ -270,7 +270,7 @@ fig = px.bar(total_circulation_by_branch, x='branch', y='circulation', title='To
 fig.show()
 ```
 
-Here is a view of the <a href='learners/bar_plot_int.html', target='_blank'>interactive output of the Plotly bar chart</a>.  
+Here is a view of the [interactive output of the Plotly bar chart](learners/bar_plot_int.html).  
 
 
 
