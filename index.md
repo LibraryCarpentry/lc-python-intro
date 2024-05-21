@@ -3,8 +3,12 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 ::::::::::::::::::::::::::::::::::::::::::  callout
-## Major lesson update in early 2024 
-The Python Intro for Libraries lesson is currently begin redeveloped. The new Python lesson will feature a different dataset (of library usage data) and will use JupyterLab (instead of Spyder). Due to the scope of changes, the lesson is being updated [in a separate GitHub repository](https://github.com/chennesy/lc-python-intro). Once the redesign is finished that lesson will replace the lesson maintained here. We will post a target date for the change here as soon as we have a clear timeline, but if you are planning to teach this lesson in early 2024 [please add an issue here](https://github.com/LibraryCarpentry/lc-python-intro/issues) to let us know.
+## Major lesson update: June 14, 2024
+The Python Intro for Libraries lesson has had a major redesign and will replace this lesson on June 14, 2024. The new Python lesson features a different dataset (of library usage data) and uses JupyterLab (instead of Spyder). Due to the scope of changes, the lesson was developed [in a separate GitHub repository](https://github.com/chennesy/lc-python-intro).
+
+- If you are planning to teach the Python for Librarians lesson *before* June 14, 2024 we advise teaching [the new lesson](https://github.com/chennesy/lc-python-intro) from this fork.
+- If you are planning to teach the lesson *after* June 14, 2024, this lesson will be up to date, and you can prepare to teach using the [forked version](https://github.com/chennesy/lc-python-intro).
+ 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 This lesson is an introduction to programming in Python
