@@ -14,14 +14,14 @@ carpentry: 'lc'
 title: 'Python Intro for Libraries'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: '2018-04-12'
+created: '2024-05-24'
 
 # Comma-separated list of keywords for the lesson
 keywords: 'software, data, lesson, The Carpentries'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha'
+life_cycle: 'alpha'
 
 # License of the lesson materials (recommended CC-BY 4.0)
 license: 'CC-BY 4.0'
