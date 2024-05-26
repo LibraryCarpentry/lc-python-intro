@@ -177,46 +177,42 @@ The drop from 2012 through part of 2014 corresponds to the reconstruction period
 ::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use Matplotlib for more detailed charts
+## Use Pandas for More Detailed Charts
 
-What if we want to alter the axis labels and the title of the graph. In order to do that, we need to first import `matplotlib`, an extensive plotting package in Python that lets us alter all aspects of a graph.
+What if we want to alter the axis labels and the title of the graph? Pandas' built-in plotting functions, which are backended by Matplotlib, allow us to customize various aspects of a plot without needing to import Matplotlib directly.
 
-- We can pass parameters to Matplotlib's `.plot()` function to assign a plot title, to declare a figsize - which accepts a width and height in inches - and to change the color of the line.
-- Next we'll add text labels for the x and y axis using `.xlabel()` and `.ylabel`.
-- Finally, we need a separate function `.show()` to display the plot using Matplotlib.
-
+- We can pass parameters to Pandas' `.plot()` function to add a plot title, specify a figure size, and change the color of the line.
+- Additionally, we can directly set the x and y axis labels within the `.plot()` function.
 
 ``` python
-# the plotting package pandas is using under the hood to `plot()`  
-import matplotlib.pyplot as plt
-
-albany['circulation'].plot(title='Circulation Count Over Time', figsize=(10, 5), color='blue')
-# Adding labels and showing the plot
-plt.xlabel('Date')
-plt.ylabel('Circulation Count')
-plt.show()
+albany['circulation'].plot(title='Circulation Count Over Time', 
+                                figsize=(10, 5), 
+                                color='blue', 
+                                xlabel='Date',
+                                ylabel='Circulation Count')
 ```
 
 ![](fig/albany-circ-labeling-5.png){alt="Line plot of the Albany Park branch circulation with matplotlib styles applied."}
 
-### Changing plot types with Matplotlib
+### Changing plot types
 
 What if we want to use a different plot type for this graphic? To do so, we can change the `kind` parameters in our `.plot()` function.
 
 ``` python
-albany['circulation'].plot(kind='area', title='Circulation Count Area Plot at Albany Park', alpha=0.5)
-plt.xlabel('Date')
-plt.ylabel('Circulation Count')
-plt.show()
+albany['circulation'].plot(kind='area', 
+                            title='Circulation Count Area Plot at Albany Park', alpha=0.5, 
+                            xlabel='Date',
+                            ylabel='Circulation Count')
 ```
+
 ![](fig/albany-circ-area-7.png){alt="Area plot of the Albany Park branch circulation."}
 
 We can also look at our circulation data as a histogram.
 
 ``` python
-albany['circulation'].plot(kind='hist', bins=20, title='Distribution of Circulation Counts at Albany Park')
-plt.xlabel('Circulation Count')
-plt.show()
+albany['circulation'].plot(kind='hist', bins=20, 
+                            title='Distribution of Circulation Counts at Albany Park',
+                            xlabel='Circulation Count')
 ```
 
 ![](fig/albany-circ-hist-9.png){alt="histogram of the Albany branch circulation."}
