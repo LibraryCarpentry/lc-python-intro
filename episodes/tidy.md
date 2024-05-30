@@ -264,6 +264,72 @@ df_long.groupby(['branch', 'month'])['circulation'].agg(['sum', 'mean'])
 
 <p>984 rows × 2 columns</p>
 
+## Adding a Date Column
+
+In order to plot this data over time in the data visualization we need to do three things to prepare it. First, we need to combine the year and month columns into its own column.  Second, convert the new date column to a [datetime](https://docs.python.org/3/library/datetime.html) objec using the Pandas `to_datetime` function. Third, we assign the date column as our index for the data. These steps will set up our data for plotting.
+
+``` python
+df_long['date'] = df_long['year'] + '-' + df_long['month']
+```
+
+This will create a new column in our data frame by adding our year and month together separated by a `-`. This setup is not sufficient for us to use `.to_datetime()` to convert the column to something Python and Pandas knows is a date. 
+
+```python
+df_long['date'] = pd.to_datetime(df_long['date'], format='%Y-%B')
+```
+`pd.to_datetime()` will do the conversion, but we need to tell it how we have our date formatted. In this case we have year and month name spelled out. To find more format codes, see <https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior>. 
+
+If we take a look at the date column, we'll see that datetime automatically adds a day (always `01`) in the absence of any specific day input.
+
+```python
+df_long['date']
+```
+```output
+0       2011-01-01
+1       2011-01-01
+2       2011-01-01
+3       2011-01-01
+4       2011-01-01
+           ...    
+11551   2022-12-01
+11552   2022-12-01
+11553   2022-12-01
+11554   2022-12-01
+11555   2022-12-01
+Name: date, Length: 11556, dtype: datetime64[ns]
+```
+
+``` python
+df_long.info()
+```
+
+``` output
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 11556 entries, 0 to 11555
+Data columns (total 9 columns):
+ #   Column       Non-Null Count  Dtype         
+---  ------       --------------  -----         
+ 0   branch       11556 non-null  object        
+ 1   address      7716 non-null   object        
+ 2   city         7716 non-null   object        
+ 3   zip code     7716 non-null   float64       
+ 4   ytd          11556 non-null  int64         
+ 5   year         11556 non-null  object        
+ 6   month        11556 non-null  object        
+ 7   circulation  11556 non-null  int64         
+ 8   date         11556 non-null  datetime64[ns]
+dtypes: datetime64[ns](1), float64(1), int64(2), object(5)
+memory usage: 812.7+ KB
+```
+
+That worked! Now, we can make the datetime column the index of our DataFrame. In the Pandas episode we looked at Pandas default numerical index, but we can also use `.set_index()` to declare a specific column as the index of our DataFrame. Using a datetime index will make it easier for us to plot the DataFrame over time. The first parameter of `.set_index()` is the column name and the `inplace=True` parameter allows us to modify the DataFrame without assigning it to a new variable.
+
+
+``` python
+df_long.set_index('date', inplace=True)
+```
+
+If we look at the data again, we will see our index will be set to date.
 
 Let's save `df_long` to use in the next episode. 
 
