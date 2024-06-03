@@ -33,13 +33,14 @@ Let’s look at the data:
 df_long.head()
 ```
 
-|     | branch         | address                 | city    | zip code | ytd    | year | month   | circulation |
-|-----|----------------|-------------------------|---------|----------|--------|------|---------|-------------|
-| 0   | Albany Park    | 5150 N. Kimball Ave.    | Chicago | 60625.0  | 120059 | 2011 | january | 8427        |
-| 1   | Altgeld        | 13281 S. Corliss Ave.   | Chicago | 60827.0  | 9611   | 2011 | january | 1258        |
-| 2   | Archer Heights | 5055 S. Archer Ave.     | Chicago | 60632.0  | 101951 | 2011 | january | 8104        |
-| 3   | Austin         | 5615 W. Race Ave.       | Chicago | 60644.0  | 25527  | 2011 | january | 1755        |
-| 4   | Austin-Irving  | 6100 W. Irving Park Rd. | Chicago | 60634.0  | 165634 | 2011 | january | 12593       |
+|            | branch         | address                 | city    | zip code | ytd    | year | month   | circulation |
+|------------|----------------|-------------------------|---------|----------|--------|------|---------|-------------|
+| date       |                |                         |         |          |        |      |         |             |
+| 2011-01-01 | Albany Park    | 5150 N. Kimball Ave.    | Chicago | 60625.0  | 120059 | 2011 | january | 8427        |
+| 2011-01-01 | Altgeld        | 13281 S. Corliss Ave.   | Chicago | 60827.0  | 9611   | 2011 | january | 1258        |
+| 2011-01-01 | Archer Heights | 5055 S. Archer Ave.     | Chicago | 60632.0  | 101951 | 2011 | january | 8104        |
+| 2011-01-01 | Austin         | 5615 W. Race Ave.       | Chicago | 60644.0  | 25527  | 2011 | january | 1755        |
+| 2011-01-01 | Austin-Irving  | 6100 W. Irving Park Rd. | Chicago | 60634.0  | 165634 | 2011 | january | 12593       |
 
 
 ## Plotting with Pandas 
