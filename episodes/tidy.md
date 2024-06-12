@@ -56,6 +56,7 @@ To address this we can reshape our data in a long format. This is sometimes call
 ## Tidy Data 
 
 Tidy data is a standard way of organizing data values within a dataset, making it easier to work with. Here are the key principles of tidy data:
+
 1. Every column holds a single variable, like "month" or "temperature."
 2. Every row represents a single observation, like circulation counts by branch and month.
 3. Every cell contains a single value.
@@ -69,6 +70,7 @@ R for Data Science [12.1](https://r4ds.had.co.nz/tidy-data.html#fig:tidy-structu
 ### Benefits of Tidy Data
 
 Transforming our data into a tidy data format provides several advantages:
+
 - Python operations, such as visualization, filtering, and statistical analysis libraries, work better with data in a tidy format.
 - Tidy data makes transforming, summarizing, and visualizing information easier. For instance, comparing monthly trends or calculating annual averages becomes more straightforward.
 - As datasets grow, tidy data ensures that they remain manageable and analyses remain accurate.
@@ -337,6 +339,97 @@ Let's save `df_long` to use in the next episode.
 df.to_pickle('data/df_long.pkl')
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Tidy Data Principles
+
+How would you reorganize the following table about research data workshops to follow the three tidy data principles? 
+
+1. Every column holds a single variable.
+2. Every row represents a single observation.
+3. Every cell contains a single value.
+
+| Date       | Length  | Content     | Instructor |
+|------------|---------|-------------|------------|
+| 2023-01-15 | 30 min  | RDM, DMP    | CH         |
+| 2023-02-02 | 2 hours | Python, RDM | CH, TD     |
+| 2023-02-03 | 90 min  | Python      | SP         |
+
+You can use each content unit (e.g., RDM, DMP, Python) as an observation, and breakdown the length of time or instructor initials to match the content unit however you like. 
+
+
+:::::::::::::::  solution
+
+## Solution
+
+| Year | Month | Day | Length (min) | Content | Instructor |
+|------|-------|-----|--------------|---------|------------|
+| 2023 | 01    | 15  | 20           | RDM     | CH         |
+| 2023 | 01    | 15  | 10           | DMP     | CH         |
+| 2023 | 02    | 02  | 100          | Python  | TD         |
+| 2023 | 02    | 02  | 20           | RDM     | CH         |
+| 2023 | 02    | 03  | 100           | Python  | SP         |
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Subsetting df_long
+
+Using df_long, create a new DataFrame, `low_circ', that only includes branches with circulation numbers lower than 500 per month. When you create a subset DataFrame, show the following columns: branch, circulation, month, and year. Next, eliminate the rows when the circulation is equal to 0. 
+
+```python
+low_circ = df_long[_________[_________] __ 500]
+low_circ = _________[_________[_________] != __]
+low_circ.sort_values(by='circulation', ascending=False)
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+low_circ = df_long[df_long['circulation'] < 500]
+low_circ = low_circ[low_circ['circulation'] != 0]
+low_circ.sort_values(by='circulation', ascending=False)
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Group and aggregate for circulation by year
+How would you create a DataFrame that sums up the circulation by year across all branches? In other words you want a DataFrame that includes one row for each year, and columns for 'year' and 'sum', the latter of which is the sum of all circulation figures for the entire year.
+
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+df_long.groupby(['year'])['circulation'].agg(['sum'])
+```
+
+| year | sum     |
+|------|---------|
+| 2011 | 7774198 |
+| 2012 | 7598080 |
+| 2013 | 6894958 |
+| 2014 | 6406512 |
+| 2015 | 5953920 |
+| 2016 | 5696456 |
+| 2017 | 5305624 |
+| 2018 | 4989239 |
+| 2019 | 4785108 |
+| 2020 | 2726156 |
+| 2021 | 3184327 |
+| 2022 | 3342472 |
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - In tidy data each variable forms a column, each observation forms a row, and each type of observational unit forms a table.
