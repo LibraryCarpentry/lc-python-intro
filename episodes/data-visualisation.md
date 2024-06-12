@@ -188,6 +188,109 @@ fig.show()
 
 Here is a view of the [interactive output of the Plotly bar chart](learners/bar_plot_int.html).  
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Plotting with Pandas
+
+1. Load the dataset `df_long.pkl` using Pandas.
+2. Create a new DataFrame that only includes the data for the "Chinatown" branch.
+3. Use the Pandas plotting function to plot the "circulation" column over time.
+
+
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+import pandas as pd
+df_long = pd.read_pickle('data/df_long.pkl')
+chinatown = df_long[df_long['branch'] == 'Chinatown']
+chinatown['circulation'].plot()
+```
+
+![Chinatown plot](fig/chinatown_circulation.png){alt='image showing the circulation of the Chinatown branch over ten years'}
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Modify a plot display
+
+Add a line to the code below to plot the Uptown branch circulation including the following plot elements:
+
+- A title, "Uptown Circulation"
+- "Year" and "Circulation Count" labels for the x and y axes
+- A green plot line
+
+
+```python
+import pandas as pd
+df_long = pd.read_pickle('data/df_long.pkl')
+uptown = df_long[df_long['branch'] == 'Uptown']
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+uptown['circulation'].plot(title='Uptown Circulation', 
+                                color='green', 
+                                xlabel='Year',
+                                ylabel='Circulation Count')
+```
+
+![Uptown plot](fig/uptown_plot.png){alt='image showing the circulation of the Uptown branch with labels'}
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Plot the top five branches
+
+Modify the code below to only plot the five Chicago Public Library branches with the highest circulation. 
+
+
+```python
+import plotly.express as px
+import pandas as pd
+df_long = pd.read_pickle('data/df_long.pkl')
+total_circulation_by_branch = df_long.groupby('branch')['circulation'].sum().reset_index()
+
+top_five = total_circulation_by_branch.___________________
+
+# Create a bar plot
+fig = px.bar(top_five._______, x='branch', y='circulation', width=600, height=600, title='Total Circulation by Branch')
+fig.show()
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+total_circulation_by_branch.sort_values(by='circulation', ascending=False)
+df_long = pd.read_pickle('data/df_long.pkl')
+total_circulation_by_branch = df_long.groupby('branch')['circulation'].sum().reset_index()
+
+top_five = total_circulation_by_branch.sort_values(by='circulation', ascending=False)
+
+# Create a bar plot
+fig = px.bar(top_five.head(), x='branch', y='circulation', width=600, height=600, title='Total Circulation by Branch')
+fig.show()
+
+```
+
+![Top five circulation branches](fig/top_five_circ.png){alt='a bar plot of the top five branch circulation figures'}
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 ::: keypoints
