@@ -56,7 +56,6 @@ To address this we can reshape our data in a long format. This is sometimes call
 ## Tidy Data 
 
 Tidy data is a standard way of organizing data values within a dataset, making it easier to work with. Here are the key principles of tidy data:
-
 1. Every column holds a single variable, like "month" or "temperature."
 2. Every row represents a single observation, like circulation counts by branch and month.
 3. Every cell contains a single value.
@@ -70,7 +69,6 @@ R for Data Science [12.1](https://r4ds.had.co.nz/tidy-data.html#fig:tidy-structu
 ### Benefits of Tidy Data
 
 Transforming our data into a tidy data format provides several advantages:
-
 - Python operations, such as visualization, filtering, and statistical analysis libraries, work better with data in a tidy format.
 - Tidy data makes transforming, summarizing, and visualizing information easier. For instance, comparing monthly trends or calculating annual averages becomes more straightforward.
 - As datasets grow, tidy data ensures that they remain manageable and analyses remain accurate.
@@ -338,7 +336,6 @@ Let's save `df_long` to use in the next episode.
 ```python
 df.to_pickle('data/df_long.pkl')
 ```
-
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Tidy Data Principles
@@ -399,10 +396,11 @@ low_circ.sort_values(by='circulation', ascending=False)
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Group and aggregate for circulation by year
-How would you create a DataFrame that sums up the circulation by year across all branches? In other words you want a DataFrame that includes one row for each year, and columns for 'year' and 'sum', the latter of which is the sum of all circulation figures for the entire year.
+How would you create a subset of `df_long` that sums up the circulation by year across all branches? In other words you want a view of the DataFrame that includes one row for each year, and columns for 'year' and 'sum', the latter of which shows the sum of circulation for all branches in each year.
 
 
 :::::::::::::::  solution
@@ -427,12 +425,15 @@ df_long.groupby(['year'])['circulation'].agg(['sum'])
 | 2020 | 2726156 |
 | 2021 | 3184327 |
 | 2022 | 3342472 |
+
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - In tidy data each variable forms a column, each observation forms a row, and each type of observational unit forms a table.
 -  Using pandas for data manipulation to reshape data is fundamental for preparing data for analysis.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
