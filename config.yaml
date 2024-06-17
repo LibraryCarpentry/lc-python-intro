@@ -21,7 +21,8 @@ keywords: 'software, data, lesson, The Carpentries'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'alpha'
+life_cycle: 'beta'
+
 
 # License of the lesson materials (recommended CC-BY 4.0)
 license: 'CC-BY 4.0'
@@ -59,23 +60,20 @@ contact: 'team@carpentries.org'
 
 # Order of episodes in your lesson
 episodes: 
-- 01-getting-started.md
-- 02-variables.md
-- 03-types-conversion.md
-- 04-built-in.md
-- 05-coffee.md
-- 06-libraries.md
-- 10-lunch.md
-- 11-lists.md
-- 12-for-loops.md
-- 13-looping-data-sets.md
-- 14-writing-functions.md
-- 15-scope.md
-- 16-coffee.md
-- 17-conditionals.md
-- 18-style.md
-- 19-wrap.md
-- 20-feedback.md
+- getting-started.md
+- variables.md
+- lists.md
+- functions.md
+- libraries.md
+- for-loops.md
+- looping-data-sets.md
+- pandas.md
+- conditionals.md
+- writing-functions.md
+- tidy.md
+- data-visualisation.md
+- wrap.md
+
 
 # Information for Learners
 learners: 
@@ -92,6 +90,6 @@ profiles:
 # sandpaper and varnish versions) should live
 
 
-url: 'https://librarycarpentry.github.io/lc-python-intro'
+url: https://librarycarpentry.github.io/lc-python-intro
 analytics: carpentries
 lang: en
