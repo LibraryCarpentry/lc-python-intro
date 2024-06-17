@@ -2,14 +2,11 @@
 permalink: index.html
 site: sandpaper::sandpaper_site
 ---
-::::::::::::::::::::::::::::::::::::::::::  callout
-## Major lesson update: June 14, 2024
-The Python Intro for Libraries lesson has had a major redesign and will replace this lesson on June 14, 2024. The new Python lesson features a different dataset (of library usage data) and uses JupyterLab (instead of Spyder). Due to the scope of changes, the lesson was developed [in a separate GitHub repository](https://github.com/chennesy/lc-python-intro).
+::::::::::::::::::::::::::::::::::::: instructor
+## Major lesson update: June 17, 2024
+The Python Intro for Libraries lesson had a major redesign on June 17, 2024. This new Python lesson features a different dataset (of library usage data), uses JupyterLab instead of Spyder, and most of the content was rewritten. If you were familiar with the previous version of the lesson and are planning to teach it again, please give yourself time to review the lesson in full as your prepare.
 
-- If you are planning to teach the Python for Librarians lesson *before* June 14, 2024 we advise teaching [the new lesson](https://github.com/chennesy/lc-python-intro) from this fork.
-- If you are planning to teach the lesson *after* June 14, 2024, this lesson will be up to date, and you can prepare to teach using the [forked version](https://github.com/chennesy/lc-python-intro).
- 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::
 
 This lesson is an introduction to programming in Python for library and information workers with little or no previous programming experience. It uses examples that are relevant to a range of library use cases, and is designed as a prerequisite for other Python lessons that will be developed in the future (e.g., web scraping, APIs). The lesson uses the JupyterLab computing environment and Python 3.
 
