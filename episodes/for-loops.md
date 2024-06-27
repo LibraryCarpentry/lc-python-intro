@@ -91,12 +91,15 @@ We can call the loop variable anything we like, there must be a colon at the end
 Loops are more robust ways to deal with containers like lists. Even if the values of the `odds` list changes, the loop will still work.
 
 ```python
-odds = [1, 3, 5, 7, 9, 11]
+odds.append(9)
+odds.append(11)
+print(odds)
 for num in odds:
     print(num)
 ```
 
 ```output
+[1, 3, 5, 7, 9, 11]
 1
 3
 5
