@@ -16,7 +16,7 @@ exercises: 10
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-# Tidy Data in Pandas 
+## Tidy Data in Pandas 
 
 Let's import the pickle file that contains all of our Chicago public library circulation data in a single DataFrame. We can use the Pandas `.read_pickle()` method to do so.
 
