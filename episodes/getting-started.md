@@ -76,7 +76,7 @@ Once you have created the `lc-python` directory on your Desktop, you can start J
 #### Mac users - Command Line
 
 1. Press the <kbd>cmd</kbd> + <kbd>spacebar</kbd> keys and search for `Terminal`. Click the result or press <kbd>return</kbd>. (You can also find `Terminal` in your `Applications` folder, under `Utilities`.)
-2. After you have launched Terminal, change directories to the `lc-python` folder you created earlier and type `jupyter lab`:
+2. After you have launched Terminal, change directories to the `lc-python` folder you created earlier and type `jupyter lab`. Note that the `$` sign is used to indicate a command to be typed on the command prompt, but we never type the `$` sign itself, just what follows after it.
 
 ```bash
 $ cd ../Desktop/lc-python
@@ -89,7 +89,7 @@ To start the JupyterLab server you will need to access the Anaconda Prompt.
 
 1. Press the <kbd>Windows Logo Key</kbd> and search for `Anaconda Prompt`, click the result or press enter.
 
-2. Once you have launched the Anaconda Prompt, type the command:
+2. Once you have launched the Anaconda Prompt, type the command `jupyter lab`. Note that the `$` sign is used to indicate a command to be typed on the command prompt, but we never type the `$` sign itself, just what follows after it.
 
 ```bash
 $ jupyter lab
