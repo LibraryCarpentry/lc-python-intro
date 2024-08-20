@@ -6,19 +6,19 @@ exercises: 5
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Learners are aware of applications for Python in library and information-science work environments.
-- Learners can launch JupyterLab and create a Jupyter Notebook.
-- Learners are able to navigate the JupyterLab interface.
-- Learners are able to write and run Python cells in a notebook.
-- Learners are able to save their code as an iPython notebook (.ipynb file).
+- Identify applications of Python in library and information science environments by the end of this lesson.
+- Launch JupyterLab and create a new Jupyter Notebook.
+- Navigate the JupyterLab interface, including file browsing, cell creation, and cell execution, with confidence.
+- Write and execute Python code in a Jupyter Notebook cell, observing the output and modifying code as needed.
+- Save a Jupyter Notebook as an .ipynb file and verify the file’s location in the directory within the session.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How do I use JupyterLab?
-- How can I run Python code in JupyterLab?
-
+- How can I identify and use key features of JupyterLab to create and manage a Python notebook?
+- How do I run Python code in JupyterLab, and how can I see and interpret the results?
+- 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Why Python?
