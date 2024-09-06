@@ -92,6 +92,7 @@ To start the JupyterLab server you will need to access the Anaconda Prompt.
 2. Once you have launched the Anaconda Prompt, type the command `jupyter lab`. Note that the `$` sign is used to indicate a command to be typed on the command prompt, but we never type the `$` sign itself, just what follows after it.
 
 ```bash
+$ cd ..\Desktop\lc-python
 $ jupyter lab
 ```
 
