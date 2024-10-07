@@ -47,6 +47,11 @@ df_long.head()
 
 Ok! We are now ready to plot our data. Since this data is monthly data, we can plot the circulation data over time.
 
+::::::::::::::::::::::::::::::::::::: instructor
+## Instructor note: Pandas 2.2.* bug
+There is a bug in the latest release of Pandas that is causing certain plots to display in a garbled manner. This is a [known issue](https://github.com/pandas-dev/pandas/issues/59960) that the Pandas team plans to address. In the meantime, learners and instructors can user older versions of pandas *or* add `.sort_index()` before any instance of `.plot()`. For example, use `albany['circulation'].sort_index().plot()` instead of `albany['circulation'].plot()`.
+:::::::::::::::::::::::::::::::::::::::::::::::::
+
 At first, let’s focus on a specific branch. We can select the rows for the Albany Park branch:
 
 ``` python
@@ -65,6 +70,7 @@ albany.head()
 | 2013-01-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 572    | 2013 | january | 0           |
 | 2014-01-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 50484  | 2014 | january | 35          |
 | 2015-01-01 | Albany Park | NaN                  | NaN     | NaN      | 133366 | 2015 | january | 10889       |
+
 
 Now we can use the `plot()` function that is built in to pandas. Let’s try it:
 
