@@ -47,15 +47,10 @@ df_long.head()
 
 Ok! We are now ready to plot our data. Since this data is monthly data, we can plot the circulation data over time.
 
-::::::::::::::::::::::::::::::::::::: instructor
-## Instructor note: Pandas 2.2.* bug
-There is a bug in the latest release of Pandas that is causing certain plots to display in a garbled manner. This is a [known issue](https://github.com/pandas-dev/pandas/issues/59960) that the Pandas team plans to address. In the meantime, learners and instructors can user older versions of pandas *or* add `.sort_index()` before any instance of `.plot()`. For example, use `albany['circulation'].sort_index().plot()` instead of `albany['circulation'].plot()`.
-:::::::::::::::::::::::::::::::::::::::::::::::::
-
-At first, let’s focus on a specific branch. We can select the rows for the Albany Park branch:
+At first, let’s focus on a specific branch. We can select the rows for the Albany Park branch and then use `.sort_index()` to be explicit that we want our data to be sorted in the order of the date index.
 
 ``` python
-albany = df_long[df_long['branch'] == 'Albany Park']
+albany = df_long[df_long['branch'] == 'Albany Park'].sort_index()
 ```
 
 ``` python
@@ -66,13 +61,13 @@ albany.head()
 |------------|-------------|----------------------|---------|----------|--------|------|---------|-------------|
 | date       |             |                      |         |          |        |      |         |             |
 | 2011-01-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 120059 | 2011 | january | 8427        |
-| 2012-01-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 83297  | 2012 | january | 10173       |
-| 2013-01-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 572    | 2013 | january | 0           |
-| 2014-01-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 50484  | 2014 | january | 35          |
-| 2015-01-01 | Albany Park | NaN                  | NaN     | NaN      | 133366 | 2015 | january | 10889       |
+| 2011-02-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 120059 | 2011 | february | 7023       |
+| 2011-03-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 120059 | 2011 | march | 9702           |
+| 2011-04-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 120059 | 2011 | april | 9344          |
+| 2011-05-01 | Albany Park | 5150 N. Kimball Ave. | Chicago | 60625.0  | 120059 | 2011 | may | 8865       |
 
 
-Now we can use the `plot()` function that is built in to pandas. Let’s try it:
+Now we can use the `plot()` function that is built in to pandas.  Let’s try it:
 
 ``` python
 albany.plot()
@@ -199,7 +194,7 @@ Here is a view of the [interactive output of the Plotly bar chart](learners/bar_
 ## Plotting with Pandas
 
 1. Load the dataset `df_long.pkl` using Pandas.
-2. Create a new DataFrame that only includes the data for the "Chinatown" branch.
+2. Create a new DataFrame that only includes the data for the "Chinatown" branch. (Don't forget to sort by the index)
 3. Use the Pandas plotting function to plot the "circulation" column over time.
 
 
@@ -211,7 +206,7 @@ Here is a view of the [interactive output of the Plotly bar chart](learners/bar_
 ```python
 import pandas as pd
 df_long = pd.read_pickle('data/df_long.pkl')
-chinatown = df_long[df_long['branch'] == 'Chinatown']
+chinatown = df_long[df_long['branch'] == 'Chinatown'].sort_index()
 chinatown['circulation'].plot()
 ```
 
@@ -235,7 +230,7 @@ Add a line to the code below to plot the Uptown branch circulation including the
 ```python
 import pandas as pd
 df_long = pd.read_pickle('data/df_long.pkl')
-uptown = df_long[df_long['branch'] == 'Uptown']
+uptown = df_long[df_long['branch'] == 'Uptown'].sort_index()
 ```
 
 :::::::::::::::  solution
