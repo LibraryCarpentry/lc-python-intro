@@ -23,6 +23,7 @@ exercises: 10
 If you recall from episode 06, the `pd.read_csv()` method takes a text string referencing a filename as an argument. If we have a list of strings that point to our filenames, we can loop through the list to read in each CSV file as a DataFrame. Let's print out the maximum values from the 'ytd' (year to date) column for each DataFrame.
 
 ```python
+import pandas as pd
 for filename in ['data/2011_circ.csv', 'data/2012_circ.csv']:
   data = pd.read_csv(filename)
   print(filename, data['ytd'].max())
