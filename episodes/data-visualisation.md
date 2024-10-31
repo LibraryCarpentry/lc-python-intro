@@ -146,6 +146,8 @@ plotting package in Python called Plotly. First let’s install and then use the
 ```python
 # uncomment below to install plotly if the import fails. 
 # !pip install plotly
+# you may also need to install ipywidgets.
+# !pip install ipywidgets
 import plotly.express as px
 ```
 
