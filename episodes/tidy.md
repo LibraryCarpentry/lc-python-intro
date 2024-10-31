@@ -334,7 +334,7 @@ If we look at the data again, we will see our index will be set to date.
 Let's save `df_long` to use in the next episode. 
 
 ```python
-df.to_pickle('data/df_long.pkl')
+df_long.to_pickle('data/df_long.pkl')
 ```
 :::::::::::::::::::::::::::::::::::::::  challenge
 
