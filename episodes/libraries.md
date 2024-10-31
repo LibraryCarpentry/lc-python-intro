@@ -276,12 +276,12 @@ memory usage: 10.8+ KB
 ```
 
 The `info()` method tells us
-- we have a RangeIndex of 83, which means we have 83 rows.
-- there are 18 columns, with datatypes of
+- we have a RangeIndex of 80, which means we have 80 rows.
+- there are 17 columns, with datatypes of
   - objects (3 columns)
   - 64-bit floating point number (1 column)
-  - 64-bit integers (14 columns).
-- the dataframe uses 11.8 kilobytes of memory.
+  - 64-bit integers (13 columns).
+- the dataframe uses 10.8 kilobytes of memory.
 
 ## The `DataFrame.columns` variable stores info about the dataframe's columns.
 
