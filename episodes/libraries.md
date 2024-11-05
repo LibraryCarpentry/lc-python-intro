@@ -275,7 +275,8 @@ dtypes: float64(1), int64(13), object(3)
 memory usage: 10.8+ KB
 ```
 
-The `info()` method tells us
+The `info()` method tells us:
+
 - we have a RangeIndex of 80, which means we have 80 rows.
 - there are 17 columns, with datatypes of
   - objects (3 columns)
