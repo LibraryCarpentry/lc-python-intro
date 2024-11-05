@@ -86,9 +86,9 @@ In the date example above, we printed the results of the function code to output
 ```python
 def calc_fine(days_overdue):
     if days_overdue <= 10:
-        fine =  days_overdue * 0.25
+        fine = days_overdue * 0.25
     else:
-        fine = (days_overdue * 0.25) + (days_overdue * .50)
+        fine = days_overdue * 0.75
     return fine
     
 fine = calc_fine(12)
