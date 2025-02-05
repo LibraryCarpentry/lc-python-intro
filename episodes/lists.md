@@ -198,9 +198,9 @@ values = []
 values.____(1)
 values.____(3)
 values.____(5)
-print(f'first time: {values})
+print(f'first time: {values}')
 values = values[____]
-print(f'second time: {values})
+print(f'second time: {values}')
 ```
 
 ```output
