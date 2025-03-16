@@ -51,7 +51,7 @@ Here a few areas where you might apply Python in your work.
 
 ## Use JupyterLab to edit and run Python code.
   
-If you haven't already done so, see [the setup instructions](../learners/setup.md) for details on how to install JupyterLab and Python via Anaconda. The setup instructions also walk you through the steps you should follow to create an `lc-python` folder on your Desktop, and to download and unzip the dataset we'll be working with inside of that directory. 
+If you haven't already done so, see [the setup instructions](../learners/setup.md) for details on how to install JupyterLab and Python using Miniforge. The setup instructions also walk you through the steps you should follow to create an `lc-python` folder on your Desktop, and to download and unzip the dataset we'll be working with inside of that directory. 
 
 ### Getting started with JupyterLab
 To run Python, we are going to use Jupyter Notebooks via [JupyterLab][jupyterlab]. Jupyter notebooks are common tools for data science and visualization, and serve as a convenient environment for running Python code interactively where we can view and share the results of our Python code.
@@ -76,10 +76,15 @@ Once you have created the `lc-python` directory on your Desktop, you can start J
 #### Mac users - Command Line
 
 1. Press the <kbd>cmd</kbd> + <kbd>spacebar</kbd> keys and search for `Terminal`. Click the result or press <kbd>return</kbd>. (You can also find `Terminal` in your `Applications` folder, under `Utilities`.)
-2. After you have launched Terminal, change directories to the `lc-python` folder you created earlier and type `jupyter lab`. Note that the `$` sign is used to indicate a command to be typed on the command prompt, but we never type the `$` sign itself, just what follows after it.
+2. After you have launched Terminal, change directories to the `lc-python` folder you created earlier. 
+3. Next run `conda activate carpentries` to launch a Python environment which includes Jupyter Notebooks and other tools we will need to proceed through the lesson. 
+4. Finally, type `jupyter lab` which should open a browser window where you can run Jupyter Notebooks. 
+
+Note that the `$` sign is used to indicate a command to be typed on the command prompt, but we never type the `$` sign itself, just what follows after it.
 
 ```bash
 $ cd ../Desktop/lc-python
+$ conda activate carpentries
 $ jupyter lab
 ```
 
@@ -89,21 +94,14 @@ To start the JupyterLab server you will need to access the Anaconda Prompt.
 
 1. Press the <kbd>Windows Logo Key</kbd> and search for `Anaconda Prompt`, click the result or press enter.
 
-2. Once you have launched the Anaconda Prompt, type the command `jupyter lab`. Note that the `$` sign is used to indicate a command to be typed on the command prompt, but we never type the `$` sign itself, just what follows after it.
+2. Once you have launched the Anaconda Prompt, type the command `jupyter lab`. 
+
+Note that the `$` sign is used to indicate a command to be typed on the command prompt, but we never type the `$` sign itself, just what follows after it.
 
 ```bash
 $ cd ..\Desktop\lc-python
 $ jupyter lab
 ```
-
-#### Start JupyterLab from Anaconda Navigator
-If you are unfamiliar with the command line,  you can launch JupyterLab by opening the Anaconda Navigator app and choosing the `Launch` button underneath the JuypterLab icon. 
-
-First [start Anaconda Navigator (click for detailed instructions on macOS, Windows, and Linux)](https://docs.anaconda.com/free/navigator/getting-started/#navigator-starting-navigator). You can search for Anaconda Navigator via Spotlight on macOS (<kbd>Command</kbd> + <kbd>spacebar</kbd>), or by using the Windows search function (<kbd>Windows Logo Key</kbd>).
-
-After you have launched Anaconda Navigator, click the `Launch` button under JupyterLab. You may need to scroll down to find it. Here is a screenshot of an Anaconda Navigator page similar to the one that should open on either macOS or Windows.
-
-![Launch JupyterLab from Anaconda Navigator](../episodes/fig/0_anaconda_navigator_landing_page.png){alt='screenshot of the launch button for JuypterLab in Anaconda Navigator'}
 
 ## The JupyterLab Interface
 
