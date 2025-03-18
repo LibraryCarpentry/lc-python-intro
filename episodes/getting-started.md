@@ -71,7 +71,7 @@ Jupyter notebooks let us execute and view the results of our Python code immedia
 - Each notebook contains one or more cells that contain code, text, or images.
 
 ### Start JupyterLab
-Once you have created the `lc-python` directory on your Desktop, you can start JupyterLab by opening a shell command line interface or by using Anaconda Navigator.
+Once you have created the `lc-python` directory on your Desktop, you can start JupyterLab by opening a shell command line interface.
 
 #### Mac users - Command Line
 
@@ -92,14 +92,16 @@ $ jupyter lab
 
 To start the JupyterLab server you will need to access the Anaconda Prompt.
 
-1. Press the <kbd>Windows Logo Key</kbd> and search for `Anaconda Prompt`, click the result or press enter.
-
-2. Once you have launched the Anaconda Prompt, type the command `jupyter lab`. 
+1. Press the <kbd>Windows Logo Key</kbd> and search for `Miniforge Prompt`, click the result or press enter.
+2. Once you have launched the Miniforge Prompt, change directories to the `lc-python` folder you created earlier. (The example below assumes a starting path of `C:\Users\username`)
+3. Next run `conda activate carpentries` to launch a Python environment which includes Jupyter Notebooks and other tools we will need to proceed through the lesson. 
+4. Finally, type `jupyter lab` which should open a browser window where you can run Jupyter Notebooks.  
 
 Note that the `$` sign is used to indicate a command to be typed on the command prompt, but we never type the `$` sign itself, just what follows after it.
 
 ```bash
-$ cd ..\Desktop\lc-python
+$ cd \Desktop\lc-python
+$ conda activate carpentries
 $ jupyter lab
 ```
 
@@ -189,7 +191,6 @@ You can also use "hotkeys"" to change Jupyter cells from Code to Markdown and ba
 - Press the <kbd>y</kbd> key to convert the cell back to Code.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-[anaconda]: https://docs.anaconda.com/anaconda/install/
 [spyder]: https://www.spyder-ide.org/
 [jupyterlab]: https://jupyterlab.readthedocs.io/en/stable/
 
