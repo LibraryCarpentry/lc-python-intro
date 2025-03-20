@@ -141,15 +141,9 @@ albany['circulation'].plot(kind='hist', bins=20,
 ## Use Plotly for interactive plots 
 
 Let’s switch back to the full DataFrame in `df_long` and use another
-plotting package in Python called Plotly. First let’s install and then use the package.
+plotting package in Python called Plotly. 
 
 ```python
-# uncomment below to install plotly if the import fails. 
-# !pip install plotly
-
-# if you didn't install Jupyter via Anaconda, you may also need to install ipywidgets.
-# !pip install ipywidgets
-
 import plotly.express as px
 ```
 
