@@ -207,7 +207,7 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#installing-python-using-anaconda">Installing Python Using Anaconda</a></li>
+        <ul><li><a href="#installing-python-using-miniforge">Installing Python Using Miniforge</a></li>
 <li><a href="#jupyterlab">JupyterLab</a></li>
 <li><a href="#download-the-data">Download the data</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -403,7 +403,7 @@ what a working directory is.</p></li>
 <li><p>Learners must install Python and JupyterLab, and download the
 dataset that will be used in the lesson, before the workshop
 begins.</p></li>
-</ol><p>Please see <a href="#installing-python-using-anaconda">setup
+</ol><p>Please see <a href="#installing-python-using-miniforge">setup
 instructions below</a> for details.</p>
 </div>
 </div>
@@ -442,90 +442,21 @@ generating various plot types (line, area, bar, histogram) to analyze
 trends and draw insights from time-series data.</li>
 <li>Prepare for advanced Python topics such as web scraping and
 APIs.</li>
-</ul></section><section id="setup"><section><h2 class="section-heading" id="installing-python-using-anaconda">Installing Python Using Anaconda<a class="anchor" aria-label="anchor" href="#installing-python-using-anaconda"></a></h2>
-<hr class="half-width"><p>Python is a popular language for research computing, and great for
-general-purpose programming as well. Installing all of its research
-packages individually can be a bit difficult, so we recommend Anaconda,
-an all-in-one installer.</p>
-<p>Regardless of how you choose to install it, please make sure you
-install Python 3.6 or above. The latest 3.x version recommended on <a href="https://python.org/downloads" class="external-link">Python.org</a> is fine.</p>
-<p>We will teach Python using JupyterLab, a programming environment that
-runs in a web browser (JupyterLab will be installed by Anaconda). For
-this to work you will need a reasonably up-to-date browser. The current
-versions of the Chrome, Safari and Firefox browsers are all supported
-(some older browsers, including Internet Explorer version 9 and below,
-are not).</p>
-<div class="tabs">
-<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
-<button class="nav-link active" id="nav-tab-1-1" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-1" type="button" role="tab" aria-controls="nav-tabpanel-1-1" aria-selected="true">
-  <h3 class="tab-header" id="nav-tab-heading-1-1">
-  Windows
-  </h3>
-</button>
-<button class="nav-link" id="nav-tab-1-2" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-2" type="button" role="tab" aria-controls="nav-tabpanel-1-2" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-1-2">
-  Mac
-  </h3>
-</button>
-<button class="nav-link" id="nav-tab-1-3" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-3" type="button" role="tab" aria-controls="nav-tabpanel-1-3" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-1-3">
-  Linux
-  </h3>
-</button>
-</div>
-</nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-1" class="tab-pane show active" aria-labelledby="nav-tab-1-1" role="tabpanel">
-<p><a href="https://www.youtube.com/watch?v=xxQ0mzZ8UvA" class="external-link">Watch a video
-tutorial for Windows</a>.</p>
-<ol style="list-style-type: decimal"><li>Open <a href="https://www.anaconda.com/download/" class="external-link">anaconda.com/download</a> with
-your web browser.</li>
-<li>Download the Anaconda for Windows installer with Python 3. (If you
-are not sure which version to choose, you probably want the 64-bit
-Graphical Installer <em>Anaconda3-…-Windows-x86_64.exe</em>)</li>
-<li>Install Python 3 by running the Anaconda Installer, using all of the
-defaults for installation except make sure to check <em>Add Anaconda to
-my PATH environment variable</em>.</li>
-</ol></div>
-<div id="nav-tabpanel-1-2" class="tab-pane" aria-labelledby="nav-tab-1-2" role="tabpanel">
-<p><a href="https://www.youtube.com/watch?v=TcSAln46u9U" class="external-link">Watch a video
-tutorial for Mac</a>.</p>
-<ol style="list-style-type: decimal"><li>Open <a href="https://www.anaconda.com/download/" class="external-link">anaconda.com/download</a> with
-your web browser.</li>
-<li>Download the Anaconda Installer with Python 3 for macOS (you can
-either use the Graphical or the Command Line Installer).</li>
-<li>Install Python 3 by running the Anaconda Installer using all of the
-defaults for installation.</li>
-</ol></div>
-<div id="nav-tabpanel-1-3" class="tab-pane" aria-labelledby="nav-tab-1-3" role="tabpanel">
-<p>Note that the following installation steps require you to work from
-the shell. If you aren’t comfortable doing the installation yourself
-stop here and request help from the workshop organizers.</p>
-<ol style="list-style-type: decimal"><li>Open <a href="https://www.anaconda.com/download/" class="external-link">anaconda.com/download</a> with
-your web browser.</li>
-<li>Download the Anaconda Installer with Python 3 for Linux.</li>
-<li>Open a terminal window and navigate to the directory where the
-executable is downloaded (e.g., <code>cd ~/Downloads</code>).</li>
-<li>Type <code>bash Anaconda3</code> and press <kbd>Tab</kbd> to
-auto-complete the full file name. The name of file you just downloaded
-should appear.</li>
-<li>Press <kbd>Enter</kbd> (or <kbd>Return</kbd> depending on your
-keyboard). You will follow the text-only prompts. To move through the
-text, press <kbd>Spacebar</kbd>. Type <code>yes</code> and press
-<kbd>Enter</kbd> to approve the license. Press <kbd>Enter</kbd> (or
-<kbd>Return</kbd>) to approve the default location for the files. Type
-<code>yes</code> and press <kbd>Enter</kbd> (or <kbd>Return</kbd>) to
-prepend Anaconda to your PATH (this makes the Anaconda distribution the
-default Python).</li>
-<li>Close the terminal window.</li>
-</ol></div>
-</div>
-</div>
+</ul></section><section id="setup"><section><h2 class="section-heading" id="installing-python-using-miniforge">Installing Python Using Miniforge<a class="anchor" aria-label="anchor" href="#installing-python-using-miniforge"></a></h2>
+<hr class="half-width"><p><a href="https://python.org" class="external-link">Python</a> is a popular language for
+scientific computing, and great for general-purpose programming as well.
+For this workshop we use Python version 3.x. Installing all of its
+scientific packages individually can be a bit difficult, so we provide
+an environment file to help you take care of them all together. We will
+use the <em>Miniforge</em> distribution of Python.</p>
+<p>Please refer to the <a href="https://carpentries.github.io/workshop-template/install_instructions/#python" class="external-link">Python
+section of the workshop website for installation instructions</a>.</p>
 </section><section><h2 class="section-heading" id="jupyterlab">JupyterLab<a class="anchor" aria-label="anchor" href="#jupyterlab"></a></h2>
 <hr class="half-width"><p>We will teach Python using JupyterLab, a part of a family of <a href="https://docs.jupyter.org/en/latest/" class="external-link">Jupyter</a> tools that
 includes Jupyter Notebook and JupyterLab, both of which provide
 interactive web environments where you can write and run Python code. If
-you installed Anaconda, JupyterLab is installed on your system. If you
-did not install Anaconda, you can <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html" class="external-link">install
+you followed the instructions linked above, JupyterLab is installed on
+your system. Alternatively, you can <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html" class="external-link">install
 JupyterLab</a> on its own using conda, pip, or other popular package
 managers.</p>
 </section><section><h2 class="section-heading" id="download-the-data">Download the data<a class="anchor" aria-label="anchor" href="#download-the-data"></a></h2>
@@ -590,8 +521,8 @@ been altered for our purposes.</p>
   "url": "https://librarycarpentry.github.io/lc-python-intro/index.html",
   "identifier": "https://librarycarpentry.github.io/lc-python-intro/index.html",
   "dateCreated": "2018-04-12",
-  "dateModified": "2025-03-18",
-  "datePublished": "2025-03-18"
+  "dateModified": "2025-03-20",
+  "datePublished": "2025-03-20"
 }
 
   </script><script>

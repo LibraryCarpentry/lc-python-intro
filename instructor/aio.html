@@ -460,7 +460,7 @@
         
 <section id="aio-getting-started"><p>Content from <a href="getting-started.html">Getting Started</a></p>
 <hr>
-<p>Last updated on 2024-10-07 |
+<p>Last updated on 2025-03-20 |
 
         <a href="https://github.com/librarycarpentry/lc-python-intro/edit/main/episodes/getting-started.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
@@ -536,7 +536,7 @@ you have hopes for how you’d like to use Python in the future?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Here a few areas where you might apply Python in your work.</p>
 <p><strong>Metadata work.</strong> Many cataloging teams use Python to
@@ -572,9 +572,9 @@ humanities.</p>
 </h2>
 <hr class="half-width">
 <p>If you haven’t already done so, see <a href="index.html#setup">the setup
-instructions</a> for details on how to install JupyterLab and Python via
-Anaconda. The setup instructions also walk you through the steps you
-should follow to create an <code>lc-python</code> folder on your
+instructions</a> for details on how to install JupyterLab and Python
+using Miniforge. The setup instructions also walk you through the steps
+you should follow to create an <code>lc-python</code> folder on your
 Desktop, and to download and unzip the dataset we’ll be working with
 inside of that directory.</p>
 <div class="section level3">
@@ -621,7 +621,7 @@ images.</li>
 </h3>
 <p>Once you have created the <code>lc-python</code> directory on your
 Desktop, you can start JupyterLab by opening a shell command line
-interface or by using Anaconda Navigator.</p>
+interface.</p>
 <div class="section level4">
 <h4 id="mac-users---command-line">Mac users - Command Line<a class="anchor" aria-label="anchor" href="#mac-users---command-line"></a>
 </h4>
@@ -631,16 +631,22 @@ interface or by using Anaconda Navigator.</p>
 can also find <code>Terminal</code> in your <code>Applications</code>
 folder, under <code>Utilities</code>.)</li>
 <li>After you have launched Terminal, change directories to the
-<code>lc-python</code> folder you created earlier and type
-<code>jupyter lab</code>. Note that the <code>$</code> sign is used to
-indicate a command to be typed on the command prompt, but we never type
-the <code>$</code> sign itself, just what follows after it.</li>
+<code>lc-python</code> folder you created earlier.</li>
+<li>Next run <code>conda activate carpentries</code> to launch a Python
+environment which includes Jupyter Notebooks and other tools we will
+need to proceed through the lesson.</li>
+<li>Finally, type <code>jupyter lab</code> which should open a browser
+window where you can run Jupyter Notebooks.</li>
 </ol>
+<p>Note that the <code>$</code> sign is used to indicate a command to be
+typed on the command prompt, but we never type the <code>$</code> sign
+itself, just what follows after it.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> cd ../Desktop/lc-python</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> jupyter lab</span></code></pre>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> conda activate carpentries</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">$</span> jupyter lab</span></code></pre>
 </div>
 </div>
 <div class="section level4">
@@ -649,37 +655,27 @@ the <code>$</code> sign itself, just what follows after it.</li>
 <p>To start the JupyterLab server you will need to access the Anaconda
 Prompt.</p>
 <ol style="list-style-type: decimal">
-<li><p>Press the <kbd>Windows Logo Key</kbd> and search for
-<code>Anaconda Prompt</code>, click the result or press enter.</p></li>
-<li><p>Once you have launched the Anaconda Prompt, type the command
-<code>jupyter lab</code>. Note that the <code>$</code> sign is used to
-indicate a command to be typed on the command prompt, but we never type
-the <code>$</code> sign itself, just what follows after it.</p></li>
+<li>Press the <kbd>Windows Logo Key</kbd> and search for
+<code>Miniforge Prompt</code>, click the result or press enter.</li>
+<li>Once you have launched the Miniforge Prompt, change directories to
+the <code>lc-python</code> folder you created earlier. (The example
+below assumes a starting path of <code>C:\Users\username</code>)</li>
+<li>Next run <code>conda activate carpentries</code> to launch a Python
+environment which includes Jupyter Notebooks and other tools we will
+need to proceed through the lesson.</li>
+<li>Finally, type <code>jupyter lab</code> which should open a browser
+window where you can run Jupyter Notebooks.</li>
 </ol>
+<p>Note that the <code>$</code> sign is used to indicate a command to be
+typed on the command prompt, but we never type the <code>$</code> sign
+itself, just what follows after it.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd ..<span class="dt">\D</span>esktop<span class="dt">\l</span>c-python</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">$</span> jupyter lab</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd <span class="dt">\D</span>esktop<span class="dt">\l</span>c-python</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">$</span> conda activate carpentries</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">$</span> jupyter lab</span></code></pre>
 </div>
-</div>
-<div class="section level4">
-<h4 id="start-jupyterlab-from-anaconda-navigator">Start JupyterLab from Anaconda Navigator<a class="anchor" aria-label="anchor" href="#start-jupyterlab-from-anaconda-navigator"></a>
-</h4>
-<p>If you are unfamiliar with the command line, you can launch
-JupyterLab by opening the Anaconda Navigator app and choosing the
-<code>Launch</code> button underneath the JuypterLab icon.</p>
-<p>First <a href="https://docs.anaconda.com/free/navigator/getting-started/#navigator-starting-navigator" class="external-link">start
-Anaconda Navigator (click for detailed instructions on macOS, Windows,
-and Linux)</a>. You can search for Anaconda Navigator via Spotlight on
-macOS (<kbd>Command</kbd> + <kbd>spacebar</kbd>), or by using the
-Windows search function (<kbd>Windows Logo Key</kbd>).</p>
-<p>After you have launched Anaconda Navigator, click the
-<code>Launch</code> button under JupyterLab. You may need to scroll down
-to find it. Here is a screenshot of an Anaconda Navigator page similar
-to the one that should open on either macOS or Windows.</p>
-<figure><img src="../fig/0_anaconda_navigator_landing_page.png" alt="screenshot of the launch button for JuypterLab in Anaconda Navigator" class="figure mx-auto d-block"><div class="figcaption">Launch JupyterLab from Anaconda Navigator</div>
-</figure>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="the-jupyterlab-interface">The JupyterLab Interface<a class="anchor" aria-label="anchor" href="#the-jupyterlab-interface"></a>
@@ -802,7 +798,7 @@ arrow, and then dragging and dropping the cell where you want it.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Instructors: Since the lesson is focused on Python we don’t include
 any Markdown examples here. If you want to teach Markdown, note that it
@@ -1699,7 +1695,7 @@ primes after: [2, 3, 5, 7]</code></pre>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1732,7 +1728,7 @@ primes after: [2, 3, 5, 7]</code></pre>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1800,7 +1796,7 @@ second time: [3, 5]</code></pre>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1851,7 +1847,7 @@ questions.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2205,7 +2201,7 @@ function.</li>
 </div>
 </section></section><section id="aio-libraries"><p>Content from <a href="libraries.html">Libraries &amp; Pandas</a></p>
 <hr>
-<p>Last updated on 2024-11-05 |
+<p>Last updated on 2025-03-20 |
 
         <a href="https://github.com/librarycarpentry/lc-python-intro/edit/main/episodes/libraries.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -2397,11 +2393,12 @@ as a prefix everytime.</p>
 <h3 class="callout-title">Module not found error</h3>
 <div class="callout-content">
 <p>Before you can import a Python library, you sometimes will need to
-download and install it on your machine. Anaconda comes with many of the
-most popular Python libraries for scientific computing applications
-built-in, so if you installed Anaconda for this workshop, you’ll be able
-to import many common libraries directly. Some less common tools, like
-the PyMarc library, however, would need to be installed first.</p>
+download and install it on your machine. The Carpentries conda
+environment that we’re using for the workshop installs a number of
+common Python libraries for academic computing. Since those are
+available when you activate the environment you’ll be able to import
+many common libraries directly. Some less common tools, like the PyMarc
+library, however, would need to be installed first.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2414,10 +2411,11 @@ the PyMarc library, however, would need to be installed first.</p>
 </div>
 <p>You can find out how to install the library by looking at the
 documentation. <a href="https://pypi.org/project/pymarc/" class="external-link">PyMarc</a>,
-for example, recommends using a command line tool, <code>pip</code>, to
-install it. You can install with pip in a Jupyter notebook by starting
-the command with a percentage symbol, which allows you to run shell
-commands from Jupyter:</p>
+for example, recommends using a command line tool, <code>pip</code>, for
+installation, though you can also <a href="https://anaconda.org/asmeurer/pymarc" class="external-link">install PyMarc using
+conda</a>. To install with pip in a Jupyter notebook you can begin the
+command with a percentage symbol, which allows you to run shell commands
+from Jupyter:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -5374,7 +5372,7 @@ values, testing each age with the same output as above.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>For parts 1 to 3:</p>
 <div class="codewrapper sourceCode" id="cb13">
@@ -5441,7 +5439,7 @@ output.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5500,7 +5498,7 @@ Login successful!</code></pre>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7619,7 +7617,7 @@ for preparing data for analysis.</li>
 </div>
 </section></section><section id="aio-data-visualisation"><p>Content from <a href="data-visualisation.html">Data Visualisation</a></p>
 <hr>
-<p>Last updated on 2024-11-05 |
+<p>Last updated on 2025-03-20 |
 
         <a href="https://github.com/librarycarpentry/lc-python-intro/edit/main/episodes/data-visualisation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -7916,7 +7914,7 @@ or notable changes in the data.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The significant drop in circulation in March 2020 is likely due to
 the COVID-19 pandemic, which caused widespread temporary closures of
@@ -7984,18 +7982,11 @@ so, we can change the <code>kind</code> parameters in our
 </h2>
 <hr class="half-width">
 <p>Let’s switch back to the full DataFrame in <code>df_long</code> and
-use another plotting package in Python called Plotly. First let’s
-install and then use the package.</p>
+use another plotting package in Python called Plotly.</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># uncomment below to install plotly if the import fails. </span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co"># !pip install plotly</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co"># if you didn't install Jupyter via Anaconda, you may also need to install ipywidgets.</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co"># !pip install ipywidgets</span></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span></code></pre>
 </div>
 <p>Now we can visualize how circulation counts have changed over time
 for selected branches. This can be especially useful for identifying
@@ -8068,7 +8059,7 @@ over time.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8113,7 +8104,7 @@ including the following plot elements:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8160,7 +8151,7 @@ branches with the highest circulation.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8367,8 +8358,8 @@ helpers, and co-learners.</p>
   "url": "https://librarycarpentry.github.io/lc-python-intro/instructor/aio.html",
   "identifier": "https://librarycarpentry.github.io/lc-python-intro/instructor/aio.html",
   "dateCreated": "2018-04-12",
-  "dateModified": "2025-03-18",
-  "datePublished": "2025-03-18"
+  "dateModified": "2025-03-20",
+  "datePublished": "2025-03-20"
 }
 
   </script><script>
