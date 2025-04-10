@@ -20,7 +20,7 @@ exercises: 10
 
 ## Use a `for` loop to process files given a list of their names.
 
-If you recall from episode 06, the `pd.read_csv()` method takes a text string referencing a filename as an argument. If we have a list of strings that point to our filenames, we can loop through the list to read in each CSV file as a DataFrame. Let's print out the maximum values from the 'ytd' (year to date) column for each DataFrame.
+If you recall from the [Libraries & Pandas episode](libraries.md#pandas), the `pd.read_csv()` method takes a text string referencing a filename as an argument. If we have a list of strings that point to our filenames, we can loop through the list to read in each CSV file as a DataFrame. Let's print out the maximum values from the 'ytd' (year to date) column for each DataFrame.
 
 ```python
 import pandas as pd
