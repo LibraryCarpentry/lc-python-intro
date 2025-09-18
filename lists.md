@@ -217,9 +217,9 @@ values = []
 values.append(1)
 values.append(3)
 values.append(5)
-print(f'first time: {values})
+print(f'first time: {values}')
 values = values[1:3]
-print(f'second time: {values})
+print(f'second time: {values}')
 ```
 
 ```output
