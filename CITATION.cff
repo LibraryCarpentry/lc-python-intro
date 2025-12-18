@@ -1,46 +1,58 @@
-# This CITATION.cff file was generated with cffinit.
-# Visit https://bit.ly/cffinit to generate yours today!
-
 cff-version: 1.2.0
-title: ' Python Intro for Libraries '
-message: >-
-  Please cite this lesson using the information in this
-  file   when you refer to it in publications, and/or if
-  you   re-use, adapt, or expand on the content in your
-  own   training material.
-type: dataset
+message: "If you use this software, please cite it as below."
+title: "Python Intro for Libraries"
+abstract: "An introduction to Python for Library Carpentry."
 authors:
-  - given-names: Cody
-    family-names: Hennesy
-    orcid: 'https://orcid.org/0000-0002-9410-9810'
-  - given-names: Tim
-    family-names: Dennis
-    email: tdennis@library.ucla.edu
-    orcid: 'https://orcid.org/0000-0001-6632-3812'
-  - given-names: Scott
-    family-names: Peterson
-    orcid: 'https://orcid.org/0000-0002-1920-616X'
-  - family-names: Palmquist
+  - family-names: Hennesy
+    given-names: Cody
+    orcid: "https://orcid.org/0000-0002-9410-9810"
+  - family-names: Leinweber
+    given-names: Katrin
+    orcid: "https://orcid.org/0000-0001-5135-5758"
+  - family-names: Dennis
+    given-names: Tim
+    orcid: "https://orcid.org/0000-0001-6632-3812"
+  - family-names: Peterson
+    given-names: Scott
+    orcid: "https://orcid.org/0009-0006-7641-1959"
+  - family-names: Vankoningsveld
+    given-names: Richard
+  - family-names: Wickes
+    given-names: Elizabeth
+  - family-names: Moore
+    given-names: Nathan
+  - family-names: Bostroem
+    given-names: Azalee
+  - family-names: Mehta
+    given-names: Prateek
+  - family-names: Critchlow
+    given-names: Matt
+  - family-names: Dwaraknath
+    given-names: Shyam
+    orcid: "https://orcid.org/0000-0003-0289-2607"
+  - family-names: Ankenbrand
+    given-names: Markus
+  - family-names: Palmqist
     given-names: David
-identifiers:
-  - type: doi
-    value: 10.5281/zenodo.12582386
-repository-code: 'https://github.com/LibraryCarpentry/lc-python-intro'
-url: 'https://librarycarpentry.org/lc-python-intro/'
-abstract: >-
-  This lesson is an introduction to programming in Python
-  for library and information workers with little or no
-  previous programming experience. It uses examples that are
-  relevant to a range of library use cases, and is designed
-  as a prerequisite for other Python lessons that will be
-  developed in the future (e.g., web scraping, APIs). The
-  lesson uses the JupyterLab computing environment and
-  Python 3.
-keywords:
-  - Carpentries
-  - Python
-  - Library Carpentry
-  - Jupyter Notebooks
-  - Data Science
-  - Libraries
+  - family-names: Martinez
+    given-names: Carlos
+  - family-names: Heggø
+    given-names: Dan Michael O.
+version: 1.0.0
+date-released: 2018-04-12
 license: CC-BY-4.0
+repository-code: "https://github.com/librarycarpentry/lc-python-intro"
+keywords:
+  - "software"
+  - "data"
+  - "lesson"
+  - "The Carpentries"
+  - "Library Carpentry"
+  - "Python"
+  - "pandas"
+  - "library-circulation-data"
+  - "data-analysis"
+  - "automation"
+  - "csv"
+  - "python-scripting"
+  - "libraries"
