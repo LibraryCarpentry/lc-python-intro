@@ -10,7 +10,13 @@
     <loc>https://librarycarpentry.github.io/lc-python-intro/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://librarycarpentry.github.io/lc-python-intro/aio.html</loc>
+  </url>
+  <url>
     <loc>https://librarycarpentry.github.io/lc-python-intro/bar_plot_int.html</loc>
+  </url>
+  <url>
+    <loc>https://librarycarpentry.github.io/lc-python-intro/citation.html</loc>
   </url>
   <url>
     <loc>https://librarycarpentry.github.io/lc-python-intro/conditionals.html</loc>
@@ -37,6 +43,9 @@
     <loc>https://librarycarpentry.github.io/lc-python-intro/getting-started.html</loc>
   </url>
   <url>
+    <loc>https://librarycarpentry.github.io/lc-python-intro/images.html</loc>
+  </url>
+  <url>
     <loc>https://librarycarpentry.github.io/lc-python-intro/index.html</loc>
   </url>
   <url>
@@ -47,6 +56,12 @@
   </url>
   <url>
     <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/citation.html</loc>
   </url>
   <url>
     <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/conditionals.html</loc>
@@ -73,7 +88,16 @@
     <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/getting-started.html</loc>
   </url>
   <url>
+    <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/libraries.html</loc>
@@ -104,6 +128,12 @@
   </url>
   <url>
     <loc>https://librarycarpentry.github.io/lc-python-intro/instructor/writing-functions.html</loc>
+  </url>
+  <url>
+    <loc>https://librarycarpentry.github.io/lc-python-intro/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://librarycarpentry.github.io/lc-python-intro/key-points.html</loc>
   </url>
   <url>
     <loc>https://librarycarpentry.github.io/lc-python-intro/libraries.html</loc>
