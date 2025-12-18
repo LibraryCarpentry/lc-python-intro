@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Python Intro for Libraries"
+abstract: "An introduction to Python for Library Carpentry."
+authors:
+  - family-names: Hennesy
+    given-names: Cody
+    orcid: "https://orcid.org/0000-0002-9410-9810"
+  - family-names: Leinweber
+    given-names: Katrin
+    orcid: "https://orcid.org/0000-0001-5135-5758"
+  - family-names: Dennis
+    given-names: Tim
+    orcid: "https://orcid.org/0000-0001-6632-3812"
+  - family-names: Peterson
+    given-names: Scott
+    orcid: "https://orcid.org/0009-0006-7641-1959"
+  - family-names: Vankoningsveld
+    given-names: Richard
+  - family-names: Wickes
+    given-names: Elizabeth
+  - family-names: Moore
+    given-names: Nathan
+  - family-names: Bostroem
+    given-names: Azalee
+  - family-names: Mehta
+    given-names: Prateek
+  - family-names: Critchlow
+    given-names: Matt
+  - family-names: Dwaraknath
+    given-names: Shyam
+    orcid: "https://orcid.org/0000-0003-0289-2607"
+  - family-names: Ankenbrand
+    given-names: Markus
+  - family-names: Palmqist
+    given-names: David
+  - family-names: Martinez
+    given-names: Carlos
+  - family-names: Heggø
+    given-names: Dan Michael O.
+version: 1.0.0
+date-released: 2018-04-12
+license: CC-BY-4.0
+repository-code: "https://github.com/librarycarpentry/lc-python-intro"
+keywords:
+  - "software"
+  - "data"
+  - "lesson"
+  - "The Carpentries"
+  - "Library Carpentry"
+  - "Python"
+  - "pandas"
+  - "library-circulation-data"
+  - "data-analysis"
+  - "automation"
+  - "csv"
+  - "python-scripting"
+  - "libraries"
