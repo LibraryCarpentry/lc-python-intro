@@ -447,7 +447,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>df <span class="op">=</span> pd.read_pickle(<span class="st">'data/all_years.pkl'</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>df.head()</span></code></pre>
 </div>
-<table style="width:100%;" class="table"><colgroup><col width="2%"><col width="8%"><col width="13%"><col width="4%"><col width="5%"><col width="4%"><col width="5%"><col width="3%"><col width="3%"><col width="3%"><col width="3%"><col width="3%"><col width="4%"><col width="6%"><col width="4%"><col width="5%"><col width="5%"><col width="4%"><col width="3%"></colgroup><thead><tr><th></th>
+<table style="width:100%;" class="table"><colgroup><col width="2%"><col width="8%"><col width="13%"><col width="4%"><col width="5%"><col width="4%"><col width="5%"><col width="3%"><col width="3%"><col width="3%"><col width="3%"><col width="3%"><col width="4%"><col width="6%"><col width="4%"><col width="5%"><col width="5%"><col width="4%"><col width="3%"></colgroup><thead><tr class="header"><th></th>
 <th>branch</th>
 <th>address</th>
 <th>city</th>
@@ -466,7 +466,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <th>december</th>
 <th>ytd</th>
 <th>year</th>
-</tr></thead><tbody><tr><td>0</td>
+</tr></thead><tbody><tr class="odd"><td>0</td>
 <td>Albany Park</td>
 <td>5150 N. Kimball Ave.</td>
 <td>Chicago</td>
@@ -485,7 +485,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <td>9934</td>
 <td>120059</td>
 <td>2011</td>
-</tr><tr><td>1</td>
+</tr><tr class="even"><td>1</td>
 <td>Altgeld</td>
 <td>13281 S. Corliss Ave.</td>
 <td>Chicago</td>
@@ -504,7 +504,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <td>692</td>
 <td>9611</td>
 <td>2011</td>
-</tr><tr><td>2</td>
+</tr><tr class="odd"><td>2</td>
 <td>Archer Heights</td>
 <td>5055 S. Archer Ave.</td>
 <td>Chicago</td>
@@ -523,7 +523,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <td>7865</td>
 <td>101951</td>
 <td>2011</td>
-</tr><tr><td>3</td>
+</tr><tr class="even"><td>3</td>
 <td>Austin</td>
 <td>5615 W. Race Ave.</td>
 <td>Chicago</td>
@@ -542,7 +542,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <td>2116</td>
 <td>25527</td>
 <td>2011</td>
-</tr><tr><td>4</td>
+</tr><tr class="odd"><td>4</td>
 <td>Austin-Irving</td>
 <td>6100 W. Irving Park Rd.</td>
 <td>Chicago</td>
@@ -566,7 +566,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>df.tail()</span></code></pre>
 </div>
-<table class="table"><colgroup><col width="2%"><col width="8%"><col width="13%"><col width="5%"><col width="5%"><col width="5%"><col width="5%"><col width="4%"><col width="4%"><col width="3%"><col width="3%"><col width="3%"><col width="4%"><col width="6%"><col width="5%"><col width="5%"><col width="5%"><col width="4%"><col width="3%"></colgroup><thead><tr><th></th>
+<table class="table"><colgroup><col width="2%"><col width="8%"><col width="13%"><col width="5%"><col width="5%"><col width="5%"><col width="5%"><col width="4%"><col width="4%"><col width="3%"><col width="3%"><col width="3%"><col width="4%"><col width="6%"><col width="5%"><col width="5%"><col width="5%"><col width="4%"><col width="3%"></colgroup><thead><tr class="header"><th></th>
 <th>branch</th>
 <th>address</th>
 <th>city</th>
@@ -585,7 +585,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <th>december</th>
 <th>ytd</th>
 <th>year</th>
-</tr></thead><tbody><tr><td>958</td>
+</tr></thead><tbody><tr class="odd"><td>958</td>
 <td>Chinatown</td>
 <td>2100 S. Wentworth Ave.</td>
 <td>Chicago</td>
@@ -604,7 +604,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <td>3957</td>
 <td>58539</td>
 <td>2022</td>
-</tr><tr><td>959</td>
+</tr><tr class="even"><td>959</td>
 <td>Brainerd</td>
 <td>1350 W. 89th St.</td>
 <td>Chicago</td>
@@ -623,7 +623,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <td>201</td>
 <td>3899</td>
 <td>2022</td>
-</tr><tr><td>960</td>
+</tr><tr class="odd"><td>960</td>
 <td>Brighton Park</td>
 <td>4314 S. Archer Ave.</td>
 <td>Chicago</td>
@@ -642,7 +642,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <td>1278</td>
 <td>17940</td>
 <td>2022</td>
-</tr><tr><td>961</td>
+</tr><tr class="even"><td>961</td>
 <td>South Chicago</td>
 <td>9055 S. Houston Ave.</td>
 <td>Chicago</td>
@@ -661,7 +661,7 @@ library circulation data in a single DataFrame. We can use the Pandas
 <td>615</td>
 <td>8324</td>
 <td>2022</td>
-</tr><tr><td>962</td>
+</tr><tr class="odd"><td>962</td>
 <td>Chicago Bee</td>
 <td>3647 S. State St.</td>
 <td>Chicago</td>
@@ -753,7 +753,7 @@ new structure of our data.</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>df_long</span></code></pre>
 </div>
-<table class="table"><colgroup><col width="6%"><col width="15%"><col width="24%"><col width="8%"><col width="9%"><col width="7%"><col width="5%"><col width="9%"><col width="12%"></colgroup><thead><tr><th></th>
+<table class="table"><colgroup><col width="6%"><col width="15%"><col width="24%"><col width="8%"><col width="9%"><col width="7%"><col width="5%"><col width="9%"><col width="12%"></colgroup><thead><tr class="header"><th></th>
 <th>branch</th>
 <th>address</th>
 <th>city</th>
@@ -762,7 +762,7 @@ new structure of our data.</p>
 <th>year</th>
 <th>month</th>
 <th>circulation</th>
-</tr></thead><tbody><tr><td>0</td>
+</tr></thead><tbody><tr class="odd"><td>0</td>
 <td>Albany Park</td>
 <td>5150 N. Kimball Ave.</td>
 <td>Chicago</td>
@@ -771,7 +771,7 @@ new structure of our data.</p>
 <td>2011</td>
 <td>january</td>
 <td>8427</td>
-</tr><tr><td>1</td>
+</tr><tr class="even"><td>1</td>
 <td>Altgeld</td>
 <td>13281 S. Corliss Ave.</td>
 <td>Chicago</td>
@@ -780,7 +780,7 @@ new structure of our data.</p>
 <td>2011</td>
 <td>january</td>
 <td>1258</td>
-</tr><tr><td>2</td>
+</tr><tr class="odd"><td>2</td>
 <td>Archer Heights</td>
 <td>5055 S. Archer Ave.</td>
 <td>Chicago</td>
@@ -789,7 +789,7 @@ new structure of our data.</p>
 <td>2011</td>
 <td>january</td>
 <td>8104</td>
-</tr><tr><td>3</td>
+</tr><tr class="even"><td>3</td>
 <td>Austin</td>
 <td>5615 W. Race Ave.</td>
 <td>Chicago</td>
@@ -798,7 +798,7 @@ new structure of our data.</p>
 <td>2011</td>
 <td>january</td>
 <td>1755</td>
-</tr><tr><td>4</td>
+</tr><tr class="odd"><td>4</td>
 <td>Austin-Irving</td>
 <td>6100 W. Irving Park Rd.</td>
 <td>Chicago</td>
@@ -807,7 +807,7 @@ new structure of our data.</p>
 <td>2011</td>
 <td>january</td>
 <td>12593</td>
-</tr><tr><td>…</td>
+</tr><tr class="even"><td>…</td>
 <td>…</td>
 <td>…</td>
 <td>…</td>
@@ -816,7 +816,7 @@ new structure of our data.</p>
 <td>…</td>
 <td>…</td>
 <td>…</td>
-</tr><tr><td>11551</td>
+</tr><tr class="odd"><td>11551</td>
 <td>Chinatown</td>
 <td>2100 S. Wentworth Ave.</td>
 <td>Chicago</td>
@@ -825,7 +825,7 @@ new structure of our data.</p>
 <td>2022</td>
 <td>december</td>
 <td>3957</td>
-</tr><tr><td>11552</td>
+</tr><tr class="even"><td>11552</td>
 <td>Brainerd</td>
 <td>1350 W. 89th St.</td>
 <td>Chicago</td>
@@ -834,7 +834,7 @@ new structure of our data.</p>
 <td>2022</td>
 <td>december</td>
 <td>201</td>
-</tr><tr><td>11553</td>
+</tr><tr class="odd"><td>11553</td>
 <td>Brighton Park</td>
 <td>4314 S. Archer Ave.</td>
 <td>Chicago</td>
@@ -843,7 +843,7 @@ new structure of our data.</p>
 <td>2022</td>
 <td>december</td>
 <td>1278</td>
-</tr><tr><td>11554</td>
+</tr><tr class="even"><td>11554</td>
 <td>South Chicago</td>
 <td>9055 S. Houston Ave.</td>
 <td>Chicago</td>
@@ -852,7 +852,7 @@ new structure of our data.</p>
 <td>2022</td>
 <td>december</td>
 <td>615</td>
-</tr><tr><td>11555</td>
+</tr><tr class="odd"><td>11555</td>
 <td>Chicago Bee</td>
 <td>3647 S. State St.</td>
 <td>Chicago</td>
@@ -904,7 +904,7 @@ rows that have a number greater than 10,000 in the
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>df_long[df_long[<span class="st">'circulation'</span>] <span class="op">&gt;</span> <span class="dv">10000</span>]</span></code></pre>
 </div>
-<table style="width:100%;" class="table"><colgroup><col width="5%"><col width="27%"><col width="20%"><col width="7%"><col width="8%"><col width="6%"><col width="4%"><col width="8%"><col width="10%"></colgroup><thead><tr><th></th>
+<table style="width:100%;" class="table"><colgroup><col width="5%"><col width="27%"><col width="20%"><col width="7%"><col width="8%"><col width="6%"><col width="4%"><col width="8%"><col width="10%"></colgroup><thead><tr class="header"><th></th>
 <th>branch</th>
 <th>address</th>
 <th>city</th>
@@ -913,7 +913,7 @@ rows that have a number greater than 10,000 in the
 <th>year</th>
 <th>month</th>
 <th>circulation</th>
-</tr></thead><tbody><tr><td>4</td>
+</tr></thead><tbody><tr class="odd"><td>4</td>
 <td>Austin-Irving</td>
 <td>6100 W. Irving Park Rd.</td>
 <td>Chicago</td>
@@ -922,7 +922,7 @@ rows that have a number greater than 10,000 in the
 <td>2011</td>
 <td>january</td>
 <td>12593</td>
-</tr><tr><td>12</td>
+</tr><tr class="even"><td>12</td>
 <td>Bucktown-Wicker Park</td>
 <td>1701 N. Milwaukee Ave.</td>
 <td>Chicago</td>
@@ -931,7 +931,7 @@ rows that have a number greater than 10,000 in the
 <td>2011</td>
 <td>january</td>
 <td>13113</td>
-</tr><tr><td>13</td>
+</tr><tr class="odd"><td>13</td>
 <td>Budlong Woods</td>
 <td>5630 N. Lincoln Ave.</td>
 <td>Chicago</td>
@@ -940,7 +940,7 @@ rows that have a number greater than 10,000 in the
 <td>2011</td>
 <td>january</td>
 <td>12841</td>
-</tr><tr><td>17</td>
+</tr><tr class="even"><td>17</td>
 <td>Chinatown</td>
 <td>2353 S. Wentworth Ave.</td>
 <td>Chicago</td>
@@ -949,7 +949,7 @@ rows that have a number greater than 10,000 in the
 <td>2011</td>
 <td>january</td>
 <td>14027</td>
-</tr><tr><td>24</td>
+</tr><tr class="odd"><td>24</td>
 <td>Edgebrook</td>
 <td>5331 W. Devon Ave.</td>
 <td>Chicago</td>
@@ -958,7 +958,7 @@ rows that have a number greater than 10,000 in the
 <td>2011</td>
 <td>january</td>
 <td>10231</td>
-</tr><tr><td>…</td>
+</tr><tr class="even"><td>…</td>
 <td>…</td>
 <td>…</td>
 <td>…</td>
@@ -967,7 +967,7 @@ rows that have a number greater than 10,000 in the
 <td>…</td>
 <td>…</td>
 <td>…</td>
-</tr><tr><td>11373</td>
+</tr><tr class="odd"><td>11373</td>
 <td>Harold Washington Library Center</td>
 <td>400 S. State St.</td>
 <td>Chicago</td>
@@ -976,7 +976,7 @@ rows that have a number greater than 10,000 in the
 <td>2020</td>
 <td>december</td>
 <td>20990</td>
-</tr><tr><td>11420</td>
+</tr><tr class="even"><td>11420</td>
 <td>Sulzer Regional</td>
 <td>4455 N. Lincoln Ave.</td>
 <td>Chicago</td>
@@ -985,7 +985,7 @@ rows that have a number greater than 10,000 in the
 <td>2021</td>
 <td>december</td>
 <td>21671</td>
-</tr><tr><td>11454</td>
+</tr><tr class="odd"><td>11454</td>
 <td>Harold Washington Library Center</td>
 <td>400 S. State St.</td>
 <td>Chicago</td>
@@ -994,7 +994,7 @@ rows that have a number greater than 10,000 in the
 <td>2021</td>
 <td>december</td>
 <td>21046</td>
-</tr><tr><td>11532</td>
+</tr><tr class="even"><td>11532</td>
 <td>Harold Washington Library Center</td>
 <td>400 S. State St.</td>
 <td>Chicago</td>
@@ -1003,7 +1003,7 @@ rows that have a number greater than 10,000 in the
 <td>2022</td>
 <td>december</td>
 <td>20480</td>
-</tr><tr><td>11545</td>
+</tr><tr class="odd"><td>11545</td>
 <td>Sulzer Regional</td>
 <td>4455 N. Lincoln Ave.</td>
 <td>Chicago</td>
@@ -1021,40 +1021,40 @@ rows that have a number greater than 10,000 in the
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>df_long[[<span class="st">'branch'</span>, <span class="st">'circulation'</span>]]</span></code></pre>
 </div>
-<table class="table"><thead><tr><th></th>
+<table class="table"><thead><tr class="header"><th></th>
 <th>branch</th>
 <th>circulation</th>
-</tr></thead><tbody><tr><td>0</td>
+</tr></thead><tbody><tr class="odd"><td>0</td>
 <td>Albany Park</td>
 <td>8427</td>
-</tr><tr><td>1</td>
+</tr><tr class="even"><td>1</td>
 <td>Altgeld</td>
 <td>1258</td>
-</tr><tr><td>2</td>
+</tr><tr class="odd"><td>2</td>
 <td>Archer Heights</td>
 <td>8104</td>
-</tr><tr><td>3</td>
+</tr><tr class="even"><td>3</td>
 <td>Austin</td>
 <td>1755</td>
-</tr><tr><td>4</td>
+</tr><tr class="odd"><td>4</td>
 <td>Austin-Irving</td>
 <td>12593</td>
-</tr><tr><td>…</td>
+</tr><tr class="even"><td>…</td>
 <td>…</td>
 <td>…</td>
-</tr><tr><td>11551</td>
+</tr><tr class="odd"><td>11551</td>
 <td>Chinatown</td>
 <td>3957</td>
-</tr><tr><td>11552</td>
+</tr><tr class="even"><td>11552</td>
 <td>Brainerd</td>
 <td>201</td>
-</tr><tr><td>11553</td>
+</tr><tr class="odd"><td>11553</td>
 <td>Brighton Park</td>
 <td>1278</td>
-</tr><tr><td>11554</td>
+</tr><tr class="even"><td>11554</td>
 <td>South Chicago</td>
 <td>615</td>
-</tr><tr><td>11555</td>
+</tr><tr class="odd"><td>11555</td>
 <td>Chicago Bee</td>
 <td>788</td>
 </tr></tbody></table><p>
@@ -1067,7 +1067,7 @@ branches with the highest circulation per month:</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>df_long.sort_values(<span class="st">'circulation'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre>
 </div>
-<table class="table"><colgroup><col width="5%"><col width="29%"><col width="18%"><col width="7%"><col width="8%"><col width="6%"><col width="5%"><col width="6%"><col width="11%"></colgroup><thead><tr><th></th>
+<table class="table"><colgroup><col width="5%"><col width="29%"><col width="18%"><col width="7%"><col width="8%"><col width="6%"><col width="5%"><col width="6%"><col width="11%"></colgroup><thead><tr class="header"><th></th>
 <th>branch</th>
 <th>address</th>
 <th>city</th>
@@ -1076,7 +1076,7 @@ branches with the highest circulation per month:</p>
 <th>year</th>
 <th>month</th>
 <th>circulation</th>
-</tr></thead><tbody><tr><td>1957</td>
+</tr></thead><tbody><tr class="odd"><td>1957</td>
 <td>Harold Washington Library Center</td>
 <td>400 S. State St.</td>
 <td>Chicago</td>
@@ -1085,7 +1085,7 @@ branches with the highest circulation per month:</p>
 <td>2011</td>
 <td>march</td>
 <td>89122</td>
-</tr><tr><td>2920</td>
+</tr><tr class="even"><td>2920</td>
 <td>Harold Washington Library Center</td>
 <td>400 S. State St.</td>
 <td>Chicago</td>
@@ -1094,7 +1094,7 @@ branches with the highest circulation per month:</p>
 <td>2011</td>
 <td>april</td>
 <td>88527</td>
-</tr><tr><td>2999</td>
+</tr><tr class="odd"><td>2999</td>
 <td>Harold Washington Library Center</td>
 <td>400 S. State St.</td>
 <td>Chicago</td>
@@ -1103,7 +1103,7 @@ branches with the highest circulation per month:</p>
 <td>2012</td>
 <td>april</td>
 <td>87689</td>
-</tr><tr><td>6772</td>
+</tr><tr class="even"><td>6772</td>
 <td>Harold Washington Library Center</td>
 <td>400 S. State St.</td>
 <td>Chicago</td>
@@ -1112,7 +1112,7 @@ branches with the highest circulation per month:</p>
 <td>2011</td>
 <td>august</td>
 <td>85193</td>
-</tr><tr><td>2036</td>
+</tr><tr class="odd"><td>2036</td>
 <td>Harold Washington Library Center</td>
 <td>400 S. State St.</td>
 <td>Chicago</td>
@@ -1121,7 +1121,7 @@ branches with the highest circulation per month:</p>
 <td>2012</td>
 <td>march</td>
 <td>84255</td>
-</tr><tr><td>…</td>
+</tr><tr class="even"><td>…</td>
 <td>…</td>
 <td>…</td>
 <td>…</td>
@@ -1130,7 +1130,7 @@ branches with the highest circulation per month:</p>
 <td>…</td>
 <td>…</td>
 <td>…</td>
-</tr><tr><td>3623</td>
+</tr><tr class="odd"><td>3623</td>
 <td>Portage-Cragin</td>
 <td>5108 W. Belmont Ave.</td>
 <td>Chicago</td>
@@ -1139,7 +1139,7 @@ branches with the highest circulation per month:</p>
 <td>2020</td>
 <td>april</td>
 <td>0</td>
-</tr><tr><td>3622</td>
+</tr><tr class="even"><td>3622</td>
 <td>Manning</td>
 <td>6 S. Hoyne Ave.</td>
 <td>Chicago</td>
@@ -1148,7 +1148,7 @@ branches with the highest circulation per month:</p>
 <td>2020</td>
 <td>april</td>
 <td>0</td>
-</tr><tr><td>3621</td>
+</tr><tr class="odd"><td>3621</td>
 <td>Daley, Richard J. - Bridgeport</td>
 <td>3400 S. Halsted St.</td>
 <td>Chicago</td>
@@ -1157,7 +1157,7 @@ branches with the highest circulation per month:</p>
 <td>2020</td>
 <td>april</td>
 <td>0</td>
-</tr><tr><td>3620</td>
+</tr><tr class="even"><td>3620</td>
 <td>Canaryville</td>
 <td>642 W. 43rd St.</td>
 <td>Chicago</td>
@@ -1166,7 +1166,7 @@ branches with the highest circulation per month:</p>
 <td>2020</td>
 <td>april</td>
 <td>0</td>
-</tr><tr><td>3577</td>
+</tr><tr class="odd"><td>3577</td>
 <td>Merlo</td>
 <td>644 W. Belmont Ave.</td>
 <td>Chicago</td>
@@ -1185,43 +1185,43 @@ over all years and also see the mean circulation?</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>df_long.groupby(<span class="st">'branch'</span>)[<span class="st">'circulation'</span>].agg(total_circulation<span class="op">=</span><span class="st">'sum'</span>, mean_circulation<span class="op">=</span><span class="st">'mean'</span>)</span></code></pre>
 </div>
-<table class="table"><thead><tr><th></th>
+<table class="table"><thead><tr class="header"><th></th>
 <th>total_circulation</th>
 <th>mean_circulation</th>
-</tr></thead><tbody><tr><td>branch</td>
+</tr></thead><tbody><tr class="odd"><td>branch</td>
 <td></td>
 <td></td>
-</tr><tr><td>Albany Park</td>
+</tr><tr class="even"><td>Albany Park</td>
 <td>1024714</td>
 <td>7116.069444</td>
-</tr><tr><td>Altgeld</td>
+</tr><tr class="odd"><td>Altgeld</td>
 <td>68358</td>
 <td>474.708333</td>
-</tr><tr><td>Archer Heights</td>
+</tr><tr class="even"><td>Archer Heights</td>
 <td>803014</td>
 <td>5576.486111</td>
-</tr><tr><td>Austin</td>
+</tr><tr class="odd"><td>Austin</td>
 <td>200107</td>
 <td>1389.631944</td>
-</tr><tr><td>Austin-Irving</td>
+</tr><tr class="even"><td>Austin-Irving</td>
 <td>1359700</td>
 <td>9442.361111</td>
-</tr><tr><td>…</td>
+</tr><tr class="odd"><td>…</td>
 <td>…</td>
 <td>…</td>
-</tr><tr><td>West Pullman</td>
+</tr><tr class="even"><td>West Pullman</td>
 <td>295327</td>
 <td>2050.881944</td>
-</tr><tr><td>West Town</td>
+</tr><tr class="odd"><td>West Town</td>
 <td>922876</td>
 <td>6408.861111</td>
-</tr><tr><td>Whitney M. Young, Jr.</td>
+</tr><tr class="even"><td>Whitney M. Young, Jr.</td>
 <td>259680</td>
 <td>1803.333333</td>
-</tr><tr><td>Woodson Regional</td>
+</tr><tr class="odd"><td>Woodson Regional</td>
 <td>823793</td>
 <td>5720.784722</td>
-</tr><tr><td>Wrightwood-Ashburn</td>
+</tr><tr class="even"><td>Wrightwood-Ashburn</td>
 <td>302285</td>
 <td>2099.201389</td>
 </tr></tbody></table><p>
@@ -1259,55 +1259,55 @@ column names in the <code>.groupby()</code> function.</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>df_long.groupby([<span class="st">'branch'</span>, <span class="st">'month'</span>])[<span class="st">'circulation'</span>].agg([<span class="st">'sum'</span>, <span class="st">'mean'</span>])</span></code></pre>
 </div>
-<table class="table"><thead><tr><th></th>
+<table class="table"><thead><tr class="header"><th></th>
 <th></th>
 <th>sum</th>
 <th>mean</th>
-</tr></thead><tbody><tr><td>branch</td>
+</tr></thead><tbody><tr class="odd"><td>branch</td>
 <td>month</td>
 <td></td>
 <td></td>
-</tr><tr><td>Albany Park</td>
+</tr><tr class="even"><td>Albany Park</td>
 <td>april</td>
 <td>79599</td>
 <td>6633.250000</td>
-</tr><tr><td></td>
+</tr><tr class="odd"><td></td>
 <td>august</td>
 <td>91416</td>
 <td>7618.000000</td>
-</tr><tr><td></td>
+</tr><tr class="even"><td></td>
 <td>december</td>
 <td>77849</td>
 <td>6487.416667</td>
-</tr><tr><td></td>
+</tr><tr class="odd"><td></td>
 <td>february</td>
 <td>76747</td>
 <td>6395.583333</td>
-</tr><tr><td></td>
+</tr><tr class="even"><td></td>
 <td>january</td>
 <td>85952</td>
 <td>7162.666667</td>
-</tr><tr><td>…</td>
+</tr><tr class="odd"><td>…</td>
 <td>…</td>
 <td>…</td>
 <td>…</td>
-</tr><tr><td>Wrightwood-Ashburn</td>
+</tr><tr class="even"><td>Wrightwood-Ashburn</td>
 <td>march</td>
 <td>25817</td>
 <td>2151.416667</td>
-</tr><tr><td></td>
+</tr><tr class="odd"><td></td>
 <td>may</td>
 <td>22049</td>
 <td>1837.416667</td>
-</tr><tr><td></td>
+</tr><tr class="even"><td></td>
 <td>november</td>
 <td>24124</td>
 <td>2010.333333</td>
-</tr><tr><td></td>
+</tr><tr class="odd"><td></td>
 <td>october</td>
 <td>27345</td>
 <td>2278.750000</td>
-</tr><tr><td></td>
+</tr><tr class="even"><td></td>
 <td>september</td>
 <td>25692</td>
 <td>2141.000000</td>
@@ -1422,19 +1422,19 @@ workshops to follow the three tidy data principles?</p>
 <ol style="list-style-type: decimal"><li>Every column holds a single variable.</li>
 <li>Every row represents a single observation.</li>
 <li>Every cell contains a single value.</li>
-</ol><table class="table"><thead><tr><th>Date</th>
+</ol><table class="table"><thead><tr class="header"><th>Date</th>
 <th>Length</th>
 <th>Content</th>
 <th>Instructor</th>
-</tr></thead><tbody><tr><td>2023-01-15</td>
+</tr></thead><tbody><tr class="odd"><td>2023-01-15</td>
 <td>30 min</td>
 <td>RDM, DMP</td>
 <td>CH</td>
-</tr><tr><td>2023-02-02</td>
+</tr><tr class="even"><td>2023-02-02</td>
 <td>2 hours</td>
 <td>Python, RDM</td>
 <td>CH, TD</td>
-</tr><tr><td>2023-02-03</td>
+</tr><tr class="odd"><td>2023-02-03</td>
 <td>90 min</td>
 <td>Python</td>
 <td>SP</td>
@@ -1451,37 +1451,37 @@ match the content unit however you like.</p>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<table class="table"><thead><tr><th>Year</th>
+<table class="table"><thead><tr class="header"><th>Year</th>
 <th>Month</th>
 <th>Day</th>
 <th>Length (min)</th>
 <th>Content</th>
 <th>Instructor</th>
-</tr></thead><tbody><tr><td>2023</td>
+</tr></thead><tbody><tr class="odd"><td>2023</td>
 <td>01</td>
 <td>15</td>
 <td>20</td>
 <td>RDM</td>
 <td>CH</td>
-</tr><tr><td>2023</td>
+</tr><tr class="even"><td>2023</td>
 <td>01</td>
 <td>15</td>
 <td>10</td>
 <td>DMP</td>
 <td>CH</td>
-</tr><tr><td>2023</td>
+</tr><tr class="odd"><td>2023</td>
 <td>02</td>
 <td>02</td>
 <td>100</td>
 <td>Python</td>
 <td>TD</td>
-</tr><tr><td>2023</td>
+</tr><tr class="even"><td>2023</td>
 <td>02</td>
 <td>02</td>
 <td>20</td>
 <td>RDM</td>
 <td>CH</td>
-</tr><tr><td>2023</td>
+</tr><tr class="odd"><td>2023</td>
 <td>02</td>
 <td>03</td>
 <td>100</td>
@@ -1561,31 +1561,31 @@ for all branches in each year.</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>df_long.groupby([<span class="st">'year'</span>])[<span class="st">'circulation'</span>].agg([<span class="st">'sum'</span>])</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>year</th>
+<table class="table"><thead><tr class="header"><th>year</th>
 <th>sum</th>
-</tr></thead><tbody><tr><td>2011</td>
+</tr></thead><tbody><tr class="odd"><td>2011</td>
 <td>7774198</td>
-</tr><tr><td>2012</td>
+</tr><tr class="even"><td>2012</td>
 <td>7598080</td>
-</tr><tr><td>2013</td>
+</tr><tr class="odd"><td>2013</td>
 <td>6894958</td>
-</tr><tr><td>2014</td>
+</tr><tr class="even"><td>2014</td>
 <td>6406512</td>
-</tr><tr><td>2015</td>
+</tr><tr class="odd"><td>2015</td>
 <td>5953920</td>
-</tr><tr><td>2016</td>
+</tr><tr class="even"><td>2016</td>
 <td>5696456</td>
-</tr><tr><td>2017</td>
+</tr><tr class="odd"><td>2017</td>
 <td>5305624</td>
-</tr><tr><td>2018</td>
+</tr><tr class="even"><td>2018</td>
 <td>4989239</td>
-</tr><tr><td>2019</td>
+</tr><tr class="odd"><td>2019</td>
 <td>4785108</td>
-</tr><tr><td>2020</td>
+</tr><tr class="even"><td>2020</td>
 <td>2726156</td>
-</tr><tr><td>2021</td>
+</tr><tr class="odd"><td>2021</td>
 <td>3184327</td>
-</tr><tr><td>2022</td>
+</tr><tr class="even"><td>2022</td>
 <td>3342472</td>
 </tr></tbody></table></div>
 </div>
@@ -1643,7 +1643,7 @@ for preparing data for analysis.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.18.4" class="external-link">sandpaper (0.18.4)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1666,7 +1666,7 @@ for preparing data for analysis.</li>
   "identifier": "https://librarycarpentry.github.io/lc-python-intro/tidy.html",
   "dateCreated": "2018-04-12",
   "dateModified": "2025-12-18",
-  "datePublished": "2026-01-20"
+  "datePublished": "2026-01-27"
 }
 
   </script><script>
