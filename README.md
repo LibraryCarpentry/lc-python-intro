@@ -5,6 +5,7 @@
 ## Maintainers for Library Carpentry: Python Intro for Libraries
 - [Cody Hennesy](https://github.com/chennesy) (lead)
 - [Tim Dennis](https://github.com/jt14den)
+- [Ahmed Hasan](https://github.com/aays)
 
 The updated version of this lesson (June 2024) was developed with the assistance of [David Palmquist](https://github.com/quist00) and [Scott Peterson](https://github.com/scottcpeterson).
 
