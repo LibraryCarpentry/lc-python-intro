@@ -22,7 +22,7 @@ Alternatively, you can [install JupyterLab][jupyter-install] on its own using co
 2. Unzip the ```data.zip``` file, which should create a new folder called ```data```.
 3. Create a new folder on your Desktop called ```lc-python``` and put the ```data``` folder in this folder.
 
-This lesson uses circulation data in multiple CSV files from the Chicago Public Library system. The data was compiled from records shared by the Chicago Public Library in [the data.gov catalog](https://catalog.data.gov/dataset/?q=chicago+%22circulation+by+location%22). Please do not download the circulation data from data.gov since the dataset you downloaded following the steps above has been altered for our purposes.
+This lesson uses circulation data in multiple CSV files from the Chicago Public Library system. The data was compiled from records shared by the Chicago Public Library via data.cityofchicago.org, and available in the [the data.gov catalog](https://catalog.data.gov/?q=Libraries+Circulation+by+Location&sort=relevance). The original data is in the public domain with an [open license](https://resources.data.gov/open-licenses/) which is defined as "any legally binding instrument that grants permission to access, re-use, and redistribute a work with few or no restrictions." The CSV files used in this lesson were modified for ease of use and teaching purposes.
 
 [python]: https://python.org/downloads
 [video-windows]: https://www.youtube.com/watch?v=xxQ0mzZ8UvA
