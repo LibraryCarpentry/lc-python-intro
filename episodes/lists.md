@@ -20,8 +20,8 @@ exercises: 10
 ## A list stores many values in a single structure.
 A list is one of the most commonly used data structures in Python. Lists have two important characteristics:
 
-1. They are `mutable`, meaning they can be changed after they are created.
-2. They are `heterogeneous`, meaning they can store values of many different types.
+1. They are `mutable`, i.e, they can be changed after they are created.
+2. They are `heterogeneous`, i.e, they can store values of many different types.
 
 To create a new list, you can just put some values in square brackets with commas in between. Let's create a short list of some library metadata standards.
 
