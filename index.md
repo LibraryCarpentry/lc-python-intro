@@ -8,7 +8,7 @@ The Python Intro for Libraries lesson had a major redesign on June 17, 2024. Thi
 
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
-This lesson is an introduction to programming in Python for library and information workers with little or no previous programming experience. It uses examples that are relevant to a range of library use cases, and is designed as a prerequisite for other Python lessons that will be developed in the future (e.g., web scraping, APIs). The lesson uses the JupyterLab computing environment and Python 3.
+This lesson is an introduction to programming in Python for library and information workers with little or no previous programming experience (see the [Learner Profiles](profiles.html) for examples of the kinds of people who might benefit from this lesson). It uses examples that are relevant to a range of library use cases, and is designed as a prerequisite for other Python lessons that will be developed in the future (e.g., web scraping, APIs). The lesson uses the JupyterLab computing environment and Python 3.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
