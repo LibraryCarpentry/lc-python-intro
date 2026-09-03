@@ -380,7 +380,7 @@
   Major lesson update: June 17, 2024
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>The Python Intro for Libraries lesson had a major redesign on June
 17, 2024. This new Python lesson features a different dataset (of
@@ -394,10 +394,12 @@ to review the lesson in full as your prepare.</p>
 </div>
 <p>This lesson is an introduction to programming in Python for library
 and information workers with little or no previous programming
-experience. It uses examples that are relevant to a range of library use
-cases, and is designed as a prerequisite for other Python lessons that
-will be developed in the future (e.g., web scraping, APIs). The lesson
-uses the JupyterLab computing environment and Python 3.</p>
+experience (see the <a href="profiles.html">Learner Profiles</a> for
+examples of the kinds of people who might benefit from this lesson). It
+uses examples that are relevant to a range of library use cases, and is
+designed as a prerequisite for other Python lessons that will be
+developed in the future (e.g., web scraping, APIs). The lesson uses the
+JupyterLab computing environment and Python 3.</p>
 <div id="prerequisites" class="callout prereq">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check"></i>
@@ -418,38 +420,14 @@ instructions below</a> for details.</p>
 </div>
 <section><h2 class="section-heading" id="learning-objectives">Learning Objectives<a class="anchor" aria-label="anchor" href="#learning-objectives"></a></h2>
 <hr class="half-width"><p>After attending this training, participants will be able to:</p>
-<ul><li>Navigate the JupyterLab interface and run Python cells within a
-notebook.</li>
-<li>Assign values to variables, identify data types, and display values
-in a Jupyter Notebook.</li>
-<li>Create and manipulate lists in Python, including indexing, slicing,
-appending, and removing items to manage data collections
-effectively.</li>
-<li>Call built-in Python functions, and use the help function to
-understand their usage and troubleshoot errors.</li>
-<li>Use Python libraries like Pandas to import modules, load tabular
-data from CSV files, and perform basic data analysis.</li>
-<li>Apply ‘for’ loops to iterate over collections, using the accumulator
-pattern to aggregate values and trace variable states to predict loop
-outcomes.</li>
-<li>Manipulate pandas DataFrames to select data, calculate summary
-statistics, sort data, and save results in various formats,
-demonstrating basic data handling and analysis proficiency.</li>
-<li>Write Python programs using conditional logic with ‘if’, ‘elif’, and
-‘else’ statements, including Boolean expressions and compound conditions
-within loops.</li>
-<li>Construct Python functions that encapsulate tasks, manage
-parameters, local, and global variables, and return values to enhance
-code modularity and readability.</li>
-<li>Transform complex datasets into a tidy format using pandas functions
-like ‘melt()’ for reshaping, ‘groupby()’ for aggregation, and
-‘to_datetime()’ for date handling. Address practical challenges and
-demonstrate the benefits of tidy data for analysis.</li>
-<li>Create and customize data visualizations using Pandas and Plotly,
-generating various plot types (line, area, bar, histogram) to analyze
-trends and draw insights from time-series data.</li>
-<li>Prepare for advanced Python topics such as web scraping and
-APIs.</li>
+<ul><li>Learn core Python syntax, variables, data types, and functions while
+using the JupyterLab interface.</li>
+<li>Control program execution using lists, loops, conditional logic, and
+custom functions to automate data tasks.</li>
+<li>Load, clean, aggregate, and reshape tabular datasets using the
+Pandas library to create analysis-ready data.</li>
+<li>Generate insightful charts from tidy datasets using Pandas and
+Plotly.</li>
 </ul></section><section id="schedule"><table class="table table schedule table-striped" role="presentation"><tbody><tr><td></td><td><a href="#setup">Setup Instructions</a></td><td> Download files required for the lesson</td>
           </tr><tr><td>
 <span class="visually-hidden">Duration: </span>00h 00m
@@ -620,10 +598,14 @@ folder called <code>data</code>.</li>
 and put the <code>data</code> folder in this folder.</li>
 </ol><p>This lesson uses circulation data in multiple CSV files from the
 Chicago Public Library system. The data was compiled from records shared
-by the Chicago Public Library in <a href="https://catalog.data.gov/dataset/?q=chicago+%22circulation+by+location%22" class="external-link">the
-data.gov catalog</a>. Please do not download the circulation data from
-data.gov since the dataset you downloaded following the steps above has
-been altered for our purposes.</p>
+by the Chicago Public Library via data.cityofchicago.org, and available
+in the <a href="https://catalog.data.gov/?q=Libraries+Circulation+by+Location&amp;sort=relevance" class="external-link">the
+data.gov catalog</a>. The original data is in the public domain with an
+<a href="https://resources.data.gov/open-licenses/" class="external-link">open license</a>
+which is defined as “any legally binding instrument that grants
+permission to access, re-use, and redistribute a work with few or no
+restrictions.” The CSV files used in this lesson were modified for ease
+of use and teaching purposes.</p>
 </section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="../instructor/getting-started.html" rel="next">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
@@ -653,7 +635,7 @@ been altered for our purposes.</p>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.20.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.1)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.21.0)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.2)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -675,8 +657,8 @@ been altered for our purposes.</p>
   "url": "https://librarycarpentry.github.io/lc-python-intro/instructor/index.html",
   "identifier": "https://librarycarpentry.github.io/lc-python-intro/instructor/index.html",
   "dateCreated": "2018-04-12",
-  "dateModified": "2026-08-25",
-  "datePublished": "2026-08-25"
+  "dateModified": "2026-09-03",
+  "datePublished": "2026-09-03"
 }
 
   </script><script>
