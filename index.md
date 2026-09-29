@@ -3,12 +3,11 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 ::::::::::::::::::::::::::::::::::::: instructor
-## Major lesson update: June 17, 2024
-The Python Intro for Libraries lesson had a major redesign on June 17, 2024. This new Python lesson features a different dataset (of library usage data), uses JupyterLab instead of Spyder, and most of the content was rewritten. If you were familiar with the previous version of the lesson and are planning to teach it again, please give yourself time to review the lesson in full as your prepare.
-
+## Lesson scope
+The Python Intro for Libraries lesson focuses on library circulation data to introduce Python skills and concepts. Those Python fundamentals should be relevant for many other library use-cases, but the lesson does not provide direct examples of using Python with other relevant library data formats such as XML, JSON, or MARC. 
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
-This lesson is an introduction to programming in Python for library and information workers with little or no previous programming experience (see the [Learner Profiles](profiles.html) for examples of the kinds of people who might benefit from this lesson). It uses examples that are relevant to a range of library use cases, and is designed as a prerequisite for other Python lessons that will be developed in the future (e.g., web scraping, APIs). The lesson uses the JupyterLab computing environment and Python 3.
+This lesson is an introduction to programming in Python for library and information workers with little or no previous programming experience (see the [Learner Profiles](profiles.html) for examples of the kinds of people who might benefit from this lesson). It uses library circulation data to introduce Python fundamentals, and is designed as a prerequisite for other Python lessons that we hope will be developed in the future (e.g., web scraping, APIs). The lesson uses the JupyterLab computing environment and Python 3.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
