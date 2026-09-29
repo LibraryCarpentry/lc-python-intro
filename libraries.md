@@ -25,7 +25,7 @@ exercises: 10
 
 ## Python libraries are powerful collections of tools.
 
-A *Python library* is a collection of files (called *modules*) that contains functions that you can use in your programs. Some libraries (also referred to as packages) contain standard data values or language resources that you can reference in your code. So far, we have used the Python [standard library][stdlib], which is an extensive suite of built-in modules. You can find additional libraries from [PyPI][pypi] (the Python Package Index), though you'll often find references to useful libraries as you're reading tutorials or trying to solve specific programming problems. Some popular libraries for working with data in library fields are:
+A *Python library* is a collection of files (called *modules*) that contains functions that you can use in your programs. Some libraries (also referred to as packages) contain standard data values or language resources that you can reference in your code. So far, we have used the Python [standard library][stdlib], which is an extensive suite of built-in modules. You can find additional libraries from [PyPI][pypi] (the Python Package Index), though you'll often find references to useful libraries as you're reading tutorials or trying to solve specific programming problems. Though we do not have time to cover these all in this lesson, some popular libraries for working with data in library fields are:
 
 - [Pandas](https://pandas.pydata.org/) - tabular data analysis tool.
 - [Pymarc](https://pypi.org/project/pymarc/) - for working with bibliographic data encoded in MARC21.
