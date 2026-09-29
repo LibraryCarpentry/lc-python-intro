@@ -5,8 +5,11 @@ exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
-* Identify the characteristics of tidy data and explain its benefits, listing the three principles and discussing how it facilitates data analysis during a review session.
-* Use pandas functions like concat(), melt(), and data filtering to manipulate and clean a complex dataset, successfully combining multiple files into a single DataFrame and reshaping it using melt()
+* Define the three core principles of tidy data and contrast wide-format vs. long-format structures.
+* Reshape wide DataFrames into long format using `pd.melt()`.
+* Filter and sort DataFrame rows based on quantitative logical conditions (e.g., value thresholds) and `.sort_values()`.
+* Calculate summary statistics across groups using `pd.DataFrame.groupby()` paired with `.agg()`.
+* Construct and set temporal indexes by concatenating date string columns, parsing them with `pd.to_datetime()`, and declaring the index via `.set_index()`.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::: questions
