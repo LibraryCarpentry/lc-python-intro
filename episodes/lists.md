@@ -58,6 +58,61 @@ First item: marc
 The first three items: ['marc', 'frbr', 'mets']
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Lists: Length and Indexing
+1. Create a list named `colors` containing the strings 'red', 'blue', and 'green'. 
+2. Print the length of the list.
+3. Print the first color using indexing.
+
+:::::::::::::::  solution
+
+## Solution
+```python
+colors = ['red', 'blue', 'green']
+print(len(colors))
+print(colors[0])
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::  challenge
+
+## List slicing
+1. Create a list of numbers defined as [1, 2, 3, 4, 5, 6].
+2. Print the first three items in the list using slicing.
+3. Print the last three items using slicing.
+
+:::::::::::::::  solution
+
+## Solution
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+print(numbers[0:3])
+print(numbers[3:6])
+```
+```output
+[1, 2, 3]
+[4, 5, 6]
+```
+
+You can also leave the first and last elements in a slice blank to refer to the first and last elements in a list:
+
+```python
+print(numbers[:3])
+print(numbers[3:])
+```
+```output
+[1, 2, 3]
+[4, 5, 6]
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Reassign list values with their index.
 
 Use an index value along with your list variable to replace a value from the list.
@@ -172,60 +227,6 @@ animals before: ['dog', 'bird', 'shark', 'dog']
 animals after: ['bird', 'shark', 'dog']
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Lists: Length and Indexing
-1. Create a list named `colors` containing the strings 'red', 'blue', and 'green'. 
-2. Print the length of the list.
-3. Print the first color using indexing.
-
-:::::::::::::::  solution
-
-## Solution
-```python
-colors = ['red', 'blue', 'green']
-print(len(colors))
-print(colors[0])
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::  challenge
-
-## List slicing
-1. Create a list of numbers defined as [1, 2, 3, 4, 5, 6].
-2. Print the first three items in the list using slicing.
-3. Print the last three items using slicing.
-
-:::::::::::::::  solution
-
-## Solution
-```python
-numbers = [1, 2, 3, 4, 5, 6]
-print(numbers[0:3])
-print(numbers[3:6])
-```
-```output
-[1, 2, 3]
-[4, 5, 6]
-```
-
-You can also leave the first and last elements in a slice blank to refer to the first and last elements in a list:
-
-```python
-print(numbers[:3])
-print(numbers[3:])
-```
-```output
-[1, 2, 3]
-[4, 5, 6]
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
