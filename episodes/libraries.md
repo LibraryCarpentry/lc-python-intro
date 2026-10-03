@@ -155,6 +155,51 @@ Many popular libraries have common aliases. For example:
 
 Using these common aliases can make it easier to work with existing documentation and tutorials. 
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Importing With Aliases
+
+1. Fill in the blanks so that the program below prints `0123456789`.
+2. Rewrite the program so that it uses `import` *without* `as`.
+3. Which form do you find easier to read?
+
+```python
+import string as s
+numbers = ____.digits
+print(____)
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+import string as s
+numbers = s.digits
+print(numbers)
+```
+
+can be written as
+
+```python
+import string
+numbers = string.digits
+print(numbers)
+```
+
+Since you just wrote the code and are familiar with it, you might actually
+find the first version easier to read. But when trying to read a huge piece
+of code written by someone else, or when getting back to your own huge piece
+of code after several months, non-abbreviated names are often easier, expect
+where there are clear abbreviation conventions.
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 ## Pandas
 `Pandas` is a widely-used Python library for statistics using tabular data.
 Essentially, it gives you access to 2-dimensional tables whose columns have names and can have different data types. We can start using pandas by reading a `Comma Separated Values` (CSV) data file with the function `pd.read_csv()`. The function `.read_csv()` expects as an argument the path to and name of the file to be read. This returns a dataframe that you can assign to a variable.
@@ -318,50 +363,6 @@ df_2011.describe()
 | max   | 60827.000000 | 79210.000000 | 67574.000000 | 89122.00000 | 88527.000000 | 82581.000000 | 82100.000000 | 80219.000000 | 85193.000000 | 81400.000000 | 82236.000000 | 79702.000000 | 68856.00000 | 966720.000000 |
 
 This gives us, for example, the count, minimum, maximum, and mean values from each numeric column. In the case of the `zip code` column, this isn't helpful, but for the usage data for each month, it's a quick way to scan the range of data over the course of the year.
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Importing With Aliases
-
-1. Fill in the blanks so that the program below prints `0123456789`.
-2. Rewrite the program so that it uses `import` *without* `as`.
-3. Which form do you find easier to read?
-
-```python
-import string as s
-numbers = ____.digits
-print(____)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-import string as s
-numbers = s.digits
-print(numbers)
-```
-
-can be written as
-
-```python
-import string
-numbers = string.digits
-print(numbers)
-```
-
-Since you just wrote the code and are familiar with it, you might actually
-find the first version easier to read. But when trying to read a huge piece
-of code written by someone else, or when getting back to your own huge piece
-of code after several months, non-abbreviated names are often easier, expect
-where there are clear abbreviation conventions.
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 

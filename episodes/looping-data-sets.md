@@ -54,6 +54,27 @@ print(f"all csv files in data directory: {glob.glob('data/*.csv')}")
 all csv files in data directory: ['data/2011_circ.csv', 'data/2016_circ.csv', 'data/2017_circ.csv', 'data/2022_circ.csv', 'data/2018_circ.csv', 'data/2019_circ.csv', 'data/2012_circ.csv', 'data/2013_circ.csv', 'data/2021_circ.csv', 'data/2020_circ.csv', 'data/2015_circ.csv', 'data/2014_circ.csv']
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Determining Matches
+
+Which of these files would be matched by the expression `glob.glob('data/*circ.csv')`?
+
+1. `data/2011_circ.csv`
+2. `data/2012_circ_stats.csv`
+3. `circ/2013_circ.csv`
+4. Both 1 and 3
+
+:::::::::::::::  solution
+
+## Solution
+
+Only item 1 is matched by the wildcard expression `data/*circ.csv`. 
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Use `glob` and `for` to process batches of files.
 
 Now we can use glob in a `for` loop to create DataFrames from all of the CSV files in the `data` directory. To use tools like `glob` it helps if files are named and stored consistently so that simple patterns will find the right data. You can learn more about how to name files to improve machine-readability from the [Open Science Foundation article on file naming](https://help.osf.io/article/146-file-naming).
@@ -101,6 +122,37 @@ data/2020_circ.csv 276878
 data/2021_circ.csv 271811
 data/2022_circ.csv 301340
 ```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Minimum circulation per year
+
+Modify the following code to print out the lowest value in the `ytd` column from each year/file.
+
+```python
+import pandas as pd
+for csv in sorted(glob.glob('data/*.csv')):
+    data = pd.read_csv(____)
+    print(csv, data['____'].____())
+    
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+import pandas as pd
+for csv in sorted(glob.glob('data/*.csv')):
+    data = pd.read_csv(csv)
+    print(csv, data['ytd'].min())
+    
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
 ## Appending DataFrames to a list
@@ -192,56 +244,6 @@ f'Number of rows in df: {len(df)}'
 'Number of rows in df: 963'
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Determining Matches
-
-Which of these files would be matched by the expression `glob.glob('data/*circ.csv')`?
-
-1. `data/2011_circ.csv`
-2. `data/2012_circ_stats.csv`
-3. `circ/2013_circ.csv`
-4. Both 1 and 3
-
-:::::::::::::::  solution
-
-## Solution
-
-Only item 1 is matched by the wildcard expression `data/*circ.csv`. 
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Minimum circulation per year
-
-Modify the following code to print out the lowest value in the `ytd` column from each year/file.
-
-```python
-import pandas as pd
-for csv in sorted(glob.glob('data/*.csv')):
-    data = pd.read_csv(____)
-    print(csv, data['____'].____())
-    
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-import pandas as pd
-for csv in sorted(glob.glob('data/*.csv')):
-    data = pd.read_csv(csv)
-    print(csv, data['ytd'].min())
-    
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 

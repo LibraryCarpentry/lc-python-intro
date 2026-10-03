@@ -163,6 +163,38 @@ for number in range(0,3):
 2
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Use range() in a loop
+
+Print out the numbers 10, 11, 12, 13, 14, 15, using range() in a `for` loop.
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+
+for num in range(10, 16):
+    print(num)
+    
+```
+
+```output
+10
+11
+12
+13
+14
+15
+```
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 ## Accumulators
 
 A common loop pattern is to initialize an *accumulator* variable to zero, an empty string, or an empty list before the loop begins. Then the loop updates the accumulator variable with values from a collection.
@@ -247,37 +279,6 @@ for veg in vegetables:
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Use range() in a loop
-
-Print out the numbers 10, 11, 12, 13, 14, 15, using range() in a `for` loop.
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-
-for num in range(10, 16):
-    print(num)
-    
-```
-
-```output
-10
-11
-12
-13
-14
-15
-```
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Use a string index in a loop
