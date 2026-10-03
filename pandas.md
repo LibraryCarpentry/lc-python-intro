@@ -129,6 +129,38 @@ type(df['year'])
 pandas.core.series.Series
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Displaying rows and columns
+
+How would you use slicing and column names to select the following subsets of rows and columns from the circulation DataFrame?
+
+1. The city column.
+2. Rows 10 to 20.
+3. Rows 20 to 30 from the zip code column.
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+#1
+df['city']
+
+#2
+df[10:21]
+
+#3 
+df['zip code'][20:31]
+
+```
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 ## Summary statistics on columns
 A pandas Series is a one-dimensional array, like a column in a spreadsheet, while a pandas DataFrame is a two-dimensional tabular data structure with labeled axes, similar to a spreadsheet. One of the advantages of pandas is that we can use built-in functions like `max()`, `min()`, `mean()`, and `sum()` to provide summary statistics across Series such as columns. Since it can be difficult to get a sense of the range of data in a large DataFrame by looking over the whole thing manually, these functions can help us understand our dataset quickly and ask specific questions. 
 
@@ -256,6 +288,59 @@ year  branch
 Name: ytd, dtype: int64
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Unique items
+
+How would you display:
+
+1. all of the unique zip codes in the dataset?
+2. the number of unique zip codes in the dataset?
+
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+
+#1
+df['zip code'].unique()
+
+#2
+df['zip code'].nunique()
+
+```
+:::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Summary statistics and groupby()
+
+We can apply `mean()` to pandas series' in the same way we used `sum()`, `min()`, and `max()` above. How would you display the following? 
+
+1. the mean number of ytd checkouts grouped by zip code?
+2. the mean number of ytd checkouts grouped by zip code, and sorted from smallest to largest?
+
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+#1
+df.groupby('zip code')['ytd'].mean()
+
+#2
+df.groupby('zip code')['ytd'].mean().sort_values()
+
+```
+:::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
 ## Use .iloc[] and .loc[] to select DataFrame locations.
 You can point to specific locations in a DataFrame using two-dimensional numerical indexes with `.iloc[]`.
 
@@ -283,6 +368,25 @@ print(f"Branch: {df.loc[0,'branch']} \nYTD circ: {df.loc[0, 'ytd']}")
 Branch: Albany Park 
 YTD circ: 120059
 ```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Using loc()
+
+How would you use `loc()` to select rows 20 to 30 from the zip code column (the same rows as the last example in the challenge above)?
+
+Tip: slices use "non-inclusive" indexing -- so require you to ask for `df[10:21]` to see row 20, but `loc()` uses inclusive indexing.
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+df.loc[20:30, 'zip code']
+
+```
+:::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Save DataFrames
 
@@ -334,107 +438,6 @@ Finally, let's save our full concatenated DataFrame to a pickle file that we can
 df.to_pickle('data/all_years.pkl')
 ```
 
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Displaying rows and columns
-
-How would you use slicing and column names to select the following subsets of rows and columns from the circulation DataFrame?
-
-1. The city column.
-2. Rows 10 to 20.
-3. Rows 20 to 30 from the zip code column.
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-#1
-df['city']
-
-#2
-df[10:21]
-
-#3 
-df['zip code'][20:31]
-
-```
-
-
-:::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Using loc()
-
-How would you use `loc()` to select rows 20 to 30 from the zip code column (the same rows as the last example in the challenge above)?
-
-Tip: slices use "non-inclusive" indexing -- so require you to ask for `df[10:21]` to see row 20, but `loc()` uses inclusive indexing.
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-df.loc[20:30, 'zip code']
-
-```
-:::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Unique items
-
-How would you display:
-
-1. all of the unique zip codes in the dataset?
-2. the number of unique zip codes in the dataset?
-
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-
-#1
-df['zip code'].unique()
-
-#2
-df['zip code'].nunique()
-
-```
-:::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Summary statistics and groupby()
-
-We can apply `mean()` to pandas series' in the same way we used `sum()`, `min()`, and `max()` above. How would you display the following? 
-
-1. the mean number of ytd checkouts grouped by zip code?
-2. the mean number of ytd checkouts grouped by zip code, and sorted from smallest to largest?
-
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-#1
-df.groupby('zip code')['ytd'].mean()
-
-#2
-df.groupby('zip code')['ytd'].mean().sort_values()
-
-```
-:::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints

@@ -138,55 +138,6 @@ albany['circulation'].plot(kind='hist', bins=20,
 
 ![](fig/albany-circ-hist-9.png){alt="histogram of the Albany branch circulation."}
 
-## Use Plotly for interactive plots 
-
-Let’s switch back to the full DataFrame in `df_long` and use another
-plotting package in Python called Plotly. 
-
-```python
-import plotly.express as px
-```
-
-Now we can visualize how circulation counts have changed over time for selected branches. This can be especially useful for identifying trends, seasonality, or data anomalies. We willfirst create a subset of our data to look at branches starting with the letter 'A'. Feel free to select different branches. After subsetting, we will sort our new DataFrame by date and then plot our data by date and circulation count.
-
-``` python
-# Creating a line plot for a few selected branches to avoid clutter
-selected_branches = df_long[df_long['branch'].isin(['Altgeld',
- 'Archer Heights',
- 'Austin',
- 'Austin-Irving',
- 'Avalon'])]
-selected_branches = selected_branches.sort_values(by='date')
-```
-
-``` python
-fig = px.line(selected_branches, x=selected_branches.index, y='circulation', color='branch', title='Circulation Over Time for Selected Branches')
-fig.show()
-```
-
-Here is a view of the [interactive output of the Plotly line chart](learners/line_plot_int.html).  
-
-
-One advantage that Plotly provides over Matplotlib is that it has some interactive features out of the box. Hover your cursor over the lines in the output to find out more granular data about specific branches over time.
-
-
-### Bar plots with Plotly
-
-Let’s use a barplot to compare the distribution of circulation counts
-among branches. We first need to group our data by branch and sum up the circulation counts. Then we can use the bar plot to show the
-distribution of total circulation over branches.
-
-``` python
-# Aggregate circulation by branch
-total_circulation_by_branch = df_long.groupby('branch')['circulation'].sum().reset_index()
-
-# Create a bar plot
-fig = px.bar(total_circulation_by_branch, x='branch', y='circulation', title='Total Circulation by Branch')
-fig.show()
-```
-
-Here is a view of the [interactive output of the Plotly bar chart](learners/bar_plot_int.html).  
-
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Plotting with Pandas
@@ -247,6 +198,56 @@ uptown['circulation'].plot(title='Uptown Circulation',
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+## Use Plotly for interactive plots 
+
+Let’s switch back to the full DataFrame in `df_long` and use another
+plotting package in Python called Plotly. 
+
+```python
+import plotly.express as px
+```
+
+Now we can visualize how circulation counts have changed over time for selected branches. This can be especially useful for identifying trends, seasonality, or data anomalies. We willfirst create a subset of our data to look at branches starting with the letter 'A'. Feel free to select different branches. After subsetting, we will sort our new DataFrame by date and then plot our data by date and circulation count.
+
+``` python
+# Creating a line plot for a few selected branches to avoid clutter
+selected_branches = df_long[df_long['branch'].isin(['Altgeld',
+ 'Archer Heights',
+ 'Austin',
+ 'Austin-Irving',
+ 'Avalon'])]
+selected_branches = selected_branches.sort_values(by='date')
+```
+
+``` python
+fig = px.line(selected_branches, x=selected_branches.index, y='circulation', color='branch', title='Circulation Over Time for Selected Branches')
+fig.show()
+```
+
+Here is a view of the [interactive output of the Plotly line chart](learners/line_plot_int.html).  
+
+
+One advantage that Plotly provides over Matplotlib is that it has some interactive features out of the box. Hover your cursor over the lines in the output to find out more granular data about specific branches over time.
+
+
+### Bar plots with Plotly
+
+Let’s use a barplot to compare the distribution of circulation counts
+among branches. We first need to group our data by branch and sum up the circulation counts. Then we can use the bar plot to show the
+distribution of total circulation over branches.
+
+``` python
+# Aggregate circulation by branch
+total_circulation_by_branch = df_long.groupby('branch')['circulation'].sum().reset_index()
+
+# Create a bar plot
+fig = px.bar(total_circulation_by_branch, x='branch', y='circulation', title='Total Circulation by Branch')
+fig.show()
+```
+
+Here is a view of the [interactive output of the Plotly bar chart](learners/bar_plot_int.html).  
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
