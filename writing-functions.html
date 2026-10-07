@@ -412,7 +412,7 @@ and a block of code.</a></li>
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Writing Functions</h1>
-        <p>Last updated on 2025-12-18 |
+        <p>Last updated on 2026-10-07 |
 
         <a href="https://github.com/librarycarpentry/lc-python-intro/edit/main/episodes/writing-functions.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -600,102 +600,6 @@ automatically return <code>None</code>.</p>
 <pre class="output" tabindex="0"><code>1970/6/21
 result of call is: None</code></pre>
 </div>
-</section><section><h2 class="section-heading" id="variable-scope">Variable scope<a class="anchor" aria-label="anchor" href="#variable-scope"></a></h2>
-<hr class="half-width"><p>When we define a variable inside of a function in Python, it’s known
-as a <code>local</code> variable, which means that it’s not visible to –
-or known by – the rest of the program. Variables that we define outside
-of functions are <code>global</code> and are therefore visible
-throughout the program, <em>including</em> from within other functions.
-The part of a program in which a variable is visible is called its
-<em>scope</em>.</p>
-<p>This is helpful for people using or writing functions, because they
-don’t need to worry about repeating variable names that have been
-created elsewhere in the program.</p>
-<div class="codewrapper sourceCode" id="cb14">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a>initial_fine <span class="op">=</span> <span class="fl">0.25</span></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a>late_fine <span class="op">=</span> <span class="fl">0.50</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1" aria-label="code-block-14-3"></a></span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1" aria-label="code-block-14-4"></a><span class="kw">def</span> calc_fine(days_overdue):</span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1" aria-label="code-block-14-5"></a>    <span class="cf">if</span> days_overdue <span class="op">&lt;=</span> <span class="dv">10</span>:</span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1" aria-label="code-block-14-6"></a>        days_overdue <span class="op">=</span>  days_overdue <span class="op">*</span> initial_fine</span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1" aria-label="code-block-14-7"></a>    <span class="cf">else</span>:</span>
-<span id="cb14-8"><a href="#cb14-8" tabindex="-1" aria-label="code-block-14-8"></a>        days_overdue <span class="op">=</span> (days_overdue <span class="op">*</span> initial_fine) <span class="op">+</span> (days_overdue <span class="op">*</span> late_fine)</span>
-<span id="cb14-9"><a href="#cb14-9" tabindex="-1" aria-label="code-block-14-9"></a>    <span class="cf">return</span> days_overdue</span>
-<span id="cb14-10"><a href="#cb14-10" tabindex="-1" aria-label="code-block-14-10"></a>    </span></code></pre>
-</div>
-<ul><li>
-<code>initial_fine</code> and <code>late_fine</code> are <em>global
-variables</em>.</li>
-<li>
-<code>days_overdue</code> is a <em>local variable</em> in
-<code>calc_fine</code>. Note that a function parameter is a variable
-that is automatically assigned a value when the function is called and
-so acts as a local variable.</li>
-</ul><div class="codewrapper sourceCode" id="cb15">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a>fine <span class="op">=</span> calc_fine(<span class="dv">12</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1" aria-label="code-block-15-2"></a><span class="bu">print</span>(<span class="ss">f'Fine owed: $</span><span class="sc">{</span>fine<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1" aria-label="code-block-15-3"></a><span class="bu">print</span>(<span class="ss">f'Fine rates: $</span><span class="sc">{</span>initial_fine<span class="sc">:.2f}</span><span class="ss">, $</span><span class="sc">{</span>late_fine<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1" aria-label="code-block-15-4"></a><span class="bu">print</span>(<span class="ss">f'Days overdue: </span><span class="sc">{</span>days_overdue<span class="sc">}</span><span class="ss">'</span>)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>Fine owed: $9.00
-Fine rates: $0.25, $0.50</code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>NameError                                 Traceback (most recent call last)
-Cell In[22], line 4
-      2 print(f'Fine owed: ${fine:.2f}')
-      3 print(f'Fine rates: ${initial_fine:.2f}, ${late_fine:.2f}')
-----&gt; 4 print(f'Days overdue: {days_overdue}')
-
-NameError: name 'days_overdue' is not defined</code></pre>
-</div>
-</section><section><h2 class="section-heading" id="use-docstrings-to-provide-online-help-">Use docstrings to provide online help.<a class="anchor" aria-label="anchor" href="#use-docstrings-to-provide-online-help-"></a></h2>
-<hr class="half-width"><p>If the first thing in a function is a string that isn’t assigned to a
-variable, that string is attached to the function as its documentation.
-This kind of documentation at the beginning of a function is called a
-<code>docstring</code>.</p>
-<div class="codewrapper sourceCode" id="cb18">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a><span class="kw">def</span> fahr_to_celsius(temp):</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1" aria-label="code-block-18-2"></a>    <span class="co">"Input a fahrenheit temperature and return the value in celsius"</span></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1" aria-label="code-block-18-3"></a>    <span class="cf">return</span> ((temp <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>))</span></code></pre>
-</div>
-<p>This is helpful because we can now ask Python’s built-in help system
-to show us the documentation for the function:</p>
-<div class="codewrapper sourceCode" id="cb19">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1" aria-label="code-block-19-1"></a><span class="bu">help</span>(fahr_to_celsius)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>Help on function fahr_to_celsius in module __main__:
-
-fahr_to_celsius(temp)
-    Input a fahrenheit temperature and return the value in celsius</code></pre>
-</div>
-<p>We don’t need to use triple quotes when we write a docstring, but if
-we do, we can break the string across multiple lines:</p>
-<div class="codewrapper sourceCode" id="cb21">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1" aria-label="code-block-21-1"></a><span class="kw">def</span> fahr_to_celsius(temp):</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1" aria-label="code-block-21-2"></a>    <span class="co">"""Convert fahrenheit values to celsius</span></span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1" aria-label="code-block-21-3"></a><span class="co">    Input a value in fahrenheit</span></span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1" aria-label="code-block-21-4"></a><span class="co">    Output a value in celsius"""</span></span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1" aria-label="code-block-21-5"></a>    <span class="cf">return</span> ((temp <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>))</span></code></pre>
-</div>
 <div id="create-a-function" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -715,15 +619,15 @@ with several arguments and print out the results.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1" aria-label="code-block-22-1"></a><span class="kw">def</span> addition(x, y):</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1" aria-label="code-block-22-2"></a>    <span class="cf">return</span> x <span class="op">+</span> y</span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1" aria-label="code-block-22-3"></a></span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1" aria-label="code-block-22-4"></a>addition(<span class="dv">3</span>, <span class="dv">6</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="kw">def</span> addition(x, y):</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a>    <span class="cf">return</span> x <span class="op">+</span> y</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1" aria-label="code-block-14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1" aria-label="code-block-14-4"></a>addition(<span class="dv">3</span>, <span class="dv">6</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -733,6 +637,64 @@ with several arguments and print out the results.</p>
 </div>
 </div>
 </div>
+</div>
+</section><section><h2 class="section-heading" id="variable-scope">Variable scope<a class="anchor" aria-label="anchor" href="#variable-scope"></a></h2>
+<hr class="half-width"><p>When we define a variable inside of a function in Python, it’s known
+as a <code>local</code> variable, which means that it’s not visible to –
+or known by – the rest of the program. Variables that we define outside
+of functions are <code>global</code> and are therefore visible
+throughout the program, <em>including</em> from within other functions.
+The part of a program in which a variable is visible is called its
+<em>scope</em>.</p>
+<p>This is helpful for people using or writing functions, because they
+don’t need to worry about repeating variable names that have been
+created elsewhere in the program.</p>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a>initial_fine <span class="op">=</span> <span class="fl">0.25</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1" aria-label="code-block-16-2"></a>late_fine <span class="op">=</span> <span class="fl">0.50</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1" aria-label="code-block-16-3"></a></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1" aria-label="code-block-16-4"></a><span class="kw">def</span> calc_fine(days_overdue):</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1" aria-label="code-block-16-5"></a>    <span class="cf">if</span> days_overdue <span class="op">&lt;=</span> <span class="dv">10</span>:</span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1" aria-label="code-block-16-6"></a>        days_overdue <span class="op">=</span>  days_overdue <span class="op">*</span> initial_fine</span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1" aria-label="code-block-16-7"></a>    <span class="cf">else</span>:</span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1" aria-label="code-block-16-8"></a>        days_overdue <span class="op">=</span> (days_overdue <span class="op">*</span> initial_fine) <span class="op">+</span> (days_overdue <span class="op">*</span> late_fine)</span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1" aria-label="code-block-16-9"></a>    <span class="cf">return</span> days_overdue</span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1" aria-label="code-block-16-10"></a>    </span></code></pre>
+</div>
+<ul><li>
+<code>initial_fine</code> and <code>late_fine</code> are <em>global
+variables</em>.</li>
+<li>
+<code>days_overdue</code> is a <em>local variable</em> in
+<code>calc_fine</code>. Note that a function parameter is a variable
+that is automatically assigned a value when the function is called and
+so acts as a local variable.</li>
+</ul><div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1" aria-label="code-block-17-1"></a>fine <span class="op">=</span> calc_fine(<span class="dv">12</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1" aria-label="code-block-17-2"></a><span class="bu">print</span>(<span class="ss">f'Fine owed: $</span><span class="sc">{</span>fine<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1" aria-label="code-block-17-3"></a><span class="bu">print</span>(<span class="ss">f'Fine rates: $</span><span class="sc">{</span>initial_fine<span class="sc">:.2f}</span><span class="ss">, $</span><span class="sc">{</span>late_fine<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1" aria-label="code-block-17-4"></a><span class="bu">print</span>(<span class="ss">f'Days overdue: </span><span class="sc">{</span>days_overdue<span class="sc">}</span><span class="ss">'</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Fine owed: $9.00
+Fine rates: $0.25, $0.50</code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>NameError                                 Traceback (most recent call last)
+Cell In[22], line 4
+      2 print(f'Fine owed: ${fine:.2f}')
+      3 print(f'Fine rates: ${initial_fine:.2f}, ${late_fine:.2f}')
+----&gt; 4 print(f'Days overdue: {days_overdue}')
+
+NameError: name 'days_overdue' is not defined</code></pre>
 </div>
 <div id="conditional-statements-within-functions" class="callout challenge">
 <div class="callout-square">
@@ -760,26 +722,26 @@ it out.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1" aria-label="code-block-24-1"></a><span class="kw">def</span> grade_converter(score):</span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1" aria-label="code-block-24-2"></a>    <span class="cf">if</span> score <span class="op">&gt;</span> <span class="dv">100</span> <span class="kw">or</span> score <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1" aria-label="code-block-24-3"></a>        <span class="cf">return</span> <span class="st">'Invalid score'</span></span>
-<span id="cb24-4"><a href="#cb24-4" tabindex="-1" aria-label="code-block-24-4"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">90</span>:</span>
-<span id="cb24-5"><a href="#cb24-5" tabindex="-1" aria-label="code-block-24-5"></a>        <span class="cf">return</span> <span class="st">'A'</span></span>
-<span id="cb24-6"><a href="#cb24-6" tabindex="-1" aria-label="code-block-24-6"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">80</span>:</span>
-<span id="cb24-7"><a href="#cb24-7" tabindex="-1" aria-label="code-block-24-7"></a>        <span class="cf">return</span> <span class="st">'B'</span></span>
-<span id="cb24-8"><a href="#cb24-8" tabindex="-1" aria-label="code-block-24-8"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">70</span>:</span>
-<span id="cb24-9"><a href="#cb24-9" tabindex="-1" aria-label="code-block-24-9"></a>        <span class="cf">return</span> <span class="st">'C'</span></span>
-<span id="cb24-10"><a href="#cb24-10" tabindex="-1" aria-label="code-block-24-10"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">60</span>:</span>
-<span id="cb24-11"><a href="#cb24-11" tabindex="-1" aria-label="code-block-24-11"></a>        <span class="cf">return</span> <span class="st">'D'</span></span>
-<span id="cb24-12"><a href="#cb24-12" tabindex="-1" aria-label="code-block-24-12"></a>    <span class="cf">elif</span> score <span class="op">&lt;=</span> <span class="dv">59</span>:</span>
-<span id="cb24-13"><a href="#cb24-13" tabindex="-1" aria-label="code-block-24-13"></a>        <span class="cf">return</span> <span class="st">'F'</span></span>
-<span id="cb24-14"><a href="#cb24-14" tabindex="-1" aria-label="code-block-24-14"></a></span>
-<span id="cb24-15"><a href="#cb24-15" tabindex="-1" aria-label="code-block-24-15"></a>grade_converter(<span class="dv">88</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a><span class="kw">def</span> grade_converter(score):</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1" aria-label="code-block-20-2"></a>    <span class="cf">if</span> score <span class="op">&gt;</span> <span class="dv">100</span> <span class="kw">or</span> score <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1" aria-label="code-block-20-3"></a>        <span class="cf">return</span> <span class="st">'Invalid score'</span></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1" aria-label="code-block-20-4"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">90</span>:</span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1" aria-label="code-block-20-5"></a>        <span class="cf">return</span> <span class="st">'A'</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1" aria-label="code-block-20-6"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">80</span>:</span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1" aria-label="code-block-20-7"></a>        <span class="cf">return</span> <span class="st">'B'</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1" aria-label="code-block-20-8"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">70</span>:</span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1" aria-label="code-block-20-9"></a>        <span class="cf">return</span> <span class="st">'C'</span></span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1" aria-label="code-block-20-10"></a>    <span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">60</span>:</span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1" aria-label="code-block-20-11"></a>        <span class="cf">return</span> <span class="st">'D'</span></span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1" aria-label="code-block-20-12"></a>    <span class="cf">elif</span> score <span class="op">&lt;=</span> <span class="dv">59</span>:</span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1" aria-label="code-block-20-13"></a>        <span class="cf">return</span> <span class="st">'F'</span></span>
+<span id="cb20-14"><a href="#cb20-14" tabindex="-1" aria-label="code-block-20-14"></a></span>
+<span id="cb20-15"><a href="#cb20-15" tabindex="-1" aria-label="code-block-20-15"></a>grade_converter(<span class="dv">88</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -800,20 +762,20 @@ it out.</p>
 <div class="callout-content">
 <p>List all of the global variables and all of the local variables in
 the following code.</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1" aria-label="code-block-26-1"></a>fine_rate <span class="op">=</span> <span class="fl">0.25</span></span>
-<span id="cb26-2"><a href="#cb26-2" tabindex="-1" aria-label="code-block-26-2"></a></span>
-<span id="cb26-3"><a href="#cb26-3" tabindex="-1" aria-label="code-block-26-3"></a><span class="kw">def</span> fine(days_overdue):</span>
-<span id="cb26-4"><a href="#cb26-4" tabindex="-1" aria-label="code-block-26-4"></a>    <span class="cf">if</span> days_overdue <span class="op">&lt;=</span> <span class="dv">10</span>:</span>
-<span id="cb26-5"><a href="#cb26-5" tabindex="-1" aria-label="code-block-26-5"></a>        fine <span class="op">=</span>  days_overdue <span class="op">*</span> fine_rate</span>
-<span id="cb26-6"><a href="#cb26-6" tabindex="-1" aria-label="code-block-26-6"></a>    <span class="cf">else</span>:</span>
-<span id="cb26-7"><a href="#cb26-7" tabindex="-1" aria-label="code-block-26-7"></a>        fine <span class="op">=</span> (days_overdue <span class="op">*</span> fine_rate) <span class="op">+</span> (days_overdue <span class="op">*</span> (fine_rate<span class="op">*</span><span class="dv">2</span>))</span>
-<span id="cb26-8"><a href="#cb26-8" tabindex="-1" aria-label="code-block-26-8"></a>    <span class="cf">return</span> fine</span>
-<span id="cb26-9"><a href="#cb26-9" tabindex="-1" aria-label="code-block-26-9"></a>    </span>
-<span id="cb26-10"><a href="#cb26-10" tabindex="-1" aria-label="code-block-26-10"></a>total_fine <span class="op">=</span> calc_fine(<span class="dv">20</span>)</span>
-<span id="cb26-11"><a href="#cb26-11" tabindex="-1" aria-label="code-block-26-11"></a><span class="ss">f'Fine owed: $</span><span class="sc">{</span>total_fine<span class="sc">:.2f}</span><span class="ss">'</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1" aria-label="code-block-22-1"></a>fine_rate <span class="op">=</span> <span class="fl">0.25</span></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1" aria-label="code-block-22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1" aria-label="code-block-22-3"></a><span class="kw">def</span> fine(days_overdue):</span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1" aria-label="code-block-22-4"></a>    <span class="cf">if</span> days_overdue <span class="op">&lt;=</span> <span class="dv">10</span>:</span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1" aria-label="code-block-22-5"></a>        fine <span class="op">=</span>  days_overdue <span class="op">*</span> fine_rate</span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1" aria-label="code-block-22-6"></a>    <span class="cf">else</span>:</span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1" aria-label="code-block-22-7"></a>        fine <span class="op">=</span> (days_overdue <span class="op">*</span> fine_rate) <span class="op">+</span> (days_overdue <span class="op">*</span> (fine_rate<span class="op">*</span><span class="dv">2</span>))</span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1" aria-label="code-block-22-8"></a>    <span class="cf">return</span> fine</span>
+<span id="cb22-9"><a href="#cb22-9" tabindex="-1" aria-label="code-block-22-9"></a>    </span>
+<span id="cb22-10"><a href="#cb22-10" tabindex="-1" aria-label="code-block-22-10"></a>total_fine <span class="op">=</span> calc_fine(<span class="dv">20</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" tabindex="-1" aria-label="code-block-22-11"></a><span class="ss">f'Fine owed: $</span><span class="sc">{</span>total_fine<span class="sc">:.2f}</span><span class="ss">'</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -828,7 +790,7 @@ the following code.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Global variables:</p>
 <ul><li>fine_rate</li>
@@ -839,6 +801,44 @@ the following code.</p>
 </ul></div>
 </div>
 </div>
+</div>
+</section><section><h2 class="section-heading" id="use-docstrings-to-provide-online-help-">Use docstrings to provide online help.<a class="anchor" aria-label="anchor" href="#use-docstrings-to-provide-online-help-"></a></h2>
+<hr class="half-width"><p>If the first thing in a function is a string that isn’t assigned to a
+variable, that string is attached to the function as its documentation.
+This kind of documentation at the beginning of a function is called a
+<code>docstring</code>.</p>
+<div class="codewrapper sourceCode" id="cb24">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1" aria-label="code-block-24-1"></a><span class="kw">def</span> fahr_to_celsius(temp):</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1" aria-label="code-block-24-2"></a>    <span class="co">"Input a fahrenheit temperature and return the value in celsius"</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1" aria-label="code-block-24-3"></a>    <span class="cf">return</span> ((temp <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>))</span></code></pre>
+</div>
+<p>This is helpful because we can now ask Python’s built-in help system
+to show us the documentation for the function:</p>
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1" aria-label="code-block-25-1"></a><span class="bu">help</span>(fahr_to_celsius)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Help on function fahr_to_celsius in module __main__:
+
+fahr_to_celsius(temp)
+    Input a fahrenheit temperature and return the value in celsius</code></pre>
+</div>
+<p>We don’t need to use triple quotes when we write a docstring, but if
+we do, we can break the string across multiple lines:</p>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1" aria-label="code-block-27-1"></a><span class="kw">def</span> fahr_to_celsius(temp):</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1" aria-label="code-block-27-2"></a>    <span class="co">"""Convert fahrenheit values to celsius</span></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1" aria-label="code-block-27-3"></a><span class="co">    Input a value in fahrenheit</span></span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1" aria-label="code-block-27-4"></a><span class="co">    Output a value in celsius"""</span></span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1" aria-label="code-block-27-5"></a>    <span class="cf">return</span> ((temp <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>))</span></code></pre>
 </div>
 <div id="csvs-to-pandas-function" class="callout challenge">
 <div class="callout-square">
@@ -867,7 +867,7 @@ DataFrame.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -970,8 +970,8 @@ and a block of code.</li>
   "url": "https://librarycarpentry.github.io/lc-python-intro/writing-functions.html",
   "identifier": "https://librarycarpentry.github.io/lc-python-intro/writing-functions.html",
   "dateCreated": "2018-04-12",
-  "dateModified": "2025-12-18",
-  "datePublished": "2026-10-06"
+  "dateModified": "2026-10-07",
+  "datePublished": "2026-10-07"
 }
 
   </script><script>

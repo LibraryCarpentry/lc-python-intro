@@ -408,7 +408,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Tidy Data with Pandas</h1>
-        <p>Last updated on 2025-12-18 |
+        <p>Last updated on 2026-10-07 |
 
         <a href="https://github.com/librarycarpentry/lc-python-intro/edit/main/episodes/tidy.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -1329,6 +1329,88 @@ column names in the <code>.groupby()</code> function.</p>
 </tr></tbody></table><p>
 984 rows × 2 columns
 </p>
+<div id="tidy-data-principles" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="tidy-data-principles" class="callout-inner">
+<h3 class="callout-title">Tidy Data Principles</h3>
+<div class="callout-content">
+<p>How would you reorganize the following table about research data
+workshops to follow the three tidy data principles?</p>
+<ol style="list-style-type: decimal"><li>Every column holds a single variable.</li>
+<li>Every row represents a single observation.</li>
+<li>Every cell contains a single value.</li>
+</ol><table class="table"><thead><tr><th>Date</th>
+<th>Length</th>
+<th>Content</th>
+<th>Instructor</th>
+</tr></thead><tbody><tr><td>2023-01-15</td>
+<td>30 min</td>
+<td>RDM, DMP</td>
+<td>CH</td>
+</tr><tr><td>2023-02-02</td>
+<td>2 hours</td>
+<td>Python, RDM</td>
+<td>CH, TD</td>
+</tr><tr><td>2023-02-03</td>
+<td>90 min</td>
+<td>Python</td>
+<td>SP</td>
+</tr></tbody></table><p>You can use each content unit (e.g., RDM, DMP, Python) as an
+observation, and breakdown the length of time or instructor initials to
+match the content unit however you like.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<table class="table"><thead><tr><th>Year</th>
+<th>Month</th>
+<th>Day</th>
+<th>Length (min)</th>
+<th>Content</th>
+<th>Instructor</th>
+</tr></thead><tbody><tr><td>2023</td>
+<td>01</td>
+<td>15</td>
+<td>20</td>
+<td>RDM</td>
+<td>CH</td>
+</tr><tr><td>2023</td>
+<td>01</td>
+<td>15</td>
+<td>10</td>
+<td>DMP</td>
+<td>CH</td>
+</tr><tr><td>2023</td>
+<td>02</td>
+<td>02</td>
+<td>100</td>
+<td>Python</td>
+<td>TD</td>
+</tr><tr><td>2023</td>
+<td>02</td>
+<td>02</td>
+<td>20</td>
+<td>RDM</td>
+<td>CH</td>
+</tr><tr><td>2023</td>
+<td>02</td>
+<td>03</td>
+<td>100</td>
+<td>Python</td>
+<td>SP</td>
+</tr></tbody></table></div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="adding-a-date-column">Adding a Date Column<a class="anchor" aria-label="anchor" href="#adding-a-date-column"></a></h2>
 <hr class="half-width"><p>In order to plot this data over time in the data visualization we
 need to do three things to prepare it. First, we need to combine the
@@ -1423,88 +1505,6 @@ date.</p>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a>df_long.to_pickle(<span class="st">'data/df_long.pkl'</span>)</span></code></pre>
-</div>
-<div id="tidy-data-principles" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="tidy-data-principles" class="callout-inner">
-<h3 class="callout-title">Tidy Data Principles</h3>
-<div class="callout-content">
-<p>How would you reorganize the following table about research data
-workshops to follow the three tidy data principles?</p>
-<ol style="list-style-type: decimal"><li>Every column holds a single variable.</li>
-<li>Every row represents a single observation.</li>
-<li>Every cell contains a single value.</li>
-</ol><table class="table"><thead><tr><th>Date</th>
-<th>Length</th>
-<th>Content</th>
-<th>Instructor</th>
-</tr></thead><tbody><tr><td>2023-01-15</td>
-<td>30 min</td>
-<td>RDM, DMP</td>
-<td>CH</td>
-</tr><tr><td>2023-02-02</td>
-<td>2 hours</td>
-<td>Python, RDM</td>
-<td>CH, TD</td>
-</tr><tr><td>2023-02-03</td>
-<td>90 min</td>
-<td>Python</td>
-<td>SP</td>
-</tr></tbody></table><p>You can use each content unit (e.g., RDM, DMP, Python) as an
-observation, and breakdown the length of time or instructor initials to
-match the content unit however you like.</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<table class="table"><thead><tr><th>Year</th>
-<th>Month</th>
-<th>Day</th>
-<th>Length (min)</th>
-<th>Content</th>
-<th>Instructor</th>
-</tr></thead><tbody><tr><td>2023</td>
-<td>01</td>
-<td>15</td>
-<td>20</td>
-<td>RDM</td>
-<td>CH</td>
-</tr><tr><td>2023</td>
-<td>01</td>
-<td>15</td>
-<td>10</td>
-<td>DMP</td>
-<td>CH</td>
-</tr><tr><td>2023</td>
-<td>02</td>
-<td>02</td>
-<td>100</td>
-<td>Python</td>
-<td>TD</td>
-</tr><tr><td>2023</td>
-<td>02</td>
-<td>02</td>
-<td>20</td>
-<td>RDM</td>
-<td>CH</td>
-</tr><tr><td>2023</td>
-<td>02</td>
-<td>03</td>
-<td>100</td>
-<td>Python</td>
-<td>SP</td>
-</tr></tbody></table></div>
-</div>
-</div>
 </div>
 <div id="subsetting-df_long" class="callout challenge">
 <div class="callout-square">
@@ -1680,8 +1680,8 @@ for preparing data for analysis.</li>
   "url": "https://librarycarpentry.github.io/lc-python-intro/tidy.html",
   "identifier": "https://librarycarpentry.github.io/lc-python-intro/tidy.html",
   "dateCreated": "2018-04-12",
-  "dateModified": "2025-12-18",
-  "datePublished": "2026-10-06"
+  "dateModified": "2026-10-07",
+  "datePublished": "2026-10-07"
 }
 
   </script><script>

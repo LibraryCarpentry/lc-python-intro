@@ -407,7 +407,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Data Visualisation</h1>
-        <p>Last updated on 2025-12-18 |
+        <p>Last updated on 2026-10-07 |
 
         <a href="https://github.com/librarycarpentry/lc-python-intro/edit/main/episodes/data-visualisation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -648,7 +648,7 @@ or notable changes in the data.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The significant drop in circulation in March 2020 is likely due to
 the COVID-19 pandemic, which caused widespread temporary closures of
@@ -705,64 +705,7 @@ so, we can change the <code>kind</code> parameters in our
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a>                            title<span class="op">=</span><span class="st">'Distribution of Circulation Counts at Albany Park'</span>,</span>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a>                            xlabel<span class="op">=</span><span class="st">'Circulation Count'</span>)</span></code></pre>
 </div>
-<figure><img src="../fig/albany-circ-hist-9.png" alt="histogram of the Albany branch circulation." class="figure mx-auto d-block"></figure></div>
-</section><section><h2 class="section-heading" id="use-plotly-for-interactive-plots">Use Plotly for interactive plots<a class="anchor" aria-label="anchor" href="#use-plotly-for-interactive-plots"></a></h2>
-<hr class="half-width"><p>Let’s switch back to the full DataFrame in <code>df_long</code> and
-use another plotting package in Python called Plotly.</p>
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span></code></pre>
-</div>
-<p>Now we can visualize how circulation counts have changed over time
-for selected branches. This can be especially useful for identifying
-trends, seasonality, or data anomalies. We willfirst create a subset of
-our data to look at branches starting with the letter ‘A’. Feel free to
-select different branches. After subsetting, we will sort our new
-DataFrame by date and then plot our data by date and circulation
-count.</p>
-<div class="codewrapper sourceCode" id="cb11">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="co"># Creating a line plot for a few selected branches to avoid clutter</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1" aria-label="code-block-11-2"></a>selected_branches <span class="op">=</span> df_long[df_long[<span class="st">'branch'</span>].isin([<span class="st">'Altgeld'</span>,</span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1" aria-label="code-block-11-3"></a> <span class="st">'Archer Heights'</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1" aria-label="code-block-11-4"></a> <span class="st">'Austin'</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1" aria-label="code-block-11-5"></a> <span class="st">'Austin-Irving'</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1" aria-label="code-block-11-6"></a> <span class="st">'Avalon'</span>])]</span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1" aria-label="code-block-11-7"></a>selected_branches <span class="op">=</span> selected_branches.sort_values(by<span class="op">=</span><span class="st">'date'</span>)</span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb12">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1" aria-label="code-block-12-1"></a>fig <span class="op">=</span> px.line(selected_branches, x<span class="op">=</span>selected_branches.index, y<span class="op">=</span><span class="st">'circulation'</span>, color<span class="op">=</span><span class="st">'branch'</span>, title<span class="op">=</span><span class="st">'Circulation Over Time for Selected Branches'</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1" aria-label="code-block-12-2"></a>fig.show()</span></code></pre>
-</div>
-<p>Here is a view of the <a href="line_plot_int.html">interactive output
-of the Plotly line chart</a>.</p>
-<p>One advantage that Plotly provides over Matplotlib is that it has
-some interactive features out of the box. Hover your cursor over the
-lines in the output to find out more granular data about specific
-branches over time.</p>
-<div class="section level3">
-<h3 id="bar-plots-with-plotly">Bar plots with Plotly<a class="anchor" aria-label="anchor" href="#bar-plots-with-plotly"></a></h3>
-<p>Let’s use a barplot to compare the distribution of circulation counts
-among branches. We first need to group our data by branch and sum up the
-circulation counts. Then we can use the bar plot to show the
-distribution of total circulation over branches.</p>
-<div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="co"># Aggregate circulation by branch</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1" aria-label="code-block-13-2"></a>total_circulation_by_branch <span class="op">=</span> df_long.groupby(<span class="st">'branch'</span>)[<span class="st">'circulation'</span>].<span class="bu">sum</span>().reset_index()</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1" aria-label="code-block-13-3"></a></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1" aria-label="code-block-13-4"></a><span class="co"># Create a bar plot</span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1" aria-label="code-block-13-5"></a>fig <span class="op">=</span> px.bar(total_circulation_by_branch, x<span class="op">=</span><span class="st">'branch'</span>, y<span class="op">=</span><span class="st">'circulation'</span>, title<span class="op">=</span><span class="st">'Total Circulation by Branch'</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1" aria-label="code-block-13-6"></a>fig.show()</span></code></pre>
-</div>
-<p>Here is a view of the <a href="bar_plot_int.html">interactive output
-of the Plotly bar chart</a>.</p>
-<div id="plotting-with-pandas-1" class="callout challenge">
+<figure><img src="../fig/albany-circ-hist-9.png" alt="histogram of the Albany branch circulation." class="figure mx-auto d-block"></figure><div id="plotting-with-pandas-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -783,15 +726,15 @@ over time.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a>df_long <span class="op">=</span> pd.read_pickle(<span class="st">'data/df_long.pkl'</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1" aria-label="code-block-14-3"></a>chinatown <span class="op">=</span> df_long[df_long[<span class="st">'branch'</span>] <span class="op">==</span> <span class="st">'Chinatown'</span>].sort_index()</span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1" aria-label="code-block-14-4"></a>chinatown[<span class="st">'circulation'</span>].plot()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1" aria-label="code-block-10-2"></a>df_long <span class="op">=</span> pd.read_pickle(<span class="st">'data/df_long.pkl'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1" aria-label="code-block-10-3"></a>chinatown <span class="op">=</span> df_long[df_long[<span class="st">'branch'</span>] <span class="op">==</span> <span class="st">'Chinatown'</span>].sort_index()</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1" aria-label="code-block-10-4"></a>chinatown[<span class="st">'circulation'</span>].plot()</span></code></pre>
 </div>
 <figure><img src="../fig/chinatown_circulation.png" alt="image showing the circulation of the Chinatown branch over ten years" class="figure mx-auto d-block"><div class="figcaption">Chinatown plot</div>
 </figure></div>
@@ -811,12 +754,12 @@ including the following plot elements:</p>
 <ul><li>A title, “Uptown Circulation”</li>
 <li>“Year” and “Circulation Count” labels for the x and y axes</li>
 <li>A green plot line</li>
-</ul><div class="codewrapper sourceCode" id="cb15">
+</ul><div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1" aria-label="code-block-15-2"></a>df_long <span class="op">=</span> pd.read_pickle(<span class="st">'data/df_long.pkl'</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1" aria-label="code-block-15-3"></a>uptown <span class="op">=</span> df_long[df_long[<span class="st">'branch'</span>] <span class="op">==</span> <span class="st">'Uptown'</span>].sort_index()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1" aria-label="code-block-11-2"></a>df_long <span class="op">=</span> pd.read_pickle(<span class="st">'data/df_long.pkl'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1" aria-label="code-block-11-3"></a>uptown <span class="op">=</span> df_long[df_long[<span class="st">'branch'</span>] <span class="op">==</span> <span class="st">'Uptown'</span>].sort_index()</span></code></pre>
 </div>
 </div>
 </div>
@@ -826,21 +769,78 @@ including the following plot elements:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a>uptown[<span class="st">'circulation'</span>].plot(title<span class="op">=</span><span class="st">'Uptown Circulation'</span>, </span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1" aria-label="code-block-16-2"></a>                                color<span class="op">=</span><span class="st">'green'</span>, </span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1" aria-label="code-block-16-3"></a>                                xlabel<span class="op">=</span><span class="st">'Year'</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1" aria-label="code-block-16-4"></a>                                ylabel<span class="op">=</span><span class="st">'Circulation Count'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1" aria-label="code-block-12-1"></a>uptown[<span class="st">'circulation'</span>].plot(title<span class="op">=</span><span class="st">'Uptown Circulation'</span>, </span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1" aria-label="code-block-12-2"></a>                                color<span class="op">=</span><span class="st">'green'</span>, </span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1" aria-label="code-block-12-3"></a>                                xlabel<span class="op">=</span><span class="st">'Year'</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1" aria-label="code-block-12-4"></a>                                ylabel<span class="op">=</span><span class="st">'Circulation Count'</span>)</span></code></pre>
 </div>
 <figure><img src="../fig/uptown_plot.png" alt="image showing the circulation of the Uptown branch with labels" class="figure mx-auto d-block"><div class="figcaption">Uptown plot</div>
 </figure></div>
 </div>
 </div>
 </div>
+</div>
+</section><section><h2 class="section-heading" id="use-plotly-for-interactive-plots">Use Plotly for interactive plots<a class="anchor" aria-label="anchor" href="#use-plotly-for-interactive-plots"></a></h2>
+<hr class="half-width"><p>Let’s switch back to the full DataFrame in <code>df_long</code> and
+use another plotting package in Python called Plotly.</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span></code></pre>
+</div>
+<p>Now we can visualize how circulation counts have changed over time
+for selected branches. This can be especially useful for identifying
+trends, seasonality, or data anomalies. We willfirst create a subset of
+our data to look at branches starting with the letter ‘A’. Feel free to
+select different branches. After subsetting, we will sort our new
+DataFrame by date and then plot our data by date and circulation
+count.</p>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="co"># Creating a line plot for a few selected branches to avoid clutter</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a>selected_branches <span class="op">=</span> df_long[df_long[<span class="st">'branch'</span>].isin([<span class="st">'Altgeld'</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1" aria-label="code-block-14-3"></a> <span class="st">'Archer Heights'</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1" aria-label="code-block-14-4"></a> <span class="st">'Austin'</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1" aria-label="code-block-14-5"></a> <span class="st">'Austin-Irving'</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1" aria-label="code-block-14-6"></a> <span class="st">'Avalon'</span>])]</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1" aria-label="code-block-14-7"></a>selected_branches <span class="op">=</span> selected_branches.sort_values(by<span class="op">=</span><span class="st">'date'</span>)</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a>fig <span class="op">=</span> px.line(selected_branches, x<span class="op">=</span>selected_branches.index, y<span class="op">=</span><span class="st">'circulation'</span>, color<span class="op">=</span><span class="st">'branch'</span>, title<span class="op">=</span><span class="st">'Circulation Over Time for Selected Branches'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1" aria-label="code-block-15-2"></a>fig.show()</span></code></pre>
+</div>
+<p>Here is a view of the <a href="line_plot_int.html">interactive output
+of the Plotly line chart</a>.</p>
+<p>One advantage that Plotly provides over Matplotlib is that it has
+some interactive features out of the box. Hover your cursor over the
+lines in the output to find out more granular data about specific
+branches over time.</p>
+<div class="section level3">
+<h3 id="bar-plots-with-plotly">Bar plots with Plotly<a class="anchor" aria-label="anchor" href="#bar-plots-with-plotly"></a></h3>
+<p>Let’s use a barplot to compare the distribution of circulation counts
+among branches. We first need to group our data by branch and sum up the
+circulation counts. Then we can use the bar plot to show the
+distribution of total circulation over branches.</p>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a><span class="co"># Aggregate circulation by branch</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1" aria-label="code-block-16-2"></a>total_circulation_by_branch <span class="op">=</span> df_long.groupby(<span class="st">'branch'</span>)[<span class="st">'circulation'</span>].<span class="bu">sum</span>().reset_index()</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1" aria-label="code-block-16-3"></a></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1" aria-label="code-block-16-4"></a><span class="co"># Create a bar plot</span></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1" aria-label="code-block-16-5"></a>fig <span class="op">=</span> px.bar(total_circulation_by_branch, x<span class="op">=</span><span class="st">'branch'</span>, y<span class="op">=</span><span class="st">'circulation'</span>, title<span class="op">=</span><span class="st">'Total Circulation by Branch'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1" aria-label="code-block-16-6"></a>fig.show()</span></code></pre>
+</div>
+<p>Here is a view of the <a href="bar_plot_int.html">interactive output
+of the Plotly bar chart</a>.</p>
 <div id="plot-the-top-five-branches" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -873,7 +873,7 @@ branches with the highest circulation.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -973,8 +973,8 @@ and bar plots with capabilities like dropdown selections.</li>
   "url": "https://librarycarpentry.github.io/lc-python-intro/instructor/data-visualisation.html",
   "identifier": "https://librarycarpentry.github.io/lc-python-intro/instructor/data-visualisation.html",
   "dateCreated": "2018-04-12",
-  "dateModified": "2025-12-18",
-  "datePublished": "2026-10-06"
+  "dateModified": "2026-10-07",
+  "datePublished": "2026-10-07"
 }
 
   </script><script>

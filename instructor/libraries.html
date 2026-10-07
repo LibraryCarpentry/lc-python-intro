@@ -417,7 +417,7 @@ about data.</a></li>
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Libraries &amp; Pandas</h1>
-        <p>Last updated on 2026-09-29 |
+        <p>Last updated on 2026-10-07 |
 
         <a href="https://github.com/librarycarpentry/lc-python-intro/edit/main/episodes/libraries.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -652,6 +652,61 @@ efficiently.</p>
 <li><code>import matplotlib as plt</code></li>
 </ul><p>Using these common aliases can make it easier to work with existing
 documentation and tutorials.</p>
+<div id="importing-with-aliases" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="importing-with-aliases" class="callout-inner">
+<h3 class="callout-title">Importing With Aliases</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal"><li>Fill in the blanks so that the program below prints
+<code>0123456789</code>.</li>
+<li>Rewrite the program so that it uses <code>import</code>
+<em>without</em> <code>as</code>.</li>
+<li>Which form do you find easier to read?</li>
+</ol><div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="im">import</span> string <span class="im">as</span> s</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1" aria-label="code-block-11-2"></a>numbers <span class="op">=</span> ____.digits</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1" aria-label="code-block-11-3"></a><span class="bu">print</span>(____)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1" aria-label="code-block-12-1"></a><span class="im">import</span> string <span class="im">as</span> s</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1" aria-label="code-block-12-2"></a>numbers <span class="op">=</span> s.digits</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1" aria-label="code-block-12-3"></a><span class="bu">print</span>(numbers)</span></code></pre>
+</div>
+<p>can be written as</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="im">import</span> string</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1" aria-label="code-block-13-2"></a>numbers <span class="op">=</span> string.digits</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1" aria-label="code-block-13-3"></a><span class="bu">print</span>(numbers)</span></code></pre>
+</div>
+<p>Since you just wrote the code and are familiar with it, you might
+actually find the first version easier to read. But when trying to read
+a huge piece of code written by someone else, or when getting back to
+your own huge piece of code after several months, non-abbreviated names
+are often easier, expect where there are clear abbreviation
+conventions.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="pandas">Pandas<a class="anchor" aria-label="anchor" href="#pandas"></a></h2>
 <hr class="half-width"><p><code>Pandas</code> is a widely-used Python library for statistics
 using tabular data. Essentially, it gives you access to 2-dimensional
@@ -671,11 +726,11 @@ file, <code>2011_circ.csv</code>, you will see a preview of the CSV file
 in a new tab in the main panel of JupyterLab.</p>
 <p>Let’s load that file into a pandas DataFrame, and save it to a new
 variable called <code>df</code>.</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data/2011_circ.csv'</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1" aria-label="code-block-11-2"></a><span class="bu">print</span>(df)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data/2011_circ.csv'</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a><span class="bu">print</span>(df)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -752,11 +807,11 @@ differentiate between the datasets.</p>
 isn’t very easy to read. We can use <code>.head()</code> to look at just
 the first few rows in our dataframe formatted in a more convenient way
 for our Notebook.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a>df_2011 <span class="op">=</span> pd.read_csv(<span class="st">'data/2011_circ.csv'</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a>df_2011.head()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1" aria-label="code-block-17-1"></a>df_2011 <span class="op">=</span> pd.read_csv(<span class="st">'data/2011_circ.csv'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1" aria-label="code-block-17-2"></a>df_2011.head()</span></code></pre>
 </div>
 <table class="table"><colgroup><col width="2%"><col width="9%"><col width="14%"><col width="5%"><col width="5%"><col width="5%"><col width="5%"><col width="3%"><col width="3%"><col width="3%"><col width="3%"><col width="3%"><col width="4%"><col width="6%"><col width="5%"><col width="5%"><col width="5%"><col width="4%"></colgroup><thead><tr><th></th>
 <th>branch</th>
@@ -869,10 +924,10 @@ for our Notebook.</p>
 </tr></tbody></table></div>
 </section><section><h2 class="section-heading" id="use-the-dataframe-info-method-to-find-out-more-about-a-dataframe-">Use the <code>DataFrame.info()</code> method to find out more about
 a dataframe.<a class="anchor" aria-label="anchor" href="#use-the-dataframe-info-method-to-find-out-more-about-a-dataframe-"></a></h2>
-<hr class="half-width"><div class="codewrapper sourceCode" id="cb15">
+<hr class="half-width"><div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a>df_2011.info()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a>df_2011.info()</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -915,10 +970,10 @@ dataframe’s columns.<a class="anchor" aria-label="anchor" href="#the-dataframe
 <hr class="half-width"><p>Note that this is data, <em>not</em> a method, so do not use
 <code>()</code> to try to call it. It helpfully gives us a list of all
 of the column names.</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1" aria-label="code-block-17-1"></a><span class="bu">print</span>(df_2011.columns)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a><span class="bu">print</span>(df_2011.columns)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -933,10 +988,10 @@ about data.<a class="anchor" aria-label="anchor" href="#use-dataframe-describe-t
 <hr class="half-width"><p><code>DataFrame.describe()</code> gets the summary statistics of only
 the columns that have numerical data. All other columns are ignored,
 unless you use the argument <code>include='all'</code>.</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1" aria-label="code-block-19-1"></a>df_2011.describe()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1" aria-label="code-block-22-1"></a>df_2011.describe()</span></code></pre>
 </div>
 <table style="width:100%;" class="table"><colgroup><col width="3%"><col width="6%"><col width="6%"><col width="6%"><col width="6%"><col width="6%"><col width="6%"><col width="6%"><col width="6%"><col width="6%"><col width="6%"><col width="6%"><col width="6%"><col width="6%"><col width="7%"></colgroup><thead><tr><th></th>
 <th>zip code</th>
@@ -1078,61 +1133,6 @@ values from each numeric column. In the case of the
 <code>zip code</code> column, this isn’t helpful, but for the usage data
 for each month, it’s a quick way to scan the range of data over the
 course of the year.</p>
-<div id="importing-with-aliases" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="importing-with-aliases" class="callout-inner">
-<h3 class="callout-title">Importing With Aliases</h3>
-<div class="callout-content">
-<ol style="list-style-type: decimal"><li>Fill in the blanks so that the program below prints
-<code>0123456789</code>.</li>
-<li>Rewrite the program so that it uses <code>import</code>
-<em>without</em> <code>as</code>.</li>
-<li>Which form do you find easier to read?</li>
-</ol><div class="codewrapper sourceCode" id="cb20">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a><span class="im">import</span> string <span class="im">as</span> s</span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1" aria-label="code-block-20-2"></a>numbers <span class="op">=</span> ____.digits</span>
-<span id="cb20-3"><a href="#cb20-3" tabindex="-1" aria-label="code-block-20-3"></a><span class="bu">print</span>(____)</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb21">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1" aria-label="code-block-21-1"></a><span class="im">import</span> string <span class="im">as</span> s</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1" aria-label="code-block-21-2"></a>numbers <span class="op">=</span> s.digits</span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1" aria-label="code-block-21-3"></a><span class="bu">print</span>(numbers)</span></code></pre>
-</div>
-<p>can be written as</p>
-<div class="codewrapper sourceCode" id="cb22">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1" aria-label="code-block-22-1"></a><span class="im">import</span> string</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1" aria-label="code-block-22-2"></a>numbers <span class="op">=</span> string.digits</span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1" aria-label="code-block-22-3"></a><span class="bu">print</span>(numbers)</span></code></pre>
-</div>
-<p>Since you just wrote the code and are familiar with it, you might
-actually find the first version easier to read. But when trying to read
-a huge piece of code written by someone else, or when getting back to
-your own huge piece of code after several months, non-abbreviated names
-are often easier, expect where there are clear abbreviation
-conventions.</p>
-</div>
-</div>
-</div>
-</div>
 <div id="locating-the-right-module" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -1286,8 +1286,8 @@ programs.</li>
   "url": "https://librarycarpentry.github.io/lc-python-intro/instructor/libraries.html",
   "identifier": "https://librarycarpentry.github.io/lc-python-intro/instructor/libraries.html",
   "dateCreated": "2018-04-12",
-  "dateModified": "2026-09-29",
-  "datePublished": "2026-10-06"
+  "dateModified": "2026-10-07",
+  "datePublished": "2026-10-07"
 }
 
   </script><script>
