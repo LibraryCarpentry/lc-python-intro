@@ -76,6 +76,52 @@ for checkout in checkouts:
 
 Notice that our `else` statement led to a false output that says 10 is under the limit. We can address this by adding a different kind of `else` statement.
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Age conditionals
+
+Write a Python program that checks the age of a user to determine if they will receive a youth or adult library card. The program should:
+
+1. Store `age` in a variable.
+2. Use an `if` statement to check if the age is 16 or older. If true, print "You are eligible for an adult library card."
+3. Use an `else` statement to print "You are eligible for a youth library card" if the age is less than 16.
+
+If you finish early, try this challenge: 
+
+- In a new cell, adapt your program to loop through a list of age values, testing each age with the same output as above.
+
+:::::::::::::::  solution
+
+## Solution
+
+For parts 1 to 3:
+
+```python
+age = 25
+
+if age >= 16:
+  print('You are eligible for an adult library card.')
+else:
+  print('You are eligible for a youth library card.')
+```
+
+For the challenge:
+```python
+ages = [10, 16, 30, 65]
+
+for age in ages:
+  if age >= 16:
+    print('You are eligible for an adult library card.')
+  else:
+    print('You are eligible for a youth library card.')
+```
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 ## Use `elif` to specify additional tests.
 
 You can use `elif` (short for "else if") to provide several alternative choices, each with its own test. An `elif` statement should always be associated with an `if` statement, and must come before the `else` statement (which is the catch all).
@@ -152,52 +198,6 @@ for user in users:
 *Warning*: 50 is over the grad limit.
 *Warning*: 120 is over the grad limit.
 ```
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Age conditionals
-
-Write a Python program that checks the age of a user to determine if they will receive a youth or adult library card. The program should:
-
-1. Store `age` in a variable.
-2. Use an `if` statement to check if the age is 16 or older. If true, print "You are eligible for an adult library card."
-3. Use an `else` statement to print "You are eligible for a youth library card" if the age is less than 16.
-
-If you finish early, try this challenge: 
-
-- In a new cell, adapt your program to loop through a list of age values, testing each age with the same output as above.
-
-:::::::::::::::  solution
-
-## Solution
-
-For parts 1 to 3:
-
-```python
-age = 25
-
-if age >= 16:
-  print('You are eligible for an adult library card.')
-else:
-  print('You are eligible for a youth library card.')
-```
-
-For the challenge:
-```python
-ages = [10, 16, 30, 65]
-
-for age in ages:
-  if age >= 16:
-    print('You are eligible for an adult library card.')
-  else:
-    print('You are eligible for a youth library card.')
-```
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 

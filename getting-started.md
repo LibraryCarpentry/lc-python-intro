@@ -18,7 +18,7 @@ exercises: 5
 
 - How can I identify and use key features of JupyterLab to create and manage a Python notebook?
 - How do I run Python code in JupyterLab, and how can I see and interpret the results?
-- 
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Why Python?
@@ -151,7 +151,7 @@ If you move your cursor back to the first cell, just after the `7 * 3` code, and
 
 ```python
 7 * 3
-2 +1
+2 + 1
 ```
 
 While Python runs both calculations Juypter will only display the output from the last line of code in a specific cell, unless you tell it to do otherwise.
