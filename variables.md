@@ -149,14 +149,17 @@ Everything in Python is some type of object and every Python object will be of a
 You can use the built-in Python function `type()` to find out an object's type. 
 
 ```python
-print(type(140.2), 
-      type(age), 
-      type(name), 
-      type(print))
+print(type(140.2))
+print(type(age))
+print(type(name))
+print(type(print))
 ```
 
 ```output
-<class 'float'> <class 'int'> <class 'str'> <class 'builtin_function_or_method'>
+<class 'float'>
+<class 'int'>
+<class 'str'>
+<class 'builtin_function_or_method'>
 ```
 
 1. 140.2 is an example of a floating point number or `float`. These are fractional numbers. 
