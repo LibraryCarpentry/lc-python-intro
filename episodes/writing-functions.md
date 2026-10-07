@@ -165,21 +165,22 @@ late_fine = 0.50
 
 def calc_fine(days_overdue):
     if days_overdue <= 10:
-        days_overdue =  days_overdue * initial_fine
+        total_fine =  days_overdue * initial_fine
     else:
-        days_overdue = (days_overdue * initial_fine) + (days_overdue * late_fine)
-    return days_overdue
+        total_fine = (days_overdue * initial_fine) + (days_overdue * late_fine)
+    return total_fine
     
 ```
 
 - `initial_fine` and `late_fine` are *global variables*.
-- `days_overdue` is a *local variable* in `calc_fine`. Note that a function parameter is a variable that is automatically assigned a value when the function is called and so acts as a local variable.
+- `days_overdue` and `total_fine` are *local variables* in `calc_fine`. Note that a function parameter is a variable that is automatically assigned a value when the function is called and so acts as a local variable.
 
 ```python
 fine = calc_fine(12)
 print(f'Fine owed: ${fine:.2f}')
 print(f'Fine rates: ${initial_fine:.2f}, ${late_fine:.2f}')
 print(f'Days overdue: {days_overdue}')
+print(f'Total fine: {total_fine}')
 ```
 
 ```output
@@ -193,6 +194,7 @@ Cell In[22], line 4
       2 print(f'Fine owed: ${fine:.2f}')
       3 print(f'Fine rates: ${initial_fine:.2f}, ${late_fine:.2f}')
 ----> 4 print(f'Days overdue: {days_overdue}')
+      5 print(f'Total fine: {total_fine}')
 
 NameError: name 'days_overdue' is not defined
 ```
