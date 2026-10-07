@@ -74,6 +74,42 @@ f'{name} is {age} years old'
 'Ahmed is 42 years old'
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## F-string Syntax
+
+Use an f-string to construct output in Python by filling in the blanks with variables and f-string syntax to tell Christina how old she will be in 10 years.
+
+Tip: You can combine variables and mathematical expressions in an f-string in the same way you can in variable assignment. We'll see more examples of dynamic f-string output as we go through the lesson.
+
+```python
+name = 'Christina'
+age = 23
+
+f'{____}, you will be ______ in 10 years.'
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+f'{name}, you will be {age + 10} in 10 years.'
+
+```
+
+```output
+'Christina, you will be 33 in 10 years.'
+
+```
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 ## Variables must be created before they are used.
 
 If a variable doesn't exist yet, or if the name has been misspelled, Python reports an error called a `NameError`.
@@ -155,6 +191,58 @@ TypeError                                 Traceback (most recent call last)
 TypeError: unsupported operand type(s) for -: 'str' and 'str'
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Fractions
+
+What type of value is 3.4?
+How can you find out?
+
+:::::::::::::::  solution
+
+## Solution
+
+It is a floating-point number (often abbreviated "float").
+
+```python
+print(type(3.4))
+```
+
+```output
+<class 'float'>
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Automatic Type Conversion
+
+What type of value is 3.25 + 4?
+
+:::::::::::::::  solution
+
+## Solution
+
+It is a float: integers are automatically converted to floats as necessary.
+
+```python
+result = 3.25 + 4
+print(result, 'is', type(result))
+```
+
+```output
+7.25 is <class 'float'>
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
 ## Use an index to get a single character from a string.
 
 We can reference the specific location of a character (individual letters, numbers, and so on) in a string by using its index position. In Python, each character in a string (first, second, etc.) is given a number, which is called an index. Indexes begin from 0 rather than 1. We can use an index in square brackets to refer to the character at that position.
@@ -181,6 +269,69 @@ Ale
 ```
 
 Note that in the example above, `library[0:3]` begins with zero, which refers to the first element in the string, and ends with a 3. When working with slices the end point is interpreted as going up to, *but not including* the index number provided. In other words, the character in the index position of 3 in the string `Alexandria` is `x`, so the slice `[0:3]` will go up to but not include that character, and therefore give us `Ale`.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Slicing
+
+We know how to slice using an explicit start and end point:
+
+```python
+library_name = 'Library of Babel'
+f'library_name[1:3] is: {library_name[1:3]}'
+```
+```output
+'library_name[1:3] is: ib'
+```
+
+But we can also use implicit and negative index values when we define a slice. Try the following (replacing `low` and `high` with index positions of your choosing) to figure out how these different forms of slicing work:
+
+1. What does `library_name[low:]` (without a value after the colon) do?
+2. What does `library_name[:high]` (without a value before the colon) do?
+3. What does `library_name[:]` (just a colon) do?
+4. What does `library_name[number:negative-number]` do?
+
+:::::::::::::::  solution
+
+## Solution
+
+1. It will slice the string, starting at the `low` index and stopping at the end of the string.
+2. It will slice the string, starting at the beginning on the string, and ending an element before the `high` index.
+3. It will print the entire string.
+4. It will slice the string, starting the `number` index, and ending a distance of the absolute value of `negative-number` elements from the end of the string.
+  
+  
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Can you slice integers?
+
+If you assign `a = 123`,
+what happens if you try to get the second digit of `a`?
+
+:::::::::::::::  solution
+
+## Solution
+
+Numbers are not stored in the written representation,
+so they can't be treated like strings.
+
+```python
+a = 123
+print(a[1])
+```
+
+```error
+TypeError: 'int' object is not subscriptable
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Use the built-in function `len` to find the length of a string.
 
@@ -210,41 +361,6 @@ Older age is 45 and age is 50
 ```
 
 A variable in Python is analogous to a sticky note with a name written on it: assigning a value to a variable is like putting a sticky note on a particular value. When we assigned the variable `older_age`, it was like we put a sticky note with the name `older_age` on the value of `45`. Remember, `45` was the result of `age + 3` because `age` at that point in the code was equal to `42`. The `older_age` sticky note (variable) was never attached to (assigned to) another value, so it doesn't change when the `age` variable is updated to be `50`.
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## F-string Syntax
-
-Use an f-string to construct output in Python by filling in the blanks with variables and f-string syntax to tell Christina how old she will be in 10 years.
-
-Tip: You can combine variables and mathematical expressions in an f-string in the same way you can in variable assignment. We'll see more examples of dynamic f-string output as we go through the lesson.
-
-```python
-name = 'Christina'
-age = 23
-
-f'{____}, you will be ______ in 10 years.'
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-f'{name}, you will be {age + 10} in 10 years.'
-
-```
-
-```output
-'Christina, you will be 33 in 10 years.'
-
-```
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -312,120 +428,6 @@ left
 The last assignment to position was "left"
 
 
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Can you slice integers?
-
-If you assign `a = 123`,
-what happens if you try to get the second digit of `a`?
-
-:::::::::::::::  solution
-
-## Solution
-
-Numbers are not stored in the written representation,
-so they can't be treated like strings.
-
-```python
-a = 123
-print(a[1])
-```
-
-```error
-TypeError: 'int' object is not subscriptable
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Slicing
-
-We know how to slice using an explicit start and end point:
-
-```python
-library_name = 'Library of Babel'
-f'library_name[1:3] is: {library_name[1:3]}'
-```
-```output
-'library_name[1:3] is: ib'
-```
-
-But we can also use implicit and negative index values when we define a slice. Try the following (replacing `low` and `high` with index positions of your choosing) to figure out how these different forms of slicing work:
-
-1. What does `library_name[low:]` (without a value after the colon) do?
-2. What does `library_name[:high]` (without a value before the colon) do?
-3. What does `library_name[:]` (just a colon) do?
-4. What does `library_name[number:negative-number]` do?
-
-:::::::::::::::  solution
-
-## Solution
-
-1. It will slice the string, starting at the `low` index and stopping at the end of the string.
-2. It will slice the string, starting at the beginning on the string, and ending an element before the `high` index.
-3. It will print the entire string.
-4. It will slice the string, starting the `number` index, and ending a distance of the absolute value of `negative-number` elements from the end of the string.
-  
-  
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Fractions
-
-What type of value is 3.4?
-How can you find out?
-
-:::::::::::::::  solution
-
-## Solution
-
-It is a floating-point number (often abbreviated "float").
-
-```python
-print(type(3.4))
-```
-
-```output
-<class 'float'>
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Automatic Type Conversion
-
-What type of value is 3.25 + 4?
-
-:::::::::::::::  solution
-
-## Solution
-
-It is a float: integers are automatically converted to floats as necessary.
-
-```python
-result = 3.25 + 4
-print(result, 'is', type(result))
-```
-
-```output
-7.25 is <class 'float'>
-```
 
 :::::::::::::::::::::::::
 

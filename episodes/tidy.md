@@ -264,6 +264,42 @@ df_long.groupby(['branch', 'month'])['circulation'].agg(['sum', 'mean'])
 
 <p>984 rows × 2 columns</p>
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Tidy Data Principles
+
+How would you reorganize the following table about research data workshops to follow the three tidy data principles? 
+
+1. Every column holds a single variable.
+2. Every row represents a single observation.
+3. Every cell contains a single value.
+
+| Date       | Length  | Content     | Instructor |
+|------------|---------|-------------|------------|
+| 2023-01-15 | 30 min  | RDM, DMP    | CH         |
+| 2023-02-02 | 2 hours | Python, RDM | CH, TD     |
+| 2023-02-03 | 90 min  | Python      | SP         |
+
+You can use each content unit (e.g., RDM, DMP, Python) as an observation, and breakdown the length of time or instructor initials to match the content unit however you like. 
+
+
+:::::::::::::::  solution
+
+## Solution
+
+| Year | Month | Day | Length (min) | Content | Instructor |
+|------|-------|-----|--------------|---------|------------|
+| 2023 | 01    | 15  | 20           | RDM     | CH         |
+| 2023 | 01    | 15  | 10           | DMP     | CH         |
+| 2023 | 02    | 02  | 100          | Python  | TD         |
+| 2023 | 02    | 02  | 20           | RDM     | CH         |
+| 2023 | 02    | 03  | 100           | Python  | SP         |
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 ## Adding a Date Column
 
 In order to plot this data over time in the data visualization we need to do three things to prepare it. First, we need to combine the year and month columns into its own column.  Second, convert the new date column to a [datetime](https://docs.python.org/3/library/datetime.html) objec using the Pandas `to_datetime` function. Third, we assign the date column as our index for the data. These steps will set up our data for plotting.
@@ -336,41 +372,6 @@ Let's save `df_long` to use in the next episode.
 ```python
 df_long.to_pickle('data/df_long.pkl')
 ```
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Tidy Data Principles
-
-How would you reorganize the following table about research data workshops to follow the three tidy data principles? 
-
-1. Every column holds a single variable.
-2. Every row represents a single observation.
-3. Every cell contains a single value.
-
-| Date       | Length  | Content     | Instructor |
-|------------|---------|-------------|------------|
-| 2023-01-15 | 30 min  | RDM, DMP    | CH         |
-| 2023-02-02 | 2 hours | Python, RDM | CH, TD     |
-| 2023-02-03 | 90 min  | Python      | SP         |
-
-You can use each content unit (e.g., RDM, DMP, Python) as an observation, and breakdown the length of time or instructor initials to match the content unit however you like. 
-
-
-:::::::::::::::  solution
-
-## Solution
-
-| Year | Month | Day | Length (min) | Content | Instructor |
-|------|-------|-----|--------------|---------|------------|
-| 2023 | 01    | 15  | 20           | RDM     | CH         |
-| 2023 | 01    | 15  | 10           | DMP     | CH         |
-| 2023 | 02    | 02  | 100          | Python  | TD         |
-| 2023 | 02    | 02  | 20           | RDM     | CH         |
-| 2023 | 02    | 03  | 100           | Python  | SP         |
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Subsetting df_long

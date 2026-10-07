@@ -125,6 +125,34 @@ print(f'result of call is: {result}')
 result of call is: None
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Create a function
+
+Write a function called `addition` that takes two parameters and returns their sum. After defining the function, call it with several arguments and print out the results. 
+
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+def addition(x, y):
+    return x + y
+
+addition(3, 6)
+```
+
+```output
+9
+
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 ## Variable scope
 
 When we define a variable inside of a function in Python, it's known as a `local` variable, which means that it's not visible to -- or known by -- the rest of the program. Variables that we define outside of functions are `global` and are therefore visible throughout the program, *including* from within other functions. The part of a program in which a variable is visible is called its *scope*.
@@ -168,67 +196,6 @@ Cell In[22], line 4
 
 NameError: name 'days_overdue' is not defined
 ```
-
-## Use docstrings to provide online help.
-
-If the first thing in a function is a string that isn’t assigned to a variable, that string is attached to the function as its documentation. This kind of documentation at the beginning of a function is called a `docstring`. 
-
-```python
-def fahr_to_celsius(temp):
-    "Input a fahrenheit temperature and return the value in celsius"
-    return ((temp - 32) * (5/9))
-```
-
-This is helpful because we can now ask Python’s built-in help system to show us the documentation for the function:
-
-```python
-help(fahr_to_celsius)
-```
-
-```output
-Help on function fahr_to_celsius in module __main__:
-
-fahr_to_celsius(temp)
-    Input a fahrenheit temperature and return the value in celsius
-```
-
-We don’t need to use triple quotes when we write a docstring, but if we do, we can break the string across multiple lines:
-
-```python
-def fahr_to_celsius(temp):
-    """Convert fahrenheit values to celsius
-    Input a value in fahrenheit
-    Output a value in celsius"""
-    return ((temp - 32) * (5/9))
-```
-
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Create a function
-
-Write a function called `addition` that takes two parameters and returns their sum. After defining the function, call it with several arguments and print out the results. 
-
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-def addition(x, y):
-    return x + y
-
-addition(3, 6)
-```
-
-```output
-9
-
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -316,6 +283,41 @@ Local variables:
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+## Use docstrings to provide online help.
+
+If the first thing in a function is a string that isn’t assigned to a variable, that string is attached to the function as its documentation. This kind of documentation at the beginning of a function is called a `docstring`. 
+
+```python
+def fahr_to_celsius(temp):
+    "Input a fahrenheit temperature and return the value in celsius"
+    return ((temp - 32) * (5/9))
+```
+
+This is helpful because we can now ask Python’s built-in help system to show us the documentation for the function:
+
+```python
+help(fahr_to_celsius)
+```
+
+```output
+Help on function fahr_to_celsius in module __main__:
+
+fahr_to_celsius(temp)
+    Input a fahrenheit temperature and return the value in celsius
+```
+
+We don’t need to use triple quotes when we write a docstring, but if we do, we can break the string across multiple lines:
+
+```python
+def fahr_to_celsius(temp):
+    """Convert fahrenheit values to celsius
+    Input a value in fahrenheit
+    Output a value in celsius"""
+    return ((temp - 32) * (5/9))
+```
+
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
