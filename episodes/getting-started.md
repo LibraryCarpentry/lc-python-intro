@@ -57,7 +57,7 @@ If you haven't already done so, see [the setup instructions](../learners/setup.m
 To run Python, we are going to use Jupyter Notebooks via [JupyterLab][jupyterlab]. Jupyter notebooks are common tools for data science and visualization, and serve as a convenient environment for running Python code interactively where we can view and share the results of our Python code.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
-### Alternatives to Juypter
+### Alternatives to Jupyter
 There are other ways of editing, managing, and running Python code. Software developers often use an integrated development environment (IDE) like [PyCharm](https://www.jetbrains.com/pycharm/), [Spyder][spyder] or [Visual Studio Code (VS Code)](https://code.visualstudio.com/), to create and edit Python scripts. Others use text editors like Vim or Emacs to hand-code Python. After editing and saving Python scripts you can execute those programs within an IDE or directly on the command line. 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
