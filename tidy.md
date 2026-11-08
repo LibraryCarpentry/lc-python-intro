@@ -302,7 +302,7 @@ You can use each content unit (e.g., RDM, DMP, Python) as an observation, and br
 
 ## Adding a Date Column
 
-In order to plot this data over time in the data visualization we need to do three things to prepare it. First, we need to combine the year and month columns into its own column.  Second, convert the new date column to a [datetime](https://docs.python.org/3/library/datetime.html) objec using the Pandas `to_datetime` function. Third, we assign the date column as our index for the data. These steps will set up our data for plotting.
+In order to plot this data over time in the data visualization we need to do three things to prepare it. First, we need to combine the year and month columns into its own column.  Second, convert the new date column to a [datetime](https://docs.python.org/3/library/datetime.html) object using the Pandas `to_datetime` function. Third, we assign the date column as our index for the data. These steps will set up our data for plotting.
 
 ``` python
 df_long['date'] = df_long['year'] + '-' + df_long['month']
