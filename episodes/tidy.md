@@ -293,7 +293,7 @@ You can use each content unit (e.g., RDM, DMP, Python) as an observation, and br
 | 2023 | 01    | 15  | 10           | DMP     | CH         |
 | 2023 | 02    | 02  | 100          | Python  | TD         |
 | 2023 | 02    | 02  | 20           | RDM     | CH         |
-| 2023 | 02    | 03  | 100           | Python  | SP         |
+| 2023 | 02    | 03  | 90           | Python  | SP         |
 
 :::::::::::::::::::::::::
 
